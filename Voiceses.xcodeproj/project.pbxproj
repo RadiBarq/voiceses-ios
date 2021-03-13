@@ -1,0 +1,701 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CDD9DFF225FD13CE00E3BF53 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFF125FD13CE00E3BF53 /* Tests_iOS.swift */; };
+		CDD9DFFD25FD13CE00E3BF53 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFFC25FD13CE00E3BF53 /* Tests_macOS.swift */; };
+		CDD9DFFF25FD13CE00E3BF53 /* VoicesesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFD625FD13CD00E3BF53 /* VoicesesApp.swift */; };
+		CDD9E00025FD13CE00E3BF53 /* VoicesesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFD625FD13CD00E3BF53 /* VoicesesApp.swift */; };
+		CDD9E00125FD13CE00E3BF53 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFD725FD13CD00E3BF53 /* ContentView.swift */; };
+		CDD9E00225FD13CE00E3BF53 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFD725FD13CD00E3BF53 /* ContentView.swift */; };
+		CDD9E00325FD13CE00E3BF53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDD9DFD825FD13CE00E3BF53 /* Assets.xcassets */; };
+		CDD9E00425FD13CE00E3BF53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDD9DFD825FD13CE00E3BF53 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CDD9DFEE25FD13CE00E3BF53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDD9DFD125FD13CD00E3BF53 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CDD9DFDC25FD13CE00E3BF53;
+			remoteInfo = "Voiceses (iOS)";
+		};
+		CDD9DFF925FD13CE00E3BF53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDD9DFD125FD13CD00E3BF53 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CDD9DFE425FD13CE00E3BF53;
+			remoteInfo = "Voiceses (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CDD9DFD625FD13CD00E3BF53 /* VoicesesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicesesApp.swift; sourceTree = "<group>"; };
+		CDD9DFD725FD13CD00E3BF53 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CDD9DFD825FD13CE00E3BF53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CDD9DFDD25FD13CE00E3BF53 /* Voiceses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voiceses.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDD9DFE025FD13CE00E3BF53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDD9DFE525FD13CE00E3BF53 /* Voiceses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voiceses.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDD9DFE725FD13CE00E3BF53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDD9DFE825FD13CE00E3BF53 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		CDD9DFED25FD13CE00E3BF53 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDD9DFF125FD13CE00E3BF53 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
+		CDD9DFF325FD13CE00E3BF53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDD9DFF825FD13CE00E3BF53 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDD9DFFC25FD13CE00E3BF53 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
+		CDD9DFFE25FD13CE00E3BF53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CDD9DFDA25FD13CE00E3BF53 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDD9DFE225FD13CE00E3BF53 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDD9DFEA25FD13CE00E3BF53 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDD9DFF525FD13CE00E3BF53 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CDD9DFD025FD13CD00E3BF53 = {
+			isa = PBXGroup;
+			children = (
+				CDD9DFD525FD13CD00E3BF53 /* Shared */,
+				CDD9DFDF25FD13CE00E3BF53 /* iOS */,
+				CDD9DFE625FD13CE00E3BF53 /* macOS */,
+				CDD9DFF025FD13CE00E3BF53 /* Tests iOS */,
+				CDD9DFFB25FD13CE00E3BF53 /* Tests macOS */,
+				CDD9DFDE25FD13CE00E3BF53 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CDD9DFD525FD13CD00E3BF53 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CDD9DFD625FD13CD00E3BF53 /* VoicesesApp.swift */,
+				CDD9DFD725FD13CD00E3BF53 /* ContentView.swift */,
+				CDD9DFD825FD13CE00E3BF53 /* Assets.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		CDD9DFDE25FD13CE00E3BF53 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CDD9DFDD25FD13CE00E3BF53 /* Voiceses.app */,
+				CDD9DFE525FD13CE00E3BF53 /* Voiceses.app */,
+				CDD9DFED25FD13CE00E3BF53 /* Tests iOS.xctest */,
+				CDD9DFF825FD13CE00E3BF53 /* Tests macOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CDD9DFDF25FD13CE00E3BF53 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CDD9DFE025FD13CE00E3BF53 /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		CDD9DFE625FD13CE00E3BF53 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				CDD9DFE725FD13CE00E3BF53 /* Info.plist */,
+				CDD9DFE825FD13CE00E3BF53 /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		CDD9DFF025FD13CE00E3BF53 /* Tests iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CDD9DFF125FD13CE00E3BF53 /* Tests_iOS.swift */,
+				CDD9DFF325FD13CE00E3BF53 /* Info.plist */,
+			);
+			path = "Tests iOS";
+			sourceTree = "<group>";
+		};
+		CDD9DFFB25FD13CE00E3BF53 /* Tests macOS */ = {
+			isa = PBXGroup;
+			children = (
+				CDD9DFFC25FD13CE00E3BF53 /* Tests_macOS.swift */,
+				CDD9DFFE25FD13CE00E3BF53 /* Info.plist */,
+			);
+			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CDD9DFDC25FD13CE00E3BF53 /* Voiceses (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDD9E00725FD13CE00E3BF53 /* Build configuration list for PBXNativeTarget "Voiceses (iOS)" */;
+			buildPhases = (
+				CDD9DFD925FD13CE00E3BF53 /* Sources */,
+				CDD9DFDA25FD13CE00E3BF53 /* Frameworks */,
+				CDD9DFDB25FD13CE00E3BF53 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Voiceses (iOS)";
+			productName = "Voiceses (iOS)";
+			productReference = CDD9DFDD25FD13CE00E3BF53 /* Voiceses.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CDD9DFE425FD13CE00E3BF53 /* Voiceses (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDD9E00A25FD13CE00E3BF53 /* Build configuration list for PBXNativeTarget "Voiceses (macOS)" */;
+			buildPhases = (
+				CDD9DFE125FD13CE00E3BF53 /* Sources */,
+				CDD9DFE225FD13CE00E3BF53 /* Frameworks */,
+				CDD9DFE325FD13CE00E3BF53 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Voiceses (macOS)";
+			productName = "Voiceses (macOS)";
+			productReference = CDD9DFE525FD13CE00E3BF53 /* Voiceses.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CDD9DFEC25FD13CE00E3BF53 /* Tests iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDD9E00D25FD13CE00E3BF53 /* Build configuration list for PBXNativeTarget "Tests iOS" */;
+			buildPhases = (
+				CDD9DFE925FD13CE00E3BF53 /* Sources */,
+				CDD9DFEA25FD13CE00E3BF53 /* Frameworks */,
+				CDD9DFEB25FD13CE00E3BF53 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CDD9DFEF25FD13CE00E3BF53 /* PBXTargetDependency */,
+			);
+			name = "Tests iOS";
+			productName = "Tests iOS";
+			productReference = CDD9DFED25FD13CE00E3BF53 /* Tests iOS.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		CDD9DFF725FD13CE00E3BF53 /* Tests macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDD9E01025FD13CE00E3BF53 /* Build configuration list for PBXNativeTarget "Tests macOS" */;
+			buildPhases = (
+				CDD9DFF425FD13CE00E3BF53 /* Sources */,
+				CDD9DFF525FD13CE00E3BF53 /* Frameworks */,
+				CDD9DFF625FD13CE00E3BF53 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CDD9DFFA25FD13CE00E3BF53 /* PBXTargetDependency */,
+			);
+			name = "Tests macOS";
+			productName = "Tests macOS";
+			productReference = CDD9DFF825FD13CE00E3BF53 /* Tests macOS.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CDD9DFD125FD13CD00E3BF53 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					CDD9DFDC25FD13CE00E3BF53 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					CDD9DFE425FD13CE00E3BF53 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					CDD9DFEC25FD13CE00E3BF53 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = CDD9DFDC25FD13CE00E3BF53;
+					};
+					CDD9DFF725FD13CE00E3BF53 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = CDD9DFE425FD13CE00E3BF53;
+					};
+				};
+			};
+			buildConfigurationList = CDD9DFD425FD13CD00E3BF53 /* Build configuration list for PBXProject "Voiceses" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CDD9DFD025FD13CD00E3BF53;
+			productRefGroup = CDD9DFDE25FD13CE00E3BF53 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CDD9DFDC25FD13CE00E3BF53 /* Voiceses (iOS) */,
+				CDD9DFE425FD13CE00E3BF53 /* Voiceses (macOS) */,
+				CDD9DFEC25FD13CE00E3BF53 /* Tests iOS */,
+				CDD9DFF725FD13CE00E3BF53 /* Tests macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CDD9DFDB25FD13CE00E3BF53 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDD9E00325FD13CE00E3BF53 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDD9DFE325FD13CE00E3BF53 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDD9E00425FD13CE00E3BF53 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDD9DFEB25FD13CE00E3BF53 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDD9DFF625FD13CE00E3BF53 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CDD9DFD925FD13CE00E3BF53 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDD9E00125FD13CE00E3BF53 /* ContentView.swift in Sources */,
+				CDD9DFFF25FD13CE00E3BF53 /* VoicesesApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDD9DFE125FD13CE00E3BF53 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDD9E00225FD13CE00E3BF53 /* ContentView.swift in Sources */,
+				CDD9E00025FD13CE00E3BF53 /* VoicesesApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDD9DFE925FD13CE00E3BF53 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDD9DFF225FD13CE00E3BF53 /* Tests_iOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDD9DFF425FD13CE00E3BF53 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDD9DFFD25FD13CE00E3BF53 /* Tests_macOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CDD9DFEF25FD13CE00E3BF53 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CDD9DFDC25FD13CE00E3BF53 /* Voiceses (iOS) */;
+			targetProxy = CDD9DFEE25FD13CE00E3BF53 /* PBXContainerItemProxy */;
+		};
+		CDD9DFFA25FD13CE00E3BF53 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CDD9DFE425FD13CE00E3BF53 /* Voiceses (macOS) */;
+			targetProxy = CDD9DFF925FD13CE00E3BF53 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CDD9E00525FD13CE00E3BF53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CDD9E00625FD13CE00E3BF53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		CDD9E00825FD13CE00E3BF53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5S7V735958;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.radibaraq.Voiceses;
+				PRODUCT_NAME = Voiceses;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CDD9E00925FD13CE00E3BF53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5S7V735958;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.radibaraq.Voiceses;
+				PRODUCT_NAME = Voiceses;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CDD9E00B25FD13CE00E3BF53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5S7V735958;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.radibaraq.Voiceses;
+				PRODUCT_NAME = Voiceses;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		CDD9E00C25FD13CE00E3BF53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5S7V735958;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.radibaraq.Voiceses;
+				PRODUCT_NAME = Voiceses;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		CDD9E00E25FD13CE00E3BF53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5S7V735958;
+				INFOPLIST_FILE = "Tests iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.radibaraq.Tests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Voiceses (iOS)";
+			};
+			name = Debug;
+		};
+		CDD9E00F25FD13CE00E3BF53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5S7V735958;
+				INFOPLIST_FILE = "Tests iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.radibaraq.Tests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Voiceses (iOS)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CDD9E01125FD13CE00E3BF53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5S7V735958;
+				INFOPLIST_FILE = "Tests macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.radibaraq.Tests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Voiceses (macOS)";
+			};
+			name = Debug;
+		};
+		CDD9E01225FD13CE00E3BF53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5S7V735958;
+				INFOPLIST_FILE = "Tests macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.radibaraq.Tests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Voiceses (macOS)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CDD9DFD425FD13CD00E3BF53 /* Build configuration list for PBXProject "Voiceses" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDD9E00525FD13CE00E3BF53 /* Debug */,
+				CDD9E00625FD13CE00E3BF53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDD9E00725FD13CE00E3BF53 /* Build configuration list for PBXNativeTarget "Voiceses (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDD9E00825FD13CE00E3BF53 /* Debug */,
+				CDD9E00925FD13CE00E3BF53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDD9E00A25FD13CE00E3BF53 /* Build configuration list for PBXNativeTarget "Voiceses (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDD9E00B25FD13CE00E3BF53 /* Debug */,
+				CDD9E00C25FD13CE00E3BF53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDD9E00D25FD13CE00E3BF53 /* Build configuration list for PBXNativeTarget "Tests iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDD9E00E25FD13CE00E3BF53 /* Debug */,
+				CDD9E00F25FD13CE00E3BF53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDD9E01025FD13CE00E3BF53 /* Build configuration list for PBXNativeTarget "Tests macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDD9E01125FD13CE00E3BF53 /* Debug */,
+				CDD9E01225FD13CE00E3BF53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CDD9DFD125FD13CD00E3BF53 /* Project object */;
+}

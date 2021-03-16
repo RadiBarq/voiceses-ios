@@ -9,35 +9,7 @@ import SwiftUI
 import AuthenticationServices
 
 struct LoginScene: View {
-    @StateObject var loginViewModel: LoginViewModel = LoginViewModel()
-    
-    #if os(iOS)
-    @Environment(\.horizontalSizeClass) var horizontalClass
-    #endif
-    
-    var cardCornerRadius: CGFloat {
-        #if os(iOS)
-        return 25
-        #else
-        return 0
-        #endif
-    }
-    
-    var cardMaxHeightFactor: CGFloat {
-        #if os(iOS)
-        return 1.5
-        #else
-        return 1.3
-        #endif
-    }
-    
-    var showBottomImage: Bool {
-        #if os(iOS)
-        return horizontalClass == .compact
-        #else
-        return true
-        #endif
-    }
+    @StateObject private var loginViewModel: LoginViewModel = LoginViewModel()
     
     @ViewBuilder
     var body: some View {
@@ -110,5 +82,35 @@ struct LoginScene_Previews: PreviewProvider {
             LoginScene()
                 .previewDevice("iPhone 11")
         }
+    }
+}
+
+private extension LoginScene {
+    #if os(iOS)
+    @Environment(\.horizontalSizeClass) var horizontalClass
+    #endif
+    
+    private var cardCornerRadius: CGFloat {
+        #if os(iOS)
+        return 25
+        #else
+        return 0
+        #endif
+    }
+    
+    private var cardMaxHeightFactor: CGFloat {
+        #if os(iOS)
+        return 1.5
+        #else
+        return 1.3
+        #endif
+    }
+    
+    private var showBottomImage: Bool {
+        #if os(iOS)
+        return horizontalClass == .compact
+        #else
+        return true
+        #endif
     }
 }

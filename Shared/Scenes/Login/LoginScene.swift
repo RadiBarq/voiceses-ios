@@ -11,6 +11,10 @@ import AuthenticationServices
 struct LoginScene: View {
     @StateObject private var loginViewModel: LoginViewModel = LoginViewModel()
     
+    #if os(iOS)
+    @Environment(\.horizontalSizeClass) var horizontalClass
+    #endif
+    
     @ViewBuilder
     var body: some View {
         #if os(iOS)
@@ -35,7 +39,7 @@ struct LoginScene: View {
                 .padding(.horizontal, 16)
                 
                 
-                Text("80 hours of courses for SwiftUI")
+                Text("Keep your school records simply organized")
                     .font(.title3)
                     .foregroundColor(.black)
                     .multilineTextAlignment(.center)
@@ -86,10 +90,6 @@ struct LoginScene_Previews: PreviewProvider {
 }
 
 private extension LoginScene {
-    #if os(iOS)
-    @Environment(\.horizontalSizeClass) var horizontalClass
-    #endif
-    
     private var cardCornerRadius: CGFloat {
         #if os(iOS)
         return 25

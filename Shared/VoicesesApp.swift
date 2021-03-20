@@ -10,14 +10,13 @@ import Firebase
 
 @main
 struct VoicesesApp: App {
-    
     init() {
         FirebaseApp.configure()
     }
     
     var body: some Scene {
         WindowGroup {
-            LoginScene()
+            ContentView()
         }
     }
 }

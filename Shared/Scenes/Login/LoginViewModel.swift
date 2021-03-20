@@ -16,6 +16,7 @@ class LoginViewModel: ObservableObject {
     @Published var showingAlert = false
     @Published var alertMessage = ""
     
+    
     let alertTitle = "Oops!"
     let alertDismissButtonTitle = "Got it!"
     

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9A9869C7B3C8F5AF88B9F8D2 /* Pods_Voiceses__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A73E14C250082A6482EC8E87 /* Pods_Voiceses__iOS_.framework */; };
 		B7B11286030D6ECFA15E6B17 /* Pods_Voiceses__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40106E9917A7D79C82DB5B3E /* Pods_Voiceses__macOS_.framework */; };
+		CD0BB30E260B259200CD0A03 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0BB30D260B259200CD0A03 /* CourseView.swift */; };
+		CD0BB30F260B259200CD0A03 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0BB30D260B259200CD0A03 /* CourseView.swift */; };
 		CD96751D26065E420067FCC5 /* CoursesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B7F9260638DE003537A8 /* CoursesScene.swift */; };
 		CD96752226065E440067FCC5 /* CalanderScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80226063A1B003537A8 /* CalanderScene.swift */; };
 		CD96752726065E460067FCC5 /* SearchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80826063A2C003537A8 /* SearchScene.swift */; };
@@ -26,8 +28,8 @@
 		CDD9DFFD25FD13CE00E3BF53 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFFC25FD13CE00E3BF53 /* Tests_macOS.swift */; };
 		CDD9DFFF25FD13CE00E3BF53 /* VoicesesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFD625FD13CD00E3BF53 /* VoicesesApp.swift */; };
 		CDD9E00025FD13CE00E3BF53 /* VoicesesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFD625FD13CD00E3BF53 /* VoicesesApp.swift */; };
-		CDD9E00125FD13CE00E3BF53 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFD725FD13CD00E3BF53 /* ContentView.swift */; };
-		CDD9E00225FD13CE00E3BF53 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFD725FD13CD00E3BF53 /* ContentView.swift */; };
+		CDD9E00125FD13CE00E3BF53 /* LunchWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFD725FD13CD00E3BF53 /* LunchWindow.swift */; };
+		CDD9E00225FD13CE00E3BF53 /* LunchWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFD725FD13CD00E3BF53 /* LunchWindow.swift */; };
 		CDD9E00325FD13CE00E3BF53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDD9DFD825FD13CE00E3BF53 /* Assets.xcassets */; };
 		CDD9E00425FD13CE00E3BF53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDD9DFD825FD13CE00E3BF53 /* Assets.xcassets */; };
 		CDD9E01925FD1B9900E3BF53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDD9E01825FD1B9900E3BF53 /* GoogleService-Info.plist */; };
@@ -65,6 +67,7 @@
 		7B0BF16A397CB5E9A32E9A3C /* Pods-Voiceses (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voiceses (iOS).debug.xcconfig"; path = "Target Support Files/Pods-Voiceses (iOS)/Pods-Voiceses (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		A73E14C250082A6482EC8E87 /* Pods_Voiceses__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Voiceses__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B322BFA62899C9BEE5F20A85 /* Pods-Voiceses (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voiceses (iOS).release.xcconfig"; path = "Target Support Files/Pods-Voiceses (iOS)/Pods-Voiceses (iOS).release.xcconfig"; sourceTree = "<group>"; };
+		CD0BB30D260B259200CD0A03 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
 		CD96753B26066F260067FCC5 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		CDD0B7F9260638DE003537A8 /* CoursesScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesScene.swift; sourceTree = "<group>"; };
 		CDD0B80226063A1B003537A8 /* CalanderScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalanderScene.swift; sourceTree = "<group>"; };
@@ -72,7 +75,7 @@
 		CDD0B80E26063A38003537A8 /* LecturesScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturesScene.swift; sourceTree = "<group>"; };
 		CDD0B81526063AB3003537A8 /* NavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItem.swift; sourceTree = "<group>"; };
 		CDD9DFD625FD13CD00E3BF53 /* VoicesesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicesesApp.swift; sourceTree = "<group>"; };
-		CDD9DFD725FD13CD00E3BF53 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CDD9DFD725FD13CD00E3BF53 /* LunchWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchWindow.swift; sourceTree = "<group>"; };
 		CDD9DFD825FD13CE00E3BF53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDD9DFDD25FD13CE00E3BF53 /* Voiceses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voiceses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD9DFE025FD13CE00E3BF53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -138,9 +141,26 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		CD0BB30B260B254700CD0A03 /* Windows */ = {
+			isa = PBXGroup;
+			children = (
+				CDD9DFD725FD13CD00E3BF53 /* LunchWindow.swift */,
+			);
+			path = Windows;
+			sourceTree = "<group>";
+		};
+		CD0BB30C260B255F00CD0A03 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CD0BB30D260B259200CD0A03 /* CourseView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		CDD0B7F8260638BC003537A8 /* Courses */ = {
 			isa = PBXGroup;
 			children = (
+				CD0BB30C260B255F00CD0A03 /* Views */,
 				CDD0B7F9260638DE003537A8 /* CoursesScene.swift */,
 			);
 			path = Courses;
@@ -205,6 +225,7 @@
 		CDD9DFD525FD13CD00E3BF53 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				CD0BB30B260B254700CD0A03 /* Windows */,
 				CDD0B82E26063D1F003537A8 /* Models */,
 				CDD9E04425FD583700E3BF53 /* Views */,
 				CDD9E04325FD582E00E3BF53 /* Scenes */,
@@ -278,7 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				CDD0B81426063A8B003537A8 /* SideBar */,
-				CDD9DFD725FD13CD00E3BF53 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -554,7 +574,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD96753C26066F260067FCC5 /* Course.swift in Sources */,
-				CDD9E00125FD13CE00E3BF53 /* ContentView.swift in Sources */,
+				CDD9E00125FD13CE00E3BF53 /* LunchWindow.swift in Sources */,
 				CDD0B80F26063A38003537A8 /* LecturesScene.swift in Sources */,
 				CDD9E05425FE2C0600E3BF53 /* LoginViewModel.swift in Sources */,
 				CDD0B7FA260638DE003537A8 /* CoursesScene.swift in Sources */,
@@ -562,6 +582,7 @@
 				CDD0B81626063AB3003537A8 /* NavigationItem.swift in Sources */,
 				CDFA97802600A4F0006DB5A6 /* HomeScene.swift in Sources */,
 				CDD0B80926063A2C003537A8 /* SearchScene.swift in Sources */,
+				CD0BB30E260B259200CD0A03 /* CourseView.swift in Sources */,
 				CDFA979F2600A821006DB5A6 /* SideBar.swift in Sources */,
 				CDD0B80326063A1B003537A8 /* CalanderScene.swift in Sources */,
 				CDD9DFFF25FD13CE00E3BF53 /* VoicesesApp.swift in Sources */,
@@ -577,10 +598,11 @@
 				CDFA97A02600A821006DB5A6 /* SideBar.swift in Sources */,
 				CD96751D26065E420067FCC5 /* CoursesScene.swift in Sources */,
 				CD96753126065E4F0067FCC5 /* HomeScene.swift in Sources */,
-				CDD9E00225FD13CE00E3BF53 /* ContentView.swift in Sources */,
+				CDD9E00225FD13CE00E3BF53 /* LunchWindow.swift in Sources */,
 				CD96753626065E550067FCC5 /* NavigationItem.swift in Sources */,
 				CD96752C26065E490067FCC5 /* LecturesScene.swift in Sources */,
 				CDD9E05525FE2C0600E3BF53 /* LoginViewModel.swift in Sources */,
+				CD0BB30F260B259200CD0A03 /* CourseView.swift in Sources */,
 				CD96752226065E440067FCC5 /* CalanderScene.swift in Sources */,
 				CDD9E03E25FD3D6000E3BF53 /* LoginScene.swift in Sources */,
 				CDD9E00025FD13CE00E3BF53 /* VoicesesApp.swift in Sources */,

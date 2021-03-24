@@ -18,7 +18,7 @@ struct HomeScene: View {
         ZStack {
             #if os(iOS)
             if horizontalSizeClass == .compact {
-                tabView
+                    tabView
             } else {
                 SideBar()
             }
@@ -32,19 +32,24 @@ struct HomeScene: View {
     var tabView: some View {
         TabView {
             ForEach(NavigationItem.allCases) { navigationItem in
-                navigationItem.view
-                    .tabItem {
-                        Image(systemName: navigationItem.systemImageName)
-                        Text(navigationItem.title)
-                    }
-            }
+                NavigationView {
+                    navigationItem.view
+                        .navigationTitle(navigationItem.title)
+                }
+                .tabItem {
+                    Image(systemName: navigationItem.systemImageName)
+                    Text(navigationItem.title)
+                }
         }
         .accentColor(Color(#colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)))
+        }
     }
 }
 
 struct HomeScene_Previews: PreviewProvider {
     static var previews: some View {
         HomeScene()
+            .previewLayout(.device)
+            .previewDevice("iPhone 11")
     }
 }

@@ -7,18 +7,15 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct LunchWindow: View {
     var body: some View {
         //LoginScene()
         HomeScene()
     }
 }
 
-private extension ContentView {
-}
-
-struct ContentView_Previews: PreviewProvider {
+struct LunchWindow_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        LunchWindow()
     }
 }

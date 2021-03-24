@@ -16,7 +16,7 @@ struct VoicesesApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LunchWindow()
         }
     }
 }

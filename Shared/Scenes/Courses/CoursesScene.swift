@@ -9,27 +9,32 @@ import SwiftUI
 
 struct CoursesScene: View {
     @Namespace var namespace
-    @State var items = courses
+    @State var items = testCourses
     @State var show = false
     @State var showNavBar = true
     @State var selection: Set<NavigationItem> = [.courses]
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    
+ 
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 159), spacing: 16)]) {
-                ForEach(items) { item in
-                    NavigationLink(destination: Text("Hello world")) {
-                        Text("Hello World")
+        GeometryReader { geometry in
+            ScrollView {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
+                    ForEach(items) { item in
+                        NavigationLink(destination: Text("Run the app")) {
+                            CourseView(course: item)
+                                .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
+                                .padding()
+                        }
                     }
                 }
+                .padding()
             }
+            .navigationTitle("Courses")
         }
-        .navigationTitle("Courses")
     }
 }
 struct CoursesScene_Previews: PreviewProvider {
     static var previews: some View {
         CoursesScene()
+            .previewDevice("iPhone 11")
     }
 }

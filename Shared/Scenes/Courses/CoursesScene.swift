@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct CoursesScene: View {
-    @Namespace var namespace
-    @State var items = testCourses
-    @State var show = false
-    @State var showNavBar = true
-    @State var selection: Set<NavigationItem> = [.courses]
- 
+    @State private var items = testCourses
+    @State private var showLecturesOnMac = false
+    
     var body: some View {
-        GeometryReader { geometry in
+        content
+            .navigationTitle("Courses")
+    }
+    
+    private var content: some View {
+        #if os(iOS)
+        return GeometryReader { geometry in
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
                     ForEach(items) { item in
@@ -28,8 +31,29 @@ struct CoursesScene: View {
                 }
                 .padding()
             }
-            .navigationTitle("Courses")
         }
+        #else
+        return
+            GeometryReader { geometry in
+                ScrollView {
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 3), spacing: 16)]) {
+                        ForEach(items) { item in
+                            CourseView(course: item)
+                                .frame(minWidth: geometry.size.width / 3, minHeight: geometry.size.height / 3)
+                                .padding()
+                                .onTapGesture {
+                                    showLecturesOnMac.toggle()
+                                }
+                                .sheet(isPresented: $showLecturesOnMac) {
+                                    /// TODO: show the lectures view
+                                    Text("Run the app")
+                                }
+                        }
+                    }
+                    .padding()
+                }
+            }
+        #endif
     }
 }
 struct CoursesScene_Previews: PreviewProvider {

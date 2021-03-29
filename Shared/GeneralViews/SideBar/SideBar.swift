@@ -26,8 +26,9 @@ struct SideBar: View {
                         })
                     }
                 }
-            CoursesScene()
+            SubjectsScene()
         }
+        .accentColor(Color.accent)
     }
     
     private var sidebar: some View {
@@ -37,7 +38,6 @@ struct SideBar: View {
                     navigationItem.view
                     .navigationTitle(navigationItem.title)) {
                 Label(navigationItem.title, systemImage: navigationItem.systemImageName)
-                    .accentColor(Color(#colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)))
             }
             .tag(navigationItem)
         }

@@ -10,13 +10,12 @@ import CryptoKit
 import AuthenticationServices
 import FirebaseAuth
 
-class LoginViewModel: ObservableObject {
+final class LoginViewModel: ObservableObject {
     
     @Published var currentNonce:String?
     @Published var showingAlert = false
     @Published var alertMessage = ""
-    
-    
+        
     let alertTitle = "Oops!"
     let alertDismissButtonTitle = "Got it!"
     

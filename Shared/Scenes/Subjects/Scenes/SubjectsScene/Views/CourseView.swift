@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CourseView: View {
-    let course: Course
+    let course: Subject
     private let cornerRadius: CGFloat = 22
     
     var body: some View {
@@ -21,15 +21,15 @@ struct CourseView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .multilineTextAlignment(.leading)
                 
-                Text("Lectures: \(course.numberOfLectures)")
+                Text("Lectures: \(course.numberOfLectures ?? 0)")
                     .foregroundColor(.white)
                     .font(.footnote)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding()
-            .background(course.color)
+            .background(Color.init(hex: course.colorHex))
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
-            .shadow(color: course.color.opacity(0.3), radius: 20, x: 0, y: 10)
+            .shadow(color: Color.init(hex: course.colorHex).opacity(0.5), radius: 20, x: 0, y: 10)
         }
     }
 }

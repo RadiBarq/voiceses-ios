@@ -9,16 +9,15 @@ import SwiftUI
 
 struct HomeScene: View {
     #if os(iOS)
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     #else
     #endif
     
-    @ViewBuilder
     var body: some View {
         ZStack {
             #if os(iOS)
             if horizontalSizeClass == .compact {
-                    tabView
+                tabView
             } else {
                 SideBar()
             }
@@ -29,7 +28,7 @@ struct HomeScene: View {
         }
     }
     
-    var tabView: some View {
+    private var tabView: some View {
         TabView {
             ForEach(NavigationItem.allCases) { navigationItem in
                 NavigationView {
@@ -40,9 +39,9 @@ struct HomeScene: View {
                     Image(systemName: navigationItem.systemImageName)
                     Text(navigationItem.title)
                 }
+            }
         }
-        .accentColor(Color(#colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)))
-        }
+        .accentColor(Color.accent)
     }
 }
 

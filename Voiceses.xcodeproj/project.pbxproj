@@ -11,15 +11,31 @@
 		B7B11286030D6ECFA15E6B17 /* Pods_Voiceses__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40106E9917A7D79C82DB5B3E /* Pods_Voiceses__macOS_.framework */; };
 		CD0BB30E260B259200CD0A03 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0BB30D260B259200CD0A03 /* CourseView.swift */; };
 		CD0BB30F260B259200CD0A03 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0BB30D260B259200CD0A03 /* CourseView.swift */; };
-		CD96751D26065E420067FCC5 /* CoursesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B7F9260638DE003537A8 /* CoursesScene.swift */; };
+		CD6078F326107FAC00928B20 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6078F226107FAC00928B20 /* SettingsScene.swift */; };
+		CD6078F426107FAC00928B20 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6078F226107FAC00928B20 /* SettingsScene.swift */; };
+		CD6079112610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6079102610873C00928B20 /* AddNewSubjectViewModel.swift */; };
+		CD6079122610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6079102610873C00928B20 /* AddNewSubjectViewModel.swift */; };
+		CD607956261096B400928B20 /* FirebaseAddNewSubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD607955261096B400928B20 /* FirebaseAddNewSubjectService.swift */; };
+		CD60795E2610974B00928B20 /* FirebaseDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD60795D2610974B00928B20 /* FirebaseDatabaseService.swift */; };
+		CD60798126109B5300928B20 /* FirebaseAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD60798026109B5300928B20 /* FirebaseAuthenticationService.swift */; };
+		CD6079BC2610A59F00928B20 /* FirebaseAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD60798026109B5300928B20 /* FirebaseAuthenticationService.swift */; };
+		CD6079C62610A5A600928B20 /* FirebaseAddNewSubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD607955261096B400928B20 /* FirebaseAddNewSubjectService.swift */; };
+		CD6079CB2610A5A800928B20 /* FirebaseDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD60795D2610974B00928B20 /* FirebaseDatabaseService.swift */; };
+		CD6079EE2610AE5F00928B20 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6079ED2610AE5F00928B20 /* UIView+Extension.swift */; };
+		CD6079EF2610AE5F00928B20 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6079ED2610AE5F00928B20 /* UIView+Extension.swift */; };
+		CD6079F52610D2B700928B20 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6079F42610D2B700928B20 /* Encodable+Extension.swift */; };
+		CD6079F62610D2B700928B20 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6079F42610D2B700928B20 /* Encodable+Extension.swift */; };
+		CD607A1D2610DAA800928B20 /* Decodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD607A1C2610DAA800928B20 /* Decodable+Extension.swift */; };
+		CD607A1E2610DAA800928B20 /* Decodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD607A1C2610DAA800928B20 /* Decodable+Extension.swift */; };
+		CD96751D26065E420067FCC5 /* SubjectsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B7F9260638DE003537A8 /* SubjectsScene.swift */; };
 		CD96752226065E440067FCC5 /* CalanderScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80226063A1B003537A8 /* CalanderScene.swift */; };
 		CD96752726065E460067FCC5 /* SearchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80826063A2C003537A8 /* SearchScene.swift */; };
 		CD96752C26065E490067FCC5 /* LecturesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80E26063A38003537A8 /* LecturesScene.swift */; };
 		CD96753126065E4F0067FCC5 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFA977F2600A4F0006DB5A6 /* HomeScene.swift */; };
 		CD96753626065E550067FCC5 /* NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B81526063AB3003537A8 /* NavigationItem.swift */; };
-		CD96753C26066F260067FCC5 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD96753B26066F260067FCC5 /* Course.swift */; };
-		CD96753D26066F260067FCC5 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD96753B26066F260067FCC5 /* Course.swift */; };
-		CDD0B7FA260638DE003537A8 /* CoursesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B7F9260638DE003537A8 /* CoursesScene.swift */; };
+		CD96753C26066F260067FCC5 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD96753B26066F260067FCC5 /* Subject.swift */; };
+		CD96753D26066F260067FCC5 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD96753B26066F260067FCC5 /* Subject.swift */; };
+		CDD0B7FA260638DE003537A8 /* SubjectsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B7F9260638DE003537A8 /* SubjectsScene.swift */; };
 		CDD0B80326063A1B003537A8 /* CalanderScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80226063A1B003537A8 /* CalanderScene.swift */; };
 		CDD0B80926063A2C003537A8 /* SearchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80826063A2C003537A8 /* SearchScene.swift */; };
 		CDD0B80F26063A38003537A8 /* LecturesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80E26063A38003537A8 /* LecturesScene.swift */; };
@@ -38,6 +54,10 @@
 		CDD9E03E25FD3D6000E3BF53 /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9E03C25FD3D6000E3BF53 /* LoginScene.swift */; };
 		CDD9E05425FE2C0600E3BF53 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9E05325FE2C0600E3BF53 /* LoginViewModel.swift */; };
 		CDD9E05525FE2C0600E3BF53 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9E05325FE2C0600E3BF53 /* LoginViewModel.swift */; };
+		CDEE1DA7260DDD31005F6D07 /* Colors+Extenison.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DA6260DDD31005F6D07 /* Colors+Extenison.swift */; };
+		CDEE1DA8260DDD31005F6D07 /* Colors+Extenison.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DA6260DDD31005F6D07 /* Colors+Extenison.swift */; };
+		CDEE1DB8260DDE72005F6D07 /* AddNewSubjectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DB7260DDE72005F6D07 /* AddNewSubjectScene.swift */; };
+		CDEE1DB9260DDE72005F6D07 /* AddNewSubjectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DB7260DDE72005F6D07 /* AddNewSubjectScene.swift */; };
 		CDFA97802600A4F0006DB5A6 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFA977F2600A4F0006DB5A6 /* HomeScene.swift */; };
 		CDFA979F2600A821006DB5A6 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFA979E2600A821006DB5A6 /* SideBar.swift */; };
 		CDFA97A02600A821006DB5A6 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFA979E2600A821006DB5A6 /* SideBar.swift */; };
@@ -68,8 +88,16 @@
 		A73E14C250082A6482EC8E87 /* Pods_Voiceses__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Voiceses__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B322BFA62899C9BEE5F20A85 /* Pods-Voiceses (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voiceses (iOS).release.xcconfig"; path = "Target Support Files/Pods-Voiceses (iOS)/Pods-Voiceses (iOS).release.xcconfig"; sourceTree = "<group>"; };
 		CD0BB30D260B259200CD0A03 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
-		CD96753B26066F260067FCC5 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
-		CDD0B7F9260638DE003537A8 /* CoursesScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesScene.swift; sourceTree = "<group>"; };
+		CD6078F226107FAC00928B20 /* SettingsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
+		CD6079102610873C00928B20 /* AddNewSubjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSubjectViewModel.swift; sourceTree = "<group>"; };
+		CD607955261096B400928B20 /* FirebaseAddNewSubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAddNewSubjectService.swift; sourceTree = "<group>"; };
+		CD60795D2610974B00928B20 /* FirebaseDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabaseService.swift; sourceTree = "<group>"; };
+		CD60798026109B5300928B20 /* FirebaseAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthenticationService.swift; sourceTree = "<group>"; };
+		CD6079ED2610AE5F00928B20 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		CD6079F42610D2B700928B20 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
+		CD607A1C2610DAA800928B20 /* Decodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extension.swift"; sourceTree = "<group>"; };
+		CD96753B26066F260067FCC5 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		CDD0B7F9260638DE003537A8 /* SubjectsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsScene.swift; sourceTree = "<group>"; };
 		CDD0B80226063A1B003537A8 /* CalanderScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalanderScene.swift; sourceTree = "<group>"; };
 		CDD0B80826063A2C003537A8 /* SearchScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScene.swift; sourceTree = "<group>"; };
 		CDD0B80E26063A38003537A8 /* LecturesScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturesScene.swift; sourceTree = "<group>"; };
@@ -92,6 +120,8 @@
 		CDD9E03C25FD3D6000E3BF53 /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
 		CDD9E04925FD626400E3BF53 /* Voiceses.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Voiceses.entitlements; sourceTree = "<group>"; };
 		CDD9E05325FE2C0600E3BF53 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		CDEE1DA6260DDD31005F6D07 /* Colors+Extenison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Extenison.swift"; sourceTree = "<group>"; };
+		CDEE1DB7260DDE72005F6D07 /* AddNewSubjectScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSubjectScene.swift; sourceTree = "<group>"; };
 		CDFA977F2600A4F0006DB5A6 /* HomeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
 		CDFA979E2600A821006DB5A6 /* SideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,13 +187,73 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		CDD0B7F8260638BC003537A8 /* Courses */ = {
+		CD6078F126107F7A00928B20 /* SettingsScene */ = {
 			isa = PBXGroup;
 			children = (
-				CD0BB30C260B255F00CD0A03 /* Views */,
-				CDD0B7F9260638DE003537A8 /* CoursesScene.swift */,
+				CD6078F226107FAC00928B20 /* SettingsScene.swift */,
 			);
-			path = Courses;
+			path = SettingsScene;
+			sourceTree = "<group>";
+		};
+		CD60790B261085C300928B20 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE1DA6260DDD31005F6D07 /* Colors+Extenison.swift */,
+				CD6079ED2610AE5F00928B20 /* UIView+Extension.swift */,
+				CD6079F42610D2B700928B20 /* Encodable+Extension.swift */,
+				CD607A1C2610DAA800928B20 /* Decodable+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CD6079542610969F00928B20 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CD60795B2610970400928B20 /* Firebase */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CD60795B2610970400928B20 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				CD6079B62610A50600928B20 /* Authentication */,
+				CD6079B72610A51800928B20 /* Error */,
+				CD6079B52610A4F900928B20 /* Database */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		CD6079B52610A4F900928B20 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				CD607955261096B400928B20 /* FirebaseAddNewSubjectService.swift */,
+				CD60795D2610974B00928B20 /* FirebaseDatabaseService.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		CD6079B62610A50600928B20 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				CD60798026109B5300928B20 /* FirebaseAuthenticationService.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		CD6079B72610A51800928B20 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		CDD0B7F8260638BC003537A8 /* Subjects */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE1D8B260DD22F005F6D07 /* Scenes */,
+			);
+			path = Subjects;
 			sourceTree = "<group>";
 		};
 		CDD0B7FF260638FA003537A8 /* Lectures */ = {
@@ -202,7 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				CDD0B81526063AB3003537A8 /* NavigationItem.swift */,
-				CD96753B26066F260067FCC5 /* Course.swift */,
+				CD96753B26066F260067FCC5 /* Subject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -225,9 +315,11 @@
 		CDD9DFD525FD13CD00E3BF53 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				CD6079542610969F00928B20 /* Services */,
+				CDEE1DA5260DDD10005F6D07 /* Utils */,
 				CD0BB30B260B254700CD0A03 /* Windows */,
 				CDD0B82E26063D1F003537A8 /* Models */,
-				CDD9E04425FD583700E3BF53 /* Views */,
+				CDD9E04425FD583700E3BF53 /* GeneralViews */,
 				CDD9E04325FD582E00E3BF53 /* Scenes */,
 				CDD9E01825FD1B9900E3BF53 /* GoogleService-Info.plist */,
 				CDD9DFD625FD13CD00E3BF53 /* VoicesesApp.swift */,
@@ -285,31 +377,75 @@
 		CDD9E04325FD582E00E3BF53 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				CD6078F126107F7A00928B20 /* SettingsScene */,
 				CDD9E04E25FE2BDB00E3BF53 /* Login */,
 				CDFA977E2600A4BA006DB5A6 /* Home */,
-				CDD0B7F8260638BC003537A8 /* Courses */,
+				CDD0B7F8260638BC003537A8 /* Subjects */,
+				CDD0B7FF260638FA003537A8 /* Lectures */,
 				CDD0B80126063916003537A8 /* Calander */,
 				CDD0B80026063911003537A8 /* Search */,
-				CDD0B7FF260638FA003537A8 /* Lectures */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		CDD9E04425FD583700E3BF53 /* Views */ = {
+		CDD9E04425FD583700E3BF53 /* GeneralViews */ = {
 			isa = PBXGroup;
 			children = (
 				CDD0B81426063A8B003537A8 /* SideBar */,
 			);
-			path = Views;
+			path = GeneralViews;
 			sourceTree = "<group>";
 		};
 		CDD9E04E25FE2BDB00E3BF53 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				CDD9E03C25FD3D6000E3BF53 /* LoginScene.swift */,
-				CDD9E05325FE2C0600E3BF53 /* LoginViewModel.swift */,
+				CDEE1D8C260DD246005F6D07 /* Scene */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		CDEE1D8B260DD22F005F6D07 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE1DB6260DDE55005F6D07 /* AddNewSubjectScene */,
+				CDEE1DB5260DDE4A005F6D07 /* SubjectsScene */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		CDEE1D8C260DD246005F6D07 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				CDD9E05325FE2C0600E3BF53 /* LoginViewModel.swift */,
+				CDD9E03C25FD3D6000E3BF53 /* LoginScene.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		CDEE1DA5260DDD10005F6D07 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CD60790B261085C300928B20 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CDEE1DB5260DDE4A005F6D07 /* SubjectsScene */ = {
+			isa = PBXGroup;
+			children = (
+				CD0BB30C260B255F00CD0A03 /* Views */,
+				CDD0B7F9260638DE003537A8 /* SubjectsScene.swift */,
+			);
+			path = SubjectsScene;
+			sourceTree = "<group>";
+		};
+		CDEE1DB6260DDE55005F6D07 /* AddNewSubjectScene */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE1DB7260DDE72005F6D07 /* AddNewSubjectScene.swift */,
+				CD6079102610873C00928B20 /* AddNewSubjectViewModel.swift */,
+			);
+			path = AddNewSubjectScene;
 			sourceTree = "<group>";
 		};
 		CDFA977E2600A4BA006DB5A6 /* Home */ = {
@@ -573,19 +709,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD96753C26066F260067FCC5 /* Course.swift in Sources */,
+				CD6079EE2610AE5F00928B20 /* UIView+Extension.swift in Sources */,
+				CD6079F52610D2B700928B20 /* Encodable+Extension.swift in Sources */,
+				CD60795E2610974B00928B20 /* FirebaseDatabaseService.swift in Sources */,
+				CD96753C26066F260067FCC5 /* Subject.swift in Sources */,
+				CD607956261096B400928B20 /* FirebaseAddNewSubjectService.swift in Sources */,
 				CDD9E00125FD13CE00E3BF53 /* LunchWindow.swift in Sources */,
 				CDD0B80F26063A38003537A8 /* LecturesScene.swift in Sources */,
+				CDEE1DB8260DDE72005F6D07 /* AddNewSubjectScene.swift in Sources */,
+				CDEE1DA7260DDD31005F6D07 /* Colors+Extenison.swift in Sources */,
 				CDD9E05425FE2C0600E3BF53 /* LoginViewModel.swift in Sources */,
-				CDD0B7FA260638DE003537A8 /* CoursesScene.swift in Sources */,
+				CDD0B7FA260638DE003537A8 /* SubjectsScene.swift in Sources */,
 				CDD9E03D25FD3D6000E3BF53 /* LoginScene.swift in Sources */,
 				CDD0B81626063AB3003537A8 /* NavigationItem.swift in Sources */,
 				CDFA97802600A4F0006DB5A6 /* HomeScene.swift in Sources */,
 				CDD0B80926063A2C003537A8 /* SearchScene.swift in Sources */,
 				CD0BB30E260B259200CD0A03 /* CourseView.swift in Sources */,
 				CDFA979F2600A821006DB5A6 /* SideBar.swift in Sources */,
+				CD6079112610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */,
+				CD6078F326107FAC00928B20 /* SettingsScene.swift in Sources */,
 				CDD0B80326063A1B003537A8 /* CalanderScene.swift in Sources */,
 				CDD9DFFF25FD13CE00E3BF53 /* VoicesesApp.swift in Sources */,
+				CD60798126109B5300928B20 /* FirebaseAuthenticationService.swift in Sources */,
+				CD607A1D2610DAA800928B20 /* Decodable+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,19 +739,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD96753D26066F260067FCC5 /* Course.swift in Sources */,
+				CD6079EF2610AE5F00928B20 /* UIView+Extension.swift in Sources */,
+				CD6079F62610D2B700928B20 /* Encodable+Extension.swift in Sources */,
+				CD96753D26066F260067FCC5 /* Subject.swift in Sources */,
 				CD96752726065E460067FCC5 /* SearchScene.swift in Sources */,
 				CDFA97A02600A821006DB5A6 /* SideBar.swift in Sources */,
-				CD96751D26065E420067FCC5 /* CoursesScene.swift in Sources */,
+				CDEE1DB9260DDE72005F6D07 /* AddNewSubjectScene.swift in Sources */,
+				CDEE1DA8260DDD31005F6D07 /* Colors+Extenison.swift in Sources */,
+				CD96751D26065E420067FCC5 /* SubjectsScene.swift in Sources */,
+				CD6079CB2610A5A800928B20 /* FirebaseDatabaseService.swift in Sources */,
 				CD96753126065E4F0067FCC5 /* HomeScene.swift in Sources */,
 				CDD9E00225FD13CE00E3BF53 /* LunchWindow.swift in Sources */,
 				CD96753626065E550067FCC5 /* NavigationItem.swift in Sources */,
 				CD96752C26065E490067FCC5 /* LecturesScene.swift in Sources */,
+				CD6079BC2610A59F00928B20 /* FirebaseAuthenticationService.swift in Sources */,
 				CDD9E05525FE2C0600E3BF53 /* LoginViewModel.swift in Sources */,
 				CD0BB30F260B259200CD0A03 /* CourseView.swift in Sources */,
 				CD96752226065E440067FCC5 /* CalanderScene.swift in Sources */,
+				CD6079122610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */,
+				CD6078F426107FAC00928B20 /* SettingsScene.swift in Sources */,
 				CDD9E03E25FD3D6000E3BF53 /* LoginScene.swift in Sources */,
+				CD6079C62610A5A600928B20 /* FirebaseAddNewSubjectService.swift in Sources */,
 				CDD9E00025FD13CE00E3BF53 /* VoicesesApp.swift in Sources */,
+				CD607A1E2610DAA800928B20 /* Decodable+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LunchWindow: View {
     var body: some View {
+        // You could have here the logic of what scene to show
         //LoginScene()
         HomeScene()
     }

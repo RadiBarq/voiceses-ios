@@ -6,6 +6,7 @@ target 'Voiceses (iOS)' do
   use_frameworks!
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 end
 
 target 'Voiceses (macOS)' do

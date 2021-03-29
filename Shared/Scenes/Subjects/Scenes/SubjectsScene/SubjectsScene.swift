@@ -7,13 +7,26 @@
 
 import SwiftUI
 
-struct CoursesScene: View {
-    @State private var items = testCourses
+struct SubjectsScene: View {
+    @State private var items = testCourses 
     @State private var showLecturesOnMac = false
+    @State private var showAddNewSubjectView = false
     
     var body: some View {
         content
-            .navigationTitle("Courses")
+            .navigationTitle("Subjects")
+            .toolbar {
+                ToolbarItem(placement:  ToolbarItemPlacement.automatic) {
+                    Button(action: {
+                        showAddNewSubjectView.toggle()
+                    }, label: {
+                        Image(systemName: "plus.circle")
+                    })
+                }
+            }
+            .sheet(isPresented: $showAddNewSubjectView) {
+                AddNewSubjectScene(addNewSubjectViewModel: AddNewSubjectViewModel(isPresented:$showAddNewSubjectView))
+            }
     }
     
     private var content: some View {
@@ -56,9 +69,9 @@ struct CoursesScene: View {
         #endif
     }
 }
-struct CoursesScene_Previews: PreviewProvider {
+struct SubjectsScene_Previews: PreviewProvider {
     static var previews: some View {
-        CoursesScene()
+        SubjectsScene()
             .previewDevice("iPhone 11")
     }
 }

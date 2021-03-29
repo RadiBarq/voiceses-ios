@@ -68,10 +68,10 @@ struct LoginScene: View {
                     .frame(width: geometry.size.height / 4.2, height: geometry.size.height / 4.2, alignment: .bottom)
                     .opacity(showBottomImage ? 1 : 0)
                 , alignment: .bottom)
-            .background(Color(#colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)))
+            .background(Color.accent)
             .clipShape(RoundedRectangle(cornerRadius: cardCornerRadius, style: .continuous))
             .alert(isPresented: $loginViewModel.showingAlert) {
-                Alert(title: Text(loginViewModel.alertTitle), message: Text(loginViewModel.alertMessage), dismissButton: .default(Text(loginViewModel.alertDismissButtonTitle)))
+                Alert(title: Text(self.alertTitle), message: Text(loginViewModel.alertMessage), dismissButton: .default(Text(alertDismissButtonTitle)))
             }
             Spacer()
         }

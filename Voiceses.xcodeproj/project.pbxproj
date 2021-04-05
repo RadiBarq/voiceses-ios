@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		9A9869C7B3C8F5AF88B9F8D2 /* Pods_Voiceses__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A73E14C250082A6482EC8E87 /* Pods_Voiceses__iOS_.framework */; };
 		B7B11286030D6ECFA15E6B17 /* Pods_Voiceses__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40106E9917A7D79C82DB5B3E /* Pods_Voiceses__macOS_.framework */; };
-		CD0BB30E260B259200CD0A03 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0BB30D260B259200CD0A03 /* CourseView.swift */; };
-		CD0BB30F260B259200CD0A03 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0BB30D260B259200CD0A03 /* CourseView.swift */; };
+		CD0BB30E260B259200CD0A03 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0BB30D260B259200CD0A03 /* SubjectView.swift */; };
+		CD0BB30F260B259200CD0A03 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0BB30D260B259200CD0A03 /* SubjectView.swift */; };
 		CD6078F326107FAC00928B20 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6078F226107FAC00928B20 /* SettingsScene.swift */; };
 		CD6078F426107FAC00928B20 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6078F226107FAC00928B20 /* SettingsScene.swift */; };
 		CD6079112610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6079102610873C00928B20 /* AddNewSubjectViewModel.swift */; };
@@ -58,6 +58,12 @@
 		CDEE1DA8260DDD31005F6D07 /* Colors+Extenison.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DA6260DDD31005F6D07 /* Colors+Extenison.swift */; };
 		CDEE1DB8260DDE72005F6D07 /* AddNewSubjectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DB7260DDE72005F6D07 /* AddNewSubjectScene.swift */; };
 		CDEE1DB9260DDE72005F6D07 /* AddNewSubjectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DB7260DDE72005F6D07 /* AddNewSubjectScene.swift */; };
+		CDF24DCD2618BB9100CC866F /* LunchWindowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DCC2618BB9100CC866F /* LunchWindowViewModel.swift */; };
+		CDF24DCE2618BB9100CC866F /* LunchWindowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DCC2618BB9100CC866F /* LunchWindowViewModel.swift */; };
+		CDF24DF52618C67500CC866F /* SubjectsSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DF42618C67500CC866F /* SubjectsSceneViewModel.swift */; };
+		CDF24DF62618C67500CC866F /* SubjectsSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DF42618C67500CC866F /* SubjectsSceneViewModel.swift */; };
+		CDF24DFC2618C97200CC866F /* FirebaseGetSubjectsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DFB2618C97200CC866F /* FirebaseGetSubjectsService.swift */; };
+		CDF24DFD2618C97200CC866F /* FirebaseGetSubjectsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DFB2618C97200CC866F /* FirebaseGetSubjectsService.swift */; };
 		CDFA97802600A4F0006DB5A6 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFA977F2600A4F0006DB5A6 /* HomeScene.swift */; };
 		CDFA979F2600A821006DB5A6 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFA979E2600A821006DB5A6 /* SideBar.swift */; };
 		CDFA97A02600A821006DB5A6 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFA979E2600A821006DB5A6 /* SideBar.swift */; };
@@ -87,7 +93,7 @@
 		7B0BF16A397CB5E9A32E9A3C /* Pods-Voiceses (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voiceses (iOS).debug.xcconfig"; path = "Target Support Files/Pods-Voiceses (iOS)/Pods-Voiceses (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		A73E14C250082A6482EC8E87 /* Pods_Voiceses__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Voiceses__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B322BFA62899C9BEE5F20A85 /* Pods-Voiceses (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voiceses (iOS).release.xcconfig"; path = "Target Support Files/Pods-Voiceses (iOS)/Pods-Voiceses (iOS).release.xcconfig"; sourceTree = "<group>"; };
-		CD0BB30D260B259200CD0A03 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
+		CD0BB30D260B259200CD0A03 /* SubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectView.swift; sourceTree = "<group>"; };
 		CD6078F226107FAC00928B20 /* SettingsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
 		CD6079102610873C00928B20 /* AddNewSubjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSubjectViewModel.swift; sourceTree = "<group>"; };
 		CD607955261096B400928B20 /* FirebaseAddNewSubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAddNewSubjectService.swift; sourceTree = "<group>"; };
@@ -122,6 +128,9 @@
 		CDD9E05325FE2C0600E3BF53 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CDEE1DA6260DDD31005F6D07 /* Colors+Extenison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Extenison.swift"; sourceTree = "<group>"; };
 		CDEE1DB7260DDE72005F6D07 /* AddNewSubjectScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSubjectScene.swift; sourceTree = "<group>"; };
+		CDF24DCC2618BB9100CC866F /* LunchWindowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchWindowViewModel.swift; sourceTree = "<group>"; };
+		CDF24DF42618C67500CC866F /* SubjectsSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsSceneViewModel.swift; sourceTree = "<group>"; };
+		CDF24DFB2618C97200CC866F /* FirebaseGetSubjectsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGetSubjectsService.swift; sourceTree = "<group>"; };
 		CDFA977F2600A4F0006DB5A6 /* HomeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
 		CDFA979E2600A821006DB5A6 /* SideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				CDD9DFD725FD13CD00E3BF53 /* LunchWindow.swift */,
+				CDF24DCC2618BB9100CC866F /* LunchWindowViewModel.swift */,
 			);
 			path = Windows;
 			sourceTree = "<group>";
@@ -182,7 +192,7 @@
 		CD0BB30C260B255F00CD0A03 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CD0BB30D260B259200CD0A03 /* CourseView.swift */,
+				CD0BB30D260B259200CD0A03 /* SubjectView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -229,6 +239,7 @@
 			children = (
 				CD607955261096B400928B20 /* FirebaseAddNewSubjectService.swift */,
 				CD60795D2610974B00928B20 /* FirebaseDatabaseService.swift */,
+				CDF24DFB2618C97200CC866F /* FirebaseGetSubjectsService.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -435,6 +446,7 @@
 			children = (
 				CD0BB30C260B255F00CD0A03 /* Views */,
 				CDD0B7F9260638DE003537A8 /* SubjectsScene.swift */,
+				CDF24DF42618C67500CC866F /* SubjectsSceneViewModel.swift */,
 			);
 			path = SubjectsScene;
 			sourceTree = "<group>";
@@ -712,6 +724,7 @@
 				CD6079EE2610AE5F00928B20 /* UIView+Extension.swift in Sources */,
 				CD6079F52610D2B700928B20 /* Encodable+Extension.swift in Sources */,
 				CD60795E2610974B00928B20 /* FirebaseDatabaseService.swift in Sources */,
+				CDF24DF52618C67500CC866F /* SubjectsSceneViewModel.swift in Sources */,
 				CD96753C26066F260067FCC5 /* Subject.swift in Sources */,
 				CD607956261096B400928B20 /* FirebaseAddNewSubjectService.swift in Sources */,
 				CDD9E00125FD13CE00E3BF53 /* LunchWindow.swift in Sources */,
@@ -724,13 +737,15 @@
 				CDD0B81626063AB3003537A8 /* NavigationItem.swift in Sources */,
 				CDFA97802600A4F0006DB5A6 /* HomeScene.swift in Sources */,
 				CDD0B80926063A2C003537A8 /* SearchScene.swift in Sources */,
-				CD0BB30E260B259200CD0A03 /* CourseView.swift in Sources */,
+				CD0BB30E260B259200CD0A03 /* SubjectView.swift in Sources */,
 				CDFA979F2600A821006DB5A6 /* SideBar.swift in Sources */,
 				CD6079112610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */,
 				CD6078F326107FAC00928B20 /* SettingsScene.swift in Sources */,
+				CDF24DCD2618BB9100CC866F /* LunchWindowViewModel.swift in Sources */,
 				CDD0B80326063A1B003537A8 /* CalanderScene.swift in Sources */,
 				CDD9DFFF25FD13CE00E3BF53 /* VoicesesApp.swift in Sources */,
 				CD60798126109B5300928B20 /* FirebaseAuthenticationService.swift in Sources */,
+				CDF24DFC2618C97200CC866F /* FirebaseGetSubjectsService.swift in Sources */,
 				CD607A1D2610DAA800928B20 /* Decodable+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -742,6 +757,7 @@
 				CD6079EF2610AE5F00928B20 /* UIView+Extension.swift in Sources */,
 				CD6079F62610D2B700928B20 /* Encodable+Extension.swift in Sources */,
 				CD96753D26066F260067FCC5 /* Subject.swift in Sources */,
+				CDF24DF62618C67500CC866F /* SubjectsSceneViewModel.swift in Sources */,
 				CD96752726065E460067FCC5 /* SearchScene.swift in Sources */,
 				CDFA97A02600A821006DB5A6 /* SideBar.swift in Sources */,
 				CDEE1DB9260DDE72005F6D07 /* AddNewSubjectScene.swift in Sources */,
@@ -754,13 +770,15 @@
 				CD96752C26065E490067FCC5 /* LecturesScene.swift in Sources */,
 				CD6079BC2610A59F00928B20 /* FirebaseAuthenticationService.swift in Sources */,
 				CDD9E05525FE2C0600E3BF53 /* LoginViewModel.swift in Sources */,
-				CD0BB30F260B259200CD0A03 /* CourseView.swift in Sources */,
+				CD0BB30F260B259200CD0A03 /* SubjectView.swift in Sources */,
 				CD96752226065E440067FCC5 /* CalanderScene.swift in Sources */,
 				CD6079122610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */,
 				CD6078F426107FAC00928B20 /* SettingsScene.swift in Sources */,
+				CDF24DCE2618BB9100CC866F /* LunchWindowViewModel.swift in Sources */,
 				CDD9E03E25FD3D6000E3BF53 /* LoginScene.swift in Sources */,
 				CD6079C62610A5A600928B20 /* FirebaseAddNewSubjectService.swift in Sources */,
 				CDD9E00025FD13CE00E3BF53 /* VoicesesApp.swift in Sources */,
+				CDF24DFD2618C97200CC866F /* FirebaseGetSubjectsService.swift in Sources */,
 				CD607A1E2610DAA800928B20 /* Decodable+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

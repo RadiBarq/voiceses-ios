@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct SubjectsScene: View {
-    @State private var items = testCourses 
-    @State private var showLecturesOnMac = false
-    @State private var showAddNewSubjectView = false
+    @StateObject private var subjectsSceneViewModel = SubjectsSceneViewModel()
     
     var body: some View {
         content
@@ -18,14 +16,20 @@ struct SubjectsScene: View {
             .toolbar {
                 ToolbarItem(placement:  ToolbarItemPlacement.automatic) {
                     Button(action: {
-                        showAddNewSubjectView.toggle()
+                        subjectsSceneViewModel.showAddNewSubjectView.toggle()
                     }, label: {
                         Image(systemName: "plus.circle")
                     })
                 }
             }
-            .sheet(isPresented: $showAddNewSubjectView) {
-                AddNewSubjectScene(addNewSubjectViewModel: AddNewSubjectViewModel(isPresented:$showAddNewSubjectView))
+            .sheet(isPresented: $subjectsSceneViewModel.showAddNewSubjectView) {
+                AddNewSubjectScene(addNewSubjectViewModel: AddNewSubjectViewModel(isPresented: $subjectsSceneViewModel.showAddNewSubjectView))
+            }
+            .alert(isPresented: $subjectsSceneViewModel.showingAlert) {
+                Alert(title: Text(alertTitle),
+                      message: Text(subjectsSceneViewModel.alertMessage),
+                      dismissButton: .default(Text(alertDismissButtonTitle))
+                )
             }
     }
     
@@ -34,9 +38,9 @@ struct SubjectsScene: View {
         return GeometryReader { geometry in
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
-                    ForEach(items) { item in
+                    ForEach(subjectsSceneViewModel.subjects) { item in
                         NavigationLink(destination: Text("Run the app")) {
-                            CourseView(course: item)
+                            SubjectView(subject: item)
                                 .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
                                 .padding()
                         }

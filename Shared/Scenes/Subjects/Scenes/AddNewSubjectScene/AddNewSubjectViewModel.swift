@@ -19,7 +19,7 @@ final class AddNewSubjectViewModel: ObservableObject {
             isDoneButtonDisabled = name.isEmpty
         }
     }
-    
+
     private var isPresented: Binding<Bool>
     private let addNewSubjectService: FirebaseAddNewSubjectService
     private var subscriptions: Set<AnyCancellable>
@@ -30,14 +30,13 @@ final class AddNewSubjectViewModel: ObservableObject {
         self.showingAlert = false
         self.alertMessage = ""
         self.name = ""
-        let authenticationService = FirebaseAuthenticationService()
-        self.addNewSubjectService = FirebaseAddNewSubjectService(authenticationService: authenticationService)
+        self.addNewSubjectService = FirebaseAddNewSubjectService()
         self.subscriptions = []
         self.isPresented = isPresented
     }
 
     func doneButtonClicked() {
-        let subject = Subject(title: name, colorHex: color.hexaRGB ?? Color.getRandom().hexaRGB!)
+        let subject = Subject(title: name, numberOfLectures: 0, colorHex: color.hexaRGB ?? Color.getRandom().hexaRGB!)
         self.addNewSubjectService.addNewSubject(subject: subject)
             .sink(receiveCompletion: { [weak self] result in
                 guard let weakSelf = self else { return }

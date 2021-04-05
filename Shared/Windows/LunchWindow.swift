@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import Combine
 
 struct LunchWindow: View {
+    @StateObject private var lunchWindowViewModel = LunchWindowViewModel()
     var body: some View {
-        // You could have here the logic of what scene to show
-        //LoginScene()
-        HomeScene()
+        Group {
+            if lunchWindowViewModel.isUserLoggedin {
+                HomeScene()
+            } else {
+                LoginScene()
+            }
+        }
     }
 }
 

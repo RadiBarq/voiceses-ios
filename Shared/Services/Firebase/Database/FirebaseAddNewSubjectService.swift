@@ -9,40 +9,37 @@ import Foundation
 import Firebase
 import Combine
 
-enum FirebaseAddNewSubjectServiceErorr: Error, LocalizedError {
+enum FirebaseAddNewSubjectServiceError: Error, LocalizedError {
     case userIsNotAvailable
-    
-    case inputFormatIsNotValid
-
+    case encodingFormatIsNotValid
     var errorDescription: String {
         switch self {
         case .userIsNotAvailable:
             return "You are not signed in please try sign out and re-sign in."
-        case .inputFormatIsNotValid:
-            return "Something wron happened, we are working on the issue."
+        case .encodingFormatIsNotValid:
+            return "Something wrong happened, we are working on the issue."
         }
     }
 }
 
 struct FirebaseAddNewSubjectService: FirebaseDatabaseService {
     let ref = Database.database().reference().child("users")
-    private let authenticationService: FirebaseAuthenticationService
     
-    init(authenticationService: FirebaseAuthenticationService) {
-        self.authenticationService = authenticationService
-    }
-    
-    func addNewSubject(subject: Subject) -> AnyPublisher<Void, FirebaseAddNewSubjectServiceErorr> {
+    func addNewSubject(subject: Subject) -> AnyPublisher<Void, FirebaseAddNewSubjectServiceError> {
         return Future { promise in
-//            guard let user = authenticationService.getUser() else {
-//                promise(.failure(.userIsNotAvailable))
-//                return
-//            }
-            guard let dictionary = subject.getDictionary() else {
-                promise(.failure(.inputFormatIsNotValid))
+            guard let userID = FirebaseAuthenticationService.getUserID() else {
+                promise(.failure(.userIsNotAvailable))
                 return
             }
-            ref.child(UUID().uuidString).childByAutoId().setValue(dictionary)
+            let subjectID = self.ref.child("subjects").childByAutoId().key
+            var subject = subject
+            subject.id = subjectID
+        
+            guard let dictionary = subject.getDictionary() else {
+                promise(.failure(.encodingFormatIsNotValid))
+                return
+            }
+            ref.child(userID).child("subjects").child(subjectID!).setValue(dictionary)
             promise(.success(()))
         }
         .eraseToAnyPublisher()

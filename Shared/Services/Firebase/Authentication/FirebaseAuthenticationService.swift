@@ -7,13 +7,27 @@
 
 import Foundation
 import Firebase
+import Combine
 
 struct FirebaseAuthenticationService {
-    var isUserSignedIn: Bool  {
-        return Auth.auth().currentUser != nil
+    var isUserLoggedinPublisher: AnyPublisher<Bool, Never> {
+        isUserLoggedInSubject.eraseToAnyPublisher()
     }
     
-    func getUser() -> User? {
-       return Auth.auth().currentUser
+    private var isUserLoggedInSubject = CurrentValueSubject<Bool, Never>(false)
+    
+    init() {
+        startUserStateListener()
+    }
+
+    static func getUserID() -> String? {
+        //return Auth.auth().currentUser!.uid
+       return "7tWnL6JKhAUn4QtuwcNeSrXfiAn2"
+    }
+    
+    private func startUserStateListener() {
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            isUserLoggedInSubject.send(user != nil)
+        }
     }
 }

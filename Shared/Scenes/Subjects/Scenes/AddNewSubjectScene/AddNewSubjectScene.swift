@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddNewSubjectScene: View {
     @ObservedObject var addNewSubjectViewModel: AddNewSubjectViewModel
-
+    
     var body: some View {
         NavigationView {
             Form {
@@ -29,7 +29,10 @@ struct AddNewSubjectScene: View {
         }
         .accentColor(Color.accent)
         .alert(isPresented: $addNewSubjectViewModel.showingAlert) {
-            Alert(title: Text(self.alertTitle), message: Text(addNewSubjectViewModel.alertMessage), dismissButton: .default(Text(alertDismissButtonTitle)))
+            Alert(title: Text(alertTitle),
+                  message: Text(addNewSubjectViewModel.alertMessage),
+                  dismissButton: .default(Text(alertDismissButtonTitle))
+            )
         }
     }
 }

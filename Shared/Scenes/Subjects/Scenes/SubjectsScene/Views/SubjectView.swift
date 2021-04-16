@@ -9,19 +9,29 @@ import SwiftUI
 
 struct SubjectView: View {
     let subject: Subject
+    let deleteAction: () -> Void
     private let cornerRadius: CGFloat = 22
-    
     var body: some View {
         GeometryReader { reader in
             VStack(alignment: .center, spacing: 4) {
+                Button(action: {
+                    deleteAction()
+                }) {
+                    Spacer()
+                    Image(systemName: "trash.circle.fill")
+                        .foregroundColor(Color(hex: subject.colorHex).whiteOrBlack)
+                        .font(.title2)
+                }
+                .frame(maxWidth: .infinity)
+                
                 Text(subject.title)
                     .font(.system(size: reader.size.width / 10))
                     .bold()
-                    .foregroundColor(.white)
+                    .foregroundColor(Color(hex: subject.colorHex).whiteOrBlack)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .multilineTextAlignment(.leading)
                 Text("Lectures: \(subject.numberOfLectures ?? 0)")
-                    .foregroundColor(.white)
+                    .foregroundColor(Color(hex: subject.colorHex).whiteOrBlack)
                     .font(.footnote)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
@@ -35,7 +45,9 @@ struct SubjectView: View {
 
 struct CourseView_Previews: PreviewProvider {
     static var previews: some View {
-        SubjectView(subject: testCourses[0])
-            .previewDevice("iPhone 11")
+        SubjectView(subject: testCourses[0], deleteAction: {
+            
+        })
+        .previewDevice("iPhone 11")
     }
 }

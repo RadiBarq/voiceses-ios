@@ -25,6 +25,9 @@ extension Color {
     public static let primary = Color(#colorLiteral(red: 0.1333333333, green: 0.2862745098, blue: 0.7019607843, alpha: 1))
     public static let secondary = Color(#colorLiteral(red: 0.6901960784, green: 0.7568627451, blue: 1, alpha: 1))
     public static let accent = Color(#colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1))
+    public static func getRandom() -> Color {
+        randomColors.randomElement()!
+    }
     
     var uiColor: UIColor { .init(self) }
     typealias RGBA = (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
@@ -35,13 +38,22 @@ extension Color {
     var hexaRGB: String? {
         guard let rgba = rgba else { return nil }
         return String(format: "#%02x%02x%02x",
-            Int(rgba.red*255),
-            Int(rgba.green*255),
-            Int(rgba.blue*255))
+                      Int(rgba.red*255),
+                      Int(rgba.green*255),
+                      Int(rgba.blue*255))
     }
     
-    public static func getRandom() -> Color {
-        return randomColors.randomElement()!
+    var isLightColor: Bool {
+        guard let rgba = self.rgba else { return true }
+        let lightRed = rgba.red > 0.65
+        let lightGreen = rgba.green > 0.65
+        let lightBlue = rgba.blue > 0.65
+        let lightness = [lightRed, lightGreen, lightBlue].reduce(0) { $1 ? $0 + 1 : $0 }
+        return lightness >= 2
+    }
+    
+    var whiteOrBlack: Color {
+        isLightColor ? .black : .white
     }
     
     init(hex: String) {

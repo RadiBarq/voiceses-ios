@@ -22,6 +22,10 @@ class SubjectsSceneViewModel: ObservableObject {
         startListenToGetSubjectsService()
     }
     
+    func deleteSubject(at id: String) {
+        
+    }
+    
     private func startListenToGetSubjectsService() {
         getSubjectsService
             .subjects

@@ -40,9 +40,11 @@ struct SubjectsScene: View {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
                     ForEach(subjectsSceneViewModel.subjects) { item in
                         NavigationLink(destination: Text("Run the app")) {
-                            SubjectView(subject: item)
-                                .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
-                                .padding()
+                            SubjectView(subject: item, deleteAction: {
+                                subjectsSceneViewModel.deleteSubject(at: item.id!)
+                            })
+                            .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
+                            .padding()
                         }
                     }
                 }

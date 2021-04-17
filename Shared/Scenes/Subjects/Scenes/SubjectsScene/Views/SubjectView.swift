@@ -14,16 +14,18 @@ struct SubjectView: View {
     var body: some View {
         GeometryReader { reader in
             VStack(alignment: .center, spacing: 4) {
-                Button(action: {
-                    deleteAction()
-                }) {
+                HStack {
+                    Button(action: {
+                        deleteAction()
+                    }) {
+                        Image(systemName: "trash.circle.fill")
+                            .foregroundColor(Color(hex: subject.colorHex).whiteOrBlack)
+                            .font(.title2)
+                    }
+                    .background(Color.clear)
+                    .buttonStyle(PlainButtonStyle())
                     Spacer()
-                    Image(systemName: "trash.circle.fill")
-                        .foregroundColor(Color(hex: subject.colorHex).whiteOrBlack)
-                        .font(.title2)
                 }
-                .frame(maxWidth: .infinity)
-                
                 Text(subject.title)
                     .font(.system(size: reader.size.width / 10))
                     .bold()
@@ -48,6 +50,5 @@ struct CourseView_Previews: PreviewProvider {
         SubjectView(subject: testCourses[0], deleteAction: {
             
         })
-        .previewDevice("iPhone 11")
     }
 }

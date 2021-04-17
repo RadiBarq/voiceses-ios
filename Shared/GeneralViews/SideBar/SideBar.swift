@@ -15,12 +15,12 @@ struct SideBar: View {
             sidebar
                 .navigationTitle("VOICΞSΞS")
                 .toolbar {
-                    ToolbarItem(placement: .navigation) {
+                    ToolbarItem(placement: .automatic) {
                         Button(action: {}) {
                             Image(systemName: "person.crop.circle").font(.system(size: 22, weight: .light))
                         }
                     }
-                    ToolbarItem(placement: .navigation) {
+                    ToolbarItem(placement: .automatic) {
                         Button(action: toggleSidebar, label: {
                             Image(systemName: "sidebar.left")
                         })

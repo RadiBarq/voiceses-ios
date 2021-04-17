@@ -29,11 +29,17 @@ extension Color {
         randomColors.randomElement()!
     }
     
-    var uiColor: UIColor { .init(self) }
     typealias RGBA = (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
     var rgba: RGBA? {
         var (r,g,b,a): RGBA = (0,0,0,0)
-        return uiColor.getRed(&r, green: &g, blue: &b, alpha: &a) ? (r,g,b,a) : nil
+        #if os(iOS)
+            let uiColor = UIColor(self)
+            return uiColor.getRed(&r, green: &g, blue: &b, alpha: &a) ? (r,g,b,a) : nil
+        #else
+            let nsColor = NSColor(self)
+            nsColor.getRed(&r, green: &g, blue: &b, alpha: &a)
+            return (r,g,b,a)
+        #endif
     }
     var hexaRGB: String? {
         guard let rgba = rgba else { return nil }
@@ -81,3 +87,16 @@ extension Color {
         )
     }
 }
+
+//#if os(iOS) {
+//    extension Color {
+//        var uiColor: UIColor { .init(self) }
+//    }
+//}
+//#else {
+//    extension Color {
+//        var uiColor: UIColor { .init(self) }
+//    }
+//}
+//
+//#endif

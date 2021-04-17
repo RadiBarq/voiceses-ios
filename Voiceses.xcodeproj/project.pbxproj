@@ -11,6 +11,8 @@
 		B7B11286030D6ECFA15E6B17 /* Pods_Voiceses__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40106E9917A7D79C82DB5B3E /* Pods_Voiceses__macOS_.framework */; };
 		CD0BB30E260B259200CD0A03 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0BB30D260B259200CD0A03 /* SubjectView.swift */; };
 		CD0BB30F260B259200CD0A03 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0BB30D260B259200CD0A03 /* SubjectView.swift */; };
+		CD17F1E1262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */; };
+		CD17F1E2262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */; };
 		CD6078F326107FAC00928B20 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6078F226107FAC00928B20 /* SettingsScene.swift */; };
 		CD6078F426107FAC00928B20 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6078F226107FAC00928B20 /* SettingsScene.swift */; };
 		CD6079112610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6079102610873C00928B20 /* AddNewSubjectViewModel.swift */; };
@@ -94,6 +96,7 @@
 		A73E14C250082A6482EC8E87 /* Pods_Voiceses__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Voiceses__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B322BFA62899C9BEE5F20A85 /* Pods-Voiceses (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voiceses (iOS).release.xcconfig"; path = "Target Support Files/Pods-Voiceses (iOS)/Pods-Voiceses (iOS).release.xcconfig"; sourceTree = "<group>"; };
 		CD0BB30D260B259200CD0A03 /* SubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectView.swift; sourceTree = "<group>"; };
+		CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDeleteASubjectService.swift; sourceTree = "<group>"; };
 		CD6078F226107FAC00928B20 /* SettingsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
 		CD6079102610873C00928B20 /* AddNewSubjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSubjectViewModel.swift; sourceTree = "<group>"; };
 		CD607955261096B400928B20 /* FirebaseAddNewSubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAddNewSubjectService.swift; sourceTree = "<group>"; };
@@ -197,6 +200,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		CD17F242262B4E1D00C2C903 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
 		CD6078F126107F7A00928B20 /* SettingsScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +250,7 @@
 				CD607955261096B400928B20 /* FirebaseAddNewSubjectService.swift */,
 				CD60795D2610974B00928B20 /* FirebaseDatabaseService.swift */,
 				CDF24DFB2618C97200CC866F /* FirebaseGetSubjectsService.swift */,
+				CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -402,6 +413,7 @@
 		CDD9E04425FD583700E3BF53 /* GeneralViews */ = {
 			isa = PBXGroup;
 			children = (
+				CD17F242262B4E1D00C2C903 /* SearchBar */,
 				CDD0B81426063A8B003537A8 /* SideBar */,
 			);
 			path = GeneralViews;
@@ -723,6 +735,7 @@
 			files = (
 				CD6079EE2610AE5F00928B20 /* UIView+Extension.swift in Sources */,
 				CD6079F52610D2B700928B20 /* Encodable+Extension.swift in Sources */,
+				CD17F1E1262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */,
 				CD60795E2610974B00928B20 /* FirebaseDatabaseService.swift in Sources */,
 				CDF24DF52618C67500CC866F /* SubjectsSceneViewModel.swift in Sources */,
 				CD96753C26066F260067FCC5 /* Subject.swift in Sources */,
@@ -756,6 +769,7 @@
 			files = (
 				CD6079EF2610AE5F00928B20 /* UIView+Extension.swift in Sources */,
 				CD6079F62610D2B700928B20 /* Encodable+Extension.swift in Sources */,
+				CD17F1E2262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */,
 				CD96753D26066F260067FCC5 /* Subject.swift in Sources */,
 				CDF24DF62618C67500CC866F /* SubjectsSceneViewModel.swift in Sources */,
 				CD96752726065E460067FCC5 /* SearchScene.swift in Sources */,

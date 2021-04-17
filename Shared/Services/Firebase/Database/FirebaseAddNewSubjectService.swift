@@ -24,7 +24,6 @@ enum FirebaseAddNewSubjectServiceError: Error, LocalizedError {
 
 struct FirebaseAddNewSubjectService: FirebaseDatabaseService {
     let ref = Database.database().reference().child("users")
-    
     func addNewSubject(subject: Subject) -> AnyPublisher<Void, FirebaseAddNewSubjectServiceError> {
         return Future { promise in
             guard let userID = FirebaseAuthenticationService.getUserID() else {

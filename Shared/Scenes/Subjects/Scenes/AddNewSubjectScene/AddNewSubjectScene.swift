@@ -8,39 +8,78 @@
 import SwiftUI
 
 struct AddNewSubjectScene: View {
-    @ObservedObject var addNewSubjectViewModel: AddNewSubjectViewModel
+    @StateObject var addNewSubjectViewModel = AddNewSubjectViewModel()
+    @Binding var isPresented: Bool
     
     var body: some View {
+        #if os(iOS)
         NavigationView {
-            Form {
-                Section {
-                    TextField("Subject name", text: $addNewSubjectViewModel.name)
-                    ColorPicker("Subject color", selection: $addNewSubjectViewModel.color)
+            content
+                .toolbar(content: {
+                    ToolbarItem(placement: .automatic) {
+                        Button(action: {
+                                addNewSubjectViewModel.doneButtonClicked()
+                                isPresented = false
+                            
+                        }, label: { Text("Add") })
+                            .disabled(addNewSubjectViewModel.isDoneButtonDisabled)
+                    }
+                })
+               
+                .alert(isPresented: $addNewSubjectViewModel.showingAlert) {
+                    Alert(title: Text(alertTitle),
+                          message: Text(addNewSubjectViewModel.alertMessage),
+                          dismissButton: .default(Text(alertDismissButtonTitle))
+                    )
                 }
-            }
-            .navigationBarTitle("New Subject")
-            .toolbar(content: {
-                ToolbarItem(placement: .automatic) {
-                    Button(action: addNewSubjectViewModel.doneButtonClicked, label: { Text("Add") })
-                        .disabled(addNewSubjectViewModel.isDoneButtonDisabled)
-                }
-            })
-            
         }
         .accentColor(Color.accent)
-        .alert(isPresented: $addNewSubjectViewModel.showingAlert) {
-            Alert(title: Text(alertTitle),
-                  message: Text(addNewSubjectViewModel.alertMessage),
-                  dismissButton: .default(Text(alertDismissButtonTitle))
-            )
+        
+        #else
+            ScrollView {
+                content
+                    .toolbar(content: {
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button(action: {
+                                    addNewSubjectViewModel.doneButtonClicked()
+                                    isPresented = false
+                            }, label: { Text("Add") })
+                                .disabled(addNewSubjectViewModel.isDoneButtonDisabled)
+                        }
+                        ToolbarItem(placement: .destructiveAction) {
+                            Button(action: {
+                                isPresented = false
+                            }, label: { Text("Close") })
+
+                        }
+                    })
+                    .accentColor(Color.accent)
+                    .alert(isPresented: $addNewSubjectViewModel.showingAlert) {
+                        Alert(title: Text(alertTitle),
+                              message: Text(addNewSubjectViewModel.alertMessage),
+                              dismissButton: .default(Text(alertDismissButtonTitle))
+                        )
+                    }
+            }
+            .padding()
+            .frame(minWidth: 1000, maxWidth: .infinity, minHeight: 600, maxHeight: .infinity)
+        #endif
+    }
+    
+    private var content: some View {
+        return Form {
+            Section {
+                TextField("Subject name", text: $addNewSubjectViewModel.name)
+                ColorPicker("Subject color", selection: $addNewSubjectViewModel.color)
+            }
         }
+        .navigationTitle("New Subject")
     }
 }
 
 struct AddNewSubjectScene_Previews: PreviewProvider {
     @State static var isPresented = false
     static var previews: some View {
-        let addNewSubjectViewModel = AddNewSubjectViewModel(isPresented: $isPresented)
-        AddNewSubjectScene(addNewSubjectViewModel: addNewSubjectViewModel)
+        AddNewSubjectScene(isPresented: $isPresented)
     }
 }

@@ -14,16 +14,21 @@ class SubjectsSceneViewModel: ObservableObject {
     @Published var showAddNewSubjectView = false
     @Published var showingAlert = false
     @Published var alertMessage = ""
+    @Published var showDeleteSubjectAlert = false
+    @Published var selectedSubjectToBeDelete = ""
+    
     private var subscriptions = Set<AnyCancellable>()
     private var getSubjectsService: FirebaseGetSubjectsService
+    private var deleteASubjectService: FirebaseDeleteASubjectService
     
     init() {
         getSubjectsService = FirebaseGetSubjectsService()
+        deleteASubjectService = FirebaseDeleteASubjectService()
         startListenToGetSubjectsService()
     }
     
-    func deleteSubject(at id: String) {
-        
+    func deleteSubject() {
+        deleteASubjectService.deleteSubject(with: selectedSubjectToBeDelete)
     }
     
     private func startListenToGetSubjectsService() {

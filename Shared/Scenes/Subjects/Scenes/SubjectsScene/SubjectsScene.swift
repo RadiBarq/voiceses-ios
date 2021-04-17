@@ -13,23 +13,32 @@ struct SubjectsScene: View {
     var body: some View {
         content
             .navigationTitle("Subjects")
-            .toolbar {
-                ToolbarItem(placement:  ToolbarItemPlacement.automatic) {
-                    Button(action: {
-                        subjectsSceneViewModel.showAddNewSubjectView.toggle()
-                    }, label: {
-                        Image(systemName: "plus.circle")
-                    })
-                }
-            }
             .sheet(isPresented: $subjectsSceneViewModel.showAddNewSubjectView) {
-                AddNewSubjectScene(addNewSubjectViewModel: AddNewSubjectViewModel(isPresented: $subjectsSceneViewModel.showAddNewSubjectView))
+                AddNewSubjectScene(isPresented: $subjectsSceneViewModel.showAddNewSubjectView)
             }
             .alert(isPresented: $subjectsSceneViewModel.showingAlert) {
                 Alert(title: Text(alertTitle),
                       message: Text(subjectsSceneViewModel.alertMessage),
                       dismissButton: .default(Text(alertDismissButtonTitle))
                 )
+            }
+            .alert(isPresented: $subjectsSceneViewModel.showDeleteSubjectAlert) {
+                Alert(title: Text("Be careful"),
+                      message: Text("All lectures of the deleted subject will be removed!"),
+                      primaryButton: .destructive(Text("Delete")) {
+                        subjectsSceneViewModel.deleteSubject()
+                      },
+                      secondaryButton: .cancel(Text("Cancel"))
+                )
+            }
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button(action: {
+                        subjectsSceneViewModel.showAddNewSubjectView.toggle()
+                    }, label: {
+                        Image(systemName: "plus.circle")
+                    })
+                }
             }
     }
     
@@ -41,7 +50,8 @@ struct SubjectsScene: View {
                     ForEach(subjectsSceneViewModel.subjects) { item in
                         NavigationLink(destination: Text("Run the app")) {
                             SubjectView(subject: item, deleteAction: {
-                                subjectsSceneViewModel.deleteSubject(at: item.id!)
+                                subjectsSceneViewModel.showDeleteSubjectAlert.toggle()
+                                subjectsSceneViewModel.selectedSubjectToBeDelete = item.id!
                             })
                             .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
                             .padding()
@@ -49,6 +59,7 @@ struct SubjectsScene: View {
                     }
                 }
                 .padding()
+                .animation(.easeInOut(duration: 0.5))
             }
         }
         #else
@@ -56,19 +67,23 @@ struct SubjectsScene: View {
             GeometryReader { geometry in
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 3), spacing: 16)]) {
-                        ForEach(items) { item in
-                            CourseView(course: item)
-                                .frame(minWidth: geometry.size.width / 3, minHeight: geometry.size.height / 3)
-                                .padding()
-                                .onTapGesture {
-                                    showLecturesOnMac.toggle()
-                                }
-                                .sheet(isPresented: $showLecturesOnMac) {
-                                    /// TODO: show the lectures view
-                                    Text("Run the app")
-                                }
+                        ForEach(subjectsSceneViewModel.subjects) { item in
+                            SubjectView(subject: item, deleteAction: {
+                                subjectsSceneViewModel.showDeleteSubjectAlert.toggle()
+                                subjectsSceneViewModel.selectedSubjectToBeDelete = item.id!
+                            })
+                            .frame(minWidth: geometry.size.width / 3, minHeight: geometry.size.height / 3)
+                            .padding()
+                            .onTapGesture {
+                                subjectsSceneViewModel.showLecturesOnMac.toggle()
+                            }
+                            .sheet(isPresented: $subjectsSceneViewModel.showLecturesOnMac) {
+                                /// TODO: show the lectures view
+                                Text("Run the app")
+                            }
                         }
                     }
+                    .animation(.easeInOut(duration: 0.5))
                     .padding()
                 }
             }

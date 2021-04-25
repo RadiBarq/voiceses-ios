@@ -46,8 +46,10 @@ struct SubjectsScene: View {
         #if os(iOS)
         return GeometryReader { geometry in
             ScrollView {
+                SearchBar(placeholder: "Search subjects...", text: $subjectsSceneViewModel.searchText)
+                    .padding()
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
-                    ForEach(subjectsSceneViewModel.subjects) { item in
+                    ForEach(subjectsSceneViewModel.searchedSubjects) { item in
                         NavigationLink(destination: Text("Run the app")) {
                             SubjectView(subject: item, deleteAction: {
                                 subjectsSceneViewModel.showDeleteSubjectAlert.toggle()
@@ -66,8 +68,10 @@ struct SubjectsScene: View {
         return
             GeometryReader { geometry in
                 ScrollView {
+                    SearchBar(placeholder: "Search subjects...", text: $subjectsSceneViewModel.searchText)
+                        .padding()
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 3), spacing: 16)]) {
-                        ForEach(subjectsSceneViewModel.subjects) { item in
+                        ForEach(subjectsSceneViewModel.searchedSubjects) { item in
                             SubjectView(subject: item, deleteAction: {
                                 subjectsSceneViewModel.showDeleteSubjectAlert.toggle()
                                 subjectsSceneViewModel.selectedSubjectToBeDelete = item.id!

@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct LecturesScene: View {
+    
     var body: some View {
-        Text("Lectures")
+        List {
+            
+            
+        }
     }
 }
 

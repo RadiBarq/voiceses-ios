@@ -43,16 +43,17 @@ enum NavigationItem: Int, CaseIterable, Identifiable {
         }
     }
     
-    var view: AnyView {
+    @ViewBuilder
+    var view: some View {
         switch self {
         case .subjects:
-            return AnyView(SubjectsScene())
+            SubjectsScene()
         case .search:
-            return AnyView(SearchScene())
+            SearchScene()
         case .calendar:
-            return AnyView(CalanderScene())
+            CalanderScene()
         case .settings:
-            return AnyView(EmptyView())
+           SettingsScene()
         }
     }
 }

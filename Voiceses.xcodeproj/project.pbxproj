@@ -13,6 +13,12 @@
 		CD0BB30F260B259200CD0A03 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0BB30D260B259200CD0A03 /* SubjectView.swift */; };
 		CD17F1E1262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */; };
 		CD17F1E2262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */; };
+		CD17F248262B4F1100C2C903 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17F247262B4F1100C2C903 /* SearchBar.swift */; };
+		CD17F249262B4F1100C2C903 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17F247262B4F1100C2C903 /* SearchBar.swift */; };
+		CD3072CC2635E62A00E4C743 /* LecturesSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3072CB2635E62A00E4C743 /* LecturesSceneViewModel.swift */; };
+		CD3072CD2635E62A00E4C743 /* LecturesSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3072CB2635E62A00E4C743 /* LecturesSceneViewModel.swift */; };
+		CD3072D32635E73900E4C743 /* FirebaseGetLecturesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3072D22635E73900E4C743 /* FirebaseGetLecturesService.swift */; };
+		CD3072D42635E73900E4C743 /* FirebaseGetLecturesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3072D22635E73900E4C743 /* FirebaseGetLecturesService.swift */; };
 		CD6078F326107FAC00928B20 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6078F226107FAC00928B20 /* SettingsScene.swift */; };
 		CD6078F426107FAC00928B20 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6078F226107FAC00928B20 /* SettingsScene.swift */; };
 		CD6079112610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6079102610873C00928B20 /* AddNewSubjectViewModel.swift */; };
@@ -56,6 +62,8 @@
 		CDD9E03E25FD3D6000E3BF53 /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9E03C25FD3D6000E3BF53 /* LoginScene.swift */; };
 		CDD9E05425FE2C0600E3BF53 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9E05325FE2C0600E3BF53 /* LoginViewModel.swift */; };
 		CDD9E05525FE2C0600E3BF53 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9E05325FE2C0600E3BF53 /* LoginViewModel.swift */; };
+		CDEC67072630C39F003CA55A /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEC67062630C39F003CA55A /* Lecture.swift */; };
+		CDEC67082630C39F003CA55A /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEC67062630C39F003CA55A /* Lecture.swift */; };
 		CDEE1DA7260DDD31005F6D07 /* Colors+Extenison.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DA6260DDD31005F6D07 /* Colors+Extenison.swift */; };
 		CDEE1DA8260DDD31005F6D07 /* Colors+Extenison.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DA6260DDD31005F6D07 /* Colors+Extenison.swift */; };
 		CDEE1DB8260DDE72005F6D07 /* AddNewSubjectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DB7260DDE72005F6D07 /* AddNewSubjectScene.swift */; };
@@ -97,6 +105,9 @@
 		B322BFA62899C9BEE5F20A85 /* Pods-Voiceses (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voiceses (iOS).release.xcconfig"; path = "Target Support Files/Pods-Voiceses (iOS)/Pods-Voiceses (iOS).release.xcconfig"; sourceTree = "<group>"; };
 		CD0BB30D260B259200CD0A03 /* SubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectView.swift; sourceTree = "<group>"; };
 		CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDeleteASubjectService.swift; sourceTree = "<group>"; };
+		CD17F247262B4F1100C2C903 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		CD3072CB2635E62A00E4C743 /* LecturesSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturesSceneViewModel.swift; sourceTree = "<group>"; };
+		CD3072D22635E73900E4C743 /* FirebaseGetLecturesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGetLecturesService.swift; sourceTree = "<group>"; };
 		CD6078F226107FAC00928B20 /* SettingsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
 		CD6079102610873C00928B20 /* AddNewSubjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSubjectViewModel.swift; sourceTree = "<group>"; };
 		CD607955261096B400928B20 /* FirebaseAddNewSubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAddNewSubjectService.swift; sourceTree = "<group>"; };
@@ -129,6 +140,7 @@
 		CDD9E03C25FD3D6000E3BF53 /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
 		CDD9E04925FD626400E3BF53 /* Voiceses.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Voiceses.entitlements; sourceTree = "<group>"; };
 		CDD9E05325FE2C0600E3BF53 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		CDEC67062630C39F003CA55A /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		CDEE1DA6260DDD31005F6D07 /* Colors+Extenison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Extenison.swift"; sourceTree = "<group>"; };
 		CDEE1DB7260DDE72005F6D07 /* AddNewSubjectScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSubjectScene.swift; sourceTree = "<group>"; };
 		CDF24DCC2618BB9100CC866F /* LunchWindowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchWindowViewModel.swift; sourceTree = "<group>"; };
@@ -203,6 +215,7 @@
 		CD17F242262B4E1D00C2C903 /* SearchBar */ = {
 			isa = PBXGroup;
 			children = (
+				CD17F247262B4F1100C2C903 /* SearchBar.swift */,
 			);
 			path = SearchBar;
 			sourceTree = "<group>";
@@ -251,6 +264,7 @@
 				CD60795D2610974B00928B20 /* FirebaseDatabaseService.swift */,
 				CDF24DFB2618C97200CC866F /* FirebaseGetSubjectsService.swift */,
 				CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */,
+				CD3072D22635E73900E4C743 /* FirebaseGetLecturesService.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -282,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				CDD0B80E26063A38003537A8 /* LecturesScene.swift */,
+				CD3072CB2635E62A00E4C743 /* LecturesSceneViewModel.swift */,
 			);
 			path = Lectures;
 			sourceTree = "<group>";
@@ -315,6 +330,7 @@
 			children = (
 				CDD0B81526063AB3003537A8 /* NavigationItem.swift */,
 				CD96753B26066F260067FCC5 /* Subject.swift */,
+				CDEC67062630C39F003CA55A /* Lecture.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -740,11 +756,13 @@
 				CDF24DF52618C67500CC866F /* SubjectsSceneViewModel.swift in Sources */,
 				CD96753C26066F260067FCC5 /* Subject.swift in Sources */,
 				CD607956261096B400928B20 /* FirebaseAddNewSubjectService.swift in Sources */,
+				CDEC67072630C39F003CA55A /* Lecture.swift in Sources */,
 				CDD9E00125FD13CE00E3BF53 /* LunchWindow.swift in Sources */,
 				CDD0B80F26063A38003537A8 /* LecturesScene.swift in Sources */,
 				CDEE1DB8260DDE72005F6D07 /* AddNewSubjectScene.swift in Sources */,
 				CDEE1DA7260DDD31005F6D07 /* Colors+Extenison.swift in Sources */,
 				CDD9E05425FE2C0600E3BF53 /* LoginViewModel.swift in Sources */,
+				CD3072D32635E73900E4C743 /* FirebaseGetLecturesService.swift in Sources */,
 				CDD0B7FA260638DE003537A8 /* SubjectsScene.swift in Sources */,
 				CDD9E03D25FD3D6000E3BF53 /* LoginScene.swift in Sources */,
 				CDD0B81626063AB3003537A8 /* NavigationItem.swift in Sources */,
@@ -754,6 +772,8 @@
 				CDFA979F2600A821006DB5A6 /* SideBar.swift in Sources */,
 				CD6079112610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */,
 				CD6078F326107FAC00928B20 /* SettingsScene.swift in Sources */,
+				CD3072CC2635E62A00E4C743 /* LecturesSceneViewModel.swift in Sources */,
+				CD17F248262B4F1100C2C903 /* SearchBar.swift in Sources */,
 				CDF24DCD2618BB9100CC866F /* LunchWindowViewModel.swift in Sources */,
 				CDD0B80326063A1B003537A8 /* CalanderScene.swift in Sources */,
 				CDD9DFFF25FD13CE00E3BF53 /* VoicesesApp.swift in Sources */,
@@ -774,11 +794,13 @@
 				CDF24DF62618C67500CC866F /* SubjectsSceneViewModel.swift in Sources */,
 				CD96752726065E460067FCC5 /* SearchScene.swift in Sources */,
 				CDFA97A02600A821006DB5A6 /* SideBar.swift in Sources */,
+				CDEC67082630C39F003CA55A /* Lecture.swift in Sources */,
 				CDEE1DB9260DDE72005F6D07 /* AddNewSubjectScene.swift in Sources */,
 				CDEE1DA8260DDD31005F6D07 /* Colors+Extenison.swift in Sources */,
 				CD96751D26065E420067FCC5 /* SubjectsScene.swift in Sources */,
 				CD6079CB2610A5A800928B20 /* FirebaseDatabaseService.swift in Sources */,
 				CD96753126065E4F0067FCC5 /* HomeScene.swift in Sources */,
+				CD3072D42635E73900E4C743 /* FirebaseGetLecturesService.swift in Sources */,
 				CDD9E00225FD13CE00E3BF53 /* LunchWindow.swift in Sources */,
 				CD96753626065E550067FCC5 /* NavigationItem.swift in Sources */,
 				CD96752C26065E490067FCC5 /* LecturesScene.swift in Sources */,
@@ -788,6 +810,8 @@
 				CD96752226065E440067FCC5 /* CalanderScene.swift in Sources */,
 				CD6079122610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */,
 				CD6078F426107FAC00928B20 /* SettingsScene.swift in Sources */,
+				CD3072CD2635E62A00E4C743 /* LecturesSceneViewModel.swift in Sources */,
+				CD17F249262B4F1100C2C903 /* SearchBar.swift in Sources */,
 				CDF24DCE2618BB9100CC866F /* LunchWindowViewModel.swift in Sources */,
 				CDD9E03E25FD3D6000E3BF53 /* LoginScene.swift in Sources */,
 				CD6079C62610A5A600928B20 /* FirebaseAddNewSubjectService.swift in Sources */,

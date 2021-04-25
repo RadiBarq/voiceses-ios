@@ -36,12 +36,12 @@ struct FirebaseGetSubjectsService: FirebaseDatabaseService {
     }
     
     private func startListenToDataChange() {
-        guard let userId = FirebaseAuthenticationService.getUserID() else {
+        guard let userID = FirebaseAuthenticationService.getUserID() else {
             currentValueSubject.send(completion: .failure(.userIsNotAvailable))
             return
         }
-        ref.child(userId).child("subjects").observe(.value) { snapshot in
-            guard let subjects = [String: Subject].init(dictionary: snapshot.value as? [String: Any] ?? [:]) else {
+        ref.child(userID).child("subjects").observe(.value) { snapshot in
+            guard let subjects = [String: Subject](dictionary: snapshot.value as? [String: Any] ?? [:]) else {
                 currentValueSubject.send(completion: .failure(.decodingFormatIsNotValid))
                 return
             }

@@ -12,48 +12,38 @@ struct LoginScene: View {
     @StateObject private var loginViewModel: LoginViewModel = LoginViewModel()
     
     #if os(iOS)
-    @Environment(\.horizontalSizeClass) var horizontalClass
+    @Environment(\.horizontalSizeClass) private var horizontalClass
     #endif
     
-    @ViewBuilder
     var body: some View {
         #if os(iOS)
         content
         #else
         content
             .frame(minWidth: 1000, minHeight: 800)
-        
         #endif
     }
     
-    var content: some View {
-        return GeometryReader { geometry in
+    private var content: some View {
+        GeometryReader { geometry in
             VStack {
-                VStack() {
-                    Text("VOICΞSΞS")
-                        .font(.system(size: geometry.size.width/8, weight: .bold))
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                }
-                .padding()
-                .padding(.horizontal, 16)
-                
-                
+                Text("VOICΞSΞS")
+                    .font(.system(size: geometry.size.width/8, weight: .bold))
+                    .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
+                    .padding()
                 Text("Keep your school records simply organized")
                     .font(.title3)
                     .foregroundColor(.black)
                     .multilineTextAlignment(.center)
-                
-                VStack {
-                    SignInWithAppleButton(
-                        onRequest: { request in
-                            loginViewModel.signinWithAppleOnRequestHandler(request: request)
-                        },
-                        onCompletion: { result in
-                            loginViewModel.signinWithAppleOnCompletionHandler(result: result)
-                        }
-                    )
-                }
+                SignInWithAppleButton(
+                    onRequest: { request in
+                        loginViewModel.signinWithAppleOnRequestHandler(request: request)
+                    },
+                    onCompletion: { result in
+                        loginViewModel.signinWithAppleOnCompletionHandler(result: result)
+                    }
+                )
                 .frame(width: geometry.size.width / 1.5, height: 50)
                 .clipShape(RoundedRectangle(cornerRadius: 25))
                 .padding()

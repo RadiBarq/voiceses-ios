@@ -9,13 +9,24 @@ import Foundation
 import Combine
 
 class SubjectsSceneViewModel: ObservableObject {
-    @Published var subjects = [Subject]()
+    @Published var subjects = [Subject]() {
+        didSet {
+            searchedSubjects = subjects.filter { searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }
+        }
+    }
+    
+    @Published var searchedSubjects: [Subject] = []
     @Published var showLecturesOnMac = false
     @Published var showAddNewSubjectView = false
     @Published var showingAlert = false
     @Published var alertMessage = ""
     @Published var showDeleteSubjectAlert = false
     @Published var selectedSubjectToBeDelete = ""
+    @Published var searchText = "" {
+        didSet {
+            searchedSubjects = subjects.filter { searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }
+        }
+    }
     
     private var subscriptions = Set<AnyCancellable>()
     private var getSubjectsService: FirebaseGetSubjectsService

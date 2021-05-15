@@ -25,7 +25,7 @@ struct AddNewCardScene: View {
                 }
             }
             .cornerRadius(25)
-            .shadow(color: addNewCardViewModel.parentColor.opacity(0.5), radius: 20, x: 0, y: 10)
+            .shadow(color: addNewCardViewModel.parentColor.opacity(0.8), radius: 20, x: 0, y: 10)
             .padding()
             .navigationTitle("\(addNewCardViewModel.cardSide.rawValue.capitalized) side")
             .toolbar {

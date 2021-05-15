@@ -28,7 +28,7 @@ class AddNewCardViewModel: ObservableObject {
         Color(hex: subject.colorHex)
     }
     private let subject: Subject
-    private let addNewCardImageService = FirebaseAddNewCardImageFirebaseService()
+    private var addNewCardImageService = FirebaseAddNewCardImageFirebaseService()
     private let addNewCardService = FirebaseAddNewCardService()
     private var subscriptions: Set<AnyCancellable> = []
     
@@ -44,8 +44,9 @@ class AddNewCardViewModel: ObservableObject {
             .child(subject.id!)
             .child("cards")
             .childByAutoId().key!
-        let frontCanvasImagePublisher =  addNewCardImageService.uploadImage(with: frontCanvasImage.pngData()!, subjectID: subject.id!, cardID: cardID, imageName: "frontImage")
+        let frontCanvasImagePublisher = addNewCardImageService.uploadImage(with: frontCanvasImage.pngData()!, subjectID: subject.id!, cardID: cardID, imageName: "frontImage")
         let backCanvasImagePublisher = addNewCardImageService.uploadImage(with: backCanvasImage.pngData()!, subjectID: subject.id!, cardID: cardID, imageName: "backImage")
+        
         frontCanvasImagePublisher
             .combineLatest(backCanvasImagePublisher)
             .sink(receiveCompletion: { [weak self] result in
@@ -57,7 +58,7 @@ class AddNewCardViewModel: ObservableObject {
                 }
             }, receiveValue: { [weak self] (firstCardResult, secondCardResult) in
                 guard let weakSelf = self else { return }
-                let card = Card(id: nil, subjectID: weakSelf.subject.id!, backImageURL: secondCardResult.0, frontImageURL: firstCardResult.0, dateCreated: Date().getCurrentDateAsString())
+                let card = Card(id: cardID, subjectID: weakSelf.subject.id!, backImageURL: secondCardResult.0, frontImageURL: firstCardResult.0, dateCreated: Date().getCurrentDateAsString())
                 weakSelf.addNewCardService.addNewCard(card: card)
                     .sink(receiveCompletion:{ [weak weakSelf] result in
                         guard let weakSelf = weakSelf else { return }

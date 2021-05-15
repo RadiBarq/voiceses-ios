@@ -8,6 +8,7 @@ target 'Voiceses (iOS)' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'SDWebImageSwiftUI'
 end
 
 target 'Voiceses (macOS)' do
@@ -16,4 +17,5 @@ target 'Voiceses (macOS)' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'SDWebImageSwiftUI'
 end

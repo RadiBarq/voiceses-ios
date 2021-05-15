@@ -7,6 +7,7 @@ target 'Voiceses (iOS)' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
 end
 
 target 'Voiceses (macOS)' do
@@ -14,4 +15,5 @@ target 'Voiceses (macOS)' do
   use_frameworks!
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
 end

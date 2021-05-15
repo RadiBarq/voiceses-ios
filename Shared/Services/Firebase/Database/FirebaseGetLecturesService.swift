@@ -24,19 +24,18 @@ enum FirebaseGetLecturesServiceError: Error, LocalizedError {
 
 struct GetLecturesService: FirebaseDatabaseService {
     var ref: DatabaseReference = Database.database().reference().child("users")
-    func getLectures(for subjectID: String) -> AnyPublisher<[Lecture], FirebaseGetLecturesServiceError> {
-        Future<[Lecture], FirebaseGetLecturesServiceError> { promise in
+    func getLectures(for subjectID: String) -> AnyPublisher<[Card], FirebaseGetLecturesServiceError> {
+        Future<[Card], FirebaseGetLecturesServiceError> { promise in
             guard let userID = FirebaseAuthenticationService.getUserID() else {
                 promise(.failure(.userIsNotAvailable))
                 return
             }
             ref.child(userID).child("lectures").child(subjectID).observeSingleEvent(of: .value) { snapshot in
-                guard let lectures = [String: Lecture](dictionary: snapshot.value as? [String: Any] ?? [:]) else {
+                guard let lectures = [String: Card](dictionary: snapshot.value as? [String: Any] ?? [:]) else {
                     promise(.failure(.decodingFormatIsNotValid))
                     return
                 }
                 promise(.success(Array(lectures.values)))
-                
             }
         }
         .eraseToAnyPublisher()

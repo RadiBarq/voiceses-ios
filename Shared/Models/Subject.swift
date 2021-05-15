@@ -14,7 +14,7 @@ struct Subject: Identifiable, Codable, Hashable {
     var colorHex: String
 }
 
-var testCourses = [
+var testSubjects = [
     Subject(
         id: UUID().uuidString,
         title: "Chemistry",

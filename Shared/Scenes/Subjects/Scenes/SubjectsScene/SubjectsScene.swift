@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SubjectsScene: View {
     @StateObject private var subjectsSceneViewModel = SubjectsSceneViewModel()
-    
     var body: some View {
         content
             .navigationTitle("Subjects")
@@ -50,7 +49,8 @@ struct SubjectsScene: View {
                     .padding()
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
                     ForEach(subjectsSceneViewModel.searchedSubjects) { item in
-                        NavigationLink(destination: Text("Run the app")) {
+                        NavigationLink(destination: CardsScene(cardsSceneViewModel: CardsSceneViewModel(subject: item))
+                        ) {
                             SubjectView(subject: item, deleteAction: {
                                 subjectsSceneViewModel.showDeleteSubjectAlert.toggle()
                                 subjectsSceneViewModel.selectedSubjectToBeDelete = item.id!
@@ -82,8 +82,7 @@ struct SubjectsScene: View {
                                 subjectsSceneViewModel.showLecturesOnMac.toggle()
                             }
                             .sheet(isPresented: $subjectsSceneViewModel.showLecturesOnMac) {
-                                /// TODO: show the lectures view
-                                Text("Run the app")
+                               CardsScene(cardsSceneViewModel: CardsSceneViewModel(subject: item))
                             }
                         }
                     }

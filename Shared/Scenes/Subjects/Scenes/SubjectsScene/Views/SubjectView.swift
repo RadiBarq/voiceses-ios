@@ -40,15 +40,15 @@ struct SubjectView: View {
             .padding()
             .background(Color.init(hex: subject.colorHex))
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
-            .shadow(color: Color.init(hex: subject.colorHex).opacity(0.5), radius: 20, x: 0, y: 10)
+            .shadow(color: Color(hex: subject.colorHex).opacity(0.5), radius: 20, x: 0, y: 10)
         }
     }
 }
 
 struct CourseView_Previews: PreviewProvider {
     static var previews: some View {
-        SubjectView(subject: testCourses[0], deleteAction: {
-            
+        SubjectView(subject: testSubjects[0], deleteAction: {
+
         })
     }
 }

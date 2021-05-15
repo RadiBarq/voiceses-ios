@@ -11,6 +11,7 @@ struct AddNewSubjectScene: View {
     @StateObject var addNewSubjectViewModel = AddNewSubjectViewModel()
     @Binding var isPresented: Bool
     
+    
     var body: some View {
         #if os(iOS)
         NavigationView {

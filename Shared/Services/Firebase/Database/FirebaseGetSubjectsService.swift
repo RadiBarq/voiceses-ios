@@ -12,7 +12,6 @@ import Combine
 enum FirebaseGetSubjectsServiceError: Error, LocalizedError {
     case userIsNotAvailable
     case decodingFormatIsNotValid
-    
     var errorDescription: String {
         switch self {
         case .userIsNotAvailable:

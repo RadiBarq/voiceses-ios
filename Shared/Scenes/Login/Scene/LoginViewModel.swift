@@ -11,13 +11,9 @@ import AuthenticationServices
 import FirebaseAuth
 
 final class LoginViewModel: ObservableObject {
-    
-    @Published var currentNonce:String?
     @Published var showingAlert = false
     @Published var alertMessage = ""
-        
-    let alertTitle = "Oops!"
-    let alertDismissButtonTitle = "Got it!"
+    private var currentNonce: String?
     
     func signinWithAppleOnRequestHandler(request: ASAuthorizationAppleIDRequest) {
         let nounce = randomNonceString()
@@ -51,13 +47,11 @@ final class LoginViewModel: ObservableObject {
                         weakSelf.showAlert(with: "An error happened while sign in, please try again later.")
                         return
                     }
-                    
-                    print("Login")
                 }
             default:
                 break
             }
-        case .failure(let error):                              print(error.localizedDescription)
+        case .failure:                         
             showAlert(with: "An error happened while sign in, please try again later.")
             break
         }

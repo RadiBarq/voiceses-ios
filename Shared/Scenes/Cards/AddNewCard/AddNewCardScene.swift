@@ -73,6 +73,7 @@ struct DrawingCanvas: UIViewRepresentable {
         self.canvasView.tool = PKInkingTool(.pen, color: .black, width: 15)
         self.canvasView.drawingPolicy = .anyInput
         self.canvasView.becomeFirstResponder()
+        self.canvasView.backgroundColor = .white
         return canvasView
     }
     

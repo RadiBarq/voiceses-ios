@@ -36,7 +36,7 @@ struct CardsScene: View {
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
                     ForEach(cardsSceneViewModel.cards) { card in
-                        CardView(card: card) {
+                        CardView(card: .constant(card)) {
                             cardsSceneViewModel.deleteCard(with: card.id)
                         }
                         .shadow(color: Color(hex: cardsSceneViewModel.subject.colorHex).opacity(0.8), radius: 20, x: 0, y: 10)

@@ -10,8 +10,8 @@ import Foundation
 struct Card: Identifiable, Codable {
     var id: String
     let subjectID: String
-    let backImageURL: URL
-    let frontImageURL: URL
+    var backImageURL: URL?
+    var frontImageURL: URL?
     let dateCreated: String
     let timestamp: Int64
 }

@@ -38,7 +38,7 @@ struct AddNewCardScene: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button(action: {
-                        addNewCardViewModel.saveCanvasesImage(frontCanvas: frontCanvas, backCanvas: backCanvas)
+                        addNewCardViewModel.saveCard(frontCanvas: frontCanvas, backCanvas: backCanvas)
                     }, label: {
                         Text("Save")
                     })

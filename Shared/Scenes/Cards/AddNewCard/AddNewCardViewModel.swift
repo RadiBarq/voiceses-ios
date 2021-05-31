@@ -28,7 +28,6 @@ class AddNewCardViewModel: ObservableObject {
         Color(hex: subject.colorHex)
     }
     private let subject: Subject
-    private var addNewCardImageService = FirebaseAddNewCardImageFirebaseService()
     private let addNewCardService = FirebaseAddNewCardService()
     private var subscriptions: Set<AnyCancellable> = []
     
@@ -36,7 +35,7 @@ class AddNewCardViewModel: ObservableObject {
         self.subject = subject
     }
     
-    func saveCanvasesImage(frontCanvas: PKCanvasView, backCanvas: PKCanvasView) {
+    func saveCard(frontCanvas: PKCanvasView, backCanvas: PKCanvasView) {
         let imageRect = frontCanvas.frame
         let frontCanvasImage = frontCanvas.drawing.image(from: imageRect, scale: 1)
         let backCanvasImage = backCanvas.drawing.image(from: imageRect, scale: 1)
@@ -44,33 +43,27 @@ class AddNewCardViewModel: ObservableObject {
             .child(subject.id!)
             .child("cards")
             .childByAutoId().key!
-        let frontCanvasImagePublisher = addNewCardImageService.uploadImage(with: frontCanvasImage.pngData()!, subjectID: subject.id!, cardID: cardID, imageName: "frontImage")
-        let backCanvasImagePublisher = addNewCardImageService.uploadImage(with: backCanvasImage.pngData()!, subjectID: subject.id!, cardID: cardID, imageName: "backImage")
+        let timestamp = Date.currentTimeStamp
+        let date = Date().getCurrentDateAsString()
+        let card = Card(id: cardID, subjectID: subject.id!, backImageURL: nil, frontImageURL: nil, dateCreated: date, timestamp: timestamp)
+            GlobalService.shared.imageCache.insert(frontCanvasImage, for: "-front" + cardID)
+            GlobalService.shared.imageCache.insert(backCanvasImage, for: "-back" + cardID)
         
-        frontCanvasImagePublisher
-            .combineLatest(backCanvasImagePublisher)
-            .sink(receiveCompletion: { [weak self] result in
+        GlobalService.shared.saveCardImages(frontImage: frontCanvasImage.pngData()!, backImage: backCanvasImage.pngData()!, card: card)
+        addNew(card: card)
+    }
+    
+    private func addNew(card: Card) {
+        self.addNewCardService.addNewCard(card: card)
+            .sink(receiveCompletion:{ [weak self] result in
                 guard let weakSelf = self else { return }
                 if case let .failure(error) = result {
                     weakSelf.alertMessage = error.errorDescription
                     weakSelf.showingAlert = true
                     return
                 }
-            }, receiveValue: { [weak self] (firstCardResult, secondCardResult) in
-                guard let weakSelf = self else { return }
-                let card = Card(id: cardID, subjectID: weakSelf.subject.id!, backImageURL: secondCardResult.0, frontImageURL: firstCardResult.0, dateCreated: Date().getCurrentDateAsString(), timestamp: Date.currentTimeStamp)
-                weakSelf.addNewCardService.addNewCard(card: card)
-                    .sink(receiveCompletion:{ [weak weakSelf] result in
-                        guard let weakSelf = weakSelf else { return }
-                        if case let .failure(error) = result {
-                            weakSelf.alertMessage = error.errorDescription
-                            weakSelf.showingAlert = true
-                            return
-                        }
-                    },
-                        receiveValue: {})
-                    .store(in: &weakSelf.subscriptions)
-            })
-            .store(in: &subscriptions)
+            },
+            receiveValue: {})
+            .store(in: &self.subscriptions)
     }
 }

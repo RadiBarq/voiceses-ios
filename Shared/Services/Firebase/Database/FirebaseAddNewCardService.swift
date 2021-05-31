@@ -31,12 +31,12 @@ class FirebaseAddNewCardService: FirebaseDatabaseService {
                 promise(.failure(.userIsNotAvailable))
                 return
             }
-            weakSelf.ref = weakSelf.ref.child(userID).child("subjects").child(card.subjectID).child("cards").child(card.id)
+            let currentRef = weakSelf.ref.child(userID).child("subjects").child(card.subjectID).child("cards").child(card.id)
             guard let dictionary = card.getDictionary() else {
                 promise(.failure(.encodingFormatIsNotValid))
                 return
             }
-            weakSelf.ref.setValue(dictionary)
+            currentRef.setValue(dictionary)
             promise(.success(()))
         }
         .eraseToAnyPublisher()

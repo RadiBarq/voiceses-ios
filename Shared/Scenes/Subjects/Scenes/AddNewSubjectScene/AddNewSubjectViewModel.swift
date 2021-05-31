@@ -32,7 +32,7 @@ final class AddNewSubjectViewModel: ObservableObject {
     }
 
     func doneButtonClicked() {
-        let subject = Subject(title: name, numberOfLectures: 0, colorHex: color.hexaRGB ?? Color.getRandom().hexaRGB!)
+        let subject = Subject(title: name, numberOfLectures: 0, colorHex: color.hexaRGB ?? Color.getRandom().hexaRGB!, timestamp: Date.currentTimeStamp)
         self.addNewSubjectService.addNewSubject(subject: subject)
             .sink(receiveCompletion: { [weak self] result in
                 guard let weakSelf = self else { return }

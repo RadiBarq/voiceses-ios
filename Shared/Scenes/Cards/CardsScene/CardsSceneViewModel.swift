@@ -9,7 +9,6 @@ import Foundation
 import Combine
 import PencilKit
 
-
 class CardsSceneViewModel: ObservableObject {
     @Published var cards = [Card]()
     @Published var showingAddNewCardView = false
@@ -19,7 +18,7 @@ class CardsSceneViewModel: ObservableObject {
     private var subscriptions = Set<AnyCancellable>()
     private var getCardsService: FirebaseGetCardsService
     private var deleteCardService: FirebaseDeleteACardService
-   
+    
     var title: String {
         subject.title
     }
@@ -56,5 +55,4 @@ class CardsSceneViewModel: ObservableObject {
             }, receiveValue: {_ in })
             .store(in: &subscriptions)
     }
-    
 }

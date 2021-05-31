@@ -58,7 +58,7 @@ class AddNewCardViewModel: ObservableObject {
                 }
             }, receiveValue: { [weak self] (firstCardResult, secondCardResult) in
                 guard let weakSelf = self else { return }
-                let card = Card(id: cardID, subjectID: weakSelf.subject.id!, backImageURL: secondCardResult.0, frontImageURL: firstCardResult.0, dateCreated: Date().getCurrentDateAsString())
+                let card = Card(id: cardID, subjectID: weakSelf.subject.id!, backImageURL: secondCardResult.0, frontImageURL: firstCardResult.0, dateCreated: Date().getCurrentDateAsString(), timestamp: Date.currentTimeStamp)
                 weakSelf.addNewCardService.addNewCard(card: card)
                     .sink(receiveCompletion:{ [weak weakSelf] result in
                         guard let weakSelf = weakSelf else { return }

@@ -12,4 +12,8 @@ extension Date {
     func getCurrentDateAsString() -> String {
         DateFormatter.getDefaultFormatter().string(from: self)
     }
+    
+    static var currentTimeStamp: Int64 {
+        return Int64(Date().timeIntervalSince1970 * 1000)
+    }
 }

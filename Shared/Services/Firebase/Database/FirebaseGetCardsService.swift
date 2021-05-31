@@ -28,7 +28,6 @@ struct FirebaseGetCardsService: FirebaseDatabaseService {
     }
     
     let ref: DatabaseReference = Database.database().reference().child("users")
-    
     private let cardsValueSubject = CurrentValueSubject<[Card], FirebaseGetCardsServiceError>([])
     private let subjectID: String
     
@@ -42,12 +41,16 @@ struct FirebaseGetCardsService: FirebaseDatabaseService {
             cardsValueSubject.send(completion: .failure(.userIsNotAvailable))
             return
         }
-        ref.child(userID).child("subjects").child(subjectID).child("cards").observe(.value) { snapshot in
-            guard let cards = [String: Card](dictionary: snapshot.value as? [String: Any] ?? [:]) else {
-                cardsValueSubject.send(completion: .failure(.decodingFormatIsNotValid))
-                return
+        ref.child(userID).child("subjects").child(subjectID).child("cards").queryOrdered(byChild: "timestamp").observe(.value) { snapshot in
+            var cards = [Card]()
+            for child in snapshot.children {
+                guard let snapshot = child as? DataSnapshot, let dict = snapshot.value as? [String: Any], let card = Card(dictionary: dict) else {
+                    cardsValueSubject.send(completion: .failure(.decodingFormatIsNotValid))
+                    return
+                }
+                cards.append(card)
             }
-            cardsValueSubject.send(Array(cards.values))
+            cardsValueSubject.send(cards)
         }
     }
 }

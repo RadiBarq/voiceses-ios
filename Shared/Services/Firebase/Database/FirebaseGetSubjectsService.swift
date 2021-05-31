@@ -26,25 +26,26 @@ struct FirebaseGetSubjectsService: FirebaseDatabaseService {
     var subjects: AnyPublisher<[Subject], FirebaseGetSubjectsServiceError> {
         self.currentValueSubject.eraseToAnyPublisher()
     }
-    
     let ref = Database.database().reference().child("users")
     private let currentValueSubject = CurrentValueSubject<[Subject], FirebaseGetSubjectsServiceError>([])
-    
     init() {
         startListenToDataChange()
     }
-    
     private func startListenToDataChange() {
         guard let userID = FirebaseAuthenticationService.getUserID() else {
             currentValueSubject.send(completion: .failure(.userIsNotAvailable))
             return
         }
-        ref.child(userID).child("subjects").observe(.value) { snapshot in
-            guard let subjects = [String: Subject](dictionary: snapshot.value as? [String: Any] ?? [:]) else {
-                currentValueSubject.send(completion: .failure(.decodingFormatIsNotValid))
-                return
+        ref.child(userID).child("subjects").queryOrdered(byChild: "timestamp").observe(.value) { snapshot in
+            var subjects = [Subject]()
+            for child in snapshot.children {
+                guard let snapshot = child as? DataSnapshot, let dict = snapshot.value as? [String: Any], let subject = Subject(dictionary: dict) else {
+                    currentValueSubject.send(completion: .failure(.decodingFormatIsNotValid))
+                    return
+                }
+                subjects.append(subject)
             }
-            currentValueSubject.send(Array(subjects.values))
+            currentValueSubject.send(subjects)
         }
     }
 }

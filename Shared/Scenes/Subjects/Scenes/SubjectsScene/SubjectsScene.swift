@@ -9,17 +9,16 @@ import SwiftUI
 
 struct SubjectsScene: View {
     @StateObject private var subjectsSceneViewModel = SubjectsSceneViewModel()
+    @State var isActiveOnMac = false
+    
+    
     var body: some View {
         content
             .navigationTitle("Subjects")
-            .sheet(isPresented: $subjectsSceneViewModel.showAddNewSubjectView) {
-                AddNewSubjectScene(isPresented: $subjectsSceneViewModel.showAddNewSubjectView)
-            }
             .alert(isPresented: $subjectsSceneViewModel.showingAlert) {
                 Alert(title: Text(alertTitle),
                       message: Text(subjectsSceneViewModel.alertMessage),
-                      dismissButton: .default(Text(alertDismissButtonTitle))
-                )
+                      dismissButton: .default(Text(alertDismissButtonTitle)))
             }
             .alert(isPresented: $subjectsSceneViewModel.showDeleteSubjectAlert) {
                 Alert(title: Text("Be careful"),
@@ -30,6 +29,12 @@ struct SubjectsScene: View {
                       secondaryButton: .cancel(Text("Cancel"))
                 )
             }
+            .sheet(isPresented: $subjectsSceneViewModel.showAddNewSubjectView) {
+                AddNewSubjectScene(isPresented: $subjectsSceneViewModel.showAddNewSubjectView)
+            }
+            //            .sheet(isPresented: $subjectsSceneViewModel.showLecturesOnMac) {
+            //                CardsScene(cardsSceneViewModel: CardsSceneViewModel(subject: subjectsSceneViewModel.selectedMacSubject!), isActiveOnMac: isActiveOnMac)
+            //            }
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button(action: {
@@ -51,9 +56,11 @@ struct SubjectsScene: View {
                     ForEach(subjectsSceneViewModel.searchedSubjects) { item in
                         NavigationLink(destination: CardsScene(cardsSceneViewModel: CardsSceneViewModel(subject: item))
                         ) {
-                            SubjectView(subject: item, deleteAction: {
+                            SubjectView(subject: .constant(item), deleteAction: {
                                 subjectsSceneViewModel.showDeleteSubjectAlert.toggle()
                                 subjectsSceneViewModel.selectedSubjectToBeDelete = item.id!
+                            }, updateSubjectAction: { subject in
+                                subjectsSceneViewModel.update(subject: subject)
                             })
                             .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
                             .padding()
@@ -66,29 +73,33 @@ struct SubjectsScene: View {
         }
         #else
         return
-            GeometryReader { geometry in
-                ScrollView {
-                    SearchBar(placeholder: "Search subjects...", text: $subjectsSceneViewModel.searchText)
-                        .padding()
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 3), spacing: 16)]) {
-                        ForEach(subjectsSceneViewModel.searchedSubjects) { item in
-                            SubjectView(subject: item, deleteAction: {
-                                subjectsSceneViewModel.showDeleteSubjectAlert.toggle()
-                                subjectsSceneViewModel.selectedSubjectToBeDelete = item.id!
-                            })
-                            .frame(minWidth: geometry.size.width / 3, minHeight: geometry.size.height / 3)
+            NavigationView {
+                GeometryReader { geometry in
+                    ScrollView {
+                        SearchBar(placeholder: "Search subjects...", text: $subjectsSceneViewModel.searchText)
                             .padding()
-                            .onTapGesture {
-                                subjectsSceneViewModel.showLecturesOnMac.toggle()
-                            }
-                            .sheet(isPresented: $subjectsSceneViewModel.showLecturesOnMac) {
-                               CardsScene(cardsSceneViewModel: CardsSceneViewModel(subject: item))
+                        LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 3), spacing: 16)]) {
+                            ForEach(subjectsSceneViewModel.searchedSubjects) { item in
+                                NavigationLink(destination: CardsScene(cardsSceneViewModel: CardsSceneViewModel(subject: item))
+                                ){
+                                    SubjectView(subject: .constant(item), deleteAction: {
+                                        subjectsSceneViewModel.showDeleteSubjectAlert.toggle()
+                                        subjectsSceneViewModel.selectedSubjectToBeDelete = item.id!
+                                    }, updateSubjectAction: { subject in
+                                        subjectsSceneViewModel.update(subject: subject)
+                                    })
+                                }
+                                .frame(minWidth: geometry.size.width / 3, minHeight: geometry.size.height / 3)
+                                .padding()
+                                .buttonStyle(PlainButtonStyle())
                             }
                         }
+                        
+                        .animation(.easeInOut(duration: 0.5))
+                        .padding()
                     }
-                    .animation(.easeInOut(duration: 0.5))
-                    .padding()
                 }
+                .frame(minWidth: 500)
             }
         #endif
     }

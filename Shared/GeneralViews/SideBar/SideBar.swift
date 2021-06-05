@@ -16,11 +16,6 @@ struct SideBar: View {
                 .navigationTitle("VOICΞSΞS")
                 .toolbar {
                     ToolbarItem(placement: .automatic) {
-                        Button(action: {}) {
-                            Image(systemName: "person.crop.circle").font(.system(size: 22, weight: .light))
-                        }
-                    }
-                    ToolbarItem(placement: .automatic) {
                         Button(action: toggleSidebar, label: {
                             Image(systemName: "sidebar.left")
                         })
@@ -39,7 +34,7 @@ struct SideBar: View {
                     .navigationTitle(navigationItem.title)) {
                 Label(navigationItem.title, systemImage: navigationItem.systemImageName)
             }
-            .tag(navigationItem)
+            .tag(navigationItem.id)
         }
         .listStyle(SidebarListStyle())
     }

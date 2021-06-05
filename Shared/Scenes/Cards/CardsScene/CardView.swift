@@ -14,7 +14,10 @@ struct CardView: View {
     @State var cardSide: CardSide = .front
     private let cornerRadius: CGFloat = 22
     @State private var imageURL: URL?
+    
+    #if os(iOS)
     @State private var cachedImage: UIImage?
+    #endif
     
     var body: some View {
             VStack {
@@ -37,7 +40,9 @@ struct CardView: View {
                         cardSide.toggle()
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                             imageURL = cardSide == .back ? card.backImageURL : card.frontImageURL
+                            #if os(iOS)
                             cachedImage = GlobalService.shared.imageCache.image(for: "-back" + card.id)
+                            #endif
                         }
                     }) {
                         Image(systemName: "rotate.right.fill")
@@ -62,12 +67,16 @@ struct CardView: View {
             .rotation3DEffect(cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
             .onAppear {
                 imageURL = card.frontImageURL
+                
+                #if os(iOS)
                 cachedImage = GlobalService.shared.imageCache.image(for: "-front" + card.id)
+                #endif
             }
     }
     
     @ViewBuilder
     var backgroundView: some View {
+        #if os(iOS)
         if self.cachedImage == nil {
             AnimatedImage(url: imageURL)
                 .placeholder(cachedImage)
@@ -79,8 +88,13 @@ struct CardView: View {
                 .resizable()
                 .scaledToFit()
         }
+        #else
+        AnimatedImage(url: imageURL)
+            .indicator(SDWebImageActivityIndicator.gray)
+            .resizable()
+            .scaledToFit()
+        #endif
     }
-    
 }
 
 struct CardView_Previews: PreviewProvider {

@@ -64,7 +64,6 @@ extension ImageCache: ImageCacheType {
             return insert(newValue, for: id)
         }
     }
-    
     func removeAll() {
         imagesCache.removeAllObjects()
     }

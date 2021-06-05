@@ -60,6 +60,10 @@
 		CD96753D26066F260067FCC5 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD96753B26066F260067FCC5 /* Subject.swift */; };
 		CDA2E504263DA17300ED287C /* AddNewCardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA2E503263DA17300ED287C /* AddNewCardScene.swift */; };
 		CDA2E555263DD8F500ED287C /* AddNewCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA2E554263DD8F500ED287C /* AddNewCardViewModel.swift */; };
+		CDCF5809266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCF5808266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift */; };
+		CDCF580A266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCF5808266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift */; };
+		CDCF580D266C0B4100D4BCDF /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCF580C266C0B4100D4BCDF /* CustomTextView.swift */; };
+		CDCF580E266C0B4100D4BCDF /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCF580C266C0B4100D4BCDF /* CustomTextView.swift */; };
 		CDD0B7FA260638DE003537A8 /* SubjectsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B7F9260638DE003537A8 /* SubjectsScene.swift */; };
 		CDD0B80326063A1B003537A8 /* CalanderScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80226063A1B003537A8 /* CalanderScene.swift */; };
 		CDD0B80926063A2C003537A8 /* SearchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80826063A2C003537A8 /* SearchScene.swift */; };
@@ -86,7 +90,8 @@
 		CDF1C1C72664F228002BF9E4 /* GlobalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1C1C62664F228002BF9E4 /* GlobalService.swift */; };
 		CDF1C1C82664F228002BF9E4 /* GlobalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1C1C62664F228002BF9E4 /* GlobalService.swift */; };
 		CDF1C1D32664F92A002BF9E4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1C1D22664F92A002BF9E4 /* ImageCache.swift */; };
-		CDF1C1D42664F92A002BF9E4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1C1D22664F92A002BF9E4 /* ImageCache.swift */; };
+		CDF1C208266699F8002BF9E4 /* CardSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1C207266699F8002BF9E4 /* CardSide.swift */; };
+		CDF1C21126669A05002BF9E4 /* CardSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1C207266699F8002BF9E4 /* CardSide.swift */; };
 		CDF24DCD2618BB9100CC866F /* LunchWindowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DCC2618BB9100CC866F /* LunchWindowViewModel.swift */; };
 		CDF24DCE2618BB9100CC866F /* LunchWindowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DCC2618BB9100CC866F /* LunchWindowViewModel.swift */; };
 		CDF24DF52618C67500CC866F /* SubjectsSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DF42618C67500CC866F /* SubjectsSceneViewModel.swift */; };
@@ -147,6 +152,8 @@
 		CD96753B26066F260067FCC5 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		CDA2E503263DA17300ED287C /* AddNewCardScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardScene.swift; sourceTree = "<group>"; };
 		CDA2E554263DD8F500ED287C /* AddNewCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardViewModel.swift; sourceTree = "<group>"; };
+		CDCF5808266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUpdateSubjectService.swift; sourceTree = "<group>"; };
+		CDCF580C266C0B4100D4BCDF /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		CDD0B7F9260638DE003537A8 /* SubjectsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsScene.swift; sourceTree = "<group>"; };
 		CDD0B80226063A1B003537A8 /* CalanderScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalanderScene.swift; sourceTree = "<group>"; };
 		CDD0B80826063A2C003537A8 /* SearchScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScene.swift; sourceTree = "<group>"; };
@@ -174,6 +181,7 @@
 		CDEE1DB7260DDE72005F6D07 /* AddNewSubjectScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSubjectScene.swift; sourceTree = "<group>"; };
 		CDF1C1C62664F228002BF9E4 /* GlobalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalService.swift; sourceTree = "<group>"; };
 		CDF1C1D22664F92A002BF9E4 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		CDF1C207266699F8002BF9E4 /* CardSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSide.swift; sourceTree = "<group>"; };
 		CDF24DCC2618BB9100CC866F /* LunchWindowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchWindowViewModel.swift; sourceTree = "<group>"; };
 		CDF24DF42618C67500CC866F /* SubjectsSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsSceneViewModel.swift; sourceTree = "<group>"; };
 		CDF24DFB2618C97200CC866F /* FirebaseGetSubjectsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGetSubjectsService.swift; sourceTree = "<group>"; };
@@ -321,6 +329,7 @@
 				CD3072D22635E73900E4C743 /* FirebaseGetCardsService.swift */,
 				CD8F03FC264566C900059C53 /* FirebaseAddNewCardService.swift */,
 				CD28F9B92650496800D87DDC /* FirebaseDeleteACardService.swift */,
+				CDCF5808266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -356,6 +365,14 @@
 				CDA2E554263DD8F500ED287C /* AddNewCardViewModel.swift */,
 			);
 			path = AddNewCard;
+			sourceTree = "<group>";
+		};
+		CDCF580B266C0B2D00D4BCDF /* CustomTextField */ = {
+			isa = PBXGroup;
+			children = (
+				CDCF580C266C0B4100D4BCDF /* CustomTextView.swift */,
+			);
+			path = CustomTextField;
 			sourceTree = "<group>";
 		};
 		CDD0B7F8260638BC003537A8 /* Subjects */ = {
@@ -504,6 +521,7 @@
 		CDD9E04425FD583700E3BF53 /* GeneralViews */ = {
 			isa = PBXGroup;
 			children = (
+				CDCF580B266C0B2D00D4BCDF /* CustomTextField */,
 				CD17F242262B4E1D00C2C903 /* SearchBar */,
 				CDD0B81426063A8B003537A8 /* SideBar */,
 			);
@@ -539,6 +557,7 @@
 		CDEE1DA5260DDD10005F6D07 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				CDF1C206266699E3002BF9E4 /* CardSide */,
 				CD60790B261085C300928B20 /* Extensions */,
 			);
 			path = Utils;
@@ -577,6 +596,14 @@
 				CDF1C1D22664F92A002BF9E4 /* ImageCache.swift */,
 			);
 			path = ImageCaching;
+			sourceTree = "<group>";
+		};
+		CDF1C206266699E3002BF9E4 /* CardSide */ = {
+			isa = PBXGroup;
+			children = (
+				CDF1C207266699F8002BF9E4 /* CardSide.swift */,
+			);
+			path = CardSide;
 			sourceTree = "<group>";
 		};
 		CDFA977E2600A4BA006DB5A6 /* Home */ = {
@@ -844,12 +871,14 @@
 				CD6079F52610D2B700928B20 /* Encodable+Extension.swift in Sources */,
 				CD28F97F264FD28600D87DDC /* Date+Extension.swift in Sources */,
 				CD17F1E1262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */,
+				CDCF580D266C0B4100D4BCDF /* CustomTextView.swift in Sources */,
 				CD60795E2610974B00928B20 /* FirebaseDatabaseService.swift in Sources */,
 				CDF24DF52618C67500CC866F /* SubjectsSceneViewModel.swift in Sources */,
 				CD96753C26066F260067FCC5 /* Subject.swift in Sources */,
 				CD607956261096B400928B20 /* FirebaseAddNewSubjectService.swift in Sources */,
 				CDF1C1C72664F228002BF9E4 /* GlobalService.swift in Sources */,
 				CD30732D263752DC00E4C743 /* AddNewLectureScene_temp.swift in Sources */,
+				CDCF5809266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift in Sources */,
 				CDD9E00125FD13CE00E3BF53 /* LunchWindow.swift in Sources */,
 				CDD0B80F26063A38003537A8 /* CardsScene.swift in Sources */,
 				CDEE1DB8260DDE72005F6D07 /* AddNewSubjectScene.swift in Sources */,
@@ -864,6 +893,7 @@
 				CD8F03FD264566C900059C53 /* FirebaseAddNewCardService.swift in Sources */,
 				CDD0B7FA260638DE003537A8 /* SubjectsScene.swift in Sources */,
 				CDA2E555263DD8F500ED287C /* AddNewCardViewModel.swift in Sources */,
+				CDF1C208266699F8002BF9E4 /* CardSide.swift in Sources */,
 				CDD9E03D25FD3D6000E3BF53 /* LoginScene.swift in Sources */,
 				CD8F040B264567BC00059C53 /* Card.swift in Sources */,
 				CDD0B81626063AB3003537A8 /* NavigationItem.swift in Sources */,
@@ -894,6 +924,7 @@
 				CD6079F62610D2B700928B20 /* Encodable+Extension.swift in Sources */,
 				CD17F1E2262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */,
 				CD96753D26066F260067FCC5 /* Subject.swift in Sources */,
+				CDCF580E266C0B4100D4BCDF /* CustomTextView.swift in Sources */,
 				CDF24DF62618C67500CC866F /* SubjectsSceneViewModel.swift in Sources */,
 				CD28F9BB2650496800D87DDC /* FirebaseDeleteACardService.swift in Sources */,
 				CD96752726065E460067FCC5 /* SearchScene.swift in Sources */,
@@ -903,14 +934,15 @@
 				CDF1C1C82664F228002BF9E4 /* GlobalService.swift in Sources */,
 				CD28F980264FD28600D87DDC /* Date+Extension.swift in Sources */,
 				CD8F040C264567BC00059C53 /* Card.swift in Sources */,
+				CDCF580A266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift in Sources */,
 				CDEE1DA8260DDD31005F6D07 /* Colors+Extenison.swift in Sources */,
 				CD96751D26065E420067FCC5 /* SubjectsScene.swift in Sources */,
 				CD6079CB2610A5A800928B20 /* FirebaseDatabaseService.swift in Sources */,
 				CD28F98B264FEE3700D87DDC /* CardView.swift in Sources */,
 				CD96753126065E4F0067FCC5 /* HomeScene.swift in Sources */,
-				CDF1C1D42664F92A002BF9E4 /* ImageCache.swift in Sources */,
 				CD3072D42635E73900E4C743 /* FirebaseGetCardsService.swift in Sources */,
 				CDD9E00225FD13CE00E3BF53 /* LunchWindow.swift in Sources */,
+				CDF1C21126669A05002BF9E4 /* CardSide.swift in Sources */,
 				CD96753626065E550067FCC5 /* NavigationItem.swift in Sources */,
 				CD96752C26065E490067FCC5 /* CardsScene.swift in Sources */,
 				CD6079BC2610A59F00928B20 /* FirebaseAuthenticationService.swift in Sources */,

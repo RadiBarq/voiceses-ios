@@ -11,15 +11,6 @@ import PencilKit
 import Combine
 import Firebase
 
-enum CardSide: String {
-    case front
-    case back
-    
-    mutating func toggle() {
-        self = self == .front ? .back : .front
-    }
-}
-
 class AddNewCardViewModel: ObservableObject {
     @Published var cardSide: CardSide = .front
     @Published var showingAlert: Bool = false
@@ -27,8 +18,9 @@ class AddNewCardViewModel: ObservableObject {
     var parentColor: Color {
         Color(hex: subject.colorHex)
     }
-    private let subject: Subject
+    private var subject: Subject
     private let addNewCardService = FirebaseAddNewCardService()
+    private let updateSubjectService = FirebaseUpdateSubjectService()
     private var subscriptions: Set<AnyCancellable> = []
     
     init(subject: Subject) {
@@ -63,7 +55,11 @@ class AddNewCardViewModel: ObservableObject {
                     return
                 }
             },
-            receiveValue: {})
+            receiveValue: { [weak self] in
+                guard let weakSelf = self else { return }
+                weakSelf.subject.numberOfCards! += 1
+                weakSelf.updateSubjectService.updateNumberOfCards(for: weakSelf.subject)
+            })
             .store(in: &self.subscriptions)
     }
 }

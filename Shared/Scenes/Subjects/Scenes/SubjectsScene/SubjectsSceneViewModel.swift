@@ -28,18 +28,26 @@ class SubjectsSceneViewModel: ObservableObject {
         }
     }
     
+    var selectedMacSubject: Subject?
+    
     private var subscriptions = Set<AnyCancellable>()
     private var getSubjectsService: FirebaseGetSubjectsService
     private var deleteASubjectService: FirebaseDeleteASubjectService
+    private var updateSubjectService: FirebaseUpdateSubjectService
     
     init() {
         getSubjectsService = FirebaseGetSubjectsService()
         deleteASubjectService = FirebaseDeleteASubjectService()
+        updateSubjectService = FirebaseUpdateSubjectService()
         startListenToGetSubjectsService()
     }
     
     func deleteSubject() {
         deleteASubjectService.deleteSubject(with: selectedSubjectToBeDelete)
+    }
+
+    func update(subject: Subject) {
+        updateSubjectService.updateTitle(for: subject)
     }
     
     private func startListenToGetSubjectsService() {

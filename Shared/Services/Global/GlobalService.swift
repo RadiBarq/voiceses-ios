@@ -11,10 +11,14 @@ import Combine
 final class GlobalService {
     static let shared = GlobalService()
     private var subsriptions: Set<AnyCancellable> = []
+    
+    #if os(iOS)
     private var addNewCardImageService = FirebaseAddNewCardImageFirebaseService()
     private let addNewCardService = FirebaseAddNewCardService()
     let imageCache = ImageCache()
+    #endif
     
+    #if os(iOS)
     func saveCardImages(frontImage: Data, backImage: Data, card: Card) {
         var cardCopy = card
         let frontCanvasImagePublisher = addNewCardImageService.uploadImage(with: frontImage, subjectID: card.subjectID, cardID: card.id, imageName: "frontImage")
@@ -43,4 +47,5 @@ final class GlobalService {
             })
             .store(in: &subsriptions)
     }
+    #endif
 }

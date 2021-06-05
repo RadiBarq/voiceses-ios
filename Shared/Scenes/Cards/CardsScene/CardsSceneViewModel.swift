@@ -18,6 +18,7 @@ class CardsSceneViewModel: ObservableObject {
     private var subscriptions = Set<AnyCancellable>()
     private var getCardsService: FirebaseGetCardsService
     private var deleteCardService: FirebaseDeleteACardService
+    private var updateSubjectService: FirebaseUpdateSubjectService
     
     var title: String {
         subject.title
@@ -29,11 +30,14 @@ class CardsSceneViewModel: ObservableObject {
         self.subject = subject
         getCardsService = FirebaseGetCardsService(subjectID: subject.id!)
         deleteCardService = FirebaseDeleteACardService()
+        updateSubjectService = FirebaseUpdateSubjectService()
         startListenToGetCardsService()
     }
     
     func deleteCard(with id: String) {
         deleteCardService.deleteCard(with: id, subjectID: subject.id!)
+        subject.numberOfCards! -= 1
+        updateSubjectService.updateNumberOfCards(for: subject)
     }
     private func startListenToGetCardsService() {
         getCardsService
@@ -55,4 +59,7 @@ class CardsSceneViewModel: ObservableObject {
             }, receiveValue: {_ in })
             .store(in: &subscriptions)
     }
+    
+    
+    
 }

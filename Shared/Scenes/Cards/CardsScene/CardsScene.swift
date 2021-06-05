@@ -26,7 +26,10 @@ struct CardsScene: View {
                 AddNewCardScene(isPresented: $cardsSceneViewModel.showingAddNewCardView, addNewCardViewModel: AddNewCardViewModel(subject: cardsSceneViewModel.subject))
             }
         #else
-        content
+            content
+                .navigationTitle(cardsSceneViewModel.title)
+    
+
         #endif
     }
     
@@ -43,17 +46,6 @@ struct CardsScene: View {
                         .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
                         .padding()
                     }
-                    //                    ForEach(cardsSceneViewModel.cards) { item in
-                    //                        NavigationLink(destination: CardsScene(cardsSceneViewModel: CardsSceneViewModel(subject: item))
-                    //                        ) {
-                    //                            SubjectView(subject: item, deleteAction: {
-                    //                                subjectsSceneViewModel.showDeleteSubjectAlert.toggle()
-                    //                                subjectsSceneViewModel.selectedSubjectToBeDelete = item.id!
-                    //                            })
-                    //                            .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
-                    //                            .padding()
-                    //                        }
-                    //                    }
                 }
                 .padding()
                 .animation(.easeInOut(duration: 0.5))
@@ -63,26 +55,18 @@ struct CardsScene: View {
         return
             GeometryReader { geometry in
                 ScrollView {
-                    SearchBar(placeholder: "Search subjects...", text: $subjectsSceneViewModel.searchText)
-                        .padding()
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 3), spacing: 16)]) {
-                        ForEach(subjectsSceneViewModel.searchedSubjects) { item in
-                            SubjectView(subject: item, deleteAction: {
-                                subjectsSceneViewModel.showDeleteSubjectAlert.toggle()
-                                subjectsSceneViewModel.selectedSubjectToBeDelete = item.id!
-                            })
-                            .frame(minWidth: geometry.size.width / 3, minHeight: geometry.size.height / 3)
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
+                        ForEach(cardsSceneViewModel.cards) { card in
+                            CardView(card: .constant(card)) {
+                                cardsSceneViewModel.deleteCard(with: card.id)
+                            }
+                            .shadow(color: Color(hex: cardsSceneViewModel.subject.colorHex).opacity(0.8), radius: 20, x: 0, y: 10)
+                            .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
                             .padding()
-                            .onTapGesture {
-                                subjectsSceneViewModel.showLecturesOnMac.toggle()
-                            }
-                            .sheet(isPresented: $subjectsSceneViewModel.showLecturesOnMac) {
-                               CardsScene(cardsSceneViewModel: CardsSceneViewModel(subject: item))
-                            }
                         }
                     }
-                    .animation(.easeInOut(duration: 0.5))
                     .padding()
+                    .animation(.easeInOut(duration: 0.5))
                 }
             }
         #endif

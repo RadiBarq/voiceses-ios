@@ -18,6 +18,8 @@ final class GlobalService {
     let imageCache = ImageCache()
     #endif
     
+    private var deleteCardImagesService = FirebaseDeleteCardImagesService()
+    
     #if os(iOS)
     func saveCardImages(frontImage: Data, backImage: Data, card: Card) {
         var cardCopy = card
@@ -26,7 +28,6 @@ final class GlobalService {
         frontCanvasImagePublisher
             .combineLatest(backCanvasImagePublisher)
             .sink(receiveCompletion: { result in
-
                 if case let .failure(error) = result {
                     print(error)
                     return
@@ -36,7 +37,7 @@ final class GlobalService {
                 cardCopy.backImageURL = secondCardResult.0
                 cardCopy.frontImageURL = firstCardResult.0
                 weakSelf.addNewCardService.addNewCard(card: cardCopy)
-                    .sink(receiveCompletion:{ result in
+                    .sink(receiveCompletion: { result in
                         if case let .failure(error) = result {
                             print(error)
                             return
@@ -48,4 +49,14 @@ final class GlobalService {
             .store(in: &subsriptions)
     }
     #endif
+    
+    func deleteCardImages(with id: String, subjectID: String) {
+        deleteCardImagesService.deleteImages(with: id, subjectID: subjectID)
+            .sink(receiveCompletion: { completion in
+                if case let .failure(error) = completion {
+                    print(error)
+                }
+            }, receiveValue: {})
+            .store(in: &subsriptions)
+    }
 }

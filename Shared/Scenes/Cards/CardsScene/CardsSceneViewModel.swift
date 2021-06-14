@@ -19,6 +19,7 @@ class CardsSceneViewModel: ObservableObject {
     private var getCardsService: FirebaseGetCardsService
     private var deleteCardService: FirebaseDeleteACardService
     private var updateSubjectService: FirebaseUpdateSubjectService
+    private var deleteCardImagesService: FirebaseDeleteCardImagesService
     
     var title: String {
         subject.title
@@ -31,6 +32,7 @@ class CardsSceneViewModel: ObservableObject {
         getCardsService = FirebaseGetCardsService(subjectID: subject.id!)
         deleteCardService = FirebaseDeleteACardService()
         updateSubjectService = FirebaseUpdateSubjectService()
+        deleteCardImagesService = FirebaseDeleteCardImagesService()
         startListenToGetCardsService()
     }
     
@@ -38,6 +40,7 @@ class CardsSceneViewModel: ObservableObject {
         deleteCardService.deleteCard(with: id, subjectID: subject.id!)
         subject.numberOfCards! -= 1
         updateSubjectService.updateNumberOfCards(for: subject)
+        GlobalService.shared.deleteCardImages(with: id, subjectID: subject.id!)
     }
     private func startListenToGetCardsService() {
         getCardsService
@@ -59,7 +62,4 @@ class CardsSceneViewModel: ObservableObject {
             }, receiveValue: {_ in })
             .store(in: &subscriptions)
     }
-    
-    
-    
 }

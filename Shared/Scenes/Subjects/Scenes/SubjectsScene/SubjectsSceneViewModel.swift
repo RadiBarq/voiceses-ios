@@ -14,7 +14,6 @@ class SubjectsSceneViewModel: ObservableObject {
             searchedSubjects = subjects.filter { searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }
         }
     }
-    
     @Published var searchedSubjects: [Subject] = []
     @Published var showLecturesOnMac = false
     @Published var showAddNewSubjectView = false
@@ -29,7 +28,6 @@ class SubjectsSceneViewModel: ObservableObject {
     }
     
     var selectedMacSubject: Subject?
-    
     private var subscriptions = Set<AnyCancellable>()
     private var getSubjectsService: FirebaseGetSubjectsService
     private var deleteASubjectService: FirebaseDeleteASubjectService

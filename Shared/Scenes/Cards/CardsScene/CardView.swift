@@ -14,7 +14,6 @@ struct CardView: View {
     @State var cardSide: CardSide = .front
     private let cornerRadius: CGFloat = 22
     @State private var imageURL: URL?
-    
     #if os(iOS)
     @State private var cachedImage: UIImage?
     #endif
@@ -32,7 +31,6 @@ struct CardView: View {
                             .font(.title2)
                             .foregroundColor(.black)
                             .rotation3DEffect(cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
-                        
                     }
                     .buttonStyle(PlainButtonStyle())
                     Spacer()
@@ -41,7 +39,8 @@ struct CardView: View {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                             imageURL = cardSide == .back ? card.backImageURL : card.frontImageURL
                             #if os(iOS)
-                            cachedImage = GlobalService.shared.imageCache.image(for: "-back" + card.id)
+                            let cardSideName = "-\(cardSide.rawValue)"
+                            cachedImage = GlobalService.shared.imageCache.image(for: cardSideName + card.id)
                             #endif
                         }
                     }) {
@@ -60,14 +59,12 @@ struct CardView: View {
             .padding()
             .background(
                 backgroundView
-
             )
             .background(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
             .rotation3DEffect(cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
             .onAppear {
                 imageURL = card.frontImageURL
-                
                 #if os(iOS)
                 cachedImage = GlobalService.shared.imageCache.image(for: "-front" + card.id)
                 #endif
@@ -79,7 +76,6 @@ struct CardView: View {
         #if os(iOS)
         if self.cachedImage == nil {
             AnimatedImage(url: imageURL)
-                .placeholder(cachedImage)
                 .indicator(SDWebImageActivityIndicator.gray)
                 .resizable()
                 .scaledToFit()

@@ -18,6 +18,7 @@ class FirebaseUpdateSubjectService: FirebaseDatabaseService {
             .child("title")
             .setValue(subject.title)
     }
+    
     func updateNumberOfCards(for subject: Subject) {
         guard let userID = FirebaseAuthenticationService.getUserID() else { return }
         ref.child(userID)

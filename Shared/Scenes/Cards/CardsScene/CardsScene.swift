@@ -28,8 +28,6 @@ struct CardsScene: View {
         #else
             content
                 .navigationTitle(cardsSceneViewModel.title)
-    
-
         #endif
     }
     
@@ -51,6 +49,7 @@ struct CardsScene: View {
                 .animation(.easeInOut(duration: 0.5))
             }
         }
+
         #else
         return
             GeometryReader { geometry in

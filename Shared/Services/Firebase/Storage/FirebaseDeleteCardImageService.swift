@@ -22,18 +22,22 @@ enum FirebaseDeleteACardServiceError: Error, LocalizedError {
     }
 }
 
-class FirebaseDeleteCardImagesService: FirebaseStorageService {
+class FirebaseDeleteCardImageService: FirebaseStorageService {
     let ref = Storage.storage().reference()
-    func deleteImages(with id: String, subjectID: String) -> AnyPublisher<Void, FirebaseDeleteACardServiceError> {
+    func deleteImage(with id: String, cardID: String, subjectID: String) -> AnyPublisher<Void, FirebaseDeleteACardServiceError> {
         return Future { [weak self] promise in
             guard let weakSelf = self else { return }
             guard let userID = FirebaseAuthenticationService.getUserID() else {
                 promise(.failure(.userIsNotAvailable))
                 return
             }
-            weakSelf.ref.child(userID)
+            weakSelf.ref
+                .child("users")
+                .child(userID)
                 .child("subjects")
                 .child(subjectID)
+                .child("cards")
+                .child(cardID)
                 .child(id)
                 .delete() { error in
                     guard error == nil else {

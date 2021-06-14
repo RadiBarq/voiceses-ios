@@ -6,7 +6,7 @@
 //
 import UIKit
 
-protocol ImageCacheType: class {
+protocol ImageCacheType: AnyObject {
     func image(for id: String) -> UIImage?
     
     func insert(_ image: UIImage?, for id: String)

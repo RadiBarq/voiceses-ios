@@ -19,7 +19,6 @@ class CardsSceneViewModel: ObservableObject {
     private var getCardsService: FirebaseGetCardsService
     private var deleteCardService: FirebaseDeleteACardService
     private var updateSubjectService: FirebaseUpdateSubjectService
-    private var deleteCardImagesService: FirebaseDeleteCardImagesService
     
     var title: String {
         subject.title
@@ -32,7 +31,6 @@ class CardsSceneViewModel: ObservableObject {
         getCardsService = FirebaseGetCardsService(subjectID: subject.id!)
         deleteCardService = FirebaseDeleteACardService()
         updateSubjectService = FirebaseUpdateSubjectService()
-        deleteCardImagesService = FirebaseDeleteCardImagesService()
         startListenToGetCardsService()
     }
     

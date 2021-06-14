@@ -18,7 +18,7 @@ final class GlobalService {
     let imageCache = ImageCache()
     #endif
     
-    private var deleteCardImagesService = FirebaseDeleteCardImagesService()
+    private var deleteCardImageService = FirebaseDeleteCardImageService()
     
     #if os(iOS)
     func saveCardImages(frontImage: Data, backImage: Data, card: Card) {
@@ -50,13 +50,18 @@ final class GlobalService {
     }
     #endif
     
-    func deleteCardImages(with id: String, subjectID: String) {
-        deleteCardImagesService.deleteImages(with: id, subjectID: subjectID)
+    func deleteCardImages(with cardID: String, subjectID: String) {
+        let deleteFrontImagePublisher = deleteCardImageService.deleteImage(with: "frontImage.png", cardID: cardID, subjectID: subjectID)
+        let deleteBackImagePublihser = deleteCardImageService.deleteImage(with: "backImage.png", cardID: cardID, subjectID: subjectID)
+        
+        deleteFrontImagePublisher
+            .combineLatest(deleteBackImagePublihser)
             .sink(receiveCompletion: { completion in
                 if case let .failure(error) = completion {
                     print(error)
                 }
-            }, receiveValue: {})
+            }, receiveValue: { _ in
+            })
             .store(in: &subsriptions)
     }
 }

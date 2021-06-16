@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct CustomTextView: UIViewRepresentable {
     @Binding var text: String

@@ -9,21 +9,22 @@ import SwiftUI
 
 struct SideBar: View {
     @State private var selection: NavigationItem?
-    
     var body: some View {
         NavigationView {
             sidebar
                 .navigationTitle("VOICΞSΞS")
+                #if !os(iOS)
                 .toolbar {
-                    ToolbarItem(placement: .automatic) {
+                    ToolbarItem(placement: .navigation) {
                         Button(action: toggleSidebar, label: {
                             Image(systemName: "sidebar.left")
                         })
                     }
                 }
+                #endif
             SubjectsScene()
         }
-        .accentColor(Color.accent)
+        .accentColor(.accent)
     }
     
     private var sidebar: some View {

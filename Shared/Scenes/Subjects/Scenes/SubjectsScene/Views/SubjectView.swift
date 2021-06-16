@@ -28,6 +28,8 @@ struct SubjectView: View {
                     .background(Color.clear)
                     .buttonStyle(PlainButtonStyle())
                     Spacer()
+                    
+                    #if os(iOS)
                     Button(action: {
                         showingTextField.toggle()
                         updateSubjectName()
@@ -37,6 +39,7 @@ struct SubjectView: View {
                     }
                     .background(Color.clear)
                     .buttonStyle(PlainButtonStyle())
+                    #endif
                 }
                 titleView
                 Text("Cards: \(subject.numberOfCards ?? 0)")
@@ -54,9 +57,9 @@ struct SubjectView: View {
         }
     }
 
-    @ViewBuilder
     private var titleView: some View {
         GeometryReader { reader in
+            #if os(iOS)
             if self.showingTextField {
                 CustomTextView(text: $titleText, isFirstResponder: showingTextField, foregroundColor: Color(hex: subject.colorHex).whiteOrBlack, font: UIFont.systemFont(ofSize: reader.size.width / 10, weight: .bold))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -68,6 +71,14 @@ struct SubjectView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .multilineTextAlignment(.leading)
             }
+            #else
+            Text(subject.title)
+                .font(.system(size: reader.size.width / 10))
+                .bold()
+                .foregroundColor(Color(hex: subject.colorHex).whiteOrBlack)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .multilineTextAlignment(.leading)
+            #endif
         }
     }
     private func updateSubjectName() {

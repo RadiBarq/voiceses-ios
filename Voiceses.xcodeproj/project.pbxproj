@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9A9869C7B3C8F5AF88B9F8D2 /* Pods_Voiceses__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A73E14C250082A6482EC8E87 /* Pods_Voiceses__iOS_.framework */; };
 		B7B11286030D6ECFA15E6B17 /* Pods_Voiceses__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40106E9917A7D79C82DB5B3E /* Pods_Voiceses__macOS_.framework */; };
+		CD00F70E267A0CB500475016 /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8F03D5264550E600059C53 /* FirebaseStorageService.swift */; };
 		CD0BB30E260B259200CD0A03 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0BB30D260B259200CD0A03 /* SubjectView.swift */; };
 		CD0BB30F260B259200CD0A03 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0BB30D260B259200CD0A03 /* SubjectView.swift */; };
 		CD17F1E1262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */; };
@@ -67,7 +68,6 @@
 		CDCF5809266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCF5808266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift */; };
 		CDCF580A266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCF5808266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift */; };
 		CDCF580D266C0B4100D4BCDF /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCF580C266C0B4100D4BCDF /* CustomTextView.swift */; };
-		CDCF580E266C0B4100D4BCDF /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCF580C266C0B4100D4BCDF /* CustomTextView.swift */; };
 		CDD0B7FA260638DE003537A8 /* SubjectsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B7F9260638DE003537A8 /* SubjectsScene.swift */; };
 		CDD0B80326063A1B003537A8 /* CalanderScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80226063A1B003537A8 /* CalanderScene.swift */; };
 		CDD0B80926063A2C003537A8 /* SearchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80826063A2C003537A8 /* SearchScene.swift */; };
@@ -935,7 +935,6 @@
 				CD6079F62610D2B700928B20 /* Encodable+Extension.swift in Sources */,
 				CD17F1E2262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */,
 				CD96753D26066F260067FCC5 /* Subject.swift in Sources */,
-				CDCF580E266C0B4100D4BCDF /* CustomTextView.swift in Sources */,
 				CDF24DF62618C67500CC866F /* SubjectsSceneViewModel.swift in Sources */,
 				CD28F9BB2650496800D87DDC /* FirebaseDeleteACardService.swift in Sources */,
 				CD96752726065E460067FCC5 /* SearchScene.swift in Sources */,
@@ -971,6 +970,7 @@
 				CD6079C62610A5A600928B20 /* FirebaseAddNewSubjectService.swift in Sources */,
 				CDD9E00025FD13CE00E3BF53 /* VoicesesApp.swift in Sources */,
 				CDF24DFD2618C97200CC866F /* FirebaseGetSubjectsService.swift in Sources */,
+				CD00F70E267A0CB500475016 /* FirebaseStorageService.swift in Sources */,
 				CD607A1E2610DAA800928B20 /* Decodable+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

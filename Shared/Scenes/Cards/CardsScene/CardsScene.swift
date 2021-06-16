@@ -9,6 +9,9 @@ import SwiftUI
 
 struct CardsScene: View {
     @ObservedObject var cardsSceneViewModel: CardsSceneViewModel
+    #if !os(iOS)
+    @Binding var isPresented: Bool
+    #endif
     var body: some View {
         #if os(iOS)
         content
@@ -27,7 +30,16 @@ struct CardsScene: View {
             }
         #else
             content
-                .navigationTitle(cardsSceneViewModel.title)
+            .toolbar {
+                ToolbarItem(placement: .navigation) {
+                    Button(action: {
+                        isPresented.toggle()
+                    }, label: {
+                        Image(systemName: "chevron.backward")
+                    })
+                }
+            }
+            .navigationTitle(cardsSceneViewModel.title)
         #endif
     }
     
@@ -75,6 +87,10 @@ struct CardsScene: View {
 struct CardsScene_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = CardsSceneViewModel(subject: testSubjects[0])
-        CardsScene(cardsSceneViewModel: viewModel)
+        #if os(iOS)
+            return CardsScene(cardsSceneViewModel: viewModel)
+        #else
+            return CardsScene(cardsSceneViewModel: viewModel, isPresented: .constant(false))
+        #endif
     }
 }

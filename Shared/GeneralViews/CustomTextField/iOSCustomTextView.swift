@@ -8,30 +8,30 @@
 import SwiftUI
 import Foundation
 
-struct CustomTextView: UIViewRepresentable {
+struct iOSCustomTextView: UIViewRepresentable {
     @Binding var text: String
     private(set) var isFirstResponder: Bool = false
     private(set) var foregroundColor: Color
     private(set) var font: UIFont
     
-    func makeUIView(context: UIViewRepresentableContext<CustomTextView>) -> UITextView {
-        let view = UITextView()
-        view.isScrollEnabled = true
-        view.font = font
-        view.isEditable = true
-        view.isUserInteractionEnabled = true
-        view.backgroundColor = .clear
-        view.textColor = UIColor(foregroundColor)
-        view.textAlignment = .center
-        view.delegate = context.coordinator
-        return view
+    func makeUIView(context: UIViewRepresentableContext<iOSCustomTextView>) -> UITextView {
+        let textView = UITextView()
+        textView.font = font
+        textView.isEditable = true
+        textView.textContainer.maximumNumberOfLines = 5
+        textView.isUserInteractionEnabled = true
+        textView.backgroundColor = .clear
+        textView.textColor = UIColor(foregroundColor)
+        textView.textAlignment = .center
+        textView.delegate = context.coordinator
+        return textView
     }
     
-    func makeCoordinator() -> CustomTextView.Coordinator {
+    func makeCoordinator() -> iOSCustomTextView.Coordinator {
         return Coordinator(text: $text)
     }
 
-    func updateUIView(_ uiView: UITextView, context: UIViewRepresentableContext<CustomTextView>) {
+    func updateUIView(_ uiView: UITextView, context: UIViewRepresentableContext<iOSCustomTextView>) {
         uiView.text = text
         if isFirstResponder && !context.coordinator.didBecomeFirstResponder  {
             uiView.becomeFirstResponder()

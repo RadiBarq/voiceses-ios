@@ -14,6 +14,7 @@ class SubjectsSceneViewModel: ObservableObject {
             searchedSubjects = subjects.filter { searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }
         }
     }
+    
     @Published var searchedSubjects: [Subject] = []
     @Published var showLecturesOnMac = false
     @Published var showAddNewSubjectView = false
@@ -55,7 +56,6 @@ class SubjectsSceneViewModel: ObservableObject {
             .replaceError(with: [])
             .assign(to: \.subjects, on: self)
             .store(in: &subscriptions)
-        
         getSubjectsService
             .subjects
             .ignoreOutput()

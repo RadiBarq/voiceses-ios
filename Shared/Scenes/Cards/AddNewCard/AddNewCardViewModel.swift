@@ -28,6 +28,12 @@ class AddNewCardViewModel: ObservableObject {
     }
     
     func saveCard(frontCanvas: PKCanvasView, backCanvas: PKCanvasView) {
+        guard !isOneOfTheCanvasesEmpty(frontCanvas: frontCanvas, backCanvas: backCanvas) else  {
+            showingAlert = true
+            alertMessage = "You can't save an empty card side, make sure both sides are not empty."
+            return
+        }
+        
         let imageRect = frontCanvas.frame
         let frontCanvasImage = frontCanvas.drawing.image(from: imageRect, scale: 1)
         let backCanvasImage = backCanvas.drawing.image(from: imageRect, scale: 1)
@@ -54,5 +60,9 @@ class AddNewCardViewModel: ObservableObject {
             self.subject.numberOfCards! += 1
             self.updateSubjectService.updateNumberOfCards(for: self.subject)
         }
+    }
+
+    private func isOneOfTheCanvasesEmpty(frontCanvas: PKCanvasView, backCanvas: PKCanvasView) -> Bool {
+        return frontCanvas.drawing.bounds.isEmpty || backCanvas.drawing.bounds.isEmpty
     }
 }

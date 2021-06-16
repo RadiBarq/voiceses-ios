@@ -11,7 +11,6 @@ struct AddNewSubjectScene: View {
     @StateObject var addNewSubjectViewModel = AddNewSubjectViewModel()
     @Binding var isPresented: Bool
     
-    
     var body: some View {
         #if os(iOS)
         NavigationView {
@@ -69,9 +68,13 @@ struct AddNewSubjectScene: View {
     
     private var content: some View {
         return Form {
-            Section {
-                TextField("Subject name", text: $addNewSubjectViewModel.name)
-                ColorPicker("Subject color", selection: $addNewSubjectViewModel.color)
+            Section(header: Text("Add new subject")) {
+                VStack(alignment: .leading) {
+                    TextField("Subject name", text: $addNewSubjectViewModel.name)
+                        .padding(.bottom, 16)
+                    ColorPicker("Subject color", selection: $addNewSubjectViewModel.color)
+                }
+                .padding()
             }
         }
         .navigationTitle("New Subject")

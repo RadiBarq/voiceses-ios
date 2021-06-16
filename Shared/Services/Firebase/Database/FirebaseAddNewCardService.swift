@@ -24,21 +24,15 @@ enum FirebaseAddNewCardServiceError: Error, LocalizedError {
 
 class FirebaseAddNewCardService: FirebaseDatabaseService {
     var ref = Database.database().reference().child("users")
-    func addNewCard(card: Card) -> AnyPublisher<Void, FirebaseAddNewCardServiceError> {
-        return Future { [weak self] promise in
-            guard let weakSelf = self else { return }
+    func addNewCard(card: Card) -> Result<Void, FirebaseAddNewCardServiceError> {
             guard let userID = FirebaseAuthenticationService.getUserID() else {
-                promise(.failure(.userIsNotAvailable))
-                return
+                return .failure(.userIsNotAvailable)
             }
-            let currentRef = weakSelf.ref.child(userID).child("subjects").child(card.subjectID).child("cards").child(card.id)
+            let currentRef = self.ref.child(userID).child("subjects").child(card.subjectID).child("cards").child(card.id)
             guard let dictionary = card.getDictionary() else {
-                promise(.failure(.encodingFormatIsNotValid))
-                return
+                return .failure(.encodingFormatIsNotValid)
             }
             currentRef.setValue(dictionary)
-            promise(.success(()))
-        }
-        .eraseToAnyPublisher()
+        return .success(())
     }
 }

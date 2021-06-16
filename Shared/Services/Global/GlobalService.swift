@@ -19,7 +19,8 @@ final class GlobalService {
     #endif
     
     private var deleteCardImageService = FirebaseDeleteCardImageService()
-    
+    private var firebaseDeleteSubjectImagesService = FirebaseDeleteSubjectImagesService()
+
     #if os(iOS)
     func saveCardImages(frontImage: Data, backImage: Data, card: Card) {
         var cardCopy = card
@@ -36,20 +37,15 @@ final class GlobalService {
                 guard let weakSelf = self else { return }
                 cardCopy.backImageURL = secondCardResult.0
                 cardCopy.frontImageURL = firstCardResult.0
-                weakSelf.addNewCardService.addNewCard(card: cardCopy)
-                    .sink(receiveCompletion: { result in
-                        if case let .failure(error) = result {
-                            print(error)
-                            return
-                        }
-                    },
-                    receiveValue: {})
-                    .store(in: &weakSelf.subsriptions)
+                let result = weakSelf.addNewCardService.addNewCard(card: card)
+                if case let .failure(error) = result {
+                    print(error)
+                }
             })
             .store(in: &subsriptions)
     }
     #endif
-    
+
     func deleteCardImages(with cardID: String, subjectID: String) {
         let deleteFrontImagePublisher = deleteCardImageService.deleteImage(with: "frontImage.png", cardID: cardID, subjectID: subjectID)
         let deleteBackImagePublihser = deleteCardImageService.deleteImage(with: "backImage.png", cardID: cardID, subjectID: subjectID)
@@ -63,5 +59,9 @@ final class GlobalService {
             }, receiveValue: { _ in
             })
             .store(in: &subsriptions)
+    }
+
+    func deleteSubjectImages(with subjectID: String) {
+        firebaseDeleteSubjectImagesService.deleteImages(for: subjectID)
     }
 }

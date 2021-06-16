@@ -45,20 +45,14 @@ class AddNewCardViewModel: ObservableObject {
     }
     
     private func addNew(card: Card) {
-        self.addNewCardService.addNewCard(card: card)
-            .sink(receiveCompletion:{ [weak self] result in
-                guard let weakSelf = self else { return }
-                if case let .failure(error) = result {
-                    weakSelf.alertMessage = error.errorDescription
-                    weakSelf.showingAlert = true
-                    return
-                }
-            },
-            receiveValue: { [weak self] in
-                guard let weakSelf = self else { return }
-                weakSelf.subject.numberOfCards! += 1
-                weakSelf.updateSubjectService.updateNumberOfCards(for: weakSelf.subject)
-            })
-            .store(in: &self.subscriptions)
+        let result = self.addNewCardService.addNewCard(card: card)
+        switch result {
+        case .failure(let error):
+            self.alertMessage = error.errorDescription
+            self.showingAlert = true
+        case .success:
+            self.subject.numberOfCards! += 1
+            self.updateSubjectService.updateNumberOfCards(for: self.subject)
+        }
     }
 }

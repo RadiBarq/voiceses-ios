@@ -20,7 +20,7 @@ class SubjectsSceneViewModel: ObservableObject {
     @Published var showingAlert = false
     @Published var alertMessage = ""
     @Published var showDeleteSubjectAlert = false
-    @Published var selectedSubjectToBeDelete = ""
+    @Published var selectedSubjectIDToBeDelete = ""
     @Published var searchText = "" {
         didSet {
             searchedSubjects = subjects.filter { searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }
@@ -41,7 +41,8 @@ class SubjectsSceneViewModel: ObservableObject {
     }
     
     func deleteSubject() {
-        deleteASubjectService.deleteSubject(with: selectedSubjectToBeDelete)
+        deleteASubjectService.deleteSubject(with: selectedSubjectIDToBeDelete)
+        GlobalService.shared.deleteSubjectImages(with: selectedSubjectIDToBeDelete)
     }
 
     func update(subject: Subject) {

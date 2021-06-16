@@ -58,7 +58,7 @@ struct SubjectsScene: View {
                         ) {
                             SubjectView(subject: .constant(item), deleteAction: {
                                 subjectsSceneViewModel.showDeleteSubjectAlert.toggle()
-                                subjectsSceneViewModel.selectedSubjectToBeDelete = item.id!
+                                subjectsSceneViewModel.selectedSubjectIDToBeDelete = item.id!
                             }, updateSubjectAction: { subject in
                                 subjectsSceneViewModel.update(subject: subject)
                             })

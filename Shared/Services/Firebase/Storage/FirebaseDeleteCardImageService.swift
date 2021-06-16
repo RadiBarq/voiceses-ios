@@ -11,12 +11,12 @@ import Combine
 
 enum FirebaseDeleteACardServiceError: Error, LocalizedError {
     case userIsNotAvailable
-    case deletetionFailed(error: Error)
+    case deletionFailed(error: Error)
     var errorDescription: String? {
         switch self {
         case .userIsNotAvailable:
             return "You are not signed in please try sign out and re-sign in."
-        case .deletetionFailed(let error):
+        case .deletionFailed(let error):
             return error.localizedDescription
         }
     }
@@ -41,7 +41,7 @@ class FirebaseDeleteCardImageService: FirebaseStorageService {
                 .child(id)
                 .delete() { error in
                     guard error == nil else {
-                        promise(.failure(.deletetionFailed(error: error!)))
+                        promise(.failure(.deletionFailed(error: error!)))
                         return
                     }
                     promise(.success(()))

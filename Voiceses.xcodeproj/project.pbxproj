@@ -31,6 +31,8 @@
 		CD30732E263752DC00E4C743 /* AddNewLectureScene_temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30732C263752DC00E4C743 /* AddNewLectureScene_temp.swift */; };
 		CD5FE770267763B00029B23F /* FirebaseDeleteCardImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5FE76F267763B00029B23F /* FirebaseDeleteCardImageService.swift */; };
 		CD5FE771267763B00029B23F /* FirebaseDeleteCardImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5FE76F267763B00029B23F /* FirebaseDeleteCardImageService.swift */; };
+		CD5FE77326778B2F0029B23F /* FirebaseDeleteSubjectImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5FE77226778B2F0029B23F /* FirebaseDeleteSubjectImagesService.swift */; };
+		CD5FE77426778B2F0029B23F /* FirebaseDeleteSubjectImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5FE77226778B2F0029B23F /* FirebaseDeleteSubjectImagesService.swift */; };
 		CD6078F326107FAC00928B20 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6078F226107FAC00928B20 /* SettingsScene.swift */; };
 		CD6078F426107FAC00928B20 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6078F226107FAC00928B20 /* SettingsScene.swift */; };
 		CD6079112610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6079102610873C00928B20 /* AddNewSubjectViewModel.swift */; };
@@ -140,6 +142,7 @@
 		CD3072D22635E73900E4C743 /* FirebaseGetCardsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGetCardsService.swift; sourceTree = "<group>"; };
 		CD30732C263752DC00E4C743 /* AddNewLectureScene_temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLectureScene_temp.swift; sourceTree = "<group>"; };
 		CD5FE76F267763B00029B23F /* FirebaseDeleteCardImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDeleteCardImageService.swift; sourceTree = "<group>"; };
+		CD5FE77226778B2F0029B23F /* FirebaseDeleteSubjectImagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDeleteSubjectImagesService.swift; sourceTree = "<group>"; };
 		CD6078F226107FAC00928B20 /* SettingsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
 		CD6079102610873C00928B20 /* AddNewSubjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSubjectViewModel.swift; sourceTree = "<group>"; };
 		CD607955261096B400928B20 /* FirebaseAddNewSubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAddNewSubjectService.swift; sourceTree = "<group>"; };
@@ -358,6 +361,7 @@
 				CD8F03CB264550B500059C53 /* FirebaseAddNewCardImageFirebaseService.swift */,
 				CD8F03D5264550E600059C53 /* FirebaseStorageService.swift */,
 				CD5FE76F267763B00029B23F /* FirebaseDeleteCardImageService.swift */,
+				CD5FE77226778B2F0029B23F /* FirebaseDeleteSubjectImagesService.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -901,6 +905,7 @@
 				CDD9E03D25FD3D6000E3BF53 /* LoginScene.swift in Sources */,
 				CD8F040B264567BC00059C53 /* Card.swift in Sources */,
 				CDD0B81626063AB3003537A8 /* NavigationItem.swift in Sources */,
+				CD5FE77326778B2F0029B23F /* FirebaseDeleteSubjectImagesService.swift in Sources */,
 				CDFA97802600A4F0006DB5A6 /* HomeScene.swift in Sources */,
 				CD8F03D6264550E600059C53 /* FirebaseStorageService.swift in Sources */,
 				CDD0B80926063A2C003537A8 /* SearchScene.swift in Sources */,
@@ -925,6 +930,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD5FE77426778B2F0029B23F /* FirebaseDeleteSubjectImagesService.swift in Sources */,
 				CD6079EF2610AE5F00928B20 /* UIView+Extension.swift in Sources */,
 				CD6079F62610D2B700928B20 /* Encodable+Extension.swift in Sources */,
 				CD17F1E2262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */,

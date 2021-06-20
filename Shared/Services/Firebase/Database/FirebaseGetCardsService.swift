@@ -22,13 +22,16 @@ enum FirebaseGetCardsServiceError: Error, LocalizedError {
     }
 }
 
-struct FirebaseGetCardsService: FirebaseDatabaseService {
+class FirebaseGetCardsService: FirebaseDatabaseService {
+    let ref: DatabaseReference = Database.database().reference().child("users")
+    
     var cards: AnyPublisher<[Card], FirebaseGetCardsServiceError> {
         self.cardsValueSubject.eraseToAnyPublisher()
     }
     
-    let ref: DatabaseReference = Database.database().reference().child("users")
     private let cardsValueSubject = CurrentValueSubject<[Card], FirebaseGetCardsServiceError>([])
+    
+
     private let subjectID: String
     
     init(subjectID: String) {
@@ -41,16 +44,18 @@ struct FirebaseGetCardsService: FirebaseDatabaseService {
             cardsValueSubject.send(completion: .failure(.userIsNotAvailable))
             return
         }
-        ref.child(userID).child("subjects").child(subjectID).child("cards").queryOrdered(byChild: "timestamp").observe(.value) { snapshot in
+        
+        ref.child(userID).child("subjects").child(subjectID).child("cards").queryOrdered(byChild: "timestamp").observe(.value) { [weak self] snapshot in
+            guard let weakSelf = self else { return }
             var cards = [Card]()
             for child in snapshot.children {
                 guard let snapshot = child as? DataSnapshot, let dict = snapshot.value as? [String: Any], let card = Card(dictionary: dict) else {
-                    cardsValueSubject.send(completion: .failure(.decodingFormatIsNotValid))
+                    weakSelf.cardsValueSubject.send(completion: .failure(.decodingFormatIsNotValid))
                     return
                 }
                 cards.append(card)
             }
-            cardsValueSubject.send(cards)
+            weakSelf.cardsValueSubject.send(cards)
         }
     }
 }

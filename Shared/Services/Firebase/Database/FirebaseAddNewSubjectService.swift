@@ -22,15 +22,15 @@ enum FirebaseAddNewSubjectServiceError: Error, LocalizedError {
     }
 }
 
-struct FirebaseAddNewSubjectService: FirebaseDatabaseService {
+class FirebaseAddNewSubjectService: FirebaseDatabaseService {
     let ref = Database.database().reference().child("users")
     func addNewSubject(subject: Subject) -> AnyPublisher<Void, FirebaseAddNewSubjectServiceError> {
-        return Future { promise in
+        return Future { [weak self] promise in
             guard let userID = FirebaseAuthenticationService.getUserID() else {
                 promise(.failure(.userIsNotAvailable))
                 return
             }
-            let subjectID = self.ref.child("subjects").childByAutoId().key
+            let subjectID = self?.ref.child("subjects").childByAutoId().key
             var subject = subject
             subject.id = subjectID
         
@@ -38,7 +38,7 @@ struct FirebaseAddNewSubjectService: FirebaseDatabaseService {
                 promise(.failure(.encodingFormatIsNotValid))
                 return
             }
-            ref.child(userID).child("subjects").child(subjectID!).setValue(dictionary)
+            self?.ref.child(userID).child("subjects").child(subjectID!).setValue(dictionary)
             promise(.success(()))
         }
         .eraseToAnyPublisher()

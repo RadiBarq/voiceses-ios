@@ -9,11 +9,11 @@ import Foundation
 import Firebase
 import Combine
 
-struct FirebaseAuthenticationService {
+class FirebaseAuthenticationService {
     var isUserLoggedinPublisher: AnyPublisher<Bool, Never> {
         isUserLoggedInSubject.eraseToAnyPublisher()
     }
-    
+
     private var isUserLoggedInSubject = CurrentValueSubject<Bool, Never>(false)
     
     init() {
@@ -26,8 +26,8 @@ struct FirebaseAuthenticationService {
     }
     
     private func startUserStateListener() {
-        Auth.auth().addStateDidChangeListener { (auth, user) in
-            isUserLoggedInSubject.send(user != nil)
+        Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
+            self?.isUserLoggedInSubject.send(user != nil)
         }
     }
 }

@@ -55,6 +55,9 @@ struct CardsScene: View {
                         .shadow(color: Color(hex: cardsSceneViewModel.subject.colorHex).opacity(0.8), radius: 20, x: 0, y: 10)
                         .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
                         .padding()
+                        .onTapGesture {
+                            
+                        }
                     }
                 }
                 .padding()

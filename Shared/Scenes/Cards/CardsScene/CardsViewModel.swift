@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import PencilKit
 
-class CardsSceneViewModel: ObservableObject {
+class CardsViewModel: ObservableObject {
     @Published var cards = [Card]()
     @Published var showingAddNewCardView = false
     @Published var showAddNewSubjectView = false

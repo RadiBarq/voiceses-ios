@@ -6,7 +6,7 @@
 //
 import UIKit
 
-protocol ImageCacheType: AnyObject {
+protocol ImageCacheServiceType: AnyObject {
     func image(for id: String) -> UIImage?
     
     func insert(_ image: UIImage?, for id: String)
@@ -18,7 +18,7 @@ protocol ImageCacheType: AnyObject {
     subscript(_ id: String) -> UIImage? { get set }
 }
 
-final class ImageCache {
+final class ImageCacheService {
     private lazy var imagesCache: NSCache<NSString, UIImage> = {
         let cache = NSCache<NSString, UIImage>()
         cache.countLimit = config.countLimit
@@ -39,7 +39,7 @@ final class ImageCache {
     }
 }
 
-extension ImageCache: ImageCacheType {
+extension ImageCacheService: ImageCacheServiceType {
     func image(for id: String) -> UIImage? {
         lock.lock(); defer { lock.unlock() }
         return imagesCache.object(forKey: id as NSString)

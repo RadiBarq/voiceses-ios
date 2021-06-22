@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SubjectsScene: View {
-    @StateObject private var subjectsSceneViewModel = SubjectsSceneViewModel()
+    @StateObject private var subjectsViewModel = SubjectsViewModel()
     @State var isActiveOnMac = false
     
 #if !os(iOS)
@@ -18,28 +18,28 @@ struct SubjectsScene: View {
     var body: some View {
         content
             .navigationTitle("Subjects")
-            .alert(isPresented: $subjectsSceneViewModel.showingAlert) {
+            .alert(isPresented: $subjectsViewModel.showingAlert) {
                 Alert(title: Text(alertTitle),
-                      message: Text(subjectsSceneViewModel.alertMessage),
+                      message: Text(subjectsViewModel.alertMessage),
                       dismissButton: .default(Text(alertDismissButtonTitle)))
             }
-            .alert(isPresented: $subjectsSceneViewModel.showDeleteSubjectAlert) {
+            .alert(isPresented: $subjectsViewModel.showDeleteSubjectAlert) {
                 Alert(title: Text("Be careful"),
                       message: Text("All lectures of the deleted subject will be removed!"),
                       primaryButton: .destructive(Text("Delete")) {
-                    subjectsSceneViewModel.deleteSubject()
+                    subjectsViewModel.deleteSubject()
                 },
                       secondaryButton: .cancel(Text("Cancel"))
                 )
             }
-            .sheet(isPresented: $subjectsSceneViewModel.showAddNewSubjectView) {
-                AddNewSubjectScene(isPresented: $subjectsSceneViewModel.showAddNewSubjectView)
+            .sheet(isPresented: $subjectsViewModel.showAddNewSubjectView) {
+                AddNewSubjectScene(isPresented: $subjectsViewModel.showAddNewSubjectView)
             }
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
 #if os(iOS)
                     Button(action: {
-                        subjectsSceneViewModel.showAddNewSubjectView.toggle()
+                        subjectsViewModel.showAddNewSubjectView.toggle()
                     }, label: {
                         Image(systemName: "plus.circle")
                     })
@@ -62,17 +62,17 @@ struct SubjectsScene: View {
 #if os(iOS)
         return GeometryReader { geometry in
             ScrollView {
-                SearchBar(placeholder: "Search subjects...", text: $subjectsSceneViewModel.searchText)
+                SearchBar(placeholder: "Search subjects...", text: $subjectsViewModel.searchText)
                     .padding()
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
-                    ForEach(subjectsSceneViewModel.searchedSubjects) { item in
-                        NavigationLink(destination: CardsScene(cardsSceneViewModel: CardsSceneViewModel(subject: item))
+                    ForEach(subjectsViewModel.searchedSubjects) { item in
+                        NavigationLink(destination: CardsScene(cardsViewModel: CardsViewModel(subject: item))
                         ) {
                             SubjectView(subject: .constant(item), deleteAction: {
-                                subjectsSceneViewModel.showDeleteSubjectAlert.toggle()
-                                subjectsSceneViewModel.selectedSubjectIDToBeDelete = item.id!
+                                subjectsViewModel.showDeleteSubjectAlert.toggle()
+                                subjectsViewModel.selectedSubjectIDToBeDelete = item.id!
                             }, updateSubjectAction: { subject in
-                                subjectsSceneViewModel.update(subject: subject)
+                                subjectsViewModel.update(subject: subject)
                             })
                                 .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
                        .padding()

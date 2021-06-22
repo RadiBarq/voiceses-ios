@@ -15,7 +15,7 @@ final class GlobalService {
     #if os(iOS)
     private var addNewCardImageService = FirebaseAddNewCardImageFirebaseService()
     private let addNewCardService = FirebaseAddNewCardService()
-    let imageCache = ImageCache()
+    let imageCache: ImageCacheServiceType = ImageCacheService()
     #endif
     
     private var deleteCardImageService = FirebaseDeleteCardImageService()

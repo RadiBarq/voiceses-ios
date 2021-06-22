@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CardsScene: View {
-    @ObservedObject var cardsSceneViewModel: CardsSceneViewModel
+    @ObservedObject var cardsViewModel: CardsViewModel
     #if !os(iOS)
     @Binding var isPresented: Bool
     #endif
@@ -18,15 +18,15 @@ struct CardsScene: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button(action: {
-                        cardsSceneViewModel.showingAddNewCardView.toggle()
+                        cardsViewModel.showingAddNewCardView.toggle()
                     }, label: {
                         Image(systemName: "plus.circle")
                     })
                 }
             }
-            .navigationTitle(cardsSceneViewModel.title)
-            .fullScreenCover(isPresented: $cardsSceneViewModel.showingAddNewCardView) {
-                AddNewCardScene(isPresented: $cardsSceneViewModel.showingAddNewCardView, addNewCardViewModel: AddNewCardViewModel(subject: cardsSceneViewModel.subject))
+            .navigationTitle(cardsViewModel.title)
+            .fullScreenCover(isPresented: $cardsViewModel.showingAddNewCardView) {
+                AddNewCardScene(isPresented: $cardsViewModel.showingAddNewCardView, addNewCardViewModel: AddNewCardViewModel(subject: cardsViewModel.subject))
             }
         #else
             content
@@ -39,7 +39,7 @@ struct CardsScene: View {
                     })
                 }
             }
-            .navigationTitle(cardsSceneViewModel.title)
+            .navigationTitle(cardsViewModel.title)
         #endif
     }
     
@@ -48,11 +48,11 @@ struct CardsScene: View {
         return GeometryReader { geometry in
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
-                    ForEach(cardsSceneViewModel.cards) { card in
+                    ForEach(cardsViewModel.cards) { card in
                         CardView(card: .constant(card)) {
-                            cardsSceneViewModel.deleteCard(with: card.id)
+                            cardsViewModel.deleteCard(with: card.id)
                         }
-                        .shadow(color: Color(hex: cardsSceneViewModel.subject.colorHex).opacity(0.8), radius: 20, x: 0, y: 10)
+                        .shadow(color: Color(hex: cardsViewModel.subject.colorHex).opacity(0.8), radius: 20, x: 0, y: 10)
                         .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
                         .padding()
                         .onTapGesture {
@@ -70,11 +70,11 @@ struct CardsScene: View {
             GeometryReader { geometry in
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
-                        ForEach(cardsSceneViewModel.cards) { card in
+                        ForEach(cardsViewModel.cards) { card in
                             CardView(card: .constant(card)) {
-                                cardsSceneViewModel.deleteCard(with: card.id)
+                                cardsViewModel.deleteCard(with: card.id)
                             }
-                            .shadow(color: Color(hex: cardsSceneViewModel.subject.colorHex).opacity(0.8), radius: 20, x: 0, y: 10)
+                            .shadow(color: Color(hex: cardsViewModel.subject.colorHex).opacity(0.8), radius: 20, x: 0, y: 10)
                             .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
                             .padding()
                         }
@@ -89,9 +89,9 @@ struct CardsScene: View {
 
 struct CardsScene_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = CardsSceneViewModel(subject: testSubjects[0])
+        let viewModel = CardsViewModel(subject: testSubjects[0])
         #if os(iOS)
-            return CardsScene(cardsSceneViewModel: viewModel)
+            return CardsScene(cardsViewModel: viewModel)
         #else
             return CardsScene(cardsSceneViewModel: viewModel, isPresented: .constant(false))
         #endif

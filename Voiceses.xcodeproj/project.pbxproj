@@ -29,8 +29,8 @@
 		CD28F98B264FEE3700D87DDC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD28F989264FEE3700D87DDC /* CardView.swift */; };
 		CD28F9BA2650496800D87DDC /* FirebaseDeleteACardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD28F9B92650496800D87DDC /* FirebaseDeleteACardService.swift */; };
 		CD28F9BB2650496800D87DDC /* FirebaseDeleteACardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD28F9B92650496800D87DDC /* FirebaseDeleteACardService.swift */; };
-		CD3072CC2635E62A00E4C743 /* CardsSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3072CB2635E62A00E4C743 /* CardsSceneViewModel.swift */; };
-		CD3072CD2635E62A00E4C743 /* CardsSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3072CB2635E62A00E4C743 /* CardsSceneViewModel.swift */; };
+		CD3072CC2635E62A00E4C743 /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3072CB2635E62A00E4C743 /* CardsViewModel.swift */; };
+		CD3072CD2635E62A00E4C743 /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3072CB2635E62A00E4C743 /* CardsViewModel.swift */; };
 		CD3072D32635E73900E4C743 /* FirebaseGetCardsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3072D22635E73900E4C743 /* FirebaseGetCardsService.swift */; };
 		CD3072D42635E73900E4C743 /* FirebaseGetCardsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3072D22635E73900E4C743 /* FirebaseGetCardsService.swift */; };
 		CD30732D263752DC00E4C743 /* AddNewLectureScene_temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30732C263752DC00E4C743 /* AddNewLectureScene_temp.swift */; };
@@ -98,13 +98,13 @@
 		CDEE1DB9260DDE72005F6D07 /* AddNewSubjectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DB7260DDE72005F6D07 /* AddNewSubjectScene.swift */; };
 		CDF1C1C72664F228002BF9E4 /* GlobalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1C1C62664F228002BF9E4 /* GlobalService.swift */; };
 		CDF1C1C82664F228002BF9E4 /* GlobalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1C1C62664F228002BF9E4 /* GlobalService.swift */; };
-		CDF1C1D32664F92A002BF9E4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1C1D22664F92A002BF9E4 /* ImageCache.swift */; };
+		CDF1C1D32664F92A002BF9E4 /* ImageCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1C1D22664F92A002BF9E4 /* ImageCacheService.swift */; };
 		CDF1C208266699F8002BF9E4 /* CardSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1C207266699F8002BF9E4 /* CardSide.swift */; };
 		CDF1C21126669A05002BF9E4 /* CardSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1C207266699F8002BF9E4 /* CardSide.swift */; };
 		CDF24DCD2618BB9100CC866F /* LunchWindowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DCC2618BB9100CC866F /* LunchWindowViewModel.swift */; };
 		CDF24DCE2618BB9100CC866F /* LunchWindowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DCC2618BB9100CC866F /* LunchWindowViewModel.swift */; };
-		CDF24DF52618C67500CC866F /* SubjectsSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DF42618C67500CC866F /* SubjectsSceneViewModel.swift */; };
-		CDF24DF62618C67500CC866F /* SubjectsSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DF42618C67500CC866F /* SubjectsSceneViewModel.swift */; };
+		CDF24DF52618C67500CC866F /* SubjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DF42618C67500CC866F /* SubjectsViewModel.swift */; };
+		CDF24DF62618C67500CC866F /* SubjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DF42618C67500CC866F /* SubjectsViewModel.swift */; };
 		CDF24DFC2618C97200CC866F /* FirebaseGetSubjectsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DFB2618C97200CC866F /* FirebaseGetSubjectsService.swift */; };
 		CDF24DFD2618C97200CC866F /* FirebaseGetSubjectsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DFB2618C97200CC866F /* FirebaseGetSubjectsService.swift */; };
 		CDFA97802600A4F0006DB5A6 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFA977F2600A4F0006DB5A6 /* HomeScene.swift */; };
@@ -146,7 +146,7 @@
 		CD28F97E264FD28600D87DDC /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		CD28F989264FEE3700D87DDC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		CD28F9B92650496800D87DDC /* FirebaseDeleteACardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDeleteACardService.swift; sourceTree = "<group>"; };
-		CD3072CB2635E62A00E4C743 /* CardsSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsSceneViewModel.swift; sourceTree = "<group>"; };
+		CD3072CB2635E62A00E4C743 /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
 		CD3072D22635E73900E4C743 /* FirebaseGetCardsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGetCardsService.swift; sourceTree = "<group>"; };
 		CD30732C263752DC00E4C743 /* AddNewLectureScene_temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLectureScene_temp.swift; sourceTree = "<group>"; };
 		CD5FE76F267763B00029B23F /* FirebaseDeleteCardImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDeleteCardImageService.swift; sourceTree = "<group>"; };
@@ -194,10 +194,10 @@
 		CDEE1DA6260DDD31005F6D07 /* Colors+Extenison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Extenison.swift"; sourceTree = "<group>"; };
 		CDEE1DB7260DDE72005F6D07 /* AddNewSubjectScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSubjectScene.swift; sourceTree = "<group>"; };
 		CDF1C1C62664F228002BF9E4 /* GlobalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalService.swift; sourceTree = "<group>"; };
-		CDF1C1D22664F92A002BF9E4 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		CDF1C1D22664F92A002BF9E4 /* ImageCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheService.swift; sourceTree = "<group>"; };
 		CDF1C207266699F8002BF9E4 /* CardSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSide.swift; sourceTree = "<group>"; };
 		CDF24DCC2618BB9100CC866F /* LunchWindowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchWindowViewModel.swift; sourceTree = "<group>"; };
-		CDF24DF42618C67500CC866F /* SubjectsSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsSceneViewModel.swift; sourceTree = "<group>"; };
+		CDF24DF42618C67500CC866F /* SubjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsViewModel.swift; sourceTree = "<group>"; };
 		CDF24DFB2618C97200CC866F /* FirebaseGetSubjectsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGetSubjectsService.swift; sourceTree = "<group>"; };
 		CDFA977F2600A4F0006DB5A6 /* HomeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
 		CDFA979E2600A821006DB5A6 /* SideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
@@ -293,7 +293,7 @@
 		CD30730B2637476500E4C743 /* CardsScene */ = {
 			isa = PBXGroup;
 			children = (
-				CD3072CB2635E62A00E4C743 /* CardsSceneViewModel.swift */,
+				CD3072CB2635E62A00E4C743 /* CardsViewModel.swift */,
 				CDD0B80E26063A38003537A8 /* CardsScene.swift */,
 				CD28F989264FEE3700D87DDC /* CardView.swift */,
 			);
@@ -595,7 +595,7 @@
 			children = (
 				CD0BB30C260B255F00CD0A03 /* Views */,
 				CDD0B7F9260638DE003537A8 /* SubjectsScene.swift */,
-				CDF24DF42618C67500CC866F /* SubjectsSceneViewModel.swift */,
+				CDF24DF42618C67500CC866F /* SubjectsViewModel.swift */,
 			);
 			path = SubjectsScene;
 			sourceTree = "<group>";
@@ -620,7 +620,7 @@
 		CDF1C1D12664F912002BF9E4 /* ImageCaching */ = {
 			isa = PBXGroup;
 			children = (
-				CDF1C1D22664F92A002BF9E4 /* ImageCache.swift */,
+				CDF1C1D22664F92A002BF9E4 /* ImageCacheService.swift */,
 			);
 			path = ImageCaching;
 			sourceTree = "<group>";
@@ -900,7 +900,7 @@
 				CD17F1E1262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */,
 				CDCF580D266C0B4100D4BCDF /* iOSCustomTextView.swift in Sources */,
 				CD60795E2610974B00928B20 /* FirebaseDatabaseService.swift in Sources */,
-				CDF24DF52618C67500CC866F /* SubjectsSceneViewModel.swift in Sources */,
+				CDF24DF52618C67500CC866F /* SubjectsViewModel.swift in Sources */,
 				CD96753C26066F260067FCC5 /* Subject.swift in Sources */,
 				CD607956261096B400928B20 /* FirebaseAddNewSubjectService.swift in Sources */,
 				CDF1C1C72664F228002BF9E4 /* GlobalService.swift in Sources */,
@@ -913,7 +913,7 @@
 				CDEE1DA7260DDD31005F6D07 /* Colors+Extenison.swift in Sources */,
 				CD28F98A264FEE3700D87DDC /* CardView.swift in Sources */,
 				CDD9E05425FE2C0600E3BF53 /* LoginViewModel.swift in Sources */,
-				CDF1C1D32664F92A002BF9E4 /* ImageCache.swift in Sources */,
+				CDF1C1D32664F92A002BF9E4 /* ImageCacheService.swift in Sources */,
 				CD00F717267A6A1000475016 /* ViewCardScene.swift in Sources */,
 				CD28F978264FD15F00D87DDC /* DateFormatter+Extension.swift in Sources */,
 				CD3072D32635E73900E4C743 /* FirebaseGetCardsService.swift in Sources */,
@@ -934,7 +934,7 @@
 				CD00F71A267A703D00475016 /* ViewCardViewModel.swift in Sources */,
 				CD6079112610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */,
 				CD6078F326107FAC00928B20 /* SettingsScene.swift in Sources */,
-				CD3072CC2635E62A00E4C743 /* CardsSceneViewModel.swift in Sources */,
+				CD3072CC2635E62A00E4C743 /* CardsViewModel.swift in Sources */,
 				CD17F248262B4F1100C2C903 /* SearchBar.swift in Sources */,
 				CDF24DCD2618BB9100CC866F /* LunchWindowViewModel.swift in Sources */,
 				CD28F9BA2650496800D87DDC /* FirebaseDeleteACardService.swift in Sources */,
@@ -957,7 +957,7 @@
 				CD6079F62610D2B700928B20 /* Encodable+Extension.swift in Sources */,
 				CD17F1E2262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */,
 				CD96753D26066F260067FCC5 /* Subject.swift in Sources */,
-				CDF24DF62618C67500CC866F /* SubjectsSceneViewModel.swift in Sources */,
+				CDF24DF62618C67500CC866F /* SubjectsViewModel.swift in Sources */,
 				CD28F9BB2650496800D87DDC /* FirebaseDeleteACardService.swift in Sources */,
 				CD96752726065E460067FCC5 /* SearchScene.swift in Sources */,
 				CDFA97A02600A821006DB5A6 /* SideBar.swift in Sources */,
@@ -987,7 +987,7 @@
 				CD6079122610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */,
 				CD00F718267A6A1000475016 /* ViewCardScene.swift in Sources */,
 				CD6078F426107FAC00928B20 /* SettingsScene.swift in Sources */,
-				CD3072CD2635E62A00E4C743 /* CardsSceneViewModel.swift in Sources */,
+				CD3072CD2635E62A00E4C743 /* CardsViewModel.swift in Sources */,
 				CD17F249262B4F1100C2C903 /* SearchBar.swift in Sources */,
 				CDF24DCE2618BB9100CC866F /* LunchWindowViewModel.swift in Sources */,
 				CDD9E03E25FD3D6000E3BF53 /* LoginScene.swift in Sources */,

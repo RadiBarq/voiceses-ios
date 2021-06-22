@@ -19,11 +19,9 @@ class CardsSceneViewModel: ObservableObject {
     private var getCardsService: FirebaseGetCardsService
     private var deleteCardService: FirebaseDeleteACardService
     private var updateSubjectService: FirebaseUpdateSubjectService
-    
     var title: String {
         subject.title
     }
-    
     var subject: Subject
     
     init(subject: Subject) {
@@ -42,13 +40,13 @@ class CardsSceneViewModel: ObservableObject {
     }
     private func startListenToGetCardsService() {
         getCardsService
-            .cards
+            .cards?
             .replaceError(with: [])
             .assign(to: \.cards, on: self)
             .store(in: &subscriptions)
 
         getCardsService
-            .cards
+            .cards?
             .ignoreOutput()
             .sink(receiveCompletion: { [weak self] result in
                 guard let weakSelf = self else { return }
@@ -57,7 +55,7 @@ class CardsSceneViewModel: ObservableObject {
                     weakSelf.showingAlert = true
                     return
                 }
-            }, receiveValue: {_ in })
+            }, receiveValue: { _ in })
             .store(in: &subscriptions)
     }
 }

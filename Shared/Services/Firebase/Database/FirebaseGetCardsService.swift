@@ -24,38 +24,53 @@ enum FirebaseGetCardsServiceError: Error, LocalizedError {
 
 class FirebaseGetCardsService: FirebaseDatabaseService {
     let ref: DatabaseReference = Database.database().reference().child("users")
-    
-    var cards: AnyPublisher<[Card], FirebaseGetCardsServiceError> {
-        self.cardsValueSubject.eraseToAnyPublisher()
-    }
-    
-    private let cardsValueSubject = CurrentValueSubject<[Card], FirebaseGetCardsServiceError>([])
-    
-
+    var cards: AnyPublisher<[Card], FirebaseGetCardsServiceError>?
     private let subjectID: String
+    private var cardsSubject: PassthroughSubject<[Card], FirebaseGetCardsServiceError>
     
     init(subjectID: String) {
         self.subjectID = subjectID
-        startListenToDataChange()
+        self.cardsSubject = PassthroughSubject<[Card], FirebaseGetCardsServiceError>()
+        self.setupSubjects()
     }
     
-    private func startListenToDataChange() {
-        guard let userID = FirebaseAuthenticationService.getUserID() else {
-            cardsValueSubject.send(completion: .failure(.userIsNotAvailable))
-            return
-        }
-        
-        ref.child(userID).child("subjects").child(subjectID).child("cards").queryOrdered(byChild: "timestamp").observe(.value) { [weak self] snapshot in
+    private func setupSubjects() {
+        var handle: DatabaseHandle?
+        var cardsRef: DatabaseReference?
+        cards = cardsSubject.handleEvents(receiveSubscription: { [weak self] _ in
             guard let weakSelf = self else { return }
-            var cards = [Card]()
-            for child in snapshot.children {
-                guard let snapshot = child as? DataSnapshot, let dict = snapshot.value as? [String: Any], let card = Card(dictionary: dict) else {
-                    weakSelf.cardsValueSubject.send(completion: .failure(.decodingFormatIsNotValid))
-                    return
-                }
-                cards.append(card)
+            guard let userID = FirebaseAuthenticationService.getUserID() else {
+                weakSelf.cardsSubject.send(completion: .failure(.userIsNotAvailable))
+                return
             }
-            weakSelf.cardsValueSubject.send(cards)
+            cardsRef = weakSelf.ref
+                .child(userID)
+                .child("subjects")
+                .child(weakSelf.subjectID)
+                .child("cards")
+            handle =
+            cardsRef?.queryOrdered(byChild: "timestamp")
+                .observe(.value) { [weak weakSelf] snapshot in
+                    weakSelf?.setupCards(with: snapshot)
+                }
+        }, receiveCancel: {
+            guard let handle = handle, let cardsRef = cardsRef else { return }
+            cardsRef.removeObserver(withHandle: handle)
+        })
+            .eraseToAnyPublisher()
+    }
+    
+    private func setupCards(with snapshot: DataSnapshot) {
+        var cards = [Card]()
+        for child in snapshot.children {
+            guard let snapshot = child as? DataSnapshot,
+                  let dict = snapshot.value as? [String: Any],
+                  let card = Card(dictionary: dict) else {
+                      cardsSubject.send(completion: .failure(.decodingFormatIsNotValid))
+                      return
+                  }
+            cards.append(card)
         }
+        cardsSubject.send(cards)
     }
 }

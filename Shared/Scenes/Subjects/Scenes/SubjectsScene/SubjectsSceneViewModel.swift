@@ -52,12 +52,12 @@ class SubjectsSceneViewModel: ObservableObject {
     
     private func startListenToGetSubjectsService() {
         getSubjectsService
-            .subjects
+            .subjects?
             .replaceError(with: [])
             .assign(to: \.subjects, on: self)
             .store(in: &subscriptions)
         getSubjectsService
-            .subjects
+            .subjects?
             .ignoreOutput()
             .sink(receiveCompletion: { [weak self] result in
                 guard let weakSelf = self else { return }
@@ -66,7 +66,7 @@ class SubjectsSceneViewModel: ObservableObject {
                     weakSelf.showingAlert = true
                     return
                 }
-            }, receiveValue: {_ in })
+            }, receiveValue: { _ in })
             .store(in: &subscriptions)
     }
 }

@@ -9,11 +9,13 @@ import SwiftUI
 
 struct CardsScene: View {
     @ObservedObject var cardsViewModel: CardsViewModel
-    #if !os(iOS)
+#if !os(iOS)
     @Binding var isPresented: Bool
-    #endif
+    @State private var currentSelectedCard: Card?
+    @State private var displayCardScenePushed: Bool = false
+#endif
     var body: some View {
-        #if os(iOS)
+#if os(iOS)
         content
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
@@ -23,13 +25,15 @@ struct CardsScene: View {
                         Image(systemName: "plus.circle")
                     })
                 }
+                
+                
             }
             .navigationTitle(cardsViewModel.title)
             .fullScreenCover(isPresented: $cardsViewModel.showingAddNewCardView) {
                 AddNewCardScene(isPresented: $cardsViewModel.showingAddNewCardView, addNewCardViewModel: AddNewCardViewModel(subject: cardsViewModel.subject))
             }
-        #else
-            content
+#else
+        content
             .toolbar {
                 ToolbarItem(placement: .navigation) {
                     Button(action: {
@@ -40,37 +44,16 @@ struct CardsScene: View {
                 }
             }
             .navigationTitle(cardsViewModel.title)
-        #endif
+#endif
     }
     
     private var content: some View {
-        #if os(iOS)
+#if os(iOS)
         return GeometryReader { geometry in
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
                     ForEach(cardsViewModel.cards) { card in
-                        CardView(card: .constant(card)) {
-                            cardsViewModel.deleteCard(with: card.id)
-                        }
-                        .shadow(color: Color(hex: cardsViewModel.subject.colorHex).opacity(0.8), radius: 20, x: 0, y: 10)
-                        .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
-                        .padding()
-                        .onTapGesture {
-                            
-                        }
-                    }
-                }
-                .padding()
-                .animation(.easeInOut(duration: 0.5))
-            }
-        }
-
-        #else
-        return
-            GeometryReader { geometry in
-                ScrollView {
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
-                        ForEach(cardsViewModel.cards) { card in
+                        NavigationLink(destination: DisplayCardScene(displayCardViewModel: DisplayCardViewModel(subject: cardsViewModel.subject, card: card))) {
                             CardView(card: .constant(card)) {
                                 cardsViewModel.deleteCard(with: card.id)
                             }
@@ -79,21 +62,53 @@ struct CardsScene: View {
                             .padding()
                         }
                     }
-                    .padding()
-                    .animation(.easeInOut(duration: 0.5))
                 }
+                .padding()
+                .animation(.easeInOut(duration: 0.5))
             }
-        #endif
+        }
+#else
+        GeometryReader { geometry in
+            if !displayCardScenePushed {
+                ScrollView {
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
+                        ForEach(cardsViewModel.cards) { card in
+                            CardView(card: .constant(card)) {
+                                cardsViewModel.deleteCard(with: card.id)
+                                
+                            }
+                            .shadow(color: Color(hex: cardsViewModel.subject.colorHex).opacity(0.8), radius: 20, x: 0, y: 10)
+                            .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
+                            .padding()
+                            .onTapGesture {
+                                displayCardScenePushed = true
+                                currentSelectedCard = card
+                            }
+                            .animation(.easeInOut(duration: 0.5))
+                        }
+                    }
+                    .padding()
+                    
+                }
+                .transition(.move(edge: .leading)).animation(.default)
+            }
+            if displayCardScenePushed {
+                DisplayCardScene(isPresented: $displayCardScenePushed, displayCardViewModel: DisplayCardViewModel(subject: cardsViewModel.subject, card: currentSelectedCard!))
+                    .transition(.move(edge: .trailing))
+                    .animation(.default)
+            }
+        }
+#endif
     }
 }
 
 struct CardsScene_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = CardsViewModel(subject: testSubjects[0])
-        #if os(iOS)
-            return CardsScene(cardsViewModel: viewModel)
-        #else
-            return CardsScene(cardsSceneViewModel: viewModel, isPresented: .constant(false))
-        #endif
+#if os(iOS)
+        return CardsScene(cardsViewModel: viewModel)
+#else
+        return CardsScene(cardsViewModel: viewModel, isPresented: .constant(false))
+#endif
     }
 }

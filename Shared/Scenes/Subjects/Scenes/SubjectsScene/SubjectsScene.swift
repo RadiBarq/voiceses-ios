@@ -10,7 +10,6 @@ import SwiftUI
 struct SubjectsScene: View {
     @StateObject private var subjectsViewModel = SubjectsViewModel()
     @State var isActiveOnMac = false
-    
 #if !os(iOS)
     @State private var currentSelectedSubject: Subject?
     @State private var cardsScenePushed: Bool = false
@@ -46,7 +45,7 @@ struct SubjectsScene: View {
 #else
                     if !cardsScenePushed {
                         Button(action: {
-                            subjectsSceneViewModel.showAddNewSubjectView.toggle()
+                            subjectsViewModel.showAddNewSubjectView.toggle()
                         }, label: {
                             Image(systemName: "plus.circle")
                         })
@@ -70,7 +69,7 @@ struct SubjectsScene: View {
                         ) {
                             SubjectView(subject: .constant(item), deleteAction: {
                                 subjectsViewModel.showDeleteSubjectAlert.toggle()
-                                subjectsViewModel.selectedSubjectIDToBeDelete = item.id!
+                                subjectsViewModel.selectedSubjectIDToBeDeleted = item.id!
                             }, updateSubjectAction: { subject in
                                 subjectsViewModel.update(subject: subject)
                             })
@@ -87,15 +86,15 @@ struct SubjectsScene: View {
         return GeometryReader { geometry in
             if !cardsScenePushed {
                 ScrollView {
-                    SearchBar(placeholder: "Search subjects...", text: $subjectsSceneViewModel.searchText)
+                    SearchBar(placeholder: "Search subjects...", text: $subjectsViewModel.searchText)
                         .padding()
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 3), spacing: 16)]) {
-                        ForEach(subjectsSceneViewModel.searchedSubjects) { item in
+                        ForEach(subjectsViewModel.searchedSubjects) { item in
                             SubjectView(subject: .constant(item), deleteAction: {
-                                subjectsSceneViewModel.showDeleteSubjectAlert.toggle()
-                                subjectsSceneViewModel.selectedSubjectIDToBeDelete = item.id!
+                                subjectsViewModel.showDeleteSubjectAlert.toggle()
+                                subjectsViewModel.selectedSubjectIDToBeDeleted = item.id!
                             }, updateSubjectAction: { subject in
-                                subjectsSceneViewModel.update(subject: subject)
+                                subjectsViewModel.update(subject: subject)
                             })
                                 .frame(minWidth: geometry.size.width / 3, minHeight: geometry.size.height / 3)
                                 .padding()
@@ -111,7 +110,7 @@ struct SubjectsScene: View {
                 .transition(.move(edge: .leading)).animation(.default)
             }
             if cardsScenePushed {
-                CardsScene(cardsSceneViewModel: CardsSceneViewModel(subject: currentSelectedSubject!), isPresented: $cardsScenePushed)
+                CardsScene(cardsViewModel:  CardsViewModel(subject: currentSelectedSubject!), isPresented: $cardsScenePushed)
                     .transition(.move(edge: .trailing))
                     .animation(.default)
             }
@@ -119,6 +118,7 @@ struct SubjectsScene: View {
 #endif
     }
 }
+
 struct SubjectsScene_Previews: PreviewProvider {
     static var previews: some View {
         SubjectsScene()

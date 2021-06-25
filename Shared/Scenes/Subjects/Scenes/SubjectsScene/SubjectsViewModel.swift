@@ -21,7 +21,7 @@ class SubjectsViewModel: ObservableObject {
     @Published var showingAlert = false
     @Published var alertMessage = ""
     @Published var showDeleteSubjectAlert = false
-    @Published var selectedSubjectIDToBeDelete = ""
+    @Published var selectedSubjectIDToBeDeleted = ""
     @Published var searchText = "" {
         didSet {
             searchedSubjects = subjects.filter { searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }
@@ -42,8 +42,8 @@ class SubjectsViewModel: ObservableObject {
     }
     
     func deleteSubject() {
-        deleteASubjectService.deleteSubject(with: selectedSubjectIDToBeDelete)
-        GlobalService.shared.deleteSubjectImages(with: selectedSubjectIDToBeDelete)
+        deleteASubjectService.deleteSubject(with: selectedSubjectIDToBeDeleted)
+        GlobalService.shared.deleteSubjectImages(with: selectedSubjectIDToBeDeleted)
     }
 
     func update(subject: Subject) {

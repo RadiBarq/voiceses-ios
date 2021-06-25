@@ -9,19 +9,15 @@ import Foundation
 import SwiftUI
 import Combine
 
-class ViewCardViewModel: ObservableObject {
-    private var subject: Subject
-    private var card: Card
-    
+class DisplayCardViewModel: ObservableObject {
+    @Published var cardSide: CardSide = .front
     var parentColor: Color {
         Color(hex: subject.colorHex)
     }
-
+    var card: Card
+    private var subject: Subject
     init(subject: Subject, card: Card) {
         self.subject = subject
         self.card = card
     }
-    
-    
-    
 }

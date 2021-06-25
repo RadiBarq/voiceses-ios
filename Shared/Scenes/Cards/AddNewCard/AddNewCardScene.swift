@@ -52,7 +52,6 @@ struct AddNewCardScene: View {
                 }
             }
             .rotation3DEffect(addNewCardViewModel.cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
-            
         }
         .accentColor(Color.accent)
         .animation(.linear(duration: 0.5))
@@ -68,26 +67,5 @@ struct AddNewCardScene_Previews: PreviewProvider {
     @State static var isPresented = false
     static var previews: some View {
         AddNewCardScene(isPresented: $isPresented, addNewCardViewModel: AddNewCardViewModel(subject: testSubjects[0]))
-    }
-}
-
-struct DrawingCanvas: UIViewRepresentable {
-    var canvasView: PKCanvasView
-    static var picker = PKToolPicker()
-    
-    func makeUIView(context: Context) -> PKCanvasView {
-        self.canvasView.tool = PKInkingTool(.pen, color: .black, width: 15)
-        self.canvasView.drawingPolicy = .anyInput
-        self.canvasView.becomeFirstResponder()
-        self.canvasView.backgroundColor = .white
-        return canvasView
-    }
-    
-    func updateUIView(_ uiView: PKCanvasView, context: Context) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            DrawingCanvas.picker.addObserver(canvasView)
-            DrawingCanvas.picker.setVisible(true, forFirstResponder: uiView)
-            uiView.becomeFirstResponder()
-         }
     }
 }

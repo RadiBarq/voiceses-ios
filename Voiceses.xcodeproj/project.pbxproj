@@ -11,16 +11,17 @@
 		B7B11286030D6ECFA15E6B17 /* Pods_Voiceses__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40106E9917A7D79C82DB5B3E /* Pods_Voiceses__macOS_.framework */; };
 		CD00F70E267A0CB500475016 /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8F03D5264550E600059C53 /* FirebaseStorageService.swift */; };
 		CD00F714267A685A00475016 /* MacOSCustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F713267A685A00475016 /* MacOSCustomTextView.swift */; };
-		CD00F717267A6A1000475016 /* ViewCardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F716267A6A1000475016 /* ViewCardScene.swift */; };
-		CD00F718267A6A1000475016 /* ViewCardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F716267A6A1000475016 /* ViewCardScene.swift */; };
-		CD00F71A267A703D00475016 /* ViewCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F719267A703D00475016 /* ViewCardViewModel.swift */; };
-		CD00F71B267A703D00475016 /* ViewCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F719267A703D00475016 /* ViewCardViewModel.swift */; };
+		CD00F717267A6A1000475016 /* DisplayCardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F716267A6A1000475016 /* DisplayCardScene.swift */; };
+		CD00F718267A6A1000475016 /* DisplayCardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F716267A6A1000475016 /* DisplayCardScene.swift */; };
+		CD00F71A267A703D00475016 /* DisplayCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F719267A703D00475016 /* DisplayCardViewModel.swift */; };
+		CD00F71B267A703D00475016 /* DisplayCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F719267A703D00475016 /* DisplayCardViewModel.swift */; };
 		CD0BB30E260B259200CD0A03 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0BB30D260B259200CD0A03 /* SubjectView.swift */; };
 		CD0BB30F260B259200CD0A03 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0BB30D260B259200CD0A03 /* SubjectView.swift */; };
 		CD17F1E1262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */; };
 		CD17F1E2262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */; };
 		CD17F248262B4F1100C2C903 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17F247262B4F1100C2C903 /* SearchBar.swift */; };
 		CD17F249262B4F1100C2C903 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17F247262B4F1100C2C903 /* SearchBar.swift */; };
+		CD1A804826821B77003F78C0 /* DrawingCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1A804726821B77003F78C0 /* DrawingCanvas.swift */; };
 		CD28F978264FD15F00D87DDC /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD28F977264FD15F00D87DDC /* DateFormatter+Extension.swift */; };
 		CD28F979264FD15F00D87DDC /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD28F977264FD15F00D87DDC /* DateFormatter+Extension.swift */; };
 		CD28F97F264FD28600D87DDC /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD28F97E264FD28600D87DDC /* Date+Extension.swift */; };
@@ -137,11 +138,12 @@
 		A73E14C250082A6482EC8E87 /* Pods_Voiceses__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Voiceses__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B322BFA62899C9BEE5F20A85 /* Pods-Voiceses (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voiceses (iOS).release.xcconfig"; path = "Target Support Files/Pods-Voiceses (iOS)/Pods-Voiceses (iOS).release.xcconfig"; sourceTree = "<group>"; };
 		CD00F713267A685A00475016 /* MacOSCustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOSCustomTextView.swift; sourceTree = "<group>"; };
-		CD00F716267A6A1000475016 /* ViewCardScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCardScene.swift; sourceTree = "<group>"; };
-		CD00F719267A703D00475016 /* ViewCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCardViewModel.swift; sourceTree = "<group>"; };
+		CD00F716267A6A1000475016 /* DisplayCardScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCardScene.swift; sourceTree = "<group>"; };
+		CD00F719267A703D00475016 /* DisplayCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCardViewModel.swift; sourceTree = "<group>"; };
 		CD0BB30D260B259200CD0A03 /* SubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectView.swift; sourceTree = "<group>"; };
 		CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDeleteASubjectService.swift; sourceTree = "<group>"; };
 		CD17F247262B4F1100C2C903 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		CD1A804726821B77003F78C0 /* DrawingCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCanvas.swift; sourceTree = "<group>"; };
 		CD28F977264FD15F00D87DDC /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		CD28F97E264FD28600D87DDC /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		CD28F989264FEE3700D87DDC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -251,8 +253,8 @@
 		CD00F715267A69F000475016 /* ViewCardScene */ = {
 			isa = PBXGroup;
 			children = (
-				CD00F716267A6A1000475016 /* ViewCardScene.swift */,
-				CD00F719267A703D00475016 /* ViewCardViewModel.swift */,
+				CD00F716267A6A1000475016 /* DisplayCardScene.swift */,
+				CD00F719267A703D00475016 /* DisplayCardViewModel.swift */,
 			);
 			path = ViewCardScene;
 			sourceTree = "<group>";
@@ -280,6 +282,14 @@
 				CD17F247262B4F1100C2C903 /* SearchBar.swift */,
 			);
 			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		CD1A804626821B68003F78C0 /* DrawingCanvas */ = {
+			isa = PBXGroup;
+			children = (
+				CD1A804726821B77003F78C0 /* DrawingCanvas.swift */,
+			);
+			path = DrawingCanvas;
 			sourceTree = "<group>";
 		};
 		CD30730A2637474A00E4C743 /* AddNewLectureScene_temp */ = {
@@ -548,6 +558,7 @@
 		CDD9E04425FD583700E3BF53 /* GeneralViews */ = {
 			isa = PBXGroup;
 			children = (
+				CD1A804626821B68003F78C0 /* DrawingCanvas */,
 				CDCF580B266C0B2D00D4BCDF /* CustomTextField */,
 				CD17F242262B4E1D00C2C903 /* SearchBar */,
 				CDD0B81426063A8B003537A8 /* SideBar */,
@@ -899,6 +910,7 @@
 				CD28F97F264FD28600D87DDC /* Date+Extension.swift in Sources */,
 				CD17F1E1262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */,
 				CDCF580D266C0B4100D4BCDF /* iOSCustomTextView.swift in Sources */,
+				CD1A804826821B77003F78C0 /* DrawingCanvas.swift in Sources */,
 				CD60795E2610974B00928B20 /* FirebaseDatabaseService.swift in Sources */,
 				CDF24DF52618C67500CC866F /* SubjectsViewModel.swift in Sources */,
 				CD96753C26066F260067FCC5 /* Subject.swift in Sources */,
@@ -914,7 +926,7 @@
 				CD28F98A264FEE3700D87DDC /* CardView.swift in Sources */,
 				CDD9E05425FE2C0600E3BF53 /* LoginViewModel.swift in Sources */,
 				CDF1C1D32664F92A002BF9E4 /* ImageCacheService.swift in Sources */,
-				CD00F717267A6A1000475016 /* ViewCardScene.swift in Sources */,
+				CD00F717267A6A1000475016 /* DisplayCardScene.swift in Sources */,
 				CD28F978264FD15F00D87DDC /* DateFormatter+Extension.swift in Sources */,
 				CD3072D32635E73900E4C743 /* FirebaseGetCardsService.swift in Sources */,
 				CD8F03CC264550B500059C53 /* FirebaseAddNewCardImageFirebaseService.swift in Sources */,
@@ -931,7 +943,7 @@
 				CDD0B80926063A2C003537A8 /* SearchScene.swift in Sources */,
 				CD0BB30E260B259200CD0A03 /* SubjectView.swift in Sources */,
 				CDFA979F2600A821006DB5A6 /* SideBar.swift in Sources */,
-				CD00F71A267A703D00475016 /* ViewCardViewModel.swift in Sources */,
+				CD00F71A267A703D00475016 /* DisplayCardViewModel.swift in Sources */,
 				CD6079112610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */,
 				CD6078F326107FAC00928B20 /* SettingsScene.swift in Sources */,
 				CD3072CC2635E62A00E4C743 /* CardsViewModel.swift in Sources */,
@@ -973,7 +985,7 @@
 				CD6079CB2610A5A800928B20 /* FirebaseDatabaseService.swift in Sources */,
 				CD28F98B264FEE3700D87DDC /* CardView.swift in Sources */,
 				CD96753126065E4F0067FCC5 /* HomeScene.swift in Sources */,
-				CD00F71B267A703D00475016 /* ViewCardViewModel.swift in Sources */,
+				CD00F71B267A703D00475016 /* DisplayCardViewModel.swift in Sources */,
 				CD3072D42635E73900E4C743 /* FirebaseGetCardsService.swift in Sources */,
 				CDD9E00225FD13CE00E3BF53 /* LunchWindow.swift in Sources */,
 				CDF1C21126669A05002BF9E4 /* CardSide.swift in Sources */,
@@ -985,7 +997,7 @@
 				CD0BB30F260B259200CD0A03 /* SubjectView.swift in Sources */,
 				CD96752226065E440067FCC5 /* CalanderScene.swift in Sources */,
 				CD6079122610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */,
-				CD00F718267A6A1000475016 /* ViewCardScene.swift in Sources */,
+				CD00F718267A6A1000475016 /* DisplayCardScene.swift in Sources */,
 				CD6078F426107FAC00928B20 /* SettingsScene.swift in Sources */,
 				CD3072CD2635E62A00E4C743 /* CardsViewModel.swift in Sources */,
 				CD17F249262B4F1100C2C903 /* SearchBar.swift in Sources */,

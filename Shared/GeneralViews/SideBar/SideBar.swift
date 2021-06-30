@@ -13,7 +13,7 @@ struct SideBar: View {
         NavigationView {
             sidebar
                 .navigationTitle("VOICΞSΞS")
-                #if !os(iOS)
+#if !os(iOS)
                 .toolbar {
                     ToolbarItem(placement: .navigation) {
                         Button(action: toggleSidebar, label: {
@@ -21,30 +21,38 @@ struct SideBar: View {
                         })
                     }
                 }
-                #endif
+#endif
             SubjectsScene()
         }
         .accentColor(.accent)
     }
     
     private var sidebar: some View {
-        List(NavigationItem.allCases, selection: $selection) { navigationItem in
-            NavigationLink(
-                destination:
-                    navigationItem.view
-                    .navigationTitle(navigationItem.title)) {
-                Label(navigationItem.title, systemImage: navigationItem.systemImageName)
+        VStack {
+#if !os(iOS)
+            Text("VOICΞSΞS")
+                .font(.largeTitle)
+                .bold()
+                .padding()
+#endif
+            List(NavigationItem.allCases, selection: $selection) { navigationItem in
+                NavigationLink(
+                    destination:
+                        navigationItem.view
+                        .navigationTitle(navigationItem.title)) {
+                    Label(navigationItem.title, systemImage: navigationItem.systemImageName)
+                }
+                        .tag(navigationItem.id)
             }
-            .tag(navigationItem.id)
+            .listStyle(SidebarListStyle())
         }
-        .listStyle(SidebarListStyle())
     }
     
     private func toggleSidebar() {
-        #if os(iOS)
-        #else
+#if os(iOS)
+#else
         NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
-        #endif
+#endif
     }
 }
 

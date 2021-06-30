@@ -11,7 +11,7 @@ import Foundation
 struct iOSCustomTextView: UIViewRepresentable {
     @Binding var text: String
     private(set) var isFirstResponder: Bool = false
-    private(set) var foregroundColor: Color
+    private(set) var foregroundColor: UIColor
     private(set) var font: UIFont
     
     func makeUIView(context: UIViewRepresentableContext<iOSCustomTextView>) -> UITextView {
@@ -21,7 +21,7 @@ struct iOSCustomTextView: UIViewRepresentable {
         textView.textContainer.maximumNumberOfLines = 5
         textView.isUserInteractionEnabled = true
         textView.backgroundColor = .clear
-        textView.textColor = UIColor(foregroundColor)
+        textView.textColor = foregroundColor
         textView.textAlignment = .center
         textView.delegate = context.coordinator
         return textView
@@ -33,21 +33,22 @@ struct iOSCustomTextView: UIViewRepresentable {
 
     func updateUIView(_ uiView: UITextView, context: UIViewRepresentableContext<iOSCustomTextView>) {
         uiView.text = text
-        if isFirstResponder && !context.coordinator.didBecomeFirstResponder  {
+        if !context.coordinator.didBecomeFirstResponder  {
             uiView.becomeFirstResponder()
             context.coordinator.didBecomeFirstResponder = true
         }
     }
     
     class Coordinator: NSObject, UITextViewDelegate {
-        func textViewDidChange(_ textView: UITextView) {
-            text = textView.text
-        }
         @Binding var text: String
         var didBecomeFirstResponder = false
-
+        
         init(text: Binding<String>) {
             _text = text
+        }
+        
+        func textViewDidChange(_ textView: UITextView) {
+            text = textView.text
         }
     }
 }

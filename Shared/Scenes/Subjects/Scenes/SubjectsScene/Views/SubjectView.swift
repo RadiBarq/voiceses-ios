@@ -58,10 +58,10 @@ struct SubjectView: View {
         GeometryReader { reader in
             if self.showingTextField {
                 #if os(iOS)
-                iOSCustomTextView(text: $titleText, isFirstResponder: showingTextField, foregroundColor: Color(hex: subject.colorHex).whiteOrBlack, font: UIFont.systemFont(ofSize: reader.size.width / 10, weight: .bold))
+                iOSCustomTextView(text: $titleText, isFirstResponder: showingTextField, foregroundColor: UIColor(Color(hex: subject.colorHex).whiteOrBlack), font: UIFont.systemFont(ofSize: reader.size.width / 10, weight: .bold))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 #else
-                MacOSCustomTextView(text: $titleText, isFirstResponder: showingTextField, foregroundColor: Color(hex: subject.colorHex).whiteOrBlack, font: NSFont.systemFont(ofSize: reader.size.width / 10, weight: .bold))
+                MacOSCustomTextView(text: $titleText, isFirstResponder: showingTextField, foregroundColor: NSColor(Color(hex: subject.colorHex).whiteOrBlack), font: NSFont.systemFont(ofSize: reader.size.width / 10, weight: .bold))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 #endif
             } else {

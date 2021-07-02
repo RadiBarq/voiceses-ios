@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-class FirebaseDeleteASubjectService: FirebaseDatabaseService {
+final class FirebaseDeleteASubjectService: FirebaseDatabaseService {
     let ref = Database.database().reference().child("users")
     func deleteSubject(with id: String) {
         guard let userID = FirebaseAuthenticationService.getUserID() else { return }

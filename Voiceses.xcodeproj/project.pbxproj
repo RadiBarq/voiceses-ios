@@ -15,6 +15,8 @@
 		CD00F718267A6A1000475016 /* DisplayCardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F716267A6A1000475016 /* DisplayCardScene.swift */; };
 		CD00F71A267A703D00475016 /* DisplayCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F719267A703D00475016 /* DisplayCardViewModel.swift */; };
 		CD00F71B267A703D00475016 /* DisplayCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F719267A703D00475016 /* DisplayCardViewModel.swift */; };
+		CD07A2BA268E249000312E15 /* FilterOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07A2B9268E249000312E15 /* FilterOptions.swift */; };
+		CD07A2BC268E24AF00312E15 /* SortOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07A2BB268E24AF00312E15 /* SortOptions.swift */; };
 		CD0BB30E260B259200CD0A03 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0BB30D260B259200CD0A03 /* SubjectView.swift */; };
 		CD0BB30F260B259200CD0A03 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0BB30D260B259200CD0A03 /* SubjectView.swift */; };
 		CD17F1E1262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */; };
@@ -93,6 +95,9 @@
 		CDD9E03E25FD3D6000E3BF53 /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9E03C25FD3D6000E3BF53 /* LoginScene.swift */; };
 		CDD9E05425FE2C0600E3BF53 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9E05325FE2C0600E3BF53 /* LoginViewModel.swift */; };
 		CDD9E05525FE2C0600E3BF53 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9E05325FE2C0600E3BF53 /* LoginViewModel.swift */; };
+		CDDA5066268C98DF0033A97A /* FilterCardsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDA5065268C98DF0033A97A /* FilterCardsScene.swift */; };
+		CDDA5068268C98F70033A97A /* FilterCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDA5067268C98F70033A97A /* FilterCardsViewModel.swift */; };
+		CDDA5069268CAFAF0033A97A /* FilterCardsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDA5065268C98DF0033A97A /* FilterCardsScene.swift */; };
 		CDEE1DA7260DDD31005F6D07 /* Colors+Extenison.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DA6260DDD31005F6D07 /* Colors+Extenison.swift */; };
 		CDEE1DA8260DDD31005F6D07 /* Colors+Extenison.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DA6260DDD31005F6D07 /* Colors+Extenison.swift */; };
 		CDEE1DB8260DDE72005F6D07 /* AddNewSubjectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DB7260DDE72005F6D07 /* AddNewSubjectScene.swift */; };
@@ -140,6 +145,8 @@
 		CD00F713267A685A00475016 /* MacOSCustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOSCustomTextView.swift; sourceTree = "<group>"; };
 		CD00F716267A6A1000475016 /* DisplayCardScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCardScene.swift; sourceTree = "<group>"; };
 		CD00F719267A703D00475016 /* DisplayCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCardViewModel.swift; sourceTree = "<group>"; };
+		CD07A2B9268E249000312E15 /* FilterOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptions.swift; sourceTree = "<group>"; };
+		CD07A2BB268E24AF00312E15 /* SortOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOptions.swift; sourceTree = "<group>"; };
 		CD0BB30D260B259200CD0A03 /* SubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectView.swift; sourceTree = "<group>"; };
 		CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDeleteASubjectService.swift; sourceTree = "<group>"; };
 		CD17F247262B4F1100C2C903 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -193,6 +200,8 @@
 		CDD9E03C25FD3D6000E3BF53 /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
 		CDD9E04925FD626400E3BF53 /* Voiceses.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Voiceses.entitlements; sourceTree = "<group>"; };
 		CDD9E05325FE2C0600E3BF53 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		CDDA5065268C98DF0033A97A /* FilterCardsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCardsScene.swift; sourceTree = "<group>"; };
+		CDDA5067268C98F70033A97A /* FilterCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCardsViewModel.swift; sourceTree = "<group>"; };
 		CDEE1DA6260DDD31005F6D07 /* Colors+Extenison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Extenison.swift"; sourceTree = "<group>"; };
 		CDEE1DB7260DDE72005F6D07 /* AddNewSubjectScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSubjectScene.swift; sourceTree = "<group>"; };
 		CDF1C1C62664F228002BF9E4 /* GlobalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalService.swift; sourceTree = "<group>"; };
@@ -250,13 +259,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		CD00F715267A69F000475016 /* ViewCardScene */ = {
+		CD00F715267A69F000475016 /* DisplayCardScene */ = {
 			isa = PBXGroup;
 			children = (
 				CD00F716267A6A1000475016 /* DisplayCardScene.swift */,
 				CD00F719267A703D00475016 /* DisplayCardViewModel.swift */,
 			);
-			path = ViewCardScene;
+			path = DisplayCardScene;
+			sourceTree = "<group>";
+		};
+		CD07A2B8268E247E00312E15 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CD07A2B9268E249000312E15 /* FilterOptions.swift */,
+				CD07A2BB268E24AF00312E15 /* SortOptions.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		CD0BB30B260B254700CD0A03 /* Windows */ = {
@@ -422,7 +440,8 @@
 		CDD0B7FF260638FA003537A8 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
-				CD00F715267A69F000475016 /* ViewCardScene */,
+				CDDA5064268C98900033A97A /* FilterCardsScene */,
+				CD00F715267A69F000475016 /* DisplayCardScene */,
 				CDA2E4EF263D9A4200ED287C /* AddNewCard */,
 				CD30730B2637476500E4C743 /* CardsScene */,
 				CD30730A2637474A00E4C743 /* AddNewLectureScene_temp */,
@@ -457,6 +476,7 @@
 		CDD0B82E26063D1F003537A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CDF1C207266699F8002BF9E4 /* CardSide.swift */,
 				CDD0B81526063AB3003537A8 /* NavigationItem.swift */,
 				CD96753B26066F260067FCC5 /* Subject.swift */,
 				CD8F040A264567BC00059C53 /* Card.swift */,
@@ -569,9 +589,19 @@
 		CDD9E04E25FE2BDB00E3BF53 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				CDEE1D8C260DD246005F6D07 /* Scene */,
+				CDEE1D8C260DD246005F6D07 /* LoginScene */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		CDDA5064268C98900033A97A /* FilterCardsScene */ = {
+			isa = PBXGroup;
+			children = (
+				CD07A2B8268E247E00312E15 /* Models */,
+				CDDA5065268C98DF0033A97A /* FilterCardsScene.swift */,
+				CDDA5067268C98F70033A97A /* FilterCardsViewModel.swift */,
+			);
+			path = FilterCardsScene;
 			sourceTree = "<group>";
 		};
 		CDEE1D8B260DD22F005F6D07 /* Scenes */ = {
@@ -583,19 +613,18 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		CDEE1D8C260DD246005F6D07 /* Scene */ = {
+		CDEE1D8C260DD246005F6D07 /* LoginScene */ = {
 			isa = PBXGroup;
 			children = (
 				CDD9E05325FE2C0600E3BF53 /* LoginViewModel.swift */,
 				CDD9E03C25FD3D6000E3BF53 /* LoginScene.swift */,
 			);
-			path = Scene;
+			path = LoginScene;
 			sourceTree = "<group>";
 		};
 		CDEE1DA5260DDD10005F6D07 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				CDF1C206266699E3002BF9E4 /* CardSide */,
 				CD60790B261085C300928B20 /* Extensions */,
 			);
 			path = Utils;
@@ -634,14 +663,6 @@
 				CDF1C1D22664F92A002BF9E4 /* ImageCacheService.swift */,
 			);
 			path = ImageCaching;
-			sourceTree = "<group>";
-		};
-		CDF1C206266699E3002BF9E4 /* CardSide */ = {
-			isa = PBXGroup;
-			children = (
-				CDF1C207266699F8002BF9E4 /* CardSide.swift */,
-			);
-			path = CardSide;
 			sourceTree = "<group>";
 		};
 		CDFA977E2600A4BA006DB5A6 /* Home */ = {
@@ -935,20 +956,24 @@
 				CDA2E555263DD8F500ED287C /* AddNewCardViewModel.swift in Sources */,
 				CDF1C208266699F8002BF9E4 /* CardSide.swift in Sources */,
 				CDD9E03D25FD3D6000E3BF53 /* LoginScene.swift in Sources */,
+				CDDA5066268C98DF0033A97A /* FilterCardsScene.swift in Sources */,
 				CD8F040B264567BC00059C53 /* Card.swift in Sources */,
 				CDD0B81626063AB3003537A8 /* NavigationItem.swift in Sources */,
 				CD5FE77326778B2F0029B23F /* FirebaseDeleteSubjectImagesService.swift in Sources */,
 				CDFA97802600A4F0006DB5A6 /* HomeScene.swift in Sources */,
 				CD8F03D6264550E600059C53 /* FirebaseStorageService.swift in Sources */,
 				CDD0B80926063A2C003537A8 /* SearchScene.swift in Sources */,
+				CD07A2BC268E24AF00312E15 /* SortOptions.swift in Sources */,
 				CD0BB30E260B259200CD0A03 /* SubjectView.swift in Sources */,
 				CDFA979F2600A821006DB5A6 /* SideBar.swift in Sources */,
 				CD00F71A267A703D00475016 /* DisplayCardViewModel.swift in Sources */,
 				CD6079112610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */,
 				CD6078F326107FAC00928B20 /* SettingsScene.swift in Sources */,
+				CD07A2BA268E249000312E15 /* FilterOptions.swift in Sources */,
 				CD3072CC2635E62A00E4C743 /* CardsViewModel.swift in Sources */,
 				CD17F248262B4F1100C2C903 /* SearchBar.swift in Sources */,
 				CDF24DCD2618BB9100CC866F /* LunchWindowViewModel.swift in Sources */,
+				CDDA5068268C98F70033A97A /* FilterCardsViewModel.swift in Sources */,
 				CD28F9BA2650496800D87DDC /* FirebaseDeleteACardService.swift in Sources */,
 				CDD0B80326063A1B003537A8 /* CalanderScene.swift in Sources */,
 				CDD9DFFF25FD13CE00E3BF53 /* VoicesesApp.swift in Sources */,
@@ -1007,6 +1032,7 @@
 				CDD9E00025FD13CE00E3BF53 /* VoicesesApp.swift in Sources */,
 				CDF24DFD2618C97200CC866F /* FirebaseGetSubjectsService.swift in Sources */,
 				CD00F70E267A0CB500475016 /* FirebaseStorageService.swift in Sources */,
+				CDDA5069268CAFAF0033A97A /* FilterCardsScene.swift in Sources */,
 				CD607A1E2610DAA800928B20 /* Decodable+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

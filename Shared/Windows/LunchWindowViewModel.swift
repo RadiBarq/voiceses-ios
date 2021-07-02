@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-class LunchWindowViewModel: ObservableObject {
+final class LunchWindowViewModel: ObservableObject {
     @Published var isUserLoggedin = true
     private var subscriptions = Set<AnyCancellable>()
     private var authenticationService: FirebaseAuthenticationService = FirebaseAuthenticationService()

@@ -22,7 +22,7 @@ enum FirebaseGetSubjectsServiceError: Error, LocalizedError {
     }
 }
 
-class FirebaseGetSubjectsService: FirebaseDatabaseService {
+final class FirebaseGetSubjectsService: FirebaseDatabaseService {
     var subjects: AnyPublisher<[Subject], FirebaseGetSubjectsServiceError>?
     let ref = Database.database().reference().child("users")
     private let subjectsSubject: PassthroughSubject<[Subject], FirebaseGetSubjectsServiceError>
@@ -68,36 +68,5 @@ class FirebaseGetSubjectsService: FirebaseDatabaseService {
             subjects.append(subject)
         }
         subjectsSubject.send(subjects)
-    }
-}
-
-class Test1FirebaseGetCardsService: FirebaseDatabaseService {
-    let ref: DatabaseReference = Database.database().reference().child("users")
-    func getCards(for subjectID: String) -> AnyPublisher<[Card], FirebaseGetSubjectsServiceError> {
-        return Future { [weak self] promise in
-            guard let userID = FirebaseAuthenticationService.getUserID() else {
-                promise(.failure(.userIsNotAvailable))
-                return
-            }
-            self?.ref.child(userID)
-                .child("subjects")
-                .child(subjectID)
-                .child("cards")
-                .queryOrdered(byChild: "timestamp")
-                .observeSingleEvent(of: .value) { snapshot in
-                    var cards = [Card]()
-                    for child in snapshot.children {
-                        guard let snapshot = child as? DataSnapshot,
-                              let dict = snapshot.value as? [String: Any],
-                              let card = Card(dictionary: dict) else {
-                                  promise(.failure(.decodingFormatIsNotValid))
-                                  return
-                              }
-                        cards.append(card)
-                    }
-                    promise(.success(cards))
-                }
-        }
-        .eraseToAnyPublisher()
     }
 }

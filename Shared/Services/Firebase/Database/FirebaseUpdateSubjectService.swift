@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-class FirebaseUpdateSubjectService: FirebaseDatabaseService {
+final class FirebaseUpdateSubjectService: FirebaseDatabaseService {
     let ref = Database.database().reference().child("users")
     func updateTitle(for subject: Subject) {
         guard let userID = FirebaseAuthenticationService.getUserID() else { return }

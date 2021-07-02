@@ -11,7 +11,7 @@ import PencilKit
 import Combine
 import Firebase
 
-class AddNewCardViewModel: ObservableObject {
+final class AddNewCardViewModel: ObservableObject {
     @Published var cardSide: CardSide = .front
     @Published var showingAlert: Bool = false
     @Published var alertMessage: String = ""

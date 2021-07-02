@@ -10,6 +10,7 @@ import SwiftUI
 struct SubjectsScene: View {
     @StateObject private var subjectsViewModel = SubjectsViewModel()
     @State var isActiveOnMac = false
+    
 #if !os(iOS)
     @State private var currentSelectedSubject: Subject?
     @State private var cardsScenePushed: Bool = false

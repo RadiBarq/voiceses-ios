@@ -25,7 +25,7 @@ enum FirebaseAddNewCardImageFirebaseServiceError: Error, LocalizedError {
     }
 }
 
-class FirebaseAddNewCardImageFirebaseService: FirebaseStorageService {
+final class FirebaseAddNewCardImageFirebaseService: FirebaseStorageService {
     var ref = Storage.storage().reference()
     func uploadImage(with data: Data, subjectID: String, cardID: String, imageName: String) -> AnyPublisher<(URL, String), FirebaseAddNewCardImageFirebaseServiceError> {
         return Future<(URL, String), FirebaseAddNewCardImageFirebaseServiceError> { [weak self] promise in

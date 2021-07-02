@@ -39,7 +39,7 @@ struct MacOSCustomTextView: NSViewRepresentable {
         return Coordinator(text: $text)
     }
     
-    class Coordinator: NSObject, NSTextViewDelegate {
+    final class Coordinator: NSObject, NSTextViewDelegate {
         @Binding var text: String
         var didBecomeFirstResponder = false
         
@@ -82,7 +82,7 @@ struct CustomTextView: NSViewRepresentable {
         return Coordinator(text: $text)
     }
     
-    class Coordinator: NSObject, NSTextViewDelegate {
+    final class Coordinator: NSObject, NSTextViewDelegate {
         @Binding var text: String
         
         init(text: Binding<String>) {

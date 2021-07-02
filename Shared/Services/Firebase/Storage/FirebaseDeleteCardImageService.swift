@@ -22,7 +22,7 @@ enum FirebaseDeleteACardServiceError: Error, LocalizedError {
     }
 }
 
-class FirebaseDeleteCardImageService: FirebaseStorageService {
+final class FirebaseDeleteCardImageService: FirebaseStorageService {
     let ref = Storage.storage().reference()
     func deleteImage(with id: String, cardID: String, subjectID: String) -> AnyPublisher<Void, FirebaseDeleteACardServiceError> {
         return Future { [weak self] promise in

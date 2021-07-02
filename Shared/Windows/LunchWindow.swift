@@ -18,6 +18,11 @@ struct LunchWindow: View {
                 LoginScene()
             }
         }
+        .onAppear {
+            #if os(iOS)
+            UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(Color.accent)], for: .selected)
+            #endif
+        }
     }
 }
 

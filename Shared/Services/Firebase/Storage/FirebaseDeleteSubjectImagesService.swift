@@ -23,7 +23,7 @@ enum FirebaseDeleteSubjectImagesServiceError: Error, LocalizedError {
     }
 }
 
-class FirebaseDeleteSubjectImagesService: FirebaseStorageService {
+final class FirebaseDeleteSubjectImagesService: FirebaseStorageService {
     let ref = Storage.storage().reference()
     func deleteImages(for subjectID: String) {
         guard let userID = FirebaseAuthenticationService.getUserID() else {

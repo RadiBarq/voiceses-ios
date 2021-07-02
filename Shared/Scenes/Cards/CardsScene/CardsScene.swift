@@ -7,13 +7,20 @@
 
 import SwiftUI
 
+
 struct CardsScene: View {
     @ObservedObject var cardsViewModel: CardsViewModel
+    @State private var filterStartDate = Date.yesterday
+    @State private var filterEndDate = Date()
+    @State private var selectedFilter = FilterOptions.today
+    @State private var sortOptions = SortOptions.ascend
+
 #if !os(iOS)
     @Binding var isPresented: Bool
     @State private var currentSelectedCard: Card?
     @State private var displayCardScenePushed: Bool = false
 #endif
+    
     var body: some View {
 #if os(iOS)
         content
@@ -25,8 +32,6 @@ struct CardsScene: View {
                         Image(systemName: "plus.circle")
                     })
                 }
-                
-                
             }
             .navigationTitle(cardsViewModel.title)
             .fullScreenCover(isPresented: $cardsViewModel.showingAddNewCardView) {
@@ -66,6 +71,28 @@ struct CardsScene: View {
                 .padding()
                 .animation(.easeInOut(duration: 0.5))
             }
+            .sheet(isPresented: $cardsViewModel.showFilterCardsScene) {
+                FilterCardsScene(isPresented: $cardsViewModel.showFilterCardsScene, startDate: $filterStartDate, endDate: $filterEndDate, selectedFilter: $selectedFilter)
+            }
+            .toolbar {
+                ToolbarItem(placement: .automatic) {
+                    Button(action: {
+                        cardsViewModel.showFilterCardsScene.toggle()
+                    }, label: {
+                        Text("Filter")
+                    })
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .automatic) {
+                    Button(action: {
+                        sortOptions.toggle()
+                        cardsViewModel.reverseCards()
+                    }, label: {
+                        Image(systemName: self.sortOptions == .ascend ? "arrow.up.arrow.down.circle" : "arrow.up.arrow.down.circle.fill")
+                    })
+                }
+            }
         }
 #else
         GeometryReader { geometry in
@@ -96,6 +123,22 @@ struct CardsScene: View {
                 DisplayCardScene(isPresented: $displayCardScenePushed, displayCardViewModel: DisplayCardViewModel(subject: cardsViewModel.subject, card: currentSelectedCard!))
                     .transition(.move(edge: .trailing))
                     .animation(.default)
+            }
+        }
+        .sheet(isPresented: $cardsViewModel.showFilterCardsScene) {
+            FilterCardsScene(isPresented: $cardsViewModel.showFilterCardsScene, startDate: $filterStartDate, endDate: $filterEndDate)
+        }
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                if !displayCardScenePushed {
+                    Button(action: {
+                        cardsViewModel.showFilterCardsScene.toggle()
+                    }, label: {
+                        Text("Filter")
+                    })
+                } else {
+                    EmptyView()
+                }
             }
         }
 #endif

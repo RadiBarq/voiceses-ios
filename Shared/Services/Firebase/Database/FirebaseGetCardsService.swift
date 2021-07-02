@@ -22,7 +22,7 @@ enum FirebaseGetCardsServiceError: Error, LocalizedError {
     }
 }
 
-class FirebaseGetCardsService: FirebaseDatabaseService {
+final class FirebaseGetCardsService: FirebaseDatabaseService {
     let ref: DatabaseReference = Database.database().reference().child("users")
     var cards: AnyPublisher<[Card], FirebaseGetCardsServiceError>?
     private let subjectID: String

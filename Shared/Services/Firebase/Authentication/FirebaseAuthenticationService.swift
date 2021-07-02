@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 import Combine
 
-class FirebaseAuthenticationService {
+final class FirebaseAuthenticationService {
     var isUserLoggedinPublisher: AnyPublisher<Bool, Never> {
         isUserLoggedInSubject.eraseToAnyPublisher()
     }

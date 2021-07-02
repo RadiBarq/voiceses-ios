@@ -39,7 +39,7 @@ struct iOSCustomTextView: UIViewRepresentable {
         }
     }
     
-    class Coordinator: NSObject, UITextViewDelegate {
+    final class Coordinator: NSObject, UITextViewDelegate {
         @Binding var text: String
         var didBecomeFirstResponder = false
         

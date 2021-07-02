@@ -9,12 +9,14 @@ import Foundation
 import Combine
 import PencilKit
 
-class CardsViewModel: ObservableObject {
+final class CardsViewModel: ObservableObject {
     @Published var cards = [Card]()
     @Published var showingAddNewCardView = false
     @Published var showAddNewSubjectView = false
     @Published var showingAlert = false
     @Published var alertMessage = ""
+    @Published var showFilterCardsScene = false
+    
     private var subscriptions = Set<AnyCancellable>()
     private var getCardsService: FirebaseGetCardsService
     private var deleteCardService: FirebaseDeleteACardService
@@ -38,6 +40,11 @@ class CardsViewModel: ObservableObject {
         updateSubjectService.updateNumberOfCards(for: subject)
         GlobalService.shared.deleteCardImages(with: id, subjectID: subject.id!)
     }
+    
+    func reverseCards() {
+        cards.reverse()
+    }
+    
     private func startListenToGetCardsService() {
         getCardsService
             .cards?

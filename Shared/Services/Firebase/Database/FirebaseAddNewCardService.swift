@@ -22,7 +22,7 @@ enum FirebaseAddNewCardServiceError: Error, LocalizedError {
     }
 }
 
-class FirebaseAddNewCardService: FirebaseDatabaseService {
+final class FirebaseAddNewCardService: FirebaseDatabaseService {
     var ref = Database.database().reference().child("users")
     func addNewCard(card: Card) -> Result<Void, FirebaseAddNewCardServiceError> {
             guard let userID = FirebaseAuthenticationService.getUserID() else {

@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class SubjectsViewModel: ObservableObject {
+final class SubjectsViewModel: ObservableObject {
     @Published var subjects = [Subject]() {
         didSet {
             searchedSubjects = subjects.filter { searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }

@@ -10,11 +10,6 @@ import SwiftUI
 
 struct CardsScene: View {
     @ObservedObject var cardsViewModel: CardsViewModel
-    @State private var filterStartDate = Date.yesterday
-    @State private var filterEndDate = Date()
-    @State private var selectedFilter = FilterOptions.today
-    @State private var sortOptions = SortOptions.ascend
-
 #if !os(iOS)
     @Binding var isPresented: Bool
     @State private var currentSelectedCard: Card?
@@ -76,22 +71,21 @@ struct CardsScene: View {
                 .animation(.easeInOut(duration: 0.5))
             }
             .sheet(isPresented: $cardsViewModel.showFilterCardsScene) {
-                FilterCardsScene(isPresented: $cardsViewModel.showFilterCardsScene, startDate: $filterStartDate, endDate: $filterEndDate, selectedFilter: $selectedFilter)
+                FilterCardsScene(isPresented: $cardsViewModel.showFilterCardsScene, startDate: $cardsViewModel.filterStartDate, endDate: $cardsViewModel.filterEndDate, selectedFilter: $cardsViewModel.selectedFilter, filterIsApplied: $cardsViewModel.isFilterApplied)
             }
             .toolbar {
-                ToolbarItem(placement: .automatic) {
+                ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
                         cardsViewModel.showFilterCardsScene.toggle()
                     }, label: {
-                        Text("Filter")
+                        Text("filter")
                     })
                 }
-                ToolbarItem(placement: .automatic) {
+                ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        sortOptions.toggle()
-                        cardsViewModel.reverseCards()
+                        cardsViewModel.toggleSortOptionsAction()
                     }, label: {
-                        Image(systemName: self.sortOptions == .ascend ? "arrow.up.arrow.down.circle" : "arrow.up.arrow.down.circle.fill")
+                        Image(systemName: self.cardsViewModel.sortOptions == .ascend ? "arrow.up.arrow.down.circle" : "arrow.up.arrow.down.circle.fill")
                     })
                 }
             }
@@ -128,27 +122,26 @@ struct CardsScene: View {
             }
         }
         .sheet(isPresented: $cardsViewModel.showFilterCardsScene) {
-            FilterCardsScene(isPresented: $cardsViewModel.showFilterCardsScene, startDate: $filterStartDate, endDate: $filterEndDate, selectedFilter: $selectedFilter)
+            FilterCardsScene(isPresented: $cardsViewModel.showFilterCardsScene, startDate: $cardsViewModel.filterStartDate, endDate: $cardsViewModel.filterEndDate, selectedFilter: $cardsViewModel.selectedFilter, filterIsApplied: $cardsViewModel.isFilterApplied)
         }
         .toolbar {
-            ToolbarItem(placement: .automatic) {
+            ToolbarItem(placement: .navigationBarLeading) {
                 if !displayCardScenePushed {
                     Button(action: {
                         cardsViewModel.showFilterCardsScene.toggle()
                     }, label: {
-                        Text("Filter")
+                        Text("filter")
                     })
                 } else {
                     EmptyView()
                 }
             }
-            ToolbarItem(placement: .automatic) {
+            ToolbarItem(placement: .navigationBarLeading) {
                 if !displayCardScenePushed {
                     Button(action: {
-                        sortOptions.toggle()
-                        cardsViewModel.reverseCards()
+                        cardsViewModel.toggleSortOptionsAction()
                     }, label: {
-                        Image(systemName: self.sortOptions == .ascend ? "arrow.up.arrow.down.circle" : "arrow.up.arrow.down.circle.fill")
+                        Image(systemName: cardsViewModel.sortOptions == .ascend ? "arrow.up.arrow.down.circle" : "arrow.up.arrow.down.circle.fill")
                     })
                 } else {
                     EmptyView()

@@ -51,7 +51,6 @@ struct DisplayCardScene: View {
                 })
             }
         }
-        
         #endif
         .padding()
         .onAppear {

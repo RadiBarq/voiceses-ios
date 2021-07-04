@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import PencilKit
+import SwiftUI
 
 final class CardsViewModel: ObservableObject {
     @Published var cards = [Card]()
@@ -16,7 +17,16 @@ final class CardsViewModel: ObservableObject {
     @Published var showingAlert = false
     @Published var alertMessage = ""
     @Published var showFilterCardsScene = false
-    
+    @Published var isFilterApplied: Bool = false {
+        didSet {
+            filterCards()
+        }
+    }
+    @Published var filterStartDate = Date.yesterday
+    @Published var filterEndDate = Date()
+    @Published var selectedFilter = FilterOptions.today
+    @Published var sortOptions = SortOptions.ascend
+
     private var subscriptions = Set<AnyCancellable>()
     private var getCardsService: FirebaseGetCardsService
     private var deleteCardService: FirebaseDeleteACardService
@@ -41,7 +51,8 @@ final class CardsViewModel: ObservableObject {
         GlobalService.shared.deleteCardImages(with: id, subjectID: subject.id!)
     }
     
-    func reverseCards() {
+    func toggleSortOptionsAction() {
+        sortOptions.toggle()
         cards.reverse()
     }
     
@@ -64,5 +75,9 @@ final class CardsViewModel: ObservableObject {
                 }
             }, receiveValue: { _ in })
             .store(in: &subscriptions)
+    }
+    
+    private func filterCards() {
+        //TODO HERE
     }
 }

@@ -13,6 +13,7 @@ struct FilterCardsScene: View {
     @Binding var startDate: Date
     @Binding var endDate: Date
     @Binding var selectedFilter: FilterOptions
+    @Binding var filterIsApplied: Bool
     @StateObject private var filterCardsViewModel = FilterCardsViewModel()
     var body: some View {
 #if os(iOS)
@@ -100,6 +101,7 @@ struct FilterCardsScene: View {
     
     private func applyFilter() {
         if filterCardsViewModel.isSelectedDateValid(from: startDate, to: endDate) {
+            filterIsApplied = true
             isPresented.toggle()
         } else {
             filterCardsViewModel.showInvalidSelectedDateMessage()
@@ -107,12 +109,12 @@ struct FilterCardsScene: View {
     }
 }
 
-
 struct FilterCardsScene_Previews: PreviewProvider {
     static var previews: some View {
         FilterCardsScene(isPresented: .constant(true),
                          startDate: .constant(Date.yesterday),
                          endDate: .constant(Date()),
-                         selectedFilter: .constant(.today))
+                         selectedFilter: .constant(.today),
+                         filterIsApplied: .constant(false))
     }
 }

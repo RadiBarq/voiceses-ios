@@ -52,9 +52,9 @@ struct FilterCardsScene: View {
                     }
                 })
                 .accentColor(Color.accent)
-                .alert(isPresented: $showingAlert) {
+                .alert(isPresented: $filterCardsViewModel.showingAlert) {
                     Alert(title: Text(alertTitle),
-                          message: Text(alertMessage),
+                          message: Text(filterCardsViewModel.alertMessage),
                           dismissButton: .default(Text(alertDismissButtonTitle))
                     )
                 }
@@ -65,7 +65,6 @@ struct FilterCardsScene: View {
         }
 #endif
     }
-    
     private var content: some View {
         return Form {
             Section(header: Text("Filter by")) {

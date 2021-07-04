@@ -58,6 +58,9 @@
 		CD6079F62610D2B700928B20 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6079F42610D2B700928B20 /* Encodable+Extension.swift */; };
 		CD607A1D2610DAA800928B20 /* Decodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD607A1C2610DAA800928B20 /* Decodable+Extension.swift */; };
 		CD607A1E2610DAA800928B20 /* Decodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD607A1C2610DAA800928B20 /* Decodable+Extension.swift */; };
+		CD6B1DC026920EDE0084A1D4 /* SortOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07A2BB268E24AF00312E15 /* SortOptions.swift */; };
+		CD6B1DC126920EE20084A1D4 /* FilterOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07A2B9268E249000312E15 /* FilterOptions.swift */; };
+		CD6B1DC226920F560084A1D4 /* FilterCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDA5067268C98F70033A97A /* FilterCardsViewModel.swift */; };
 		CD8F03CC264550B500059C53 /* FirebaseAddNewCardImageFirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8F03CB264550B500059C53 /* FirebaseAddNewCardImageFirebaseService.swift */; };
 		CD8F03D6264550E600059C53 /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8F03D5264550E600059C53 /* FirebaseStorageService.swift */; };
 		CD8F03FD264566C900059C53 /* FirebaseAddNewCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8F03FC264566C900059C53 /* FirebaseAddNewCardService.swift */; };
@@ -988,7 +991,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD6B1DC126920EE20084A1D4 /* FilterOptions.swift in Sources */,
 				CD00F714267A685A00475016 /* MacOSCustomTextView.swift in Sources */,
+				CD6B1DC226920F560084A1D4 /* FilterCardsViewModel.swift in Sources */,
 				CD5FE77426778B2F0029B23F /* FirebaseDeleteSubjectImagesService.swift in Sources */,
 				CD6079EF2610AE5F00928B20 /* UIView+Extension.swift in Sources */,
 				CD6079F62610D2B700928B20 /* Encodable+Extension.swift in Sources */,
@@ -1014,6 +1019,7 @@
 				CD3072D42635E73900E4C743 /* FirebaseGetCardsService.swift in Sources */,
 				CDD9E00225FD13CE00E3BF53 /* LunchWindow.swift in Sources */,
 				CDF1C21126669A05002BF9E4 /* CardSide.swift in Sources */,
+				CD6B1DC026920EDE0084A1D4 /* SortOptions.swift in Sources */,
 				CD96753626065E550067FCC5 /* NavigationItem.swift in Sources */,
 				CD96752C26065E490067FCC5 /* CardsScene.swift in Sources */,
 				CD6079BC2610A59F00928B20 /* FirebaseAuthenticationService.swift in Sources */,

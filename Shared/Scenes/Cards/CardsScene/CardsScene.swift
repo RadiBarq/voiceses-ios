@@ -41,11 +41,15 @@ struct CardsScene: View {
         content
             .toolbar {
                 ToolbarItem(placement: .navigation) {
-                    Button(action: {
-                        isPresented.toggle()
-                    }, label: {
-                        Image(systemName: "chevron.backward")
-                    })
+                    if !displayCardScenePushed {
+                        Button(action: {
+                            isPresented.toggle()
+                        }, label: {
+                            Image(systemName: "chevron.backward")
+                        })
+                    } else {
+                        EmptyView()
+                    }
                 }
             }
             .navigationTitle(cardsViewModel.title)
@@ -82,8 +86,6 @@ struct CardsScene: View {
                         Text("Filter")
                     })
                 }
-            }
-            .toolbar {
                 ToolbarItem(placement: .automatic) {
                     Button(action: {
                         sortOptions.toggle()
@@ -102,7 +104,7 @@ struct CardsScene: View {
                         ForEach(cardsViewModel.cards) { card in
                             CardView(card: .constant(card)) {
                                 cardsViewModel.deleteCard(with: card.id)
-                                
+
                             }
                             .shadow(color: Color(hex: cardsViewModel.subject.colorHex).opacity(0.8), radius: 20, x: 0, y: 10)
                             .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
@@ -126,7 +128,7 @@ struct CardsScene: View {
             }
         }
         .sheet(isPresented: $cardsViewModel.showFilterCardsScene) {
-            FilterCardsScene(isPresented: $cardsViewModel.showFilterCardsScene, startDate: $filterStartDate, endDate: $filterEndDate)
+            FilterCardsScene(isPresented: $cardsViewModel.showFilterCardsScene, startDate: $filterStartDate, endDate: $filterEndDate, selectedFilter: $selectedFilter)
         }
         .toolbar {
             ToolbarItem(placement: .automatic) {
@@ -135,6 +137,18 @@ struct CardsScene: View {
                         cardsViewModel.showFilterCardsScene.toggle()
                     }, label: {
                         Text("Filter")
+                    })
+                } else {
+                    EmptyView()
+                }
+            }
+            ToolbarItem(placement: .automatic) {
+                if !displayCardScenePushed {
+                    Button(action: {
+                        sortOptions.toggle()
+                        cardsViewModel.reverseCards()
+                    }, label: {
+                        Image(systemName: self.sortOptions == .ascend ? "arrow.up.arrow.down.circle" : "arrow.up.arrow.down.circle.fill")
                     })
                 } else {
                     EmptyView()

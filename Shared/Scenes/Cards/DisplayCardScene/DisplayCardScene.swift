@@ -44,16 +44,18 @@ struct DisplayCardScene: View {
         .toolbar {
             ToolbarItem(placement: .navigation) {
                 Button(action: {
+                    print("Test")
                     isPresented.toggle()
                 }, label: {
                     Image(systemName: "chevron.backward")
                 })
             }
         }
+        
         #endif
         .padding()
         .onAppear {
-            imageURL = displayCardViewModel.cardSide == .front ?  displayCardViewModel.card.frontImageURL : displayCardViewModel.card.backImageURL
+            imageURL = displayCardViewModel.cardSide == .front ? displayCardViewModel.card.frontImageURL : displayCardViewModel.card.backImageURL
         }
     }
     

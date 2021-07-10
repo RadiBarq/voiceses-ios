@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct CardsScene: View {
     @ObservedObject var cardsViewModel: CardsViewModel
 #if !os(iOS)
@@ -78,9 +77,10 @@ struct CardsScene: View {
                     Button(action: {
                         cardsViewModel.showFilterCardsScene.toggle()
                     }, label: {
-                        Text("filter")
+                        Text("Filter")
                     })
                 }
+                
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
                         cardsViewModel.toggleSortOptionsAction()
@@ -125,18 +125,19 @@ struct CardsScene: View {
             FilterCardsScene(isPresented: $cardsViewModel.showFilterCardsScene, startDate: $cardsViewModel.filterStartDate, endDate: $cardsViewModel.filterEndDate, selectedFilter: $cardsViewModel.selectedFilter, filterIsApplied: $cardsViewModel.isFilterApplied)
         }
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
+            ToolbarItem(placement: .automatic) {
                 if !displayCardScenePushed {
                     Button(action: {
                         cardsViewModel.showFilterCardsScene.toggle()
                     }, label: {
-                        Text("filter")
+                        Text("Filter")
                     })
                 } else {
                     EmptyView()
                 }
             }
-            ToolbarItem(placement: .navigationBarLeading) {
+            
+            ToolbarItem(placement: .automatic) {
                 if !displayCardScenePushed {
                     Button(action: {
                         cardsViewModel.toggleSortOptionsAction()

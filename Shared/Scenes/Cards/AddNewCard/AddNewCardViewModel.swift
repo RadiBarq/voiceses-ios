@@ -27,7 +27,7 @@ final class AddNewCardViewModel: ObservableObject {
         self.subject = subject
     }
     
-    func saveCard(frontCanvas: PKCanvasView, backCanvas: PKCanvasView) {
+    func saveCard(frontCanvas: PKCanvasView, backCanvas: PKCanvasView, isPresented: Binding<Bool>) {
         guard !isOneOfTheCanvasesEmpty(frontCanvas: frontCanvas, backCanvas: backCanvas) else  {
             showingAlert = true
             alertMessage = "You can't save an empty card side, make sure both sides are not empty."
@@ -48,6 +48,7 @@ final class AddNewCardViewModel: ObservableObject {
         GlobalService.shared.imageCache.insert(backCanvasImage, for: "-back" + cardID)
         GlobalService.shared.saveCardImages(frontImage: frontCanvasImage.pngData()!, backImage: backCanvasImage.pngData()!, card: card)
         addNew(card: card)
+        isPresented.wrappedValue = false
     }
     
     private func addNew(card: Card) {

@@ -9,8 +9,8 @@ import Foundation
 
 enum FilterOptions: String, CaseIterable, Identifiable {
     case today      = "Today"
-    case lastWeek   = "Last week"
-    case lastMonth  = "Last month"
+    case last7Days   = "Last 7 days"
+    case last30Days  = "Last 30 days"
     case customDate = "Custom"
     var id: String { self.rawValue }
 }

@@ -11,30 +11,35 @@ import PencilKit
 import SwiftUI
 
 final class CardsViewModel: ObservableObject {
+    var title: String {
+        subject.title
+    }
+    var subject: Subject
     @Published var cards = [Card]()
     @Published var showingAddNewCardView = false
     @Published var showAddNewSubjectView = false
     @Published var showingAlert = false
     @Published var alertMessage = ""
     @Published var showFilterCardsScene = false
-    @Published var isFilterApplied: Bool = false {
-        didSet {
-            filterCards()
-        }
-    }
-    @Published var filterStartDate = Date.yesterday
-    @Published var filterEndDate = Date()
+    @Published var filterStartDate = Date.startOfYesterday
+    @Published var filterEndDate = Date.endOfToday
     @Published var selectedFilter = FilterOptions.today
     @Published var sortOptions = SortOptions.ascend
-
+    @Published var isFilterApplied = false {
+        didSet {
+            if isFilterApplied {
+                let (startDate, endDate) = self.getFirstAndEndTimestamps()
+                cards = allCards.filter { $0.timestamp >= startDate && $0.timestamp <= endDate }
+            } else {
+                cards = allCards
+            }
+        }
+    }
+    private var allCards = [Card]()
     private var subscriptions = Set<AnyCancellable>()
     private var getCardsService: FirebaseGetCardsService
     private var deleteCardService: FirebaseDeleteACardService
     private var updateSubjectService: FirebaseUpdateSubjectService
-    var title: String {
-        subject.title
-    }
-    var subject: Subject
     
     init(subject: Subject) {
         self.subject = subject
@@ -60,9 +65,24 @@ final class CardsViewModel: ObservableObject {
         getCardsService
             .cards?
             .replaceError(with: [])
+            .map { [weak self] in
+                guard let weakSelf = self else { return [] }
+                if weakSelf.isFilterApplied {
+                    let (startDate, endDate) = weakSelf.getFirstAndEndTimestamps()
+                    return $0.filter { $0.timestamp >= startDate && $0.timestamp <= endDate }
+                } else {
+                    return $0
+                }
+            }
             .assign(to: \.cards, on: self)
             .store(in: &subscriptions)
-
+        
+        getCardsService
+            .cards?
+            .replaceError(with: [])
+            .assign(to: \.allCards, on: self)
+            .store(in: &subscriptions)
+        
         getCardsService
             .cards?
             .ignoreOutput()
@@ -77,7 +97,23 @@ final class CardsViewModel: ObservableObject {
             .store(in: &subscriptions)
     }
     
-    private func filterCards() {
-        //TODO HERE
+    private func getFirstAndEndTimestamps() -> (Int64, Int64) {
+        var startDate: Date
+        var endDate: Date
+        switch selectedFilter {
+        case .today:
+            startDate = Date.startOfToday
+            endDate = Date.endOfToday
+        case .last7Days:
+            startDate = Date.startOfSevenDaysAgo
+            endDate = Date.endOfToday
+        case .last30Days:
+            startDate = Date.startOfThirtyDaysAgo
+            endDate = Date.endOfToday
+        case .customDate:
+            startDate = filterStartDate
+            endDate = filterEndDate
+        }
+        return (startDate.timestamp, endDate.timestamp)
     }
 }

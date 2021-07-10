@@ -26,6 +26,14 @@ struct FilterCardsScene: View {
                         }, label: { Text("Apply") })
                             .disabled(false)
                     }
+                    ToolbarItem(placement: .navigationBarLeading) {
+                            Button(action: {
+                                filterIsApplied.toggle()
+                                resetFilters()
+                                isPresented = false
+                            }, label: { Text("Remove filter") })
+                                .disabled(!filterIsApplied)
+                    }
                 })
                 .alert(isPresented: $filterCardsViewModel.showingAlert) {
                     Alert(title: Text(alertTitle),
@@ -44,12 +52,20 @@ struct FilterCardsScene: View {
                             applyFilter()
                         }, label: { Text("Apply") })
                             .disabled(false)
-                        
+                    }
+                    
+                    ToolbarItem(placement: .automatic) {
+                            Button(action: {
+                                filterIsApplied.toggle()
+                                resetFilters()
+                                isPresented = false
+                            }, label: { Text("Remove filter") })
+                                .disabled(!filterIsApplied)
                     }
                     ToolbarItem(placement: .destructiveAction) {
-                        Button(action: {
-                            isPresented = false
-                        }, label: { Text("Close") })
+                                Button(action: {
+                                    isPresented = false
+                                }, label: { Text("Close") })
                     }
                 })
                 .accentColor(Color.accent)
@@ -84,7 +100,7 @@ struct FilterCardsScene: View {
                     VStack(alignment: .leading) {
                         DatePicker("Start date",
                                    selection: $startDate,
-                                   in: ...Date.yesterday,
+                                   in: ...Date.startOfYesterday,
                                    displayedComponents: [.date])
                         DatePicker("End date",
                                    selection: $endDate,
@@ -98,7 +114,9 @@ struct FilterCardsScene: View {
         .navigationTitle("Filter Cards")
         .animation(.default)
     }
-    
+}
+
+extension FilterCardsScene {
     private func applyFilter() {
         if filterCardsViewModel.isSelectedDateValid(from: startDate, to: endDate) {
             filterIsApplied = true
@@ -107,12 +125,18 @@ struct FilterCardsScene: View {
             filterCardsViewModel.showInvalidSelectedDateMessage()
         }
     }
+    
+    private func resetFilters() {
+        startDate = Date.startOfYesterday
+        endDate = Date()
+        selectedFilter = .today
+    }
 }
 
 struct FilterCardsScene_Previews: PreviewProvider {
     static var previews: some View {
         FilterCardsScene(isPresented: .constant(true),
-                         startDate: .constant(Date.yesterday),
+                         startDate: .constant(Date.startOfYesterday),
                          endDate: .constant(Date()),
                          selectedFilter: .constant(.today),
                          filterIsApplied: .constant(false))

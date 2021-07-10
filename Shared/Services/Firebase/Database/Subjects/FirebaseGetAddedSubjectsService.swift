@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 import Combine
 
-enum FirebaseGetSubjectsServiceError: Error, LocalizedError {
+enum FirebaseGetAddedSubjectsServiceError: Error, LocalizedError {
     case userIsNotAvailable
     case decodingFormatIsNotValid
     var errorDescription: String {
@@ -22,13 +22,14 @@ enum FirebaseGetSubjectsServiceError: Error, LocalizedError {
     }
 }
 
-final class FirebaseGetSubjectsService: FirebaseDatabaseService {
-    var subjects: AnyPublisher<[Subject], FirebaseGetSubjectsServiceError>?
+// Note that this service returns all subjects the first time it's initialzed.
+final class FirebaseGetAddedSubjectsService: FirebaseDatabaseService {
+    var subjects: AnyPublisher<Subject, FirebaseGetAddedSubjectsServiceError>?
     let ref = Database.database().reference().child("users")
-    private let subjectsSubject: PassthroughSubject<[Subject], FirebaseGetSubjectsServiceError>
+    private let subjectsSubject: PassthroughSubject<Subject, FirebaseGetAddedSubjectsServiceError>
     
     init() {
-        self.subjectsSubject = PassthroughSubject<[Subject], FirebaseGetSubjectsServiceError>()
+        self.subjectsSubject = PassthroughSubject<Subject, FirebaseGetAddedSubjectsServiceError>()
         setupSubjects()
     }
     
@@ -46,7 +47,7 @@ final class FirebaseGetSubjectsService: FirebaseDatabaseService {
                 .child("subjects")
             handle = subjectsRef?
                 .queryOrdered(byChild: "timestamp")
-                .observe(.value) { [weak weakSelf] snapshot in
+                .observe(.childAdded) { [weak weakSelf] snapshot in
                     weakSelf?.setupSubjects(with: snapshot)
                 }
         }, receiveCancel: {
@@ -59,14 +60,10 @@ final class FirebaseGetSubjectsService: FirebaseDatabaseService {
     }
     
     private func setupSubjects(with snapshot: DataSnapshot) {
-        var subjects = [Subject]() 
-        for child in snapshot.children {
-            guard let snapshot = child as? DataSnapshot, let dict = snapshot.value as? [String: Any], let subject = Subject(dictionary: dict) else {
-                subjectsSubject.send(completion: .failure(.decodingFormatIsNotValid))
+        guard let dict = snapshot.value as? [String: Any], let subject = Subject(dictionary: dict) else {
+            subjectsSubject.send(completion: .failure(.decodingFormatIsNotValid))
                 return
-            }
-            subjects.append(subject)
         }
-        subjectsSubject.send(subjects)
+        subjectsSubject.send(subject)
     }
 }

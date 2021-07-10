@@ -30,43 +30,80 @@ final class SubjectsViewModel: ObservableObject {
     
     var selectedMacSubject: Subject?
     private var subscriptions = Set<AnyCancellable>()
-    private var getSubjectsService: FirebaseGetSubjectsService
+    private var getAddedSubjectsService: FirebaseGetAddedSubjectsService
+    private var getUpdatedSubjectsService: FirebaseGetUpdatedSubjectsService
+    private var getDeletedSubjectsService: FirebaseGetDeletedSubjectsService
     private var deleteASubjectService: FirebaseDeleteASubjectService
     private var updateSubjectService: FirebaseUpdateSubjectService
     
+    
     init() {
-        getSubjectsService = FirebaseGetSubjectsService()
+        getAddedSubjectsService = FirebaseGetAddedSubjectsService()
         deleteASubjectService = FirebaseDeleteASubjectService()
         updateSubjectService = FirebaseUpdateSubjectService()
-        startListenToGetSubjectsService()
+        getDeletedSubjectsService = FirebaseGetDeletedSubjectsService()
+        getUpdatedSubjectsService = FirebaseGetUpdatedSubjectsService()
+        startListenToGetAddedSubjectsService()
+        startListenToGetDeletedSubjectsService()
+        startListenToGetUpdatedSubjectsService()
     }
     
     func deleteSubject() {
         deleteASubjectService.deleteSubject(with: selectedSubjectIDToBeDeleted)
         GlobalService.shared.deleteSubjectImages(with: selectedSubjectIDToBeDeleted)
     }
-
+    
     func update(subject: Subject) {
         updateSubjectService.updateTitle(for: subject)
     }
     
-    private func startListenToGetSubjectsService() {
-        getSubjectsService
+    private func startListenToGetAddedSubjectsService() {
+        getAddedSubjectsService
             .subjects?
-            .replaceError(with: [])
-            .assign(to: \.subjects, on: self)
-            .store(in: &subscriptions)
-        getSubjectsService
-            .subjects?
-            .ignoreOutput()
-            .sink(receiveCompletion: { [weak self] result in
+            .sink(receiveCompletion: { [weak self] completion in
                 guard let weakSelf = self else { return }
-                if case let .failure(error) = result {
+                if case let .failure(error) = completion {
                     weakSelf.alertMessage = error.errorDescription
                     weakSelf.showingAlert = true
                     return
                 }
-            }, receiveValue: { _ in })
+            }, receiveValue: { [weak self] subject in
+                self?.subjects.append(subject)
+            })
+            .store(in: &subscriptions)
+    }
+    
+    private func startListenToGetDeletedSubjectsService() {
+        getDeletedSubjectsService
+            .deletedSubjects?
+            .sink(receiveCompletion: { [weak self] completion in
+                guard let weakSelf = self else { return }
+                if case let .failure(error) = completion {
+                    weakSelf.alertMessage = error.errorDescription
+                    weakSelf.showingAlert = true
+                    return
+                }
+            }, receiveValue: { [weak self] deletedSubject in
+                self?.subjects.removeAll(where: { $0.id == deletedSubject.id })
+            })
+            .store(in: &subscriptions)
+    }
+    
+    private func startListenToGetUpdatedSubjectsService() {
+        getUpdatedSubjectsService
+            .updatedSubjects?
+            .sink(receiveCompletion: { [weak self] completion in
+                guard let weakSelf = self else { return }
+                if case let .failure(error) = completion {
+                    weakSelf.alertMessage = error.errorDescription
+                    weakSelf.showingAlert = true
+                    return
+                }
+            }, receiveValue: { [weak self] updatedSubject in
+                guard let weakSelf = self, let index = weakSelf.subjects.firstIndex(where: { $0.id == updatedSubject.id })
+                else { return }
+                weakSelf.subjects[index] = updatedSubject
+            })
             .store(in: &subscriptions)
     }
 }

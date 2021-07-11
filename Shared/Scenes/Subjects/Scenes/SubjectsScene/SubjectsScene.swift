@@ -35,6 +35,7 @@ struct SubjectsScene: View {
                 AddNewSubjectScene(isPresented: $subjectsViewModel.showAddNewSubjectView)
             }
             .toolbar {
+#if os(iOS)
                 ToolbarItem(placement: .automatic) {
                     Button(action: {
                         subjectsViewModel.reverseSubjects()
@@ -42,15 +43,27 @@ struct SubjectsScene: View {
                         Image(systemName: self.subjectsViewModel.sortOptions == .ascend ? "arrow.up.arrow.down.circle" : "arrow.up.arrow.down.circle.fill")
                     })
                 }
-                
                 ToolbarItem(placement: .confirmationAction) {
-#if os(iOS)
                     Button(action: {
                         subjectsViewModel.showAddNewSubjectView.toggle()
                     }, label: {
                         Image(systemName: "plus.circle")
                     })
+                }
 #else
+                ToolbarItem(placement: .automatic) {
+                    if !cardsScenePushed {
+                        Button(action: {
+                            subjectsViewModel.reverseSubjects()
+                        }, label: {
+                            Image(systemName: self.subjectsViewModel.sortOptions == .ascend ? "arrow.up.arrow.down.circle" : "arrow.up.arrow.down.circle.fill")
+                        })
+                    } else {
+                        EmptyView()
+                    }
+                }
+                
+                ToolbarItem(placement: .confirmationAction) {
                     if !cardsScenePushed {
                         Button(action: {
                             subjectsViewModel.showAddNewSubjectView.toggle()
@@ -60,10 +73,10 @@ struct SubjectsScene: View {
                     } else {
                         EmptyView()
                     }
-#endif
                 }
-            }
+#endif
         
+            }
     }
     
     private var content: some View {

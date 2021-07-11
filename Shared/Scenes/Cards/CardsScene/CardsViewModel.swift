@@ -24,7 +24,11 @@ final class CardsViewModel: ObservableObject {
     @Published var filterStartDate = Date.startOfYesterday
     @Published var filterEndDate = Date.endOfToday
     @Published var selectedFilter = FilterOptions.today
-    @Published var sortOptions = SortOptions.ascend
+    @Published var sortOptions = SortOptions.ascend {
+        didSet {
+            cards.reverse()
+        }
+    }
     @Published var isFilterApplied = false {
         didSet {
             if isFilterApplied {
@@ -35,6 +39,7 @@ final class CardsViewModel: ObservableObject {
             }
         }
     }
+    
     private var allCards = [Card]()
     private var subscriptions = Set<AnyCancellable>()
     private var getCardsService: FirebaseGetCardsService
@@ -56,9 +61,8 @@ final class CardsViewModel: ObservableObject {
         GlobalService.shared.deleteCardImages(with: id, subjectID: subject.id!)
     }
     
-    func toggleSortOptionsAction() {
+    func reverseCards() {
         sortOptions.toggle()
-        cards.reverse()
     }
     
     private func startListenToGetCardsService() {

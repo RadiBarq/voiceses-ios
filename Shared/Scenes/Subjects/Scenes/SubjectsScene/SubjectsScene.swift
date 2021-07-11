@@ -10,7 +10,6 @@ import SwiftUI
 struct SubjectsScene: View {
     @StateObject private var subjectsViewModel = SubjectsViewModel()
     @State var isActiveOnMac = false
-    
 #if !os(iOS)
     @State private var currentSelectedSubject: Subject?
     @State private var cardsScenePushed: Bool = false
@@ -36,6 +35,14 @@ struct SubjectsScene: View {
                 AddNewSubjectScene(isPresented: $subjectsViewModel.showAddNewSubjectView)
             }
             .toolbar {
+                ToolbarItem(placement: .automatic) {
+                    Button(action: {
+                        subjectsViewModel.reverseSubjects()
+                    }, label: {
+                        Image(systemName: self.subjectsViewModel.sortOptions == .ascend ? "arrow.up.arrow.down.circle" : "arrow.up.arrow.down.circle.fill")
+                    })
+                }
+                
                 ToolbarItem(placement: .confirmationAction) {
 #if os(iOS)
                     Button(action: {
@@ -56,6 +63,7 @@ struct SubjectsScene: View {
 #endif
                 }
             }
+        
     }
     
     private var content: some View {
@@ -75,7 +83,7 @@ struct SubjectsScene: View {
                                 subjectsViewModel.update(subject: subject)
                             })
                                 .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
-                       .padding()
+                                .padding()
                         }
                     }
                 }

@@ -22,6 +22,11 @@ final class SubjectsViewModel: ObservableObject {
     @Published var alertMessage = ""
     @Published var showDeleteSubjectAlert = false
     @Published var selectedSubjectIDToBeDeleted = ""
+    @Published var sortOptions = SortOptions.ascend {
+        didSet {
+            subjects.reverse()
+        }
+    }
     @Published var searchText = "" {
         didSet {
             searchedSubjects = subjects.filter { searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }
@@ -35,7 +40,6 @@ final class SubjectsViewModel: ObservableObject {
     private var getDeletedSubjectsService: FirebaseGetDeletedSubjectsService
     private var deleteASubjectService: FirebaseDeleteASubjectService
     private var updateSubjectService: FirebaseUpdateSubjectService
-    
     
     init() {
         getAddedSubjectsService = FirebaseGetAddedSubjectsService()
@@ -55,6 +59,10 @@ final class SubjectsViewModel: ObservableObject {
     
     func update(subject: Subject) {
         updateSubjectService.updateTitle(for: subject)
+    }
+    
+    func reverseSubjects() {
+        sortOptions.toggle()
     }
     
     private func startListenToGetAddedSubjectsService() {

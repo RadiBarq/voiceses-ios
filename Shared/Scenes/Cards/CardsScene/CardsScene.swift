@@ -83,7 +83,7 @@ struct CardsScene: View {
                 
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        cardsViewModel.toggleSortOptionsAction()
+                        cardsViewModel.reverseCards()
                     }, label: {
                         Image(systemName: self.cardsViewModel.sortOptions == .ascend ? "arrow.up.arrow.down.circle" : "arrow.up.arrow.down.circle.fill")
                     })
@@ -140,7 +140,7 @@ struct CardsScene: View {
             ToolbarItem(placement: .automatic) {
                 if !displayCardScenePushed {
                     Button(action: {
-                        cardsViewModel.toggleSortOptionsAction()
+                        cardsViewModel.reverseCards()
                     }, label: {
                         Image(systemName: cardsViewModel.sortOptions == .ascend ? "arrow.up.arrow.down.circle" : "arrow.up.arrow.down.circle.fill")
                     })

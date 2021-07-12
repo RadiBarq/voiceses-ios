@@ -46,6 +46,12 @@ struct AddNewSubjectScene: View {
                         }, label: { Text("Add") })
                             .disabled(addNewSubjectViewModel.isDoneButtonDisabled)
                     }
+                    
+                    ToolbarItem(placement: .destructiveAction) {
+                        Button(action: {
+                            isPresented = false
+                        }, label: { Text("Close") })
+                    }
                 })
                 .accentColor(Color.accent)
                 .alert(isPresented: $addNewSubjectViewModel.showingAlert) {

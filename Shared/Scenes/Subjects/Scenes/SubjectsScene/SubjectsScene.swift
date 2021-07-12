@@ -43,6 +43,7 @@ struct SubjectsScene: View {
                         Image(systemName: self.subjectsViewModel.sortOptions == .ascend ? "arrow.up.arrow.down.circle" : "arrow.up.arrow.down.circle.fill")
                     })
                 }
+                
                 ToolbarItem(placement: .confirmationAction) {
                     Button(action: {
                         subjectsViewModel.showAddNewSubjectView.toggle()
@@ -75,7 +76,6 @@ struct SubjectsScene: View {
                     }
                 }
 #endif
-        
             }
     }
     

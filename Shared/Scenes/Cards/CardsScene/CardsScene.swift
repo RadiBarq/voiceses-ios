@@ -26,6 +26,13 @@ struct CardsScene: View {
                         Image(systemName: "plus.circle")
                     })
                 }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                       
+                    }, label: {
+                        Text("Start Test")
+                    })
+                }
             }
             .navigationTitle(cardsViewModel.title)
             .fullScreenCover(isPresented: $cardsViewModel.showingAddNewCardView) {
@@ -136,13 +143,23 @@ struct CardsScene: View {
                     EmptyView()
                 }
             }
-            
             ToolbarItem(placement: .automatic) {
                 if !displayCardScenePushed {
                     Button(action: {
                         cardsViewModel.reverseCards()
                     }, label: {
                         Image(systemName: cardsViewModel.sortOptions == .ascend ? "arrow.up.arrow.down.circle" : "arrow.up.arrow.down.circle.fill")
+                    })
+                } else {
+                    EmptyView()
+                }
+            }
+    
+            ToolbarItem(placement: .confirmationAction) {
+                if !displayCardScenePushed {
+                    Button(action: {
+                    }, label: {
+                        Text("Start Test")
                     })
                 } else {
                     EmptyView()

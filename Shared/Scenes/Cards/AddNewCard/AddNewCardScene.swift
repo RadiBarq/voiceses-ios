@@ -31,7 +31,11 @@ struct AddNewCardScene: View {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button(action: {
-                        isPresented.toggle()
+                        if addNewCardViewModel.areBothCanvasesEmpty(frontCanvas: frontCanvas, backCanvas: backCanvas) {
+                            isPresented.toggle()
+                            return
+                        }
+                        addNewCardViewModel.showCloseConfirmationAlert()
                     }, label: {
                         Text("Close")
                     })
@@ -59,6 +63,19 @@ struct AddNewCardScene: View {
             Alert(title: Text(self.alertTitle),
                   message: Text(addNewCardViewModel.alertMessage),
                   dismissButton: .default(Text(alertDismissButtonTitle)))
+        }
+        .alert(isPresented: $addNewCardViewModel.showingAlert) {
+            Alert(title: Text(self.alertTitle),
+                  message: Text(addNewCardViewModel.alertMessage),
+                  dismissButton: .default(Text(alertDismissButtonTitle)))
+        }
+        .alert(isPresented: $addNewCardViewModel.showingCloseConfirmationAlert) {
+            Alert(title: Text(addNewCardViewModel.alertTitle),
+                  message: Text(addNewCardViewModel.alertMessage),
+                  primaryButton: .cancel(),
+                  secondaryButton: .default(Text("Delete everything"), action: {
+                isPresented.toggle()
+            }))
         }
     }
 }

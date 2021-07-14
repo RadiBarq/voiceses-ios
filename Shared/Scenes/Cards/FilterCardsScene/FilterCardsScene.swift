@@ -89,6 +89,7 @@ struct FilterCardsScene: View {
                     ForEach(FilterOptions.allCases) { option in
                         Text(option.rawValue)
                             .tag(option)
+                            .font(.footnote)
                     }
                 }
                 .padding(.init(top: 10, leading: 0, bottom: 10, trailing: 0))

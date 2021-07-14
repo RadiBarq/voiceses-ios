@@ -14,7 +14,9 @@ import Firebase
 final class AddNewCardViewModel: ObservableObject {
     @Published var cardSide: CardSide = .front
     @Published var showingAlert: Bool = false
+    @Published var alertTitle: String = ""
     @Published var alertMessage: String = ""
+    @Published var showingCloseConfirmationAlert = false
     var parentColor: Color {
         Color(hex: subject.colorHex)
     }
@@ -49,6 +51,16 @@ final class AddNewCardViewModel: ObservableObject {
         GlobalService.shared.saveCardImages(frontImage: frontCanvasImage.pngData()!, backImage: backCanvasImage.pngData()!, card: card)
         addNew(card: card)
         isPresented.wrappedValue = false
+    }
+
+    func showCloseConfirmationAlert() {
+        showingCloseConfirmationAlert = true
+        alertTitle = "Are you sure you want to leave!"
+        alertMessage = "Everything inside this card will be lost forever."
+    }
+    
+    func areBothCanvasesEmpty(frontCanvas: PKCanvasView, backCanvas: PKCanvasView) -> Bool {
+        return frontCanvas.drawing.bounds.isEmpty && backCanvas.drawing.bounds.isEmpty
     }
     
     private func addNew(card: Card) {

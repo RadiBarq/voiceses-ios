@@ -31,8 +31,8 @@ struct SubjectsScene: View {
                       secondaryButton: .cancel(Text("Cancel"))
                 )
             }
-            .sheet(isPresented: $subjectsViewModel.showAddNewSubjectView) {
-                AddNewSubjectScene(isPresented: $subjectsViewModel.showAddNewSubjectView)
+            .sheet(isPresented: $subjectsViewModel.showingAddNewSubjectScene) {
+                AddNewSubjectScene(isPresented: $subjectsViewModel.showingAddNewSubjectScene)
             }
             .toolbar {
 #if os(iOS)
@@ -46,7 +46,7 @@ struct SubjectsScene: View {
                 
                 ToolbarItem(placement: .confirmationAction) {
                     Button(action: {
-                        subjectsViewModel.showAddNewSubjectView.toggle()
+                        subjectsViewModel.showingAddNewSubjectScene.toggle()
                     }, label: {
                         Image(systemName: "plus.circle")
                     })
@@ -67,7 +67,7 @@ struct SubjectsScene: View {
                 ToolbarItem(placement: .confirmationAction) {
                     if !cardsScenePushed {
                         Button(action: {
-                            subjectsViewModel.showAddNewSubjectView.toggle()
+                            subjectsViewModel.showingAddNewSubjectScene.toggle()
                         }, label: {
                             Image(systemName: "plus.circle")
                         })

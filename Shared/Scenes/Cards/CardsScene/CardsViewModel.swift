@@ -16,14 +16,15 @@ final class CardsViewModel: ObservableObject {
     }
     var subject: Subject
     @Published var cards = [Card]()
-    @Published var showingAddNewCardView = false
-    @Published var showAddNewSubjectView = false
+    @Published var showingAddNewCardScene = false
+    @Published var showingAddNewSubjectScene = false
     @Published var showingAlert = false
     @Published var alertMessage = ""
-    @Published var showFilterCardsScene = false
+    @Published var showingFilterCardsScene = false
+    @Published var showingSetupTestScene = false
     @Published var filterStartDate = Date.startOfYesterday
     @Published var filterEndDate = Date.endOfToday
-    @Published var selectedFilter = FilterOptions.today
+    @Published var selectedDateFilterOption = DateFilterOption.today
     @Published var sortOptions = SortOptions.ascend {
         didSet {
             cards.reverse()
@@ -104,7 +105,7 @@ final class CardsViewModel: ObservableObject {
     private func getFirstAndEndTimestamps() -> (Int64, Int64) {
         var startDate: Date
         var endDate: Date
-        switch selectedFilter {
+        switch selectedDateFilterOption {
         case .today:
             startDate = Date.startOfToday
             endDate = Date.endOfToday

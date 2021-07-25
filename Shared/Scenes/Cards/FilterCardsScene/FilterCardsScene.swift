@@ -12,7 +12,7 @@ struct FilterCardsScene: View {
     @Binding var isPresented: Bool
     @Binding var startDate: Date
     @Binding var endDate: Date
-    @Binding var selectedFilter: FilterOptions
+    @Binding var selectedDateFilterOption: DateFilterOption
     @Binding var filterIsApplied: Bool
     @StateObject private var filterCardsViewModel = FilterCardsViewModel()
     var body: some View {
@@ -24,7 +24,6 @@ struct FilterCardsScene: View {
                         Button(action: {
                             applyFilter()
                         }, label: { Text("Apply") })
-                            .disabled(false)
                     }
                     ToolbarItem(placement: .navigationBarLeading) {
                             Button(action: {
@@ -51,9 +50,7 @@ struct FilterCardsScene: View {
                         Button(action: {
                             applyFilter()
                         }, label: { Text("Apply") })
-                            .disabled(false)
                     }
-                    
                     ToolbarItem(placement: .automatic) {
                             Button(action: {
                                 filterIsApplied.toggle()
@@ -77,7 +74,6 @@ struct FilterCardsScene: View {
                 }
                 .padding()
                 .frame(minWidth: 1000, maxWidth: .infinity, minHeight: 600, maxHeight: .infinity)
-
                 .accentColor(Color.accent)
         }
 #endif
@@ -85,8 +81,8 @@ struct FilterCardsScene: View {
     private var content: some View {
         return Form {
             Section(header: Text("Filter by")) {
-                Picker("", selection: $selectedFilter) {
-                    ForEach(FilterOptions.allCases) { option in
+                Picker("", selection: $selectedDateFilterOption) {
+                    ForEach(DateFilterOption.allCases) { option in
                         Text(option.rawValue)
                             .tag(option)
                             .font(.footnote)
@@ -94,10 +90,8 @@ struct FilterCardsScene: View {
                 }
                 .padding(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
                 .pickerStyle(.segmented)
-            }
             
-            if  selectedFilter == .customDate {
-                Section(header: Text("Pick custom date")) {
+                if  selectedDateFilterOption == .customDate {
                     VStack(alignment: .leading) {
                         DatePicker("Start date",
                                    selection: $startDate,
@@ -130,7 +124,7 @@ extension FilterCardsScene {
     private func resetFilters() {
         startDate = Date.startOfYesterday
         endDate = Date()
-        selectedFilter = .today
+        selectedDateFilterOption = .today
     }
 }
 
@@ -139,7 +133,7 @@ struct FilterCardsScene_Previews: PreviewProvider {
         FilterCardsScene(isPresented: .constant(true),
                          startDate: .constant(Date.startOfYesterday),
                          endDate: .constant(Date()),
-                         selectedFilter: .constant(.today),
+                         selectedDateFilterOption: .constant(.today),
                          filterIsApplied: .constant(false))
     }
 }

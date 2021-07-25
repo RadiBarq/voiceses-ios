@@ -16,9 +16,10 @@ final class SubjectsViewModel: ObservableObject {
     }
     
     @Published var searchedSubjects: [Subject] = []
-    @Published var showLecturesOnMac = false
-    @Published var showAddNewSubjectView = false
+    @Published var showingLecturesOnMac = false
+    @Published var showingAddNewSubjectScene = false
     @Published var showingAlert = false
+    @Published var showingTestSetupScene = false
     @Published var alertMessage = ""
     @Published var showDeleteSubjectAlert = false
     @Published var selectedSubjectIDToBeDeleted = ""

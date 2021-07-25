@@ -21,22 +21,22 @@ struct CardsScene: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button(action: {
-                        cardsViewModel.showingAddNewCardView.toggle()
+                        cardsViewModel.showingAddNewCardScene.toggle()
                     }, label: {
                         Image(systemName: "plus.circle")
                     })
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                       
+                        cardsViewModel.showingSetupTestScene.toggle()
                     }, label: {
                         Text("Start Test")
                     })
                 }
             }
             .navigationTitle(cardsViewModel.title)
-            .fullScreenCover(isPresented: $cardsViewModel.showingAddNewCardView) {
-                AddNewCardScene(isPresented: $cardsViewModel.showingAddNewCardView, addNewCardViewModel: AddNewCardViewModel(subject: cardsViewModel.subject))
+            .fullScreenCover(isPresented: $cardsViewModel.showingAddNewCardScene) {
+                AddNewCardScene(isPresented: $cardsViewModel.showingAddNewCardScene, addNewCardViewModel: AddNewCardViewModel(subject: cardsViewModel.subject))
             }
 #else
         content
@@ -76,18 +76,20 @@ struct CardsScene: View {
                 .padding()
                 .animation(.easeInOut(duration: 0.5))
             }
-            .sheet(isPresented: $cardsViewModel.showFilterCardsScene) {
-                FilterCardsScene(isPresented: $cardsViewModel.showFilterCardsScene, startDate: $cardsViewModel.filterStartDate, endDate: $cardsViewModel.filterEndDate, selectedFilter: $cardsViewModel.selectedFilter, filterIsApplied: $cardsViewModel.isFilterApplied)
+            .sheet(isPresented: $cardsViewModel.showingFilterCardsScene) {
+                FilterCardsScene(isPresented: $cardsViewModel.showingFilterCardsScene, startDate: $cardsViewModel.filterStartDate, endDate: $cardsViewModel.filterEndDate, selectedDateFilterOption: $cardsViewModel.selectedDateFilterOption, filterIsApplied: $cardsViewModel.isFilterApplied)
+            }
+            .sheet(isPresented: $cardsViewModel.showingSetupTestScene) {
+                SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, cards: $cardsViewModel.cards)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        cardsViewModel.showFilterCardsScene.toggle()
+                        cardsViewModel.showingFilterCardsScene.toggle()
                     }, label: {
                         Text("Filter")
                     })
                 }
-                
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
                         cardsViewModel.reverseCards()
@@ -105,7 +107,7 @@ struct CardsScene: View {
                         ForEach(cardsViewModel.cards) { card in
                             CardView(card: .constant(card)) {
                                 cardsViewModel.deleteCard(with: card.id)
-
+                                
                             }
                             .shadow(color: Color(hex: cardsViewModel.subject.colorHex).opacity(0.8), radius: 20, x: 0, y: 10)
                             .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
@@ -128,14 +130,17 @@ struct CardsScene: View {
                     .animation(.default)
             }
         }
-        .sheet(isPresented: $cardsViewModel.showFilterCardsScene) {
-            FilterCardsScene(isPresented: $cardsViewModel.showFilterCardsScene, startDate: $cardsViewModel.filterStartDate, endDate: $cardsViewModel.filterEndDate, selectedFilter: $cardsViewModel.selectedFilter, filterIsApplied: $cardsViewModel.isFilterApplied)
+        .sheet(isPresented: $cardsViewModel.showingFilterCardsScene) {
+            FilterCardsScene(isPresented: $cardsViewModel.showingFilterCardsScene, startDate: $cardsViewModel.filterStartDate, endDate: $cardsViewModel.filterEndDate, selectedDateFilterOption: $cardsViewModel.selectedDateFilterOption, filterIsApplied: $cardsViewModel.isFilterApplied)
+        }
+        .sheet(isPresented: $cardsViewModel.showingSetupTestScene) {
+            SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, cards: $cardsViewModel.cards)
         }
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 if !displayCardScenePushed {
                     Button(action: {
-                        cardsViewModel.showFilterCardsScene.toggle()
+                        cardsViewModel.showingFilterCardsScene.toggle()
                     }, label: {
                         Text("Filter")
                     })
@@ -154,10 +159,10 @@ struct CardsScene: View {
                     EmptyView()
                 }
             }
-    
             ToolbarItem(placement: .confirmationAction) {
                 if !displayCardScenePushed {
                     Button(action: {
+                        cardsViewModel.showingSetupTestScene.toggle()
                     }, label: {
                         Text("Start Test")
                     })

@@ -10,7 +10,12 @@ import SwiftUI
 struct SetupTestScene: View {
     @Binding var isPresented: Bool
     @Binding var cards: [Card]
-    @StateObject private var setupTestViewModel = SetupTestViewModel()
+    @Binding var testIncludedCardsOption: TestIncludedCardsOption
+    @Binding var testIncludedCardsStartDate: Date
+    @Binding var testIncludedCardsEndDate: Date
+    @Binding var testSelectedDateFitlerOption: DateFilterOption
+    @Binding var testSelectedCardsOrderOption: TestCardsOrderOption
+
     var body: some View {
 #if os(iOS)
         NavigationView {
@@ -47,7 +52,7 @@ struct SetupTestScene: View {
         return VStack {
             Form {
                 Section(header: Text("Cards included")) {
-                    Picker("", selection: $setupTestViewModel.selectedTestIncludedCards) {
+                    Picker("", selection: $testIncludedCardsOption) {
                         ForEach(TestIncludedCardsOption.allCases) { option in
                             Text(option.rawValue)
                                 .tag(option)
@@ -57,9 +62,9 @@ struct SetupTestScene: View {
                     .padding(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
                     .pickerStyle(.segmented)
                 }
-                if setupTestViewModel.selectedTestIncludedCards == .filteredCards {
+                if testIncludedCardsOption == .filteredCards {
                     Section(header: Text("Fitler cards by")) {
-                        Picker("", selection: $setupTestViewModel.selectedDateFitlerOption) {
+                        Picker("", selection: $testSelectedDateFitlerOption) {
                             ForEach(DateFilterOption.allCases) { option in
                                 Text(option.rawValue)
                                     .tag(option)
@@ -68,14 +73,14 @@ struct SetupTestScene: View {
                         }
                         .padding(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
                         .pickerStyle(.segmented)
-                        if setupTestViewModel.selectedDateFitlerOption == .customDate {
+                        if testSelectedDateFitlerOption == .customDate {
                             VStack(alignment: .leading) {
                                 DatePicker("Start date",
-                                           selection: $setupTestViewModel.includedCardsStartDate,
+                                           selection: $testIncludedCardsStartDate,
                                            in: ...Date.startOfYesterday,
                                            displayedComponents: [.date])
                                 DatePicker("End date",
-                                           selection: $setupTestViewModel.includedCardsEndDate,
+                                           selection: $testIncludedCardsEndDate,
                                            in: ...Date(),
                                            displayedComponents: [.date])
                             }
@@ -84,7 +89,7 @@ struct SetupTestScene: View {
                     }
                 }
                 Section(header: Text("Cards Order")) {
-                    Picker("", selection: $setupTestViewModel.selectedTestCardsOrderOption) {
+                    Picker("", selection: $testSelectedCardsOrderOption){
                         ForEach(TestCardsOrderOption.allCases) { option in
                             Text(option.rawValue)
                                 .tag(option)
@@ -116,11 +121,5 @@ struct SetupTestScene: View {
             }
             .padding()
         }
-    }
-}
-
-struct ShowingSetupTestScene_Previews: PreviewProvider {
-    static var previews: some View {
-        SetupTestScene(isPresented: .constant(false), cards: .constant([]))
     }
 }

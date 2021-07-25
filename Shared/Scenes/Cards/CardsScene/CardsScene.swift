@@ -80,7 +80,7 @@ struct CardsScene: View {
                 FilterCardsScene(isPresented: $cardsViewModel.showingFilterCardsScene, startDate: $cardsViewModel.filterStartDate, endDate: $cardsViewModel.filterEndDate, selectedDateFilterOption: $cardsViewModel.selectedDateFilterOption, filterIsApplied: $cardsViewModel.isFilterApplied)
             }
             .sheet(isPresented: $cardsViewModel.showingSetupTestScene) {
-                SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, cards: $cardsViewModel.cards)
+                SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, cards: $cardsViewModel.cards, testIncludedCardsOption: $cardsViewModel.testIncludedCardsOption, testIncludedCardsStartDate: $cardsViewModel.testIncludedCardsStartDate, testIncludedCardsEndDate: $cardsViewModel.testIncludedCardsEndDate, testSelectedDateFitlerOption: $cardsViewModel.testSelectedDateFitlerOption, testSelectedCardsOrderOption: $cardsViewModel.testSelectedCardsOrderOption)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -134,7 +134,7 @@ struct CardsScene: View {
             FilterCardsScene(isPresented: $cardsViewModel.showingFilterCardsScene, startDate: $cardsViewModel.filterStartDate, endDate: $cardsViewModel.filterEndDate, selectedDateFilterOption: $cardsViewModel.selectedDateFilterOption, filterIsApplied: $cardsViewModel.isFilterApplied)
         }
         .sheet(isPresented: $cardsViewModel.showingSetupTestScene) {
-            SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, cards: $cardsViewModel.cards)
+            SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, cards: $cardsViewModel.cards, testIncludedCardsOption: $cardsViewModel.testIncludedCardsOption, testIncludedCardsStartDate: $cardsViewModel.testIncludedCardsStartDate, testIncludedCardsEndDate: $cardsViewModel.testIncludedCardsEndDate, testSelectedDateFitlerOption: $cardsViewModel.testSelectedDateFitlerOption, testSelectedCardsOrderOption: $cardsViewModel.testSelectedCardsOrderOption)
         }
         .toolbar {
             ToolbarItem(placement: .automatic) {

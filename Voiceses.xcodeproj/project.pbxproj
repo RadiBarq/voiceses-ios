@@ -39,8 +39,6 @@
 		CD30732D263752DC00E4C743 /* AddNewLectureScene_temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30732C263752DC00E4C743 /* AddNewLectureScene_temp.swift */; };
 		CD30732E263752DC00E4C743 /* AddNewLectureScene_temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30732C263752DC00E4C743 /* AddNewLectureScene_temp.swift */; };
 		CD5785D226A026D800CFBA6A /* SetupTestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5785D126A026D800CFBA6A /* SetupTestScene.swift */; };
-		CD5785D426A0298E00CFBA6A /* SetupTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5785D326A0298E00CFBA6A /* SetupTestViewModel.swift */; };
-		CD5785D526A0298E00CFBA6A /* SetupTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5785D326A0298E00CFBA6A /* SetupTestViewModel.swift */; };
 		CD5785D626A0301F00CFBA6A /* SetupTestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5785D126A026D800CFBA6A /* SetupTestScene.swift */; };
 		CD5785D926A0717100CFBA6A /* TestIncludedCardsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5785D826A0717100CFBA6A /* TestIncludedCardsOption.swift */; };
 		CD5785DA26A0717100CFBA6A /* TestIncludedCardsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5785D826A0717100CFBA6A /* TestIncludedCardsOption.swift */; };
@@ -175,7 +173,6 @@
 		CD3072D22635E73900E4C743 /* FirebaseGetCardsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGetCardsService.swift; sourceTree = "<group>"; };
 		CD30732C263752DC00E4C743 /* AddNewLectureScene_temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLectureScene_temp.swift; sourceTree = "<group>"; };
 		CD5785D126A026D800CFBA6A /* SetupTestScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupTestScene.swift; sourceTree = "<group>"; };
-		CD5785D326A0298E00CFBA6A /* SetupTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupTestViewModel.swift; sourceTree = "<group>"; };
 		CD5785D826A0717100CFBA6A /* TestIncludedCardsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIncludedCardsOption.swift; sourceTree = "<group>"; };
 		CD5785DB26A09F6B00CFBA6A /* TestCardsOrderOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCardsOrderOption.swift; sourceTree = "<group>"; };
 		CD5FE76F267763B00029B23F /* FirebaseDeleteCardImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDeleteCardImageService.swift; sourceTree = "<group>"; };
@@ -363,7 +360,6 @@
 			children = (
 				CD5785D726A0714400CFBA6A /* Models */,
 				CD5785D126A026D800CFBA6A /* SetupTestScene.swift */,
-				CD5785D326A0298E00CFBA6A /* SetupTestViewModel.swift */,
 			);
 			path = SetupTestScene;
 			sourceTree = "<group>";
@@ -1003,7 +999,6 @@
 				CD5785D226A026D800CFBA6A /* SetupTestScene.swift in Sources */,
 				CD60795E2610974B00928B20 /* FirebaseDatabaseService.swift in Sources */,
 				CDF24DF52618C67500CC866F /* SubjectsViewModel.swift in Sources */,
-				CD5785D426A0298E00CFBA6A /* SetupTestViewModel.swift in Sources */,
 				CD96753C26066F260067FCC5 /* Subject.swift in Sources */,
 				CD607956261096B400928B20 /* FirebaseAddNewSubjectService.swift in Sources */,
 				CDF1C1C72664F228002BF9E4 /* GlobalService.swift in Sources */,
@@ -1070,7 +1065,6 @@
 				CD6079F62610D2B700928B20 /* Encodable+Extension.swift in Sources */,
 				CD17F1E2262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */,
 				CD96753D26066F260067FCC5 /* Subject.swift in Sources */,
-				CD5785D526A0298E00CFBA6A /* SetupTestViewModel.swift in Sources */,
 				CDF24DF62618C67500CC866F /* SubjectsViewModel.swift in Sources */,
 				CD28F9BB2650496800D87DDC /* FirebaseDeleteACardService.swift in Sources */,
 				CD96752726065E460067FCC5 /* SearchScene.swift in Sources */,

@@ -41,6 +41,12 @@ final class CardsViewModel: ObservableObject {
         }
     }
     
+    @Published var testIncludedCardsStartDate = Date.startOfYesterday
+    @Published var testIncludedCardsEndDate = Date.endOfToday
+    @Published var testIncludedCardsOption =  TestIncludedCardsOption.allCards
+    @Published var testSelectedDateFitlerOption = DateFilterOption.today
+    @Published var testSelectedCardsOrderOption = TestCardsOrderOption.smartOrder
+
     private var allCards = [Card]()
     private var subscriptions = Set<AnyCancellable>()
     private var getCardsService: FirebaseGetCardsService

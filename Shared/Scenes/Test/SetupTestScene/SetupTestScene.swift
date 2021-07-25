@@ -15,7 +15,7 @@ struct SetupTestScene: View {
     @Binding var testIncludedCardsEndDate: Date
     @Binding var testSelectedDateFitlerOption: DateFilterOption
     @Binding var testSelectedCardsOrderOption: TestCardsOrderOption
-
+    @Binding var showingTestScene: Bool
     var body: some View {
 #if os(iOS)
         NavigationView {
@@ -30,6 +30,9 @@ struct SetupTestScene: View {
                     ToolbarItem(placement: .confirmationAction) {
                         Button(action: {
                             isPresented.toggle()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                showingTestScene.toggle()
+                            }
                         }, label: {
                             Text("Start The Test")
                         })
@@ -104,7 +107,10 @@ struct SetupTestScene: View {
                     HStack(alignment: .center) {
                         Spacer()
                         Button("Start The Test") {
-                            isPresented = false
+                            isPresented.toggle()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                showingTestScene.toggle()
+                            }
                         }
                         .clipShape(RoundedRectangle(cornerRadius: 25))
                         .foregroundColor(Color.accent)

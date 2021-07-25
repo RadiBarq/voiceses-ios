@@ -18,6 +18,7 @@ final class CardsViewModel: ObservableObject {
     @Published var cards = [Card]()
     @Published var showingAddNewCardScene = false
     @Published var showingAddNewSubjectScene = false
+    @Published var showingTestScene = false
     @Published var showingAlert = false
     @Published var alertMessage = ""
     @Published var showingFilterCardsScene = false

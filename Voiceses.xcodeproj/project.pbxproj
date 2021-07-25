@@ -38,6 +38,8 @@
 		CD3072D42635E73900E4C743 /* FirebaseGetCardsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3072D22635E73900E4C743 /* FirebaseGetCardsService.swift */; };
 		CD30732D263752DC00E4C743 /* AddNewLectureScene_temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30732C263752DC00E4C743 /* AddNewLectureScene_temp.swift */; };
 		CD30732E263752DC00E4C743 /* AddNewLectureScene_temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30732C263752DC00E4C743 /* AddNewLectureScene_temp.swift */; };
+		CD523BD226ADCC920072EDCD /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD523BD126ADCC920072EDCD /* TestScene.swift */; };
+		CD523BD326ADCC920072EDCD /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD523BD126ADCC920072EDCD /* TestScene.swift */; };
 		CD5785D226A026D800CFBA6A /* SetupTestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5785D126A026D800CFBA6A /* SetupTestScene.swift */; };
 		CD5785D626A0301F00CFBA6A /* SetupTestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5785D126A026D800CFBA6A /* SetupTestScene.swift */; };
 		CD5785D926A0717100CFBA6A /* TestIncludedCardsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5785D826A0717100CFBA6A /* TestIncludedCardsOption.swift */; };
@@ -172,6 +174,7 @@
 		CD3072CB2635E62A00E4C743 /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
 		CD3072D22635E73900E4C743 /* FirebaseGetCardsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGetCardsService.swift; sourceTree = "<group>"; };
 		CD30732C263752DC00E4C743 /* AddNewLectureScene_temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLectureScene_temp.swift; sourceTree = "<group>"; };
+		CD523BD126ADCC920072EDCD /* TestScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
 		CD5785D126A026D800CFBA6A /* SetupTestScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupTestScene.swift; sourceTree = "<group>"; };
 		CD5785D826A0717100CFBA6A /* TestIncludedCardsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIncludedCardsOption.swift; sourceTree = "<group>"; };
 		CD5785DB26A09F6B00CFBA6A /* TestCardsOrderOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCardsOrderOption.swift; sourceTree = "<group>"; };
@@ -347,9 +350,26 @@
 			path = CardsScene;
 			sourceTree = "<group>";
 		};
+		CD523BCF26ADCC510072EDCD /* TestScene */ = {
+			isa = PBXGroup;
+			children = (
+				CD523BD026ADCC630072EDCD /* Model */,
+				CD523BD126ADCC920072EDCD /* TestScene.swift */,
+			);
+			path = TestScene;
+			sourceTree = "<group>";
+		};
+		CD523BD026ADCC630072EDCD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CD5785CE26A0258400CFBA6A /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				CD523BCF26ADCC510072EDCD /* TestScene */,
 				CD5785D026A025E500CFBA6A /* SetupTestScene */,
 			);
 			path = Test;
@@ -1035,6 +1055,7 @@
 				CD00F71A267A703D00475016 /* DisplayCardViewModel.swift in Sources */,
 				CD6079112610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */,
 				CD6078F326107FAC00928B20 /* SettingsScene.swift in Sources */,
+				CD523BD226ADCC920072EDCD /* TestScene.swift in Sources */,
 				CD07A2BA268E249000312E15 /* FilterOptions.swift in Sources */,
 				CD3072CC2635E62A00E4C743 /* CardsViewModel.swift in Sources */,
 				CD17F248262B4F1100C2C903 /* SearchBar.swift in Sources */,
@@ -1081,6 +1102,7 @@
 				CD5785D626A0301F00CFBA6A /* SetupTestScene.swift in Sources */,
 				CD96751D26065E420067FCC5 /* SubjectsScene.swift in Sources */,
 				CD6079CB2610A5A800928B20 /* FirebaseDatabaseService.swift in Sources */,
+				CD523BD326ADCC920072EDCD /* TestScene.swift in Sources */,
 				CD28F98B264FEE3700D87DDC /* CardView.swift in Sources */,
 				CD96753126065E4F0067FCC5 /* HomeScene.swift in Sources */,
 				CD00F71B267A703D00475016 /* DisplayCardViewModel.swift in Sources */,

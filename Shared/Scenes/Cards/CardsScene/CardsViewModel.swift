@@ -42,6 +42,7 @@ final class CardsViewModel: ObservableObject {
         }
     }
     
+    // Test related publishers
     @Published var testIncludedCardsStartDate = Date.startOfYesterday
     @Published var testIncludedCardsEndDate = Date.endOfToday
     @Published var testIncludedCardsOption =  TestIncludedCardsOption.allCards

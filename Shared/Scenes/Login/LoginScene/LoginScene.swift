@@ -45,7 +45,7 @@ struct LoginScene: View {
                     }
                 )
                 .frame(width: geometry.size.width / 1.5, height: 50)
-                .clipShape(RoundedRectangle(cornerRadius: 25))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
                 .padding()
                 Spacer()
             }

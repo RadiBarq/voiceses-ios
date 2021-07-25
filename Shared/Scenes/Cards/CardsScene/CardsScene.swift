@@ -82,9 +82,10 @@ struct CardsScene: View {
             .sheet(isPresented: $cardsViewModel.showingSetupTestScene) {
                 SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, cards: $cardsViewModel.cards, testIncludedCardsOption: $cardsViewModel.testIncludedCardsOption, testIncludedCardsStartDate: $cardsViewModel.testIncludedCardsStartDate, testIncludedCardsEndDate: $cardsViewModel.testIncludedCardsEndDate, testSelectedDateFitlerOption: $cardsViewModel.testSelectedDateFitlerOption, testSelectedCardsOrderOption: $cardsViewModel.testSelectedCardsOrderOption, showingTestScene: $cardsViewModel.showingTestScene)
             }
-            .sheet(isPresented: $cardsViewModel.showingTestScene) {
-                TestScene(isPresented: $cardsViewModel.showingTestScene)
+            .fullScreenCover(isPresented: $cardsViewModel.showingTestScene) {
+                TestScene(isPresented: $cardsViewModel.showingTestScene, testIncludedCardsStartDate: $cardsViewModel.testIncludedCardsStartDate, testIncludedCardsEndDate: $cardsViewModel.testIncludedCardsEndDate, testIncludedCardsOption: $cardsViewModel.testIncludedCardsOption, testSelectedDateFitlerOption: $cardsViewModel.testSelectedDateFitlerOption, testSelectedCardsOrderOption: $cardsViewModel.testSelectedCardsOrderOption)
             }
+            
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
@@ -140,7 +141,7 @@ struct CardsScene: View {
             SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, cards: $cardsViewModel.cards, testIncludedCardsOption: $cardsViewModel.testIncludedCardsOption, testIncludedCardsStartDate: $cardsViewModel.testIncludedCardsStartDate, testIncludedCardsEndDate: $cardsViewModel.testIncludedCardsEndDate, testSelectedDateFitlerOption: $cardsViewModel.testSelectedDateFitlerOption, testSelectedCardsOrderOption: $cardsViewModel.testSelectedCardsOrderOption, showingTestScene: $cardsViewModel.showingTestScene)
         }
         .sheet(isPresented: $cardsViewModel.showingTestScene) {
-            TestScene(isPresented: $cardsViewModel.showingTestScene)
+            TestScene(isPresented: $cardsViewModel.showingTestScene, testIncludedCardsStartDate: $cardsViewModel.testIncludedCardsStartDate, testIncludedCardsEndDate: $cardsViewModel.testIncludedCardsEndDate, testIncludedCardsOption: $cardsViewModel.testIncludedCardsOption, testSelectedDateFitlerOption: $cardsViewModel.testSelectedDateFitlerOption, testSelectedCardsOrderOption: $cardsViewModel.testSelectedCardsOrderOption)
         }
         .toolbar {
             ToolbarItem(placement: .automatic) {

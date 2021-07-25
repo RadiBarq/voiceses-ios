@@ -40,6 +40,8 @@
 		CD30732E263752DC00E4C743 /* AddNewLectureScene_temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30732C263752DC00E4C743 /* AddNewLectureScene_temp.swift */; };
 		CD523BD226ADCC920072EDCD /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD523BD126ADCC920072EDCD /* TestScene.swift */; };
 		CD523BD326ADCC920072EDCD /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD523BD126ADCC920072EDCD /* TestScene.swift */; };
+		CD523BD826ADD4180072EDCD /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD523BD726ADD4180072EDCD /* TestModel.swift */; };
+		CD523BD926ADD4180072EDCD /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD523BD726ADD4180072EDCD /* TestModel.swift */; };
 		CD5785D226A026D800CFBA6A /* SetupTestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5785D126A026D800CFBA6A /* SetupTestScene.swift */; };
 		CD5785D626A0301F00CFBA6A /* SetupTestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5785D126A026D800CFBA6A /* SetupTestScene.swift */; };
 		CD5785D926A0717100CFBA6A /* TestIncludedCardsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5785D826A0717100CFBA6A /* TestIncludedCardsOption.swift */; };
@@ -175,6 +177,7 @@
 		CD3072D22635E73900E4C743 /* FirebaseGetCardsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGetCardsService.swift; sourceTree = "<group>"; };
 		CD30732C263752DC00E4C743 /* AddNewLectureScene_temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLectureScene_temp.swift; sourceTree = "<group>"; };
 		CD523BD126ADCC920072EDCD /* TestScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
+		CD523BD726ADD4180072EDCD /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		CD5785D126A026D800CFBA6A /* SetupTestScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupTestScene.swift; sourceTree = "<group>"; };
 		CD5785D826A0717100CFBA6A /* TestIncludedCardsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIncludedCardsOption.swift; sourceTree = "<group>"; };
 		CD5785DB26A09F6B00CFBA6A /* TestCardsOrderOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCardsOrderOption.swift; sourceTree = "<group>"; };
@@ -362,6 +365,7 @@
 		CD523BD026ADCC630072EDCD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CD523BD726ADD4180072EDCD /* TestModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1049,6 +1053,7 @@
 				CDFA97802600A4F0006DB5A6 /* HomeScene.swift in Sources */,
 				CD8F03D6264550E600059C53 /* FirebaseStorageService.swift in Sources */,
 				CDD0B80926063A2C003537A8 /* SearchScene.swift in Sources */,
+				CD523BD826ADD4180072EDCD /* TestModel.swift in Sources */,
 				CD07A2BC268E24AF00312E15 /* SortOptions.swift in Sources */,
 				CD0BB30E260B259200CD0A03 /* SubjectView.swift in Sources */,
 				CDFA979F2600A821006DB5A6 /* SideBar.swift in Sources */,
@@ -1117,6 +1122,7 @@
 				CD6079BC2610A59F00928B20 /* FirebaseAuthenticationService.swift in Sources */,
 				CDD9E05525FE2C0600E3BF53 /* LoginViewModel.swift in Sources */,
 				CD28F979264FD15F00D87DDC /* DateFormatter+Extension.swift in Sources */,
+				CD523BD926ADD4180072EDCD /* TestModel.swift in Sources */,
 				CD0BB30F260B259200CD0A03 /* SubjectView.swift in Sources */,
 				CD96752226065E440067FCC5 /* CalanderScene.swift in Sources */,
 				CD6079122610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */,

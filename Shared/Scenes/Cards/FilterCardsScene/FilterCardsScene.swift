@@ -111,7 +111,7 @@ struct FilterCardsScene: View {
     }
 }
 
-extension FilterCardsScene {
+fileprivate extension FilterCardsScene {
     private func applyFilter() {
         if filterCardsViewModel.isSelectedDateValid(from: startDate, to: endDate) {
             filterIsApplied = true

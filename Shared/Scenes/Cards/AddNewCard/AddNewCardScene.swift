@@ -55,7 +55,7 @@ struct AddNewCardScene: View {
                     })
                 }
             }
-            .rotation3DEffect(addNewCardViewModel.cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
+           
         }
         .accentColor(Color.accent)
         .animation(.linear(duration: 0.5))

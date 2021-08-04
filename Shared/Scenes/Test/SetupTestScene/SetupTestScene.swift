@@ -10,12 +10,9 @@ import SwiftUI
 struct SetupTestScene: View {
     @Binding var isPresented: Bool
     @Binding var cards: [Card]
-    @Binding var testIncludedCardsOption: TestIncludedCardsOption
-    @Binding var testIncludedCardsStartDate: Date
-    @Binding var testIncludedCardsEndDate: Date
-    @Binding var testSelectedDateFitlerOption: DateFilterOption
-    @Binding var testSelectedCardsOrderOption: TestCardsOrderOption
+    @Binding var testCards: [Card]
     @Binding var showingTestScene: Bool
+    @StateObject var setupTestViewModel = SetupTestViewModel()
     var body: some View {
 #if os(iOS)
         NavigationView {
@@ -50,12 +47,12 @@ struct SetupTestScene: View {
         }
 #endif
     }
-    
+
     private var content: some View {
         return VStack {
             Form {
                 Section(header: Text("Cards included")) {
-                    Picker("", selection: $testIncludedCardsOption) {
+                    Picker("", selection: $setupTestViewModel.testSelectedCardsOrderOption) {
                         ForEach(TestIncludedCardsOption.allCases) { option in
                             Text(option.rawValue)
                                 .tag(option)
@@ -65,9 +62,9 @@ struct SetupTestScene: View {
                     .padding(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
                     .pickerStyle(.segmented)
                 }
-                if testIncludedCardsOption == .filteredCards {
+                if setupTestViewModel.testIncludedCardsOption == .filteredCards {
                     Section(header: Text("Fitler cards by")) {
-                        Picker("", selection: $testSelectedDateFitlerOption) {
+                        Picker("", selection: $setupTestViewModel.testSelectedDateFitlerOption) {
                             ForEach(DateFilterOption.allCases) { option in
                                 Text(option.rawValue)
                                     .tag(option)
@@ -76,14 +73,15 @@ struct SetupTestScene: View {
                         }
                         .padding(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
                         .pickerStyle(.segmented)
-                        if testSelectedDateFitlerOption == .customDate {
+                        if setupTestViewModel.testSelectedDateFitlerOption == .customDate {
                             VStack(alignment: .leading) {
                                 DatePicker("Start date",
-                                           selection: $testIncludedCardsStartDate,
+                                           selection: $setupTestViewModel.testIncludedCardsStartDate,
                                            in: ...Date.startOfYesterday,
                                            displayedComponents: [.date])
                                 DatePicker("End date",
-                                           selection: $testIncludedCardsEndDate,
+                                           selection:
+                                            $setupTestViewModel.testIncludedCardsEndDate,
                                            in: ...Date(),
                                            displayedComponents: [.date])
                             }
@@ -91,8 +89,10 @@ struct SetupTestScene: View {
                         }
                     }
                 }
+
                 Section(header: Text("Cards Order")) {
-                    Picker("", selection: $testSelectedCardsOrderOption){
+                    Picker("", selection:
+                            $setupTestViewModel.testSelectedCardsOrderOption){
                         ForEach(TestCardsOrderOption.allCases) { option in
                             Text(option.rawValue)
                                 .tag(option)
@@ -127,5 +127,19 @@ struct SetupTestScene: View {
             }
             .padding()
         }
+    }
+}
+
+fileprivate extension SetupTestScene {
+    private func applyCardsFileter() {
+        
+    }
+    
+    private func isSelectedFilterDateValid(from startDate: Date, to endDate: Date) -> Bool {
+        return endDate >= startDate
+    }
+    
+    private func filterCards() {
+        
     }
 }

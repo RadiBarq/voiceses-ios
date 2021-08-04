@@ -80,12 +80,11 @@ struct CardsScene: View {
                 FilterCardsScene(isPresented: $cardsViewModel.showingFilterCardsScene, startDate: $cardsViewModel.filterStartDate, endDate: $cardsViewModel.filterEndDate, selectedDateFilterOption: $cardsViewModel.selectedDateFilterOption, filterIsApplied: $cardsViewModel.isFilterApplied)
             }
             .sheet(isPresented: $cardsViewModel.showingSetupTestScene) {
-                SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, cards: $cardsViewModel.cards, testIncludedCardsOption: $cardsViewModel.testIncludedCardsOption, testIncludedCardsStartDate: $cardsViewModel.testIncludedCardsStartDate, testIncludedCardsEndDate: $cardsViewModel.testIncludedCardsEndDate, testSelectedDateFitlerOption: $cardsViewModel.testSelectedDateFitlerOption, testSelectedCardsOrderOption: $cardsViewModel.testSelectedCardsOrderOption, showingTestScene: $cardsViewModel.showingTestScene)
+                SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, cards: $cardsViewModel.cards, testCards: $cardsViewModel.testCards, showingTestScene: $cardsViewModel.showingSetupTestScene)
             }
             .fullScreenCover(isPresented: $cardsViewModel.showingTestScene) {
-                TestScene(isPresented: $cardsViewModel.showingTestScene, testIncludedCardsStartDate: $cardsViewModel.testIncludedCardsStartDate, testIncludedCardsEndDate: $cardsViewModel.testIncludedCardsEndDate, testIncludedCardsOption: $cardsViewModel.testIncludedCardsOption, testSelectedDateFitlerOption: $cardsViewModel.testSelectedDateFitlerOption, testSelectedCardsOrderOption: $cardsViewModel.testSelectedCardsOrderOption)
+                TestScene(testCards: $cardsViewModel.testCards, isPresented: $cardsViewModel.showingTestScene)
             }
-            
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {

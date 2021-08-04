@@ -92,10 +92,3 @@ struct CardView: View {
 #endif
     }
 }
-
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardView(card: .constant(testCards[0]) , deleteAction: {
-        })
-    }
-}

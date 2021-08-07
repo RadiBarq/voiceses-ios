@@ -17,14 +17,17 @@ final class SetupTestViewModel: ObservableObject {
     @Published var showingAlert = false
     @Published var alertMessage = ""
     
-    func applyCardsFilter(cards: Binding<[Card]>) {
+    func applyCardsFilter(cards: Binding<[Card]>) -> Bool {
         if testIncludedCardsOption == .filteredCards {
             if isSelectedFilterDateValid(from: testIncludedCardsStartDate, to: testIncludedCardsEndDate) {
                 filterCards(cards: cards)
+                return true
             } else {
                 showInvalidIncludedCardsDateSelected()
+                return false
             }
         }
+        return true
     }
     
     private func isSelectedFilterDateValid(from startDate: Date, to endDate: Date) -> Bool {

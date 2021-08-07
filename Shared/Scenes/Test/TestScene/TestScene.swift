@@ -20,9 +20,6 @@ struct TestScene: View {
                 .accentColor(Color.accent)
                 .navigationTitle("3 out of 4")
         }
-        .onAppear {
-            print(testCards)
-        }
 #else
         ScrollView {
             content

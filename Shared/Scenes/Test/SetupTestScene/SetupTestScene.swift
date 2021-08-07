@@ -19,15 +19,17 @@ struct SetupTestScene: View {
                 .navigationTitle("Setup your test")
         }
         .accentColor(Color.accent)
+        
 #else
         ScrollView {
             content
                 .toolbar(content: {
                     ToolbarItem(placement: .confirmationAction) {
                         Button(action: {
-                            isPresented.toggle()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                showingTestScene.toggle()
+                            if  setupTestViewModel.applyCardsFilter(cards: $testCards) {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                    showingTestScene.toggle()
+                                }
                             }
                         }, label: {
                             Text("Start The Test")
@@ -106,10 +108,11 @@ struct SetupTestScene: View {
                     HStack(alignment: .center) {
                         Spacer()
                         Button("Start The Test") {
-                            setupTestViewModel.applyCardsFilter(cards: $testCards)
-                            isPresented.toggle()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                showingTestScene.toggle()
+                            if setupTestViewModel.applyCardsFilter(cards: $testCards) {
+                                isPresented.toggle()
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                    showingTestScene.toggle()
+                                }
                             }
                         }
                         .clipShape(RoundedRectangle(cornerRadius: 25))
@@ -126,6 +129,12 @@ struct SetupTestScene: View {
                 Spacer()
             }
             .padding()
+        }
+        .alert(isPresented: $setupTestViewModel.showingAlert) {
+            Alert(title: Text(alertTitle),
+                  message: Text(setupTestViewModel.alertMessage),
+                  dismissButton: .default(Text(alertDismissButtonTitle))
+            )
         }
     }
 }

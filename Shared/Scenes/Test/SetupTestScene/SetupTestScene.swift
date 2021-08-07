@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SetupTestScene: View {
     @Binding var isPresented: Bool
-    @Binding var cards: [Card]
     @Binding var testCards: [Card]
     @Binding var showingTestScene: Bool
     @StateObject var setupTestViewModel = SetupTestViewModel()
@@ -52,7 +51,7 @@ struct SetupTestScene: View {
         return VStack {
             Form {
                 Section(header: Text("Cards included")) {
-                    Picker("", selection: $setupTestViewModel.testSelectedCardsOrderOption) {
+                    Picker("", selection: $setupTestViewModel.testIncludedCardsOption) {
                         ForEach(TestIncludedCardsOption.allCases) { option in
                             Text(option.rawValue)
                                 .tag(option)
@@ -107,6 +106,7 @@ struct SetupTestScene: View {
                     HStack(alignment: .center) {
                         Spacer()
                         Button("Start The Test") {
+                            setupTestViewModel.applyCardsFilter(cards: $testCards)
                             isPresented.toggle()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                                 showingTestScene.toggle()
@@ -127,19 +127,5 @@ struct SetupTestScene: View {
             }
             .padding()
         }
-    }
-}
-
-fileprivate extension SetupTestScene {
-    private func applyCardsFileter() {
-        
-    }
-    
-    private func isSelectedFilterDateValid(from startDate: Date, to endDate: Date) -> Bool {
-        return endDate >= startDate
-    }
-    
-    private func filterCards() {
-        
     }
 }

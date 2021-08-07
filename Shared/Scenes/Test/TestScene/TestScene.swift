@@ -11,8 +11,7 @@ import SDWebImageSwiftUI
 struct TestScene: View {
     @Binding var testCards: [Card]
     @Binding var isPresented: Bool
-    @State var cards = test_cards
-    @State var cardsSide: [String: CardSide] = ["0": .front, "1": .front, "2": .front, "3": .front, "4": .front, "5": .front]
+    @State private var cards = test_cards
     @StateObject private var testViewModel = TestModel()
     var body: some View {
 #if os(iOS)
@@ -21,21 +20,25 @@ struct TestScene: View {
                 .accentColor(Color.accent)
                 .navigationTitle("3 out of 4")
         }
+        .onAppear {
+            print(testCards)
+        }
 #else
         ScrollView {
             content
                 .frame(minWidth: 1000, maxWidth: .infinity, minHeight: 600, maxHeight: .infinity)
         }
+       
 #endif
     }
-
+    
     @ViewBuilder
     var content: some View {
         GeometryReader { geometry in
             VStack {
                 ZStack(alignment: .top) {
-                    ForEach(cards, id: \.id) { card in
-                        CardView(cardSide: .constant(cardsSide[card.id] ?? .front))
+                    ForEach($testCards, id: \.id) { card in
+                        CardView(card: card)
                     }
                 }
                 .rotation3DEffect(testViewModel.cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
@@ -49,10 +52,10 @@ struct TestScene: View {
                         }) {
                             Text("Flip card")
                                 .foregroundColor(.white)
+                                .frame(width: geometry.size.width / 1.5, height: 45)
+                                .background(Color.accent)
                         }
                         .buttonStyle(.plain)
-                        .frame(width: geometry.size.width / 1.5, height: 45)
-                        .background(Color.accent)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                     } else {
                         Button(action: {
@@ -62,12 +65,12 @@ struct TestScene: View {
                         }) {
                             Text("Correct")
                                 .foregroundColor(.white)
+                                .frame(width: geometry.size.width / 3, height: 45)
+                                .background(Color.green)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
                         }
                         .buttonStyle(.plain)
                         .padding()
-                        .frame(width: geometry.size.width / 3, height: 45)
-                        .background(Color.green)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
                         Spacer()
                         Button(action: {
                             cards.removeLast()
@@ -76,20 +79,19 @@ struct TestScene: View {
                         }) {
                             Text("Wrong")
                                 .foregroundColor(.white)
+                                .frame(width: geometry.size.width / 3, height: 45)
+                                .background(Color.red)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
                         }
                         .buttonStyle(.plain)
                         .padding()
-                        .frame(width: geometry.size.width / 3, height: 45)
-                        .background(Color.red)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
                     Spacer()
                 }
-                
             }
-            #if !os(iOS)
+#if !os(iOS)
             .padding()
-            #endif
+#endif
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button(action: {
@@ -105,7 +107,11 @@ struct TestScene: View {
     
     private struct CardView: View {
         @State var cardShadowColor = Color.getRandom()
-        @Binding var cardSide: CardSide
+        @Binding var card: Card
+        @State private var imageURL: URL?
+        #if os(iOS)
+        @State private var cachedImage: UIImage?
+        #endif
         
         var body: some View {
             imageView
@@ -114,12 +120,33 @@ struct TestScene: View {
                 .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
                 .shadow(color: cardShadowColor.opacity(0.8), radius: 20, x: 0, y: 10)
                 .padding()
+                .onAppear {
+                    imageURL = card.frontImageURL
+                    #if os(iOS)
+                    cachedImage = GlobalService.shared.imageCache.image(for: "-front" + card.id)
+                    #endif
+                }
         }
+        
+        @ViewBuilder
         private var imageView: some View {
-            AnimatedImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/voiceses-99761.appspot.com/o/users%2F7tWnL6JKhAUn4QtuwcNeSrXfiAn2%2Fsubjects%2F-McJEy9muc8IayNcbZe2%2Fcards%2F-MeGWTqzu0xwDRWYje8B%2FfrontImage.png?alt=media&token=1eb621ea-e311-4f81-8b59-b3ee625c8894")!)
+#if os(iOS)
+        if self.cachedImage == nil {
+            AnimatedImage(url: imageURL)
                 .indicator(SDWebImageActivityIndicator.gray)
                 .resizable()
                 .scaledToFit()
+        } else {
+            Image(uiImage: cachedImage ?? UIImage())
+                .resizable()
+                .scaledToFit()
+        }
+#else
+        AnimatedImage(url: imageURL)
+            .indicator(SDWebImageActivityIndicator.gray)
+            .resizable()
+            .scaledToFit()
+#endif
         }
     }
 }

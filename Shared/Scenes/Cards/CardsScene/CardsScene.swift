@@ -28,6 +28,7 @@ struct CardsScene: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
+                        cardsViewModel.testCards = cardsViewModel.allCards
                         cardsViewModel.showingSetupTestScene.toggle()
                     }, label: {
                         Text("Start Test")
@@ -80,7 +81,7 @@ struct CardsScene: View {
                 FilterCardsScene(isPresented: $cardsViewModel.showingFilterCardsScene, startDate: $cardsViewModel.filterStartDate, endDate: $cardsViewModel.filterEndDate, selectedDateFilterOption: $cardsViewModel.selectedDateFilterOption, filterIsApplied: $cardsViewModel.isFilterApplied)
             }
             .sheet(isPresented: $cardsViewModel.showingSetupTestScene) {
-                SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, cards: $cardsViewModel.cards, testCards: $cardsViewModel.testCards, showingTestScene: $cardsViewModel.showingSetupTestScene)
+                SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, testCards: $cardsViewModel.testCards, showingTestScene: $cardsViewModel.showingTestScene)
             }
             .fullScreenCover(isPresented: $cardsViewModel.showingTestScene) {
                 TestScene(testCards: $cardsViewModel.testCards, isPresented: $cardsViewModel.showingTestScene)
@@ -123,7 +124,6 @@ struct CardsScene: View {
                         }
                     }
                     .padding()
-                    
                 }
                 .transition(.move(edge: .leading)).animation(.default)
             }
@@ -137,10 +137,10 @@ struct CardsScene: View {
             FilterCardsScene(isPresented: $cardsViewModel.showingFilterCardsScene, startDate: $cardsViewModel.filterStartDate, endDate: $cardsViewModel.filterEndDate, selectedDateFilterOption: $cardsViewModel.selectedDateFilterOption, filterIsApplied: $cardsViewModel.isFilterApplied)
         }
         .sheet(isPresented: $cardsViewModel.showingSetupTestScene) {
-            SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, cards: $cardsViewModel.cards, testIncludedCardsOption: $cardsViewModel.testIncludedCardsOption, testIncludedCardsStartDate: $cardsViewModel.testIncludedCardsStartDate, testIncludedCardsEndDate: $cardsViewModel.testIncludedCardsEndDate, testSelectedDateFitlerOption: $cardsViewModel.testSelectedDateFitlerOption, testSelectedCardsOrderOption: $cardsViewModel.testSelectedCardsOrderOption, showingTestScene: $cardsViewModel.showingTestScene)
+            SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, testCards: $cardsViewModel.testCards, showingTestScene: $cardsViewModel.showingTestScene)
         }
         .sheet(isPresented: $cardsViewModel.showingTestScene) {
-            TestScene(isPresented: $cardsViewModel.showingTestScene, testIncludedCardsStartDate: $cardsViewModel.testIncludedCardsStartDate, testIncludedCardsEndDate: $cardsViewModel.testIncludedCardsEndDate, testIncludedCardsOption: $cardsViewModel.testIncludedCardsOption, testSelectedDateFitlerOption: $cardsViewModel.testSelectedDateFitlerOption, testSelectedCardsOrderOption: $cardsViewModel.testSelectedCardsOrderOption)
+            TestScene(testCards: $cardsViewModel.testCards, isPresented: $cardsViewModel.showingTestScene)
         }
         .toolbar {
             ToolbarItem(placement: .automatic) {
@@ -168,6 +168,7 @@ struct CardsScene: View {
             ToolbarItem(placement: .confirmationAction) {
                 if !displayCardScenePushed {
                     Button(action: {
+                        cardsViewModel.testCards = cardsViewModel.allCards
                         cardsViewModel.showingSetupTestScene.toggle()
                     }, label: {
                         Text("Start Test")
@@ -177,17 +178,6 @@ struct CardsScene: View {
                 }
             }
         }
-#endif
-    }
-}
-
-struct CardsScene_Previews: PreviewProvider {
-    static var previews: some View {
-        let viewModel = CardsViewModel(subject: testSubjects[0])
-#if os(iOS)
-        return CardsScene(cardsViewModel: viewModel)
-#else
-        return CardsScene(cardsViewModel: viewModel, isPresented: .constant(false))
 #endif
     }
 }

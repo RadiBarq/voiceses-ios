@@ -6,14 +6,60 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class SetupTestViewModel: ObservableObject {
     @Published var testIncludedCardsStartDate = Date.startOfYesterday
     @Published var testIncludedCardsEndDate = Date.endOfToday
-    @Published var testIncludedCardsOption =  TestIncludedCardsOption.allCards
     @Published var testSelectedDateFitlerOption = DateFilterOption.today
+    @Published var testIncludedCardsOption =  TestIncludedCardsOption.allCards
     @Published var testSelectedCardsOrderOption = TestCardsOrderOption.smartOrder
+    @Published var showingAlert = false
+    @Published var alertMessage = ""
     
+    func applyCardsFilter(cards: Binding<[Card]>) {
+        if testIncludedCardsOption == .filteredCards {
+            if isSelectedFilterDateValid(from: testIncludedCardsStartDate, to: testIncludedCardsEndDate) {
+                filterCards(cards: cards)
+            } else {
+                showInvalidIncludedCardsDateSelected()
+            }
+        }
+    }
     
+    private func isSelectedFilterDateValid(from startDate: Date, to endDate: Date) -> Bool {
+        return endDate >= startDate
+    }
     
+    private func filterCards(cards: Binding<[Card]>) {
+        let (startDate, endDate) = self.getFirstAndEndTimestampsOfIncludedCardsDate()
+        cards.wrappedValue = cards.wrappedValue.filter {
+            $0.timestamp >= startDate && $0.timestamp <= endDate
+        }
+    }
+    
+    private func showInvalidIncludedCardsDateSelected() {
+        showingAlert = true
+        alertMessage = "Invalid selected custom date range, make sure that the end date is greater than or equal the start date."
+    }
+    
+    private func getFirstAndEndTimestampsOfIncludedCardsDate() -> (Int64, Int64) {
+        var startDate: Date
+        var endDate: Date
+        switch testSelectedDateFitlerOption {
+        case .today:
+            startDate = .startOfToday
+            endDate = .endOfToday
+        case .last7Days:
+            startDate = .startOfSevenDaysAgo
+            endDate = .endOfToday
+        case .last30Days:
+            startDate = .startOfThirtyDaysAgo
+            endDate = .endOfToday
+        case .customDate:
+            startDate = testIncludedCardsStartDate
+            endDate = testIncludedCardsEndDate
+        }
+        return (startDate.timestamp, endDate.timestamp)
+    }
 }

@@ -42,10 +42,11 @@ final class CardsViewModel: ObservableObject {
         }
     }
     
+    @Published var allCards = [Card]()
+    
     // Test related publishers
     @Published var testCards = [Card]()
-
-    private var allCards = [Card]()
+    
     private var subscriptions = Set<AnyCancellable>()
     private var getCardsService: FirebaseGetCardsService
     private var deleteCardService: FirebaseDeleteACardService
@@ -111,14 +112,14 @@ final class CardsViewModel: ObservableObject {
         var endDate: Date
         switch selectedDateFilterOption {
         case .today:
-            startDate = Date.startOfToday
-            endDate = Date.endOfToday
+            startDate = .startOfToday
+            endDate = .endOfToday
         case .last7Days:
-            startDate = Date.startOfSevenDaysAgo
-            endDate = Date.endOfToday
+            startDate = .startOfSevenDaysAgo
+            endDate = .endOfToday
         case .last30Days:
-            startDate = Date.startOfThirtyDaysAgo
-            endDate = Date.endOfToday
+            startDate = .startOfThirtyDaysAgo
+            endDate = .endOfToday
         case .customDate:
             startDate = filterStartDate
             endDate = filterEndDate

@@ -11,21 +11,24 @@ import SDWebImageSwiftUI
 struct TestScene: View {
     @Binding var testCards: [Card]
     @Binding var isPresented: Bool
-    @State private var cards = test_cards
     @StateObject private var testViewModel = TestModel()
+    @State private var currentCard = 1
+    @State private var testCardsCount: Int?
     var body: some View {
 #if os(iOS)
         NavigationView {
             content
                 .accentColor(Color.accent)
-                .navigationTitle("3 out of 4")
+                .navigationTitle("\(currentCard) out of \(testCardsCount ?? 0)")
         }
 #else
         ScrollView {
+            Text("\(currentCard) out of \(testCardsCount ?? 0)")
+                .font(.headline)
+                .padding()
             content
                 .frame(minWidth: 1000, maxWidth: .infinity, minHeight: 600, maxHeight: .infinity)
         }
-       
 #endif
     }
     
@@ -56,9 +59,14 @@ struct TestScene: View {
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                     } else {
                         Button(action: {
-                            cards.removeLast()
-                            testViewModel.nextAnimation.toggle()
-                            testViewModel.showingFlipButton.toggle()
+                            if !testCards.isEmpty {
+                                testCards.removeLast()
+                                currentCard += 1
+                                testViewModel.nextAnimation.toggle()
+                                testViewModel.showingFlipButton.toggle()
+                            } else {
+                                // Finish the test here
+                            }
                         }) {
                             Text("Correct")
                                 .foregroundColor(.white)
@@ -70,9 +78,14 @@ struct TestScene: View {
                         .padding()
                         Spacer()
                         Button(action: {
-                            cards.removeLast()
-                            testViewModel.nextAnimation.toggle()
-                            testViewModel.showingFlipButton.toggle()
+                            if !testCards.isEmpty {
+                                testCards.removeLast()
+                                currentCard += 1
+                                testViewModel.nextAnimation.toggle()
+                                testViewModel.showingFlipButton.toggle()
+                            } else {
+                                
+                            }
                         }) {
                             Text("Wrong")
                                 .foregroundColor(.white)
@@ -90,7 +103,7 @@ struct TestScene: View {
             .padding()
 #endif
             .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
+                ToolbarItem(placement: .destructiveAction) {
                     Button(action: {
                         isPresented.toggle()
                     }, label: {
@@ -100,16 +113,18 @@ struct TestScene: View {
             }
         }
         .animation(.linear(duration: 0.5))
+        .onAppear {
+            testCardsCount = testCards.count
+        }
     }
     
     private struct CardView: View {
         @State var cardShadowColor = Color.getRandom()
         @Binding var card: Card
         @State private var imageURL: URL?
-        #if os(iOS)
+#if os(iOS)
         @State private var cachedImage: UIImage?
-        #endif
-        
+#endif
         var body: some View {
             imageView
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -119,30 +134,30 @@ struct TestScene: View {
                 .padding()
                 .onAppear {
                     imageURL = card.frontImageURL
-                    #if os(iOS)
+#if os(iOS)
                     cachedImage = GlobalService.shared.imageCache.image(for: "-front" + card.id)
-                    #endif
+#endif
                 }
         }
         
         @ViewBuilder
         private var imageView: some View {
 #if os(iOS)
-        if self.cachedImage == nil {
+            if self.cachedImage == nil {
+                AnimatedImage(url: imageURL)
+                    .indicator(SDWebImageActivityIndicator.gray)
+                    .resizable()
+                    .scaledToFit()
+            } else {
+                Image(uiImage: cachedImage ?? UIImage())
+                    .resizable()
+                    .scaledToFit()
+            }
+#else
             AnimatedImage(url: imageURL)
                 .indicator(SDWebImageActivityIndicator.gray)
                 .resizable()
                 .scaledToFit()
-        } else {
-            Image(uiImage: cachedImage ?? UIImage())
-                .resizable()
-                .scaledToFit()
-        }
-#else
-        AnimatedImage(url: imageURL)
-            .indicator(SDWebImageActivityIndicator.gray)
-            .resizable()
-            .scaledToFit()
 #endif
         }
     }

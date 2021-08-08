@@ -29,7 +29,7 @@ struct AddNewCardScene: View {
             .padding()
             .navigationTitle("\(addNewCardViewModel.cardSide.rawValue.capitalized) side")
             .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
+                ToolbarItem(placement: .destructiveAction) {
                     Button(action: {
                         if addNewCardViewModel.areBothCanvasesEmpty(frontCanvas: frontCanvas, backCanvas: backCanvas) {
                             isPresented.toggle()

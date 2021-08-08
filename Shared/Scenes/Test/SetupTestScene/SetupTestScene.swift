@@ -27,6 +27,7 @@ struct SetupTestScene: View {
                     ToolbarItem(placement: .confirmationAction) {
                         Button(action: {
                             if  setupTestViewModel.applyCardsFilter(cards: $testCards) {
+                                isPresented.toggle()
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                                     showingTestScene.toggle()
                                 }

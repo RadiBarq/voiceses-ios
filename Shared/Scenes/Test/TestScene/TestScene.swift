@@ -14,6 +14,7 @@ struct TestScene: View {
     @StateObject private var testViewModel = TestModel()
     @State private var currentCard = 1
     @State private var testCardsCount: Int?
+    @State private var cardSide: CardSide = .front
     var body: some View {
 #if os(iOS)
         NavigationView {
@@ -38,15 +39,20 @@ struct TestScene: View {
             VStack {
                 ZStack(alignment: .top) {
                     ForEach($testCards, id: \.id) { card in
-                        CardView(card: card)
+                        CardView(isFrontCard: .constant(isFirstCard(card: card.wrappedValue)), card: card, cardSide: $cardSide)
                     }
                 }
+                .animation(.easeIn)
+                .rotation3DEffect(testViewModel.nextAnimation == .front ? .degrees(0): .degrees(360), axis: (x: 0, y: 1, z: 0))
+                .animation(.easeIn.delay(0.8))
+                .rotation3DEffect(testViewModel.nextAnimation == .front ? .degrees(0): .degrees(180), axis: (x: 1, y: 0, z: 0))
                 .rotation3DEffect(testViewModel.cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
-                .rotation3DEffect(testViewModel.nextAnimation == .front ? .degrees(0): .degrees(-180), axis: (x: 0, y: 1, z: 0))
+                .animation(.easeIn)
                 HStack(alignment: .center) {
                     Spacer()
                     if testViewModel.showingFlipButton {
                         Button(action: {
+                            cardSide.toggle()
                             testViewModel.showingFlipButton.toggle()
                             testViewModel.cardSide.toggle()
                         }) {
@@ -60,10 +66,15 @@ struct TestScene: View {
                     } else {
                         Button(action: {
                             if !testCards.isEmpty {
-                                testCards.removeLast()
-                                currentCard += 1
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                                    testCards.removeLast()
+                                    currentCard += 1
+                                    testViewModel.showingFlipButton.toggle()
+                                }
+                            
+                                cardSide.toggle()
                                 testViewModel.nextAnimation.toggle()
-                                testViewModel.showingFlipButton.toggle()
+                                
                             } else {
                                 // Finish the test here
                             }
@@ -79,10 +90,13 @@ struct TestScene: View {
                         Spacer()
                         Button(action: {
                             if !testCards.isEmpty {
-                                testCards.removeLast()
-                                currentCard += 1
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                                    testCards.removeLast()
+                                    currentCard += 1
+                                    testViewModel.showingFlipButton.toggle()
+                                }
+                                cardSide.toggle()
                                 testViewModel.nextAnimation.toggle()
-                                testViewModel.showingFlipButton.toggle()
                             } else {
                                 
                             }
@@ -119,9 +133,11 @@ struct TestScene: View {
     }
     
     private struct CardView: View {
-        @State var cardShadowColor = Color.getRandom()
+        @Binding var isFrontCard: Bool
         @Binding var card: Card
+        @Binding var cardSide: CardSide
         @State private var imageURL: URL?
+        @State private var cardShadowColor: Color = Color.getRandom().opacity(0.8)
 #if os(iOS)
         @State private var cachedImage: UIImage?
 #endif
@@ -130,8 +146,14 @@ struct TestScene: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.white)
                 .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
-                .shadow(color: cardShadowColor.opacity(0.8), radius: 20, x: 0, y: 10)
+                .shadow(color: isFrontCard ? cardShadowColor : .clear, radius: 20, x: 0, y: cardSide == .front ? 10 : -10)
                 .padding()
+                .onChange(of: cardSide) { newValue in
+                    imageURL = newValue == .back ? card.backImageURL : card.frontImageURL
+#if os(iOS)
+                    cachedImage =  GlobalService.shared.imageCache.image(for: "-\(newValue.rawValue)" + card.id)
+#endif
+                }
                 .onAppear {
                     imageURL = card.frontImageURL
 #if os(iOS)
@@ -160,5 +182,9 @@ struct TestScene: View {
                 .scaledToFit()
 #endif
         }
+    }
+    
+    private func isFirstCard(card: Card) -> Bool {
+        return card.id == (testCards.last?.id ?? "0")
     }
 }

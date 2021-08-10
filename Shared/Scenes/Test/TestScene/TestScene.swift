@@ -12,19 +12,16 @@ struct TestScene: View {
     @Binding var testCards: [Card]
     @Binding var isPresented: Bool
     @StateObject private var testViewModel = TestModel()
-    @State private var currentCard = 1
-    @State private var testCardsCount: Int?
-    @State private var cardSide: CardSide = .front
     var body: some View {
 #if os(iOS)
         NavigationView {
             content
                 .accentColor(Color.accent)
-                .navigationTitle("\(currentCard) out of \(testCardsCount ?? 0)")
+                .navigationTitle("\(testViewModel.currentCard) out of \(testViewModel.testCardsCount ?? 0)")
         }
 #else
         ScrollView {
-            Text("\(currentCard) out of \(testCardsCount ?? 0)")
+            Text("\(testViewModel.currentCard) out of \(testViewModel.testCardsCount ?? 0)")
                 .font(.headline)
                 .padding()
             content
@@ -39,22 +36,23 @@ struct TestScene: View {
             VStack {
                 ZStack(alignment: .top) {
                     ForEach($testCards, id: \.id) { card in
-                        CardView(isFrontCard: .constant(isFirstCard(card: card.wrappedValue)), card: card, cardSide: $cardSide)
+                        let isFrontCard = testViewModel.isFrontCard(card: card.wrappedValue, cards: testCards)
+                        CardView(isFrontCard: .constant(isFrontCard), card: card, cardSide: $testViewModel.cardSide)
                     }
                 }
                 .animation(.easeIn)
                 .rotation3DEffect(testViewModel.nextAnimation == .front ? .degrees(0): .degrees(360), axis: (x: 0, y: 1, z: 0))
                 .animation(.easeIn.delay(0.8))
-                .rotation3DEffect(testViewModel.nextAnimation == .front ? .degrees(0): .degrees(180), axis: (x: 1, y: 0, z: 0))
                 .rotation3DEffect(testViewModel.cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
                 .animation(.easeIn)
                 HStack(alignment: .center) {
                     Spacer()
                     if testViewModel.showingFlipButton {
                         Button(action: {
-                            cardSide.toggle()
                             testViewModel.showingFlipButton.toggle()
+                            testViewModel.showingCorrectAndWrongButtons.toggle()
                             testViewModel.cardSide.toggle()
+                            testViewModel.isCorrectAndWrongButtonsDisabled.toggle()
                         }) {
                             Text("Flip card")
                                 .foregroundColor(.white)
@@ -63,20 +61,25 @@ struct TestScene: View {
                         }
                         .buttonStyle(.plain)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
-                    } else {
+                        .padding()
+                        
+                    } else if testViewModel.showingCorrectAndWrongButtons {
                         Button(action: {
-                            if !testCards.isEmpty {
+                            guard testViewModel.isCorrectAndWrongButtonsDisabled == false else {
+                                return
+                            }
+                            if testCards.count == 1 {
+                                isPresented.toggle()
+                            } else {
+                                testViewModel.isCorrectAndWrongButtonsDisabled.toggle()
+                                testViewModel.showingCorrectAndWrongButtons.toggle()
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                                     testCards.removeLast()
-                                    currentCard += 1
+                                    testViewModel.currentCard += 1
                                     testViewModel.showingFlipButton.toggle()
                                 }
-                            
-                                cardSide.toggle()
                                 testViewModel.nextAnimation.toggle()
-                                
-                            } else {
-                                // Finish the test here
+                                testViewModel.cardSide.toggle()
                             }
                         }) {
                             Text("Correct")
@@ -87,18 +90,24 @@ struct TestScene: View {
                         }
                         .buttonStyle(.plain)
                         .padding()
+                        .disabled(testViewModel.isCorrectAndWrongButtonsDisabled)
                         Spacer()
                         Button(action: {
-                            if !testCards.isEmpty {
+                            guard testViewModel.isCorrectAndWrongButtonsDisabled == false else {
+                                return
+                            }
+                            if testCards.count == 1 {
+                                isPresented.toggle()
+                            } else {
+                                testViewModel.isCorrectAndWrongButtonsDisabled.toggle()
+                                testViewModel.showingCorrectAndWrongButtons.toggle()
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                                     testCards.removeLast()
-                                    currentCard += 1
+                                    testViewModel.currentCard += 1
                                     testViewModel.showingFlipButton.toggle()
                                 }
-                                cardSide.toggle()
+                                testViewModel.cardSide.toggle()
                                 testViewModel.nextAnimation.toggle()
-                            } else {
-                                
                             }
                         }) {
                             Text("Wrong")
@@ -109,6 +118,7 @@ struct TestScene: View {
                         }
                         .buttonStyle(.plain)
                         .padding()
+                        .disabled(testViewModel.isCorrectAndWrongButtonsDisabled)
                     }
                     Spacer()
                 }
@@ -128,7 +138,7 @@ struct TestScene: View {
         }
         .animation(.linear(duration: 0.5))
         .onAppear {
-            testCardsCount = testCards.count
+            testViewModel.testCardsCount = testCards.count
         }
     }
     
@@ -149,10 +159,12 @@ struct TestScene: View {
                 .shadow(color: isFrontCard ? cardShadowColor : .clear, radius: 20, x: 0, y: cardSide == .front ? 10 : -10)
                 .padding()
                 .onChange(of: cardSide) { newValue in
-                    imageURL = newValue == .back ? card.backImageURL : card.frontImageURL
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        imageURL = newValue == .back ? card.backImageURL : card.frontImageURL
 #if os(iOS)
-                    cachedImage =  GlobalService.shared.imageCache.image(for: "-\(newValue.rawValue)" + card.id)
+                        cachedImage =  GlobalService.shared.imageCache.image(for: "-\(newValue.rawValue)" + card.id)
 #endif
+                    }
                 }
                 .onAppear {
                     imageURL = card.frontImageURL
@@ -182,9 +194,5 @@ struct TestScene: View {
                 .scaledToFit()
 #endif
         }
-    }
-    
-    private func isFirstCard(card: Card) -> Bool {
-        return card.id == (testCards.last?.id ?? "0")
     }
 }

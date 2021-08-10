@@ -11,6 +11,15 @@ import SwiftUI
 
 class TestModel: ObservableObject {
     @Published var showingFlipButton = true
+    @Published var showingCorrectAndWrongButtons = false
     @Published var cardSide: CardSide = .front
     @Published var nextAnimation: CardSide = .front
+    @Published var currentCard = 1
+    @Published var testCardsCount: Int?
+    @Published var isCorrectAndWrongButtonsDisabled = true
+    
+    // This should be moved to be global in the future/
+    func isFrontCard(card: Card, cards: [Card]) -> Bool {
+        return card.id == (cards.last?.id ?? "0")
+    }
 }

@@ -1,15 +1,15 @@
 //
-//  AddNewSubjectService.swift
-//  Voiceses (iOS)
+//  FirebaseAddNewTestService.swift
+//  Voiceses
 //
-//  Created by Radi Barq on 28/03/2021.
+//  Created by Radi Barq on 10/08/2021.
 //
 
 import Foundation
 import Firebase
 import Combine
 
-enum FirebaseAddNewSubjectServiceError: Error, LocalizedError {
+enum FirebaseAddNewTestServiceError: Error, LocalizedError {
     case userIsNotAvailable
     case encodingFormatIsNotValid
     var errorDescription: String {
@@ -22,29 +22,30 @@ enum FirebaseAddNewSubjectServiceError: Error, LocalizedError {
     }
 }
 
-class FirebaseAddNewSubjectService: FirebaseDatabaseService {
-    let ref = Database.database().reference().child("users")
-    func addNewSubject(subject: Subject) -> AnyPublisher<Void, FirebaseAddNewSubjectServiceError> {
+final class FirebaseAddNewTestService: FirebaseDatabaseService {
+    var ref = Database.database().reference().child("users")
+    func addNewTest(test: Test) -> AnyPublisher<Void, FirebaseAddNewTestServiceError> {
         return Future { [weak self] promise in
             guard let userID = FirebaseAuthenticationService.getUserID() else {
                 promise(.failure(.userIsNotAvailable))
                 return
             }
-            let subjectID = self?.ref
-                .child("subjects")
+            let testID = self?.ref
+                .child("subjects-tests")
                 .childByAutoId()
                 .key
-            var subject = subject
-            subject.id = subjectID
-        
-            guard let dictionary = subject.getDictionary() else {
+            var test = test
+            test.id = testID
+            guard let dictionary = test.getDictionary() else {
                 promise(.failure(.encodingFormatIsNotValid))
                 return
             }
             self?.ref
                 .child(userID)
-                .child("subjects")
-                .child(subjectID!)
+                .child("subjects-tests")
+                .child(test.subjectID)
+                .child("tests")
+                .child(testID!)
                 .setValue(dictionary)
             promise(.success(()))
         }

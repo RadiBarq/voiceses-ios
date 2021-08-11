@@ -84,7 +84,7 @@ struct CardsScene: View {
                 SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, testCards: $cardsViewModel.testCards, showingTestScene: $cardsViewModel.showingTestScene)
             }
             .fullScreenCover(isPresented: $cardsViewModel.showingTestScene) {
-                TestScene(testCards: $cardsViewModel.testCards, isPresented: $cardsViewModel.showingTestScene)
+                TestScene(subjectID: cardsViewModel.subject.id!, testCards: $cardsViewModel.testCards, isPresented: $cardsViewModel.showingTestScene)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -140,7 +140,7 @@ struct CardsScene: View {
             SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, testCards: $cardsViewModel.testCards, showingTestScene: $cardsViewModel.showingTestScene)
         }
         .sheet(isPresented: $cardsViewModel.showingTestScene) {
-            TestScene(testCards: $cardsViewModel.testCards, isPresented: $cardsViewModel.showingTestScene)
+            TestScene(subjectID: cardsViewModel.subject.id!, testCards: $cardsViewModel.testCards, isPresented: $cardsViewModel.showingTestScene)
         }
         .toolbar {
             ToolbarItem(placement: .automatic) {

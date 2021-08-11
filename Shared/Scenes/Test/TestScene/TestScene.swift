@@ -9,9 +9,10 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct TestScene: View {
+    var subjectID: String
     @Binding var testCards: [Card]
     @Binding var isPresented: Bool
-    @StateObject private var testViewModel = TestModel()
+    @StateObject private var testViewModel = TestViewModel()
     var body: some View {
 #if os(iOS)
         NavigationView {
@@ -52,7 +53,9 @@ struct TestScene: View {
                             testViewModel.showingFlipButton.toggle()
                             testViewModel.showingCorrectAndWrongButtons.toggle()
                             testViewModel.cardSide.toggle()
-                            testViewModel.isCorrectAndWrongButtonsDisabled.toggle()
+                            DispatchQueue.main.async {
+                                testViewModel.isCorrectAndWrongButtonsDisabled.toggle()
+                            }
                         }) {
                             Text("Flip card")
                                 .foregroundColor(.white)
@@ -69,7 +72,12 @@ struct TestScene: View {
                                 return
                             }
                             if testCards.count == 1 {
-                                isPresented.toggle()
+                                testViewModel.addTestResult(subjectID: subjectID)
+                                testViewModel.addCorrectAnswer(card: testCards.last!)
+                                testViewModel.cardSide.toggle()
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                                    isPresented.toggle()
+                                }
                             } else {
                                 testViewModel.isCorrectAndWrongButtonsDisabled.toggle()
                                 testViewModel.showingCorrectAndWrongButtons.toggle()
@@ -80,6 +88,7 @@ struct TestScene: View {
                                 }
                                 testViewModel.nextAnimation.toggle()
                                 testViewModel.cardSide.toggle()
+                                testViewModel.addCorrectAnswer(card: testCards.last!)
                             }
                         }) {
                             Text("Correct")
@@ -97,7 +106,12 @@ struct TestScene: View {
                                 return
                             }
                             if testCards.count == 1 {
-                                isPresented.toggle()
+                                testViewModel.addTestResult(subjectID: subjectID)
+                                testViewModel.addWrongAnswer(card: testCards.last!)
+                                testViewModel.cardSide.toggle()
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                                    isPresented.toggle()
+                                }
                             } else {
                                 testViewModel.isCorrectAndWrongButtonsDisabled.toggle()
                                 testViewModel.showingCorrectAndWrongButtons.toggle()
@@ -108,6 +122,7 @@ struct TestScene: View {
                                 }
                                 testViewModel.cardSide.toggle()
                                 testViewModel.nextAnimation.toggle()
+                                testViewModel.addWrongAnswer(card: testCards.last!)
                             }
                         }) {
                             Text("Wrong")
@@ -139,6 +154,13 @@ struct TestScene: View {
         .animation(.linear(duration: 0.5))
         .onAppear {
             testViewModel.testCardsCount = testCards.count
+            testViewModel.testCards = testCards
+        }
+        .alert(isPresented: $testViewModel.showingAlert) {
+            Alert(title: Text(alertTitle),
+                  message: Text(testViewModel.alertMessage),
+                  dismissButton: .default(Text(alertDismissButtonTitle))
+            )
         }
     }
     

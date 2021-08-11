@@ -28,7 +28,10 @@ final class FirebaseAddNewCardService: FirebaseDatabaseService {
             guard let userID = FirebaseAuthenticationService.getUserID() else {
                 return .failure(.userIsNotAvailable)
             }
-            let currentRef = self.ref.child(userID).child("subjects").child(card.subjectID).child("cards").child(card.id)
+            let currentRef = self.ref.child(userID).child("subjects")
+                .child(card.subjectID)
+                .child("cards")
+                .child(card.id)
             guard let dictionary = card.getDictionary() else {
                 return .failure(.encodingFormatIsNotValid)
             }

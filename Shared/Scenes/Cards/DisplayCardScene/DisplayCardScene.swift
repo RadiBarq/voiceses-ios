@@ -44,7 +44,6 @@ struct DisplayCardScene: View {
         .toolbar {
             ToolbarItem(placement: .navigation) {
                 Button(action: {
-                    print("Test")
                     isPresented.toggle()
                 }, label: {
                     Image(systemName: "chevron.backward")

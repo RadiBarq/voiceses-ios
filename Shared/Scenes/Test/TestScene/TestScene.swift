@@ -13,12 +13,21 @@ struct TestScene: View {
     @Binding var testCards: [Card]
     @Binding var isPresented: Bool
     @StateObject private var testViewModel = TestViewModel()
+    @State private var cancellationConfiratmion = false
     var body: some View {
 #if os(iOS)
         NavigationView {
             content
                 .accentColor(Color.accent)
                 .navigationTitle("\(testViewModel.currentCard) out of \(testViewModel.testCardsCount ?? 0)")
+                .confirmationDialog(
+                    "Are you sure you want to cancel the test!, your progress will not be saved.",
+                    isPresented: $cancellationConfiratmion,
+                    titleVisibility: .visible) {
+                    Button("Yes", role: .destructive) {
+                        isPresented.toggle()
+                    }
+                }
         }
 #else
         ScrollView {
@@ -144,7 +153,7 @@ struct TestScene: View {
             .toolbar {
                 ToolbarItem(placement: .destructiveAction) {
                     Button(action: {
-                        isPresented.toggle()
+                        cancellationConfiratmion.toggle()
                     }, label: {
                         Text("Cancel")
                     })

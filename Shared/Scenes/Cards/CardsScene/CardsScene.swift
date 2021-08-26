@@ -26,6 +26,7 @@ struct CardsScene: View {
                         Image(systemName: "plus.circle")
                     })
                 }
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         cardsViewModel.testCards = cardsViewModel.allCards
@@ -33,6 +34,7 @@ struct CardsScene: View {
                     }, label: {
                         Text("Start Test")
                     })
+                        .disabled(cardsViewModel.allCards.isEmpty)
                 }
             }
             .navigationTitle(cardsViewModel.title)
@@ -49,6 +51,7 @@ struct CardsScene: View {
                         }, label: {
                             Image(systemName: "chevron.backward")
                         })
+                            .disabled(cardsViewModel.allCards.isEmpty)
                     } else {
                         EmptyView()
                     }
@@ -93,6 +96,7 @@ struct CardsScene: View {
                     }, label: {
                         Text("Filter")
                     })
+                        .disabled(cardsViewModel.allCards.isEmpty)
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
@@ -100,6 +104,7 @@ struct CardsScene: View {
                     }, label: {
                         Image(systemName: self.cardsViewModel.sortOptions == .ascend ? "arrow.up.arrow.down.circle" : "arrow.up.arrow.down.circle.fill")
                     })
+                        .disabled(cardsViewModel.allCards.isEmpty)
                 }
             }
         }
@@ -111,7 +116,6 @@ struct CardsScene: View {
                         ForEach(cardsViewModel.cards) { card in
                             CardView(card: .constant(card)) {
                                 cardsViewModel.deleteCard(with: card.id)
-                                
                             }
                             .shadow(color: Color(hex: cardsViewModel.subject.colorHex).opacity(0.8), radius: 20, x: 0, y: 10)
                             .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
@@ -150,6 +154,7 @@ struct CardsScene: View {
                     }, label: {
                         Text("Filter")
                     })
+                        .disabled(cardsViewModel.allCards.isEmpty)
                 } else {
                     EmptyView()
                 }
@@ -161,6 +166,7 @@ struct CardsScene: View {
                     }, label: {
                         Image(systemName: cardsViewModel.sortOptions == .ascend ? "arrow.up.arrow.down.circle" : "arrow.up.arrow.down.circle.fill")
                     })
+                        .disabled(cardsViewModel.allCards.isEmpty)
                 } else {
                     EmptyView()
                 }
@@ -173,6 +179,7 @@ struct CardsScene: View {
                     }, label: {
                         Text("Start Test")
                     })
+                        .disabled(cardsViewModel.allCards.isEmpty)
                 } else {
                     EmptyView()
                 }

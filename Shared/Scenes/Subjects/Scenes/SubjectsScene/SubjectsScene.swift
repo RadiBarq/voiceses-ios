@@ -101,7 +101,7 @@ struct SubjectsScene: View {
                     }
                 }
                 .padding()
-                .animation(.easeInOut(duration: 0.5))
+                .animation(.easeInOut(duration: 0.5), value: true)
             }
         }
 #else
@@ -125,16 +125,17 @@ struct SubjectsScene: View {
                                     currentSelectedSubject = item
                                 }
                         }
-                        .animation(.easeInOut(duration: 0.5))
+                        .animation(.easeInOut(duration: 0.5), value: true)
                         .padding()
                     }
                 }
-                .transition(.move(edge: .leading)).animation(.default)
+                .transition(.move(edge: .leading))
+                .animation(.default, value: true)
             }
             if cardsScenePushed {
                 CardsScene(cardsViewModel:  CardsViewModel(subject: currentSelectedSubject!), isPresented: $cardsScenePushed)
                     .transition(.move(edge: .trailing))
-                    .animation(.default)
+                    .animation(.default, value: true)
             }
         }
 #endif

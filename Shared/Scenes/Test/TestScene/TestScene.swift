@@ -42,11 +42,11 @@ struct TestScene: View {
                         CardView(isFrontCard: .constant(isFrontCard), card: card, cardSide: $testViewModel.cardSide)
                     }
                 }
-                .animation(.easeIn)
+                .animation(.easeIn, value: true)
                 .rotation3DEffect(testViewModel.nextAnimation == .front ? .degrees(0): .degrees(360), axis: (x: 0, y: 1, z: 0))
-                .animation(.easeIn.delay(0.8))
+                .animation(.easeIn.delay(0.8), value: true)
                 .rotation3DEffect(testViewModel.cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
-                .animation(.easeIn)
+                .animation(.easeIn, value: true)
                 HStack(alignment: .center) {
                     Spacer()
                     if testViewModel.showingFlipButton {
@@ -152,7 +152,7 @@ struct TestScene: View {
                 }
             }
         }
-        .animation(.linear(duration: 0.5))
+        .animation(.linear(duration: 0.5), value: true)
         .onAppear {
             testViewModel.testCardsCount = testCards.count
             testViewModel.testCards = testCards

@@ -107,7 +107,7 @@ struct FilterCardsScene: View {
             }
         }
         .navigationTitle("Filter Cards")
-        .animation(.default)
+        .animation(.default, value: true)
     }
 }
 

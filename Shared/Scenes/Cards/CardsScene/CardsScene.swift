@@ -77,7 +77,7 @@ struct CardsScene: View {
                     }
                 }
                 .padding()
-                .animation(.easeInOut(duration: 0.5))
+                .animation(.easeInOut(duration: 0.5), value: true)
             }
             .sheet(isPresented: $cardsViewModel.showingFilterCardsScene) {
                 FilterCardsScene(isPresented: $cardsViewModel.showingFilterCardsScene, startDate: $cardsViewModel.filterStartDate, endDate: $cardsViewModel.filterEndDate, selectedDateFilterOption: $cardsViewModel.selectedDateFilterOption, filterIsApplied: $cardsViewModel.isFilterApplied)
@@ -123,17 +123,18 @@ struct CardsScene: View {
                                 displayCardScenePushed = true
                                 currentSelectedCard = card
                             }
-                            .animation(.easeInOut(duration: 0.5))
+                            .animation(.easeInOut(duration: 0.5), value: true)
                         }
                     }
                     .padding()
                 }
-                .transition(.move(edge: .leading)).animation(.default)
+                .transition(.move(edge: .leading))
+                .animation(.default, value: true)
             }
             if displayCardScenePushed {
                 DisplayCardScene(isPresented: $displayCardScenePushed, displayCardViewModel: DisplayCardViewModel(subject: cardsViewModel.subject, card: currentSelectedCard!))
                     .transition(.move(edge: .trailing))
-                    .animation(.default)
+                    .animation(.default, value: true)
             }
         }
         .sheet(isPresented: $cardsViewModel.showingFilterCardsScene) {

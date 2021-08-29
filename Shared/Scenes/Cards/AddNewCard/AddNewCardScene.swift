@@ -58,7 +58,7 @@ struct AddNewCardScene: View {
            
         }
         .accentColor(Color.accent)
-        .animation(.linear(duration: 0.5))
+        .animation(.linear(duration: 0.5), value: true)
         .alert(isPresented: $addNewCardViewModel.showingAlert) {
             Alert(title: Text(self.alertTitle),
                   message: Text(addNewCardViewModel.alertMessage),

@@ -26,7 +26,7 @@ struct SetupTestScene: View {
                 .toolbar(content: {
                     ToolbarItem(placement: .confirmationAction) {
                         Button(action: {
-                            if  setupTestViewModel.applyCardsFilter(cards: $testCards) {
+                            if  setupTestViewModel.applyCardsFilterAndOrder(to: $testCards) {
                                 isPresented.toggle()
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                                     showingTestScene.toggle()
@@ -101,15 +101,15 @@ struct SetupTestScene: View {
                                 .font(.footnote)
                         }
                     }
-                    .padding(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
-                    .pickerStyle(.segmented)
+                            .padding(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
+                            .pickerStyle(.segmented)
                 }
 #if os(iOS)
                 Section {
                     HStack(alignment: .center) {
                         Spacer()
                         Button("Start The Test") {
-                            if setupTestViewModel.applyCardsFilter(cards: $testCards) {
+                            if setupTestViewModel.applyCardsFilterAndOrder(to: $testCards) {
                                 isPresented.toggle()
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                                     showingTestScene.toggle()

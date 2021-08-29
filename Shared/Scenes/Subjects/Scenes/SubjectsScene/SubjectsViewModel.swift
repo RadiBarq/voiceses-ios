@@ -28,6 +28,7 @@ final class SubjectsViewModel: ObservableObject {
             subjects.reverse()
         }
     }
+    
     @Published var searchText = "" {
         didSet {
             searchedSubjects = subjects.filter { searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }

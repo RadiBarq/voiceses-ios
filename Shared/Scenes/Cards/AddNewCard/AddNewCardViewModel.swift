@@ -45,7 +45,7 @@ final class AddNewCardViewModel: ObservableObject {
             .childByAutoId().key!
         let timestamp = Date.currentTimeStamp
         let date = Date().getCurrentDateAsString()
-        let card = Card(id: cardID, subjectID: subject.id!, backImageURL: nil, frontImageURL: nil, dateCreated: date, timestamp: timestamp)
+        let card = Card(id: cardID, subjectID: subject.id!, backImageURL: nil, frontImageURL: nil, dateCreated: date, timestamp: timestamp, testScore: 0)
         GlobalService.shared.imageCache.insert(frontCanvasImage, for: "-front" + cardID)
         GlobalService.shared.imageCache.insert(backCanvasImage, for: "-back" + cardID)
         GlobalService.shared.saveCardImages(frontImage: frontCanvasImage.pngData()!, backImage: backCanvasImage.pngData()!, card: card)

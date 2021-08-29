@@ -17,7 +17,7 @@ final class SetupTestViewModel: ObservableObject {
     @Published var showingAlert = false
     @Published var alertMessage = ""
     
-    func applyCardsFilter(cards: Binding<[Card]>) -> Bool {
+    func applyCardsFilterAndOrder(to cards: Binding<[Card]>) -> Bool {
         if testIncludedCardsOption == .filteredCards {
             if isSelectedFilterDateValid(from: testIncludedCardsStartDate, to: testIncludedCardsEndDate) {
                 filterCards(cards: cards)
@@ -26,6 +26,10 @@ final class SetupTestViewModel: ObservableObject {
                 showInvalidIncludedCardsDateSelected()
                 return false
             }
+        }
+        
+        if testSelectedCardsOrderOption == .smartOrder {
+            applyCardsSmartOrder(to: cards)
         }
         return true
     }
@@ -38,6 +42,12 @@ final class SetupTestViewModel: ObservableObject {
         let (startDate, endDate) = self.getFirstAndEndTimestampsOfIncludedCardsDate()
         cards.wrappedValue = cards.wrappedValue.filter {
             $0.timestamp >= startDate && $0.timestamp <= endDate
+        }
+    }
+    
+    private func applyCardsSmartOrder(to cards: Binding<[Card]>) {
+        cards.wrappedValue = cards.wrappedValue.sorted {
+            $0.testScore > $1.testScore
         }
     }
     

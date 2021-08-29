@@ -51,7 +51,7 @@ final class CardsViewModel: ObservableObject {
     private var getCardsService: FirebaseGetCardsService
     private var deleteCardService: FirebaseDeleteACardService
     private var updateSubjectService: FirebaseUpdateSubjectService
-    
+
     init(subject: Subject) {
         self.subject = subject
         getCardsService = FirebaseGetCardsService(subjectID: subject.id!)

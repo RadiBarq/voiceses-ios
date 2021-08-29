@@ -20,14 +20,6 @@ struct TestScene: View {
             content
                 .accentColor(Color.accent)
                 .navigationTitle("\(testViewModel.currentCard) out of \(testViewModel.testCardsCount ?? 0)")
-                .confirmationDialog(
-                    "Are you sure you want to cancel the test!, your progress will not be saved.",
-                    isPresented: $cancellationConfiratmion,
-                    titleVisibility: .visible) {
-                    Button("Yes", role: .destructive) {
-                        isPresented.toggle()
-                    }
-                }
         }
 #else
         ScrollView {
@@ -170,6 +162,14 @@ struct TestScene: View {
                   message: Text(testViewModel.alertMessage),
                   dismissButton: .default(Text(alertDismissButtonTitle))
             )
+        }
+        .confirmationDialog(
+            "Are you sure you want to cancel the test!, your progress will not be saved.",
+            isPresented: $cancellationConfiratmion,
+            titleVisibility: .visible) {
+            Button("Yes", role: .destructive) {
+                isPresented.toggle()
+            }
         }
     }
     

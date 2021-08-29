@@ -57,7 +57,7 @@ final class FirebaseGetCardsService: FirebaseDatabaseService {
             guard let handle = handle, let cardsRef = cardsRef else { return }
             cardsRef.removeObserver(withHandle: handle)
         })
-            .eraseToAnyPublisher()
+        .eraseToAnyPublisher()
     }
     
     private func setupCards(with snapshot: DataSnapshot) {

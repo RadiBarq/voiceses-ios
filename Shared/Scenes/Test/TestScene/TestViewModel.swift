@@ -23,6 +23,7 @@ class TestViewModel: ObservableObject {
     @Published var alertMessage = ""
     var testCards = [Card]()
     private var addNewTestService = FirebaseAddNewTestService()
+    private var updateCardService = FirebaseUpdateCardService()
     private var subscriptions = Set<AnyCancellable>()
     
     // This should be moved to be global in the future
@@ -53,5 +54,23 @@ class TestViewModel: ObservableObject {
                 }
             }, receiveValue: {})
             .store(in: &subscriptions)
+        updateCorrectCardsScore()
+        updateWrongCardsScore()
+    }
+    
+    private func updateCorrectCardsScore() {
+        for card in correctCards {
+            var copyCard = card
+            copyCard.testScore += 1
+            updateCardService.updateTestScore(for: copyCard)
+        }
+    }
+    
+    private func updateWrongCardsScore() {
+        for card in wrongCards {
+            var copyCard = card
+            copyCard.testScore -= 1
+            updateCardService.updateTestScore(for: copyCard)
+        }
     }
 }

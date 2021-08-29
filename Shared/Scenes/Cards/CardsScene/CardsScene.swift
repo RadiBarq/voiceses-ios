@@ -51,7 +51,6 @@ struct CardsScene: View {
                         }, label: {
                             Image(systemName: "chevron.backward")
                         })
-                            .disabled(cardsViewModel.allCards.isEmpty)
                     } else {
                         EmptyView()
                     }

@@ -27,7 +27,7 @@ struct DisplayCardScene: View {
         .shadow(color: displayCardViewModel.parentColor.opacity(0.8), radius: 20, x: 0, y: 10)
         .rotation3DEffect(displayCardViewModel.cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
         .navigationTitle("\(displayCardViewModel.cardSide.rawValue.capitalized) side")
-        .animation(.easeInOut(duration: 0.5), value: true)
+        .animation(.easeInOut(duration: 0.5))
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 Button(action: {

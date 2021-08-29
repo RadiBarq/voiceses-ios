@@ -9,7 +9,7 @@ import SwiftUI
 
 enum NavigationItem: Int, CaseIterable, Identifiable {
     case subjects
-    case search
+    case testsArchive
     case calendar
     case settings
     
@@ -21,8 +21,8 @@ enum NavigationItem: Int, CaseIterable, Identifiable {
         switch self {
         case .subjects:
             return "Subjects"
-        case .search:
-            return "Search"
+        case .testsArchive:
+            return "Tests Archive"
         case .calendar:
             return "Calander"
         case .settings:
@@ -34,8 +34,8 @@ enum NavigationItem: Int, CaseIterable, Identifiable {
         switch self {
         case .subjects:
             return "book.closed"
-        case .search:
-            return "magnifyingglass"
+        case .testsArchive:
+            return "archivebox.fill"
         case .calendar:
             return "calendar"
         case .settings:
@@ -48,12 +48,12 @@ enum NavigationItem: Int, CaseIterable, Identifiable {
         switch self {
         case .subjects:
             SubjectsScene()
-        case .search:
-            SearchScene()
+        case .testsArchive:
+            TestsArchiveSubjectsScene()
         case .calendar:
             CalanderScene()
         case .settings:
-           SettingsScene()
+            SettingsScene()
         }
     }
 }

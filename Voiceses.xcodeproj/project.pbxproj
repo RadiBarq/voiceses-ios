@@ -75,6 +75,8 @@
 		CD6B1DC226920F560084A1D4 /* FilterCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDA5067268C98F70033A97A /* FilterCardsViewModel.swift */; };
 		CD7C980726DBABAC00901F47 /* FirebaseUpdateCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7C980626DBABAC00901F47 /* FirebaseUpdateCardService.swift */; };
 		CD7C980826DBABAC00901F47 /* FirebaseUpdateCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7C980626DBABAC00901F47 /* FirebaseUpdateCardService.swift */; };
+		CD7C980C26DBBFA800901F47 /* TestsArchiveSubjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7C980B26DBBFA800901F47 /* TestsArchiveSubjectsViewModel.swift */; };
+		CD7C980D26DBBFA800901F47 /* TestsArchiveSubjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7C980B26DBBFA800901F47 /* TestsArchiveSubjectsViewModel.swift */; };
 		CD8F03CC264550B500059C53 /* FirebaseAddNewCardImageFirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8F03CB264550B500059C53 /* FirebaseAddNewCardImageFirebaseService.swift */; };
 		CD8F03D6264550E600059C53 /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8F03D5264550E600059C53 /* FirebaseStorageService.swift */; };
 		CD8F03FD264566C900059C53 /* FirebaseAddNewCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8F03FC264566C900059C53 /* FirebaseAddNewCardService.swift */; };
@@ -82,7 +84,7 @@
 		CD8F040C264567BC00059C53 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8F040A264567BC00059C53 /* Card.swift */; };
 		CD96751D26065E420067FCC5 /* SubjectsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B7F9260638DE003537A8 /* SubjectsScene.swift */; };
 		CD96752226065E440067FCC5 /* CalanderScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80226063A1B003537A8 /* CalanderScene.swift */; };
-		CD96752726065E460067FCC5 /* SearchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80826063A2C003537A8 /* SearchScene.swift */; };
+		CD96752726065E460067FCC5 /* TestsArchiveSubjectsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80826063A2C003537A8 /* TestsArchiveSubjectsScene.swift */; };
 		CD96752C26065E490067FCC5 /* CardsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80E26063A38003537A8 /* CardsScene.swift */; };
 		CD96753126065E4F0067FCC5 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFA977F2600A4F0006DB5A6 /* HomeScene.swift */; };
 		CD96753626065E550067FCC5 /* NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B81526063AB3003537A8 /* NavigationItem.swift */; };
@@ -104,7 +106,7 @@
 		CDCF580D266C0B4100D4BCDF /* iOSCustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCF580C266C0B4100D4BCDF /* iOSCustomTextView.swift */; };
 		CDD0B7FA260638DE003537A8 /* SubjectsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B7F9260638DE003537A8 /* SubjectsScene.swift */; };
 		CDD0B80326063A1B003537A8 /* CalanderScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80226063A1B003537A8 /* CalanderScene.swift */; };
-		CDD0B80926063A2C003537A8 /* SearchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80826063A2C003537A8 /* SearchScene.swift */; };
+		CDD0B80926063A2C003537A8 /* TestsArchiveSubjectsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80826063A2C003537A8 /* TestsArchiveSubjectsScene.swift */; };
 		CDD0B80F26063A38003537A8 /* CardsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80E26063A38003537A8 /* CardsScene.swift */; };
 		CDD0B81626063AB3003537A8 /* NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B81526063AB3003537A8 /* NavigationItem.swift */; };
 		CDD9DFF225FD13CE00E3BF53 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFF125FD13CE00E3BF53 /* Tests_iOS.swift */; };
@@ -203,6 +205,7 @@
 		CD6079F42610D2B700928B20 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 		CD607A1C2610DAA800928B20 /* Decodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extension.swift"; sourceTree = "<group>"; };
 		CD7C980626DBABAC00901F47 /* FirebaseUpdateCardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUpdateCardService.swift; sourceTree = "<group>"; };
+		CD7C980B26DBBFA800901F47 /* TestsArchiveSubjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsArchiveSubjectsViewModel.swift; sourceTree = "<group>"; };
 		CD8F03CB264550B500059C53 /* FirebaseAddNewCardImageFirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAddNewCardImageFirebaseService.swift; sourceTree = "<group>"; };
 		CD8F03D5264550E600059C53 /* FirebaseStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageService.swift; sourceTree = "<group>"; };
 		CD8F03FC264566C900059C53 /* FirebaseAddNewCardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAddNewCardService.swift; sourceTree = "<group>"; };
@@ -218,7 +221,7 @@
 		CDCF580C266C0B4100D4BCDF /* iOSCustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSCustomTextView.swift; sourceTree = "<group>"; };
 		CDD0B7F9260638DE003537A8 /* SubjectsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsScene.swift; sourceTree = "<group>"; };
 		CDD0B80226063A1B003537A8 /* CalanderScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalanderScene.swift; sourceTree = "<group>"; };
-		CDD0B80826063A2C003537A8 /* SearchScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScene.swift; sourceTree = "<group>"; };
+		CDD0B80826063A2C003537A8 /* TestsArchiveSubjectsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsArchiveSubjectsScene.swift; sourceTree = "<group>"; };
 		CDD0B80E26063A38003537A8 /* CardsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsScene.swift; sourceTree = "<group>"; };
 		CDD0B81526063AB3003537A8 /* NavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItem.swift; sourceTree = "<group>"; };
 		CDD9DFD625FD13CD00E3BF53 /* VoicesesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicesesApp.swift; sourceTree = "<group>"; };
@@ -481,6 +484,15 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		CD7C980926DBBF6600901F47 /* SubjectsScene */ = {
+			isa = PBXGroup;
+			children = (
+				CDD0B80826063A2C003537A8 /* TestsArchiveSubjectsScene.swift */,
+				CD7C980B26DBBFA800901F47 /* TestsArchiveSubjectsViewModel.swift */,
+			);
+			path = SubjectsScene;
+			sourceTree = "<group>";
+		};
 		CD8F03CA26454FA000059C53 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
@@ -563,12 +575,12 @@
 			path = Cards;
 			sourceTree = "<group>";
 		};
-		CDD0B80026063911003537A8 /* Search */ = {
+		CDD0B80026063911003537A8 /* TestsArchive */ = {
 			isa = PBXGroup;
 			children = (
-				CDD0B80826063A2C003537A8 /* SearchScene.swift */,
+				CD7C980926DBBF6600901F47 /* SubjectsScene */,
 			);
-			path = Search;
+			path = TestsArchive;
 			sourceTree = "<group>";
 		};
 		CDD0B80126063916003537A8 /* Calander */ = {
@@ -686,7 +698,7 @@
 				CDD0B7F8260638BC003537A8 /* Subjects */,
 				CDD0B7FF260638FA003537A8 /* Cards */,
 				CDD0B80126063916003537A8 /* Calander */,
-				CDD0B80026063911003537A8 /* Search */,
+				CDD0B80026063911003537A8 /* TestsArchive */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1048,6 +1060,7 @@
 				CD17F1E1262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */,
 				CDCF580D266C0B4100D4BCDF /* iOSCustomTextView.swift in Sources */,
 				CD9EDD4B26C30592001191D3 /* Test.swift in Sources */,
+				CD7C980C26DBBFA800901F47 /* TestsArchiveSubjectsViewModel.swift in Sources */,
 				CD1A804826821B77003F78C0 /* DrawingCanvas.swift in Sources */,
 				CD5785D226A026D800CFBA6A /* SetupTestScene.swift in Sources */,
 				CD60795E2610974B00928B20 /* FirebaseDatabaseService.swift in Sources */,
@@ -1083,7 +1096,7 @@
 				CD5FE77326778B2F0029B23F /* FirebaseDeleteSubjectImagesService.swift in Sources */,
 				CDFA97802600A4F0006DB5A6 /* HomeScene.swift in Sources */,
 				CD8F03D6264550E600059C53 /* FirebaseStorageService.swift in Sources */,
-				CDD0B80926063A2C003537A8 /* SearchScene.swift in Sources */,
+				CDD0B80926063A2C003537A8 /* TestsArchiveSubjectsScene.swift in Sources */,
 				CD523BD826ADD4180072EDCD /* TestViewModel.swift in Sources */,
 				CD07A2BC268E24AF00312E15 /* SortOptions.swift in Sources */,
 				CD0BB30E260B259200CD0A03 /* SubjectView.swift in Sources */,
@@ -1127,7 +1140,7 @@
 				CD96753D26066F260067FCC5 /* Subject.swift in Sources */,
 				CDF24DF62618C67500CC866F /* SubjectsViewModel.swift in Sources */,
 				CD28F9BB2650496800D87DDC /* FirebaseDeleteACardService.swift in Sources */,
-				CD96752726065E460067FCC5 /* SearchScene.swift in Sources */,
+				CD96752726065E460067FCC5 /* TestsArchiveSubjectsScene.swift in Sources */,
 				CD9EDD5026C30F2A001191D3 /* FirebaseAddNewTestService.swift in Sources */,
 				CDFA97A02600A821006DB5A6 /* SideBar.swift in Sources */,
 				CD30732E263752DC00E4C743 /* AddNewLectureScene_temp.swift in Sources */,
@@ -1176,6 +1189,7 @@
 				CDF24DFD2618C97200CC866F /* FirebaseGetAddedSubjectsService.swift in Sources */,
 				CD00F70E267A0CB500475016 /* FirebaseStorageService.swift in Sources */,
 				CDDA5069268CAFAF0033A97A /* FilterCardsScene.swift in Sources */,
+				CD7C980D26DBBFA800901F47 /* TestsArchiveSubjectsViewModel.swift in Sources */,
 				CD607A1E2610DAA800928B20 /* Decodable+Extension.swift in Sources */,
 				CD5785DA26A0717100CFBA6A /* TestIncludedCardsOption.swift in Sources */,
 			);

@@ -9,12 +9,6 @@ import Foundation
 import Combine
 
 final class SubjectsViewModel: ObservableObject {
-    @Published var subjects = [Subject]() {
-        didSet {
-            searchedSubjects = subjects.filter { searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }
-        }
-    }
-    
     @Published var searchedSubjects: [Subject] = []
     @Published var showingLecturesOnMac = false
     @Published var showingAddNewSubjectScene = false
@@ -36,6 +30,13 @@ final class SubjectsViewModel: ObservableObject {
     }
     
     var selectedMacSubject: Subject?
+    
+    private var subjects = [Subject]() {
+        didSet {
+            searchedSubjects = subjects.filter { searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) }
+        }
+    }
+    
     private var subscriptions = Set<AnyCancellable>()
     private var getAddedSubjectsService: FirebaseGetAddedSubjectsService
     private var getUpdatedSubjectsService: FirebaseGetUpdatedSubjectsService

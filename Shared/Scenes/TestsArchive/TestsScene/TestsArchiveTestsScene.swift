@@ -11,11 +11,13 @@ struct TestsArchiveTestsScene: View {
     let subject: Subject
     @StateObject private var viewModel = TestsArchiveTestsViewModel()
     var body: some View {
+#if os(iOS)
         content
-            .navigationTitle("Tests")
-            .onAppear {
-                viewModel.getTests(for: subject)
-            }
+#else
+        NavigationView {
+            content
+        }
+#endif
     }
     
     private var content: some View {
@@ -27,6 +29,10 @@ struct TestsArchiveTestsScene: View {
                 }
             }
             .onDelete(perform: viewModel.deleteTest)
+        }
+        .navigationTitle("Tests")
+        .onAppear {
+            viewModel.getTests(for: subject)
         }
     }
 }

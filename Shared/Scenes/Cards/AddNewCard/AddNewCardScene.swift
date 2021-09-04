@@ -55,7 +55,6 @@ struct AddNewCardScene: View {
                     })
                 }
             }
-           
         }
         .accentColor(Color.accent)
         .animation(.linear(duration: 0.5))

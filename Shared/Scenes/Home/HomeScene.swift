@@ -8,23 +8,22 @@
 import SwiftUI
 
 struct HomeScene: View {
-    #if os(iOS)
+#if os(iOS)
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    #else
-    #endif
-    
+#else
+#endif
     var body: some View {
         ZStack {
-            #if os(iOS)
+#if os(iOS)
             if horizontalSizeClass == .compact {
                 tabView
             } else {
                 SideBar()
             }
-            #else
+#else
             SideBar()
                 .frame(minWidth: 1000, maxWidth: .infinity, minHeight: 600, maxHeight: .infinity)
-            #endif
+#endif
         }
     }
     

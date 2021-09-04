@@ -22,6 +22,12 @@ struct TestsArchiveTestsScene: View {
     
     private var content: some View {
         List {
+            #if !os(iOS)
+            Text("Tests")
+                .font(.largeTitle)
+                .bold()
+                .padding()
+            #endif
             ForEach(viewModel.tests, id: \.id) { test in
                 NavigationLink(destination: Text(test.dateCreated)) {
                     Text(test.dateCreated)

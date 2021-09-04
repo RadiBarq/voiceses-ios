@@ -20,10 +20,15 @@ struct TestsArchiveSubjectsScene: View {
     }
     private var content: some View {
         List {
+#if !os(iOS)
+            Text("Subjects")
+                .font(.largeTitle)
+                .bold()
+                .padding()
+#endif
             ForEach(viewModel.searchedSubjects, id: \.id) { subject in
                 NavigationLink(destination: TestsArchiveTestsScene(subject: subject)) {
                     Text(subject.title)
-                        .foregroundColor(Color.primary)
                 }
             }
         }

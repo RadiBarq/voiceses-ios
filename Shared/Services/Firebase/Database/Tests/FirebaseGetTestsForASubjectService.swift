@@ -22,7 +22,6 @@ enum FirebaseGetTestsForASubjectServiceError: Error, LocalizedError {
     }
 }
 
-
 final class FirebaseGetTestsForASubjectService: FirebaseDatabaseService {
     let ref: DatabaseReference = Database.database().reference().child("users")
     func getTests(for subjectID: String) -> AnyPublisher<[Test], FirebaseGetTestsForASubjectServiceError> {
@@ -31,19 +30,32 @@ final class FirebaseGetTestsForASubjectService: FirebaseDatabaseService {
                 promise(.failure(.userIsNotAvailable))
                 return
             }
+            
             self?.ref
                 .child(userID)
-                .child("subject-tests")
+                .child("subjects-tests")
                 .child(subjectID)
                 .child("tests")
-                .observeSingleEvent(of: .value) { snapshot in
-                    guard let dict = snapshot.value as? [String: Any], let tests = [Test](dictionary: dict) else {
-                        promise(.failure(.decodingFormatIsNotValid))
-                        return
-                    }
+                .queryOrdered(byChild: "timestamp")
+                .observeSingleEvent(of: .value) { [weak self] snapshot in
+                    guard let weakSelf = self else { return }
+                    let tests = weakSelf.setupTests(with: snapshot)
                     promise(.success(tests))
                 }
         }
         .eraseToAnyPublisher()
+    }
+    
+    private func setupTests(with snapshot: DataSnapshot) -> [Test] {
+        var tests = [Test]()
+        for child in snapshot.children {
+            guard let snapshot = child as? DataSnapshot,
+                  let dict = snapshot.value as? [String: Any],
+                  let test = Test(dictionary: dict) else {
+                      continue
+                  }
+            tests.append(test)
+        }
+        return tests
     }
 }

@@ -14,4 +14,11 @@ extension DateFormatter {
         dateFormatter.dateStyle = .medium
         return dateFormatter
     }
+    
+    static func getDefaultFormatterWithTime() -> DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .medium
+        dateFormatter.dateStyle = .medium
+        return dateFormatter
+    }
 }

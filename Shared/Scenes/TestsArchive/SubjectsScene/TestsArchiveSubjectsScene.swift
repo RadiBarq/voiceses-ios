@@ -18,22 +18,16 @@ struct TestsArchiveSubjectsScene: View {
         }
 #endif
     }
-    
     private var content: some View {
         List {
             ForEach(viewModel.searchedSubjects, id: \.id) { subject in
-                NavigationLink(destination: Text(subject.title)) {
+                NavigationLink(destination: TestsArchiveTestsScene(subject: subject)) {
                     Text(subject.title)
-                        .foregroundColor(Color.accent)
+                        .foregroundColor(Color.primary)
                 }
             }
         }
-        .searchable(text: $viewModel.searchText, prompt: "Search for a subject") {
-            ForEach(viewModel.searchedSubjects, id: \.id) { result in
-                Text("Are you looking for \(result.title)?")
-                    .searchCompletion(result.title)
-            }
-        }
+        .searchable(text: $viewModel.searchText, prompt: "Search for a subject")
     }
 }
 

@@ -41,7 +41,7 @@ class TestViewModel: ObservableObject {
     
     func addTestResult(subjectID: String) {
         let timestamp = Date.currentTimeStamp
-        let dateCreated = Date().getCurrentDateAsString()
+        let dateCreated = Date().getCurrentDateWithTimeAsString()
         let test = Test(id: nil, subjectID: subjectID, allCards: testCards, correctCards: correctCards, wrongCards: wrongCards, dateCreated: dateCreated, timestamp: timestamp)
         addNewTestService.addNewTest(test: test)
             .sink(receiveCompletion: { [weak self] result in

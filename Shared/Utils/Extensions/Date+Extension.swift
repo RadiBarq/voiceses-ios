@@ -19,6 +19,12 @@ extension Date {
         DateFormatter.getDefaultFormatter().string(from: self)
     }
     
+    
+    func getCurrentDateWithTimeAsString() -> String {
+        DateFormatter.getDefaultFormatterWithTime()
+            .string(from: self)
+    }
+    
     var endOfToday: Date {
         Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: self)!
     }

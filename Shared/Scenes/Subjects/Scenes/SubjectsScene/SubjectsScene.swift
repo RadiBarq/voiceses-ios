@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SubjectsScene: View {
     @StateObject private var subjectsViewModel = SubjectsViewModel()
-    @State var isActiveOnMac = false
+    @State private var isActiveOnMac = false
 #if !os(iOS)
     @State private var currentSelectedSubject: Subject?
     @State private var cardsScenePushed: Bool = false
@@ -99,10 +99,12 @@ struct SubjectsScene: View {
                                 .padding()
                         }
                     }
+                    .animation(.easeInOut(duration: 0.5), value: subjectsViewModel.sortOptions)
+                    .animation(.easeInOut(duration: 0.5), value: subjectsViewModel.searchedSubjects)
                 }
                 .padding()
-                .animation(.easeInOut(duration: 0.5))
             }
+           
         }
 #else
         return GeometryReader { geometry in
@@ -129,6 +131,8 @@ struct SubjectsScene: View {
                         .padding()
                     }
                 }
+                .animation(.easeInOut(duration: 0.5), value: subjectsViewModel.sortOptions)
+                .animation(.easeInOut(duration: 0.5), value: subjectsViewModel.searchedSubjects)
                 .transition(.move(edge: .leading))
                 .animation(.default)
             }

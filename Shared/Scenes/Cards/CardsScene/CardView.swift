@@ -63,6 +63,7 @@ struct CardView: View {
         .background(Color.white)
         .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
         .rotation3DEffect(cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
+        .animation(.easeInOut(duration: 0.5))
         .onAppear {
             imageURL = card.frontImageURL
 #if os(iOS)

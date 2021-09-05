@@ -14,48 +14,47 @@ struct AddNewCardScene: View {
     var backCanvas = PKCanvasView()
     @ObservedObject var addNewCardViewModel: AddNewCardViewModel
     var body: some View {
-        NavigationView {
-            VStack {
-                Group {
-                    if addNewCardViewModel.cardSide == .front {
-                        DrawingCanvas(canvasView: frontCanvas)
-                    } else {
-                        DrawingCanvas(canvasView: backCanvas)
-                    }
-                }
-            }
-            .cornerRadius(25)
-            .shadow(color: addNewCardViewModel.parentColor.opacity(0.8), radius: 20, x: 0, y: 10)
-            .padding()
-            .navigationTitle("\(addNewCardViewModel.cardSide.rawValue.capitalized) side")
-            .toolbar {
-                ToolbarItem(placement: .destructiveAction) {
-                    Button(action: {
-                        if addNewCardViewModel.areBothCanvasesEmpty(frontCanvas: frontCanvas, backCanvas: backCanvas) {
-                            isPresented.toggle()
-                            return
-                        }
-                        addNewCardViewModel.showCloseConfirmationAlert()
-                    }, label: {
-                        Text("Close")
-                    })
-                }
-                ToolbarItem(placement: .confirmationAction) {
-                    Button(action: {
-                        addNewCardViewModel.saveCard(frontCanvas: frontCanvas, backCanvas: backCanvas, isPresented: $isPresented)
-                    }, label: {
-                        Text("Save")
-                    })
-                }
-                ToolbarItem(placement: .automatic) {
-                    Button(action: {
-                        addNewCardViewModel.cardSide.toggle()
-                    }, label: {
-                        Text("Switch side")
-                    })
+        VStack {
+            Group {
+                if addNewCardViewModel.cardSide == .front {
+                    DrawingCanvas(canvasView: frontCanvas)
+                } else {
+                    DrawingCanvas(canvasView: backCanvas)
                 }
             }
         }
+        .cornerRadius(25)
+        .shadow(color: addNewCardViewModel.parentColor.opacity(0.8), radius: 20, x: 0, y: 10)
+        .padding()
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button(action: {
+                    if addNewCardViewModel.areBothCanvasesEmpty(frontCanvas: frontCanvas, backCanvas: backCanvas) {
+                        isPresented.toggle()
+                        return
+                    }
+                    addNewCardViewModel.showCloseConfirmationAlert()
+                }, label: {
+                    Text("Close")
+                })
+            }
+            ToolbarItem(placement: .confirmationAction) {
+                Button(action: {
+                    addNewCardViewModel.saveCard(frontCanvas: frontCanvas, backCanvas: backCanvas, isPresented: $isPresented)
+                }, label: {
+                    Text("Save")
+                })
+            }
+            ToolbarItem(placement: .automatic) {
+                Button(action: {
+                    addNewCardViewModel.cardSide.toggle()
+                }, label: {
+                    Text("Switch side")
+                })
+                
+            }
+        }
+        .navigationTitle("\(addNewCardViewModel.cardSide.rawValue.capitalized) side")
         .accentColor(Color.accent)
         .animation(.linear(duration: 0.5))
         .alert(isPresented: $addNewCardViewModel.showingAlert) {

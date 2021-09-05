@@ -10,6 +10,9 @@ import Combine
 
 class TestsArchiveTestsViewModel: ObservableObject {
     @Published var tests = [Test]()
+    @Published var sortOptions = SortOptions.ascend
+    @Published var startDate = Date.startOfYesterday
+    @Published var endDate = Date.endOfToday
     private let getTestsForASubjectService = FirebaseGetTestsForASubjectService()
     private let deleteATestForASubjectService = FirebaseDeleteATestForASubjectService()
     private var subjectID: String?
@@ -35,5 +38,10 @@ class TestsArchiveTestsViewModel: ObservableObject {
             deleteATestForASubjectService.delete(at: testID!, for: subjectID)
         }
         tests.remove(atOffsets: offsets)
+    }
+    
+    func reverseCards() {
+        sortOptions.toggle()
+        tests.reverse()
     }
 }

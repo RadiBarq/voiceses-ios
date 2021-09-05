@@ -80,7 +80,8 @@ struct CardsScene: View {
                 }
                 .padding()
             }
-            //.animation(.easeInOut(duration: 0.6), value: cardsViewModel.cards)
+            .animation(.easeInOut(duration: 0.5), value: cardsViewModel.cards)
+            .animation(.easeInOut(duration: 0.5), value: cardsViewModel.sortOptions)
             .sheet(isPresented: $cardsViewModel.showingFilterCardsScene) {
                 FilterCardsScene(isPresented: $cardsViewModel.showingFilterCardsScene, startDate: $cardsViewModel.filterStartDate, endDate: $cardsViewModel.filterEndDate, selectedDateFilterOption: $cardsViewModel.selectedDateFilterOption, filterIsApplied: $cardsViewModel.isFilterApplied)
             }
@@ -129,16 +130,17 @@ struct CardsScene: View {
                     }
                     .padding()
                 }
-                .animation(.easeInOut(duration: 0.5))
+                .animation(.easeInOut(duration: 0.5), value: cardsViewModel.cards)
                 .transition(.move(edge: .leading))
-                .animation(.default)
             }
             if displayCardScenePushed {
                 DisplayCardScene(isPresented: $displayCardScenePushed, displayCardViewModel: DisplayCardViewModel(subject: cardsViewModel.subject, card: currentSelectedCard!))
                     .transition(.move(edge: .trailing))
-                    .animation(.default)
+                    
             }
         }
+        .animation(.default, value: isPresented)
+        .animation(.default, value: displayCardScenePushed)
         .sheet(isPresented: $cardsViewModel.showingFilterCardsScene) {
             FilterCardsScene(isPresented: $cardsViewModel.showingFilterCardsScene, startDate: $cardsViewModel.filterStartDate, endDate: $cardsViewModel.filterEndDate, selectedDateFilterOption: $cardsViewModel.selectedDateFilterOption, filterIsApplied: $cardsViewModel.isFilterApplied)
         }

@@ -127,21 +127,20 @@ struct SubjectsScene: View {
                                     currentSelectedSubject = item
                                 }
                         }
-                        .animation(.easeInOut(duration: 0.5))
                         .padding()
                     }
                 }
                 .animation(.easeInOut(duration: 0.5), value: subjectsViewModel.sortOptions)
                 .animation(.easeInOut(duration: 0.5), value: subjectsViewModel.searchedSubjects)
                 .transition(.move(edge: .leading))
-                .animation(.default)
             }
             if cardsScenePushed {
                 CardsScene(cardsViewModel:  CardsViewModel(subject: currentSelectedSubject!), isPresented: $cardsScenePushed)
                     .transition(.move(edge: .trailing))
-                    .animation(.default)
+
             }
         }
+        .animation(.default, value: cardsScenePushed)
 #endif
     }
 }

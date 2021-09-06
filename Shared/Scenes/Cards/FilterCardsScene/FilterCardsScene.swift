@@ -26,12 +26,12 @@ struct FilterCardsScene: View {
                         }, label: { Text("Apply") })
                     }
                     ToolbarItem(placement: .navigationBarLeading) {
-                            Button(action: {
-                                filterIsApplied.toggle()
-                                resetFilters()
-                                isPresented = false
-                            }, label: { Text("Remove filter") })
-                                .disabled(!filterIsApplied)
+                        Button(action: {
+                            filterIsApplied.toggle()
+                            resetFilters()
+                            isPresented = false
+                        }, label: { Text("Remove filter") })
+                            .disabled(!filterIsApplied)
                     }
                 })
                 .alert(isPresented: $filterCardsViewModel.showingAlert) {
@@ -52,20 +52,19 @@ struct FilterCardsScene: View {
                         }, label: { Text("Apply") })
                     }
                     ToolbarItem(placement: .automatic) {
-                            Button(action: {
-                                filterIsApplied.toggle()
-                                resetFilters()
-                                isPresented = false
-                            }, label: { Text("Remove filter") })
-                                .disabled(!filterIsApplied)
+                        Button(action: {
+                            filterIsApplied.toggle()
+                            resetFilters()
+                            isPresented = false
+                        }, label: { Text("Remove filter") })
+                            .disabled(!filterIsApplied)
                     }
                     ToolbarItem(placement: .destructiveAction) {
-                                Button(action: {
-                                    isPresented = false
-                                }, label: { Text("Close") })
+                        Button(action: {
+                            isPresented = false
+                        }, label: { Text("Close") })
                     }
                 })
-                .accentColor(Color.accent)
                 .alert(isPresented: $filterCardsViewModel.showingAlert) {
                     Alert(title: Text(alertTitle),
                           message: Text(filterCardsViewModel.alertMessage),
@@ -90,7 +89,7 @@ struct FilterCardsScene: View {
                 }
                 .padding(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
                 .pickerStyle(.segmented)
-            
+                
                 if  selectedDateFilterOption == .customDate {
                     VStack(alignment: .leading) {
                         DatePicker("Start date",
@@ -107,7 +106,7 @@ struct FilterCardsScene: View {
             }
         }
         .navigationTitle("Filter Cards")
-        .animation(.default)
+        .animation(.default, value: selectedDateFilterOption)
     }
 }
 

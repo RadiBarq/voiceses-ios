@@ -136,7 +136,7 @@ struct CardsScene: View {
             if displayCardScenePushed {
                 DisplayCardScene(isPresented: $displayCardScenePushed, displayCardViewModel: DisplayCardViewModel(subject: cardsViewModel.subject, card: currentSelectedCard!))
                     .transition(.move(edge: .trailing))
-                    
+                
             }
         }
         .animation(.default, value: isPresented)

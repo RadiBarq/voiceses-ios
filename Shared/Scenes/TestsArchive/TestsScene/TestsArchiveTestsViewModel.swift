@@ -10,9 +10,22 @@ import Combine
 
 class TestsArchiveTestsViewModel: ObservableObject {
     @Published var tests = [Test]()
+    @Published var allTests = [Test]()
     @Published var sortOptions = SortOptions.ascend
     @Published var startDate = Date.startOfYesterday
     @Published var endDate = Date.endOfToday
+    @Published var showingTestsArchiveFilterTestsScene = false
+    @Published var isFilterApplied = false {
+        didSet {
+            if isFilterApplied {
+                tests = allTests.filter {$0.timestamp >= startDate.timestamp && $0.timestamp <= endDate.timestamp }
+            } else {
+                tests = allTests
+            }
+            tests = sortOptions == .ascend ? tests.reversed() : tests
+        }
+    }
+    
     private let getTestsForASubjectService = FirebaseGetTestsForASubjectService()
     private let deleteATestForASubjectService = FirebaseDeleteATestForASubjectService()
     private var subjectID: String?
@@ -20,12 +33,26 @@ class TestsArchiveTestsViewModel: ObservableObject {
     
     func getTests(for subject: Subject) {
         subjectID = subject.id
-        getTestsForASubjectService.getTests(for: subject.id!)
+        let getTestsShared = getTestsForASubjectService.getTests(for: subject.id!).share()
+        getTestsShared
+            .map { [weak self] tests in
+                var testsCopy = tests
+                guard let weakSelf = self else { return [] }
+                if weakSelf.isFilterApplied {
+                    testsCopy = testsCopy.filter { $0.timestamp >= weakSelf.startDate.timestamp && $0.timestamp <= weakSelf.endDate.timestamp }
+                }
+                return (weakSelf.sortOptions == .ascend ? testsCopy.reversed() : testsCopy)
+            }
+            .replaceError(with: [])
+            .assign(to: \.tests, on: self)
+            .store(in: &subscriptions)
+        
+        getTestsShared
             .map {
                 Array($0.reversed())
             }
             .replaceError(with: [])
-            .assign(to: \.tests, on: self)
+            .assign(to: \.allTests, on: self)
             .store(in: &subscriptions)
     }
     

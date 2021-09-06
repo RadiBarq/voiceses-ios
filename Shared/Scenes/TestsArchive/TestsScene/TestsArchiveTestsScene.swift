@@ -37,6 +37,15 @@ struct TestsArchiveTestsScene: View {
         }
         .navigationTitle("Tests")
         .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: {
+                    viewModel.showingTestsArchiveFilterTestsScene.toggle()
+                }, label: {
+                    Text("Filter")
+                })
+                    .disabled(viewModel.tests.isEmpty)
+            }
+            
             ToolbarItem(placement: .automatic) {
                 Button(action: {
                     viewModel.reverseCards()
@@ -45,25 +54,13 @@ struct TestsArchiveTestsScene: View {
                 })
                     .disabled(viewModel.tests.isEmpty)
             }
-//            ToolbarItem(placement: .navigationBarTrailing) {
-//                DatePicker("Start date",
-//                           selection: $viewModel.startDate,
-//                           in: ...Date.startOfYesterday,
-//                           displayedComponents: [.date, .hourAndMinute])
-//                    .disabled(viewModel.tests.isEmpty)
-//            }
-//
-//            ToolbarItem(placement: .navigationBarTrailing) {
-//                DatePicker("End date",
-//                           selection: $viewModel.endDate,
-//                           in: ...Date(),
-//                           displayedComponents: [.date, .hourAndMinute])
-//                    .disabled(viewModel.tests.isEmpty)
-//            }
-            
         }
+        .animation(.default, value: self.viewModel.sortOptions)
         .onAppear {
             viewModel.getTests(for: subject)
+        }
+        .sheet(isPresented: $viewModel.showingTestsArchiveFilterTestsScene) {
+            TestsArchiveFilterTestsScene(isPresented: $viewModel.showingTestsArchiveFilterTestsScene, startDate: $viewModel.startDate, endDate: $viewModel.endDate, isFilterApplied: $viewModel.isFilterApplied)
         }
     }
 }

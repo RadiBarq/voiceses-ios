@@ -22,17 +22,47 @@ struct TestsArchiveCardsScene: View {
             .onAppear {
                 viewModel.populateCards(for: subject.id!, with: test.id!)
             }
+            .animation(.easeInOut(duration: 0.5), value: viewModel.cards)
+            .navigationTitle(test.dateCreated)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Picker("", selection: $viewModel.testsArchiveCardsFilter) {
+                        ForEach(TestsArchiveCardsFilter.allCases) { option in
+                            Text(option.title)
+                                .tag(option)
+                                .font(.footnote)
+                        }
+                    }
+                }
+            }
     }
     
     private var content: some View {
-#if !os(iOS)
+#if os(iOS)
+        return GeometryReader { geometry in
+            ScrollView {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
+                    ForEach(viewModel.cards) { card in
+                        NavigationLink(destination: DisplayCardScene(displayCardViewModel: DisplayCardViewModel(subject: subject, card: card))) {
+                            CardView(card: .constant(card), shouldShowDeleteIcon: .constant(false)) {
+                            }
+                            .shadow(color: (viewModel.isCorrectCard(card: card) ? Color.green : Color.red), radius: 20, x: 0, y: 10)
+                            .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
+                            .padding()
+                        }
+                    }
+                }
+                .padding()
+            }
+        }
+#else
         return GeometryReader { geometry in
             if !displayCardScenePushed {
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
-                        ForEach(viewModel.correctCards) { card in
+                        ForEach(viewModel.cards) { card in
                             CardView(card: .constant(card), shouldShowDeleteIcon: .constant(false)) {}
-                            .shadow(color: Color(hex: subject.colorHex).opacity(0.8), radius: 20, x: 0, y: 10)
+                            .shadow(color: (viewModel.isCorrectCard(card: card) ? Color.green : Color.red), radius: 20, x: 0, y: 10)
                             .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
                             .padding()
                             .onTapGesture {
@@ -44,7 +74,6 @@ struct TestsArchiveCardsScene: View {
                     }
                     .padding()
                 }
-                .animation(.easeInOut(duration: 0.5), value: viewModel.correctCards)
                 .transition(.move(edge: .leading))
             }
             

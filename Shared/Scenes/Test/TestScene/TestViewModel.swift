@@ -34,7 +34,7 @@ class TestViewModel: ObservableObject {
     func addCorrectAnswer(card: Card) {
         correctCards.append(card)
     }
-
+    
     func addWrongAnswer(card: Card) {
         wrongCards.append(card)
     }

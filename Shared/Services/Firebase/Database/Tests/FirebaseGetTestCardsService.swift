@@ -24,7 +24,7 @@ enum FirebaseGetTestCardsServiceError: Error, LocalizedError {
 
 final class FirebaseGetTestCardsService: FirebaseDatabaseService {
     let ref: DatabaseReference = Database.database().reference().child("users")
-    func getCards(for subjectID: String, with testID: String, filterBY cardsTestResult: CardTestResult) -> AnyPublisher<[Card], FirebaseGetTestCardsServiceError> {
+    func getCards(for subjectID: String, with testID: String, filterBY testsArchiveCardsFilter: TestsArchiveCardsFilter) -> AnyPublisher<[Card], FirebaseGetTestCardsServiceError> {
         return Future { [weak self] promise in
             guard let userID = FirebaseAuthenticationService.getUserID() else {
                 promise(.failure(.userIsNotAvailable))
@@ -36,7 +36,7 @@ final class FirebaseGetTestCardsService: FirebaseDatabaseService {
                 .child(subjectID)
                 .child("tests")
                 .child(testID)
-                .child(cardsTestResult == .correct ? "correctCards" : "wrongCards")
+                .child(testsArchiveCardsFilter.rawValue)
                 .observeSingleEvent(of: .value) { [weak self] snapshot in
                     guard let weakSelf = self else { return }
                     let cards = weakSelf.setupCards(with: snapshot)

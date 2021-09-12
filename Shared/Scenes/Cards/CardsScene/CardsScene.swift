@@ -63,13 +63,14 @@ struct CardsScene: View {
     }
     
     private var content: some View {
+            
 #if os(iOS)
         return GeometryReader { geometry in
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
                     ForEach(cardsViewModel.cards) { card in
                         NavigationLink(destination: DisplayCardScene(displayCardViewModel: DisplayCardViewModel(subject: cardsViewModel.subject, card: card))) {
-                            CardView(card: .constant(card)) {
+                            CardView(card: .constant(card), shouldShowDeleteIcon: .constant(true)) {
                                 cardsViewModel.deleteCard(with: card.id)
                             }
                             .shadow(color: Color(hex: cardsViewModel.subject.colorHex).opacity(0.8), radius: 20, x: 0, y: 10)

@@ -15,8 +15,8 @@
 		CD00F718267A6A1000475016 /* DisplayCardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F716267A6A1000475016 /* DisplayCardScene.swift */; };
 		CD00F71A267A703D00475016 /* DisplayCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F719267A703D00475016 /* DisplayCardViewModel.swift */; };
 		CD00F71B267A703D00475016 /* DisplayCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F719267A703D00475016 /* DisplayCardViewModel.swift */; };
-		CD048D7C26E6AA3C000F8382 /* CardTestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD048D7B26E6AA3C000F8382 /* CardTestResult.swift */; };
-		CD048D7D26E6AA3C000F8382 /* CardTestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD048D7B26E6AA3C000F8382 /* CardTestResult.swift */; };
+		CD048D7C26E6AA3C000F8382 /* TestsArchiveCardsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD048D7B26E6AA3C000F8382 /* TestsArchiveCardsFilter.swift */; };
+		CD048D7D26E6AA3C000F8382 /* TestsArchiveCardsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD048D7B26E6AA3C000F8382 /* TestsArchiveCardsFilter.swift */; };
 		CD07A2BA268E249000312E15 /* FilterOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07A2B9268E249000312E15 /* FilterOptions.swift */; };
 		CD07A2BC268E24AF00312E15 /* SortOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07A2BB268E24AF00312E15 /* SortOptions.swift */; };
 		CD0BB30E260B259200CD0A03 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0BB30D260B259200CD0A03 /* SubjectView.swift */; };
@@ -193,7 +193,7 @@
 		CD00F713267A685A00475016 /* MacOSCustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOSCustomTextView.swift; sourceTree = "<group>"; };
 		CD00F716267A6A1000475016 /* DisplayCardScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCardScene.swift; sourceTree = "<group>"; };
 		CD00F719267A703D00475016 /* DisplayCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCardViewModel.swift; sourceTree = "<group>"; };
-		CD048D7B26E6AA3C000F8382 /* CardTestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTestResult.swift; sourceTree = "<group>"; };
+		CD048D7B26E6AA3C000F8382 /* TestsArchiveCardsFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsArchiveCardsFilter.swift; sourceTree = "<group>"; };
 		CD07A2B9268E249000312E15 /* FilterOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptions.swift; sourceTree = "<group>"; };
 		CD07A2BB268E24AF00312E15 /* SortOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOptions.swift; sourceTree = "<group>"; };
 		CD0BB30D260B259200CD0A03 /* SubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectView.swift; sourceTree = "<group>"; };
@@ -369,7 +369,7 @@
 			children = (
 				CD0C6B3826E6A66300E15E5D /* TestsArchiveCardsViewModel.swift */,
 				CD0C6B3B26E6A6BC00E15E5D /* TestsArchiveCardsScene.swift */,
-				CD048D7B26E6AA3C000F8382 /* CardTestResult.swift */,
+				CD048D7B26E6AA3C000F8382 /* TestsArchiveCardsFilter.swift */,
 			);
 			path = CardsScene;
 			sourceTree = "<group>";
@@ -1115,7 +1115,7 @@
 				CD7C980C26DBBFA800901F47 /* TestsArchiveSubjectsViewModel.swift in Sources */,
 				CD0C6B3F26E6A87600E15E5D /* FirebaseGetTestCardsService.swift in Sources */,
 				CD1A804826821B77003F78C0 /* DrawingCanvas.swift in Sources */,
-				CD048D7C26E6AA3C000F8382 /* CardTestResult.swift in Sources */,
+				CD048D7C26E6AA3C000F8382 /* TestsArchiveCardsFilter.swift in Sources */,
 				CD5785D226A026D800CFBA6A /* SetupTestScene.swift in Sources */,
 				CD60795E2610974B00928B20 /* FirebaseDatabaseService.swift in Sources */,
 				CDF24DF52618C67500CC866F /* SubjectsViewModel.swift in Sources */,
@@ -1251,7 +1251,7 @@
 				CDF24DCE2618BB9100CC866F /* LunchWindowViewModel.swift in Sources */,
 				CDD4600226DF8ECA0089A27D /* TestsArchiveTestsViewModel.swift in Sources */,
 				CDD9E03E25FD3D6000E3BF53 /* LoginScene.swift in Sources */,
-				CD048D7D26E6AA3C000F8382 /* CardTestResult.swift in Sources */,
+				CD048D7D26E6AA3C000F8382 /* TestsArchiveCardsFilter.swift in Sources */,
 				CD5785DD26A09F6B00CFBA6A /* TestCardsOrderOption.swift in Sources */,
 				CD6079C62610A5A600928B20 /* FirebaseAddNewSubjectService.swift in Sources */,
 				CDD9E00025FD13CE00E3BF53 /* VoicesesApp.swift in Sources */,

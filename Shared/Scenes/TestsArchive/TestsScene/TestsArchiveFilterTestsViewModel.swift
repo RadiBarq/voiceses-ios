@@ -11,6 +11,7 @@ class TestsArchiveFilterTestsViewModel: ObservableObject {
     @Published var showingAlert = false
     @Published var alertMessage = ""
     
+    
     func isSelectedDateValid(from startDate: Date, to endDate: Date) -> Bool {
         return endDate >= startDate
     }

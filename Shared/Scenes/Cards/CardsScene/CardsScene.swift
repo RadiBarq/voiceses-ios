@@ -12,7 +12,7 @@ struct CardsScene: View {
 #if !os(iOS)
     @Binding var isPresented: Bool
     @State private var currentSelectedCard: Card?
-    @State private var displayCardScenePushed: Bool = false
+    @State private var displayCardScenePushed = false
 #endif
     
     var body: some View {
@@ -116,7 +116,7 @@ struct CardsScene: View {
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
                         ForEach(cardsViewModel.cards) { card in
-                            CardView(card: .constant(card)) {
+                            CardView(card: .constant(card), shouldShowDeleteIcon: .constant(true)) {
                                 cardsViewModel.deleteCard(with: card.id)
                             }
                             .shadow(color: Color(hex: cardsViewModel.subject.colorHex).opacity(0.8), radius: 20, x: 0, y: 10)
@@ -136,7 +136,6 @@ struct CardsScene: View {
             if displayCardScenePushed {
                 DisplayCardScene(isPresented: $displayCardScenePushed, displayCardViewModel: DisplayCardViewModel(subject: cardsViewModel.subject, card: currentSelectedCard!))
                     .transition(.move(edge: .trailing))
-                
             }
         }
         .animation(.default, value: isPresented)

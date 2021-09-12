@@ -10,6 +10,7 @@ import SDWebImageSwiftUI
 
 struct CardView: View {
     @Binding var card: Card
+    @Binding var shouldShowDeleteIcon: Bool
     let deleteAction: () -> Void
     @State var cardSide: CardSide = .front
     private let cornerRadius: CGFloat = 22
@@ -24,15 +25,17 @@ struct CardView: View {
                 Spacer()
             }
             HStack {
-                Button(action: {
-                    deleteAction()
-                }) {
-                    Image(systemName: "trash.circle.fill")
-                        .font(.title2)
-                        .foregroundColor(.black)
-                        .rotation3DEffect(cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
+                if shouldShowDeleteIcon {
+                    Button(action: {
+                        deleteAction()
+                    }) {
+                        Image(systemName: "trash.circle.fill")
+                            .font(.title2)
+                            .foregroundColor(.black)
+                            .rotation3DEffect(cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
+                    }
+                    .buttonStyle(PlainButtonStyle())
                 }
-                .buttonStyle(PlainButtonStyle())
                 Spacer()
                 Button(action:  {
                     cardSide.toggle()

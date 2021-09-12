@@ -31,8 +31,19 @@ struct DisplayCardScene: View {
 #if !os(iOS)
         .animation(.default, value: isPresented)
 #endif
+#if !os(iOS)
         .toolbar {
-            ToolbarItem(placement: .automatic) {
+            ToolbarItem(placement: .navigation) {
+                Button(action: {
+                    isPresented.toggle()
+                }, label: {
+                    Image(systemName: "chevron.backward")
+                })
+            }
+        }
+#endif
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
                 Button(action: {
                     displayCardViewModel.cardSide.toggle()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
@@ -43,17 +54,6 @@ struct DisplayCardScene: View {
                 })
             }
         }
-        #if !os(iOS)
-        .toolbar {
-            ToolbarItem(placement: .navigation) {
-                Button(action: {
-                    isPresented.toggle()
-                }, label: {
-                    Image(systemName: "chevron.backward")
-                })
-            }
-        }
-        #endif
         .padding()
         .onAppear {
             imageURL = displayCardViewModel.cardSide == .front ? displayCardViewModel.card.frontImageURL : displayCardViewModel.card.backImageURL

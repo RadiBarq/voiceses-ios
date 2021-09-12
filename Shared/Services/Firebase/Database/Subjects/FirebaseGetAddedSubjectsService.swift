@@ -62,7 +62,7 @@ final class FirebaseGetAddedSubjectsService: FirebaseDatabaseService {
     private func setupSubjects(with snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String: Any], let subject = Subject(dictionary: dict) else {
             subjectsSubject.send(completion: .failure(.decodingFormatIsNotValid))
-                return
+            return
         }
         subjectsSubject.send(subject)
     }

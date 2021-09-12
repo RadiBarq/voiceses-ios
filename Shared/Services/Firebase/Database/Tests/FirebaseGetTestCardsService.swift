@@ -1,15 +1,15 @@
 //
-//  FirebaseGetTestsForASubject.swift
-//  Voiceses
+//  FirebaseGetTestsCards.swift
+//  FirebaseGetTestsCards
 //
-//  Created by Radi Barq on 27/08/2021.
+//  Created by Radi Barq on 06/09/2021.
 //
 
 import Foundation
 import Firebase
 import Combine
 
-enum FirebaseGetTestsForASubjectServiceError: Error, LocalizedError {
+enum FirebaseGetTestCardsServiceError: Error, LocalizedError {
     case userIsNotAvailable
     case decodingFormatIsNotValid
     var errorDescription: String {
@@ -22,9 +22,9 @@ enum FirebaseGetTestsForASubjectServiceError: Error, LocalizedError {
     }
 }
 
-final class FirebaseGetTestsForASubjectService: FirebaseDatabaseService {
+final class FirebaseGetTestCardsService: FirebaseDatabaseService {
     let ref: DatabaseReference = Database.database().reference().child("users")
-    func getTests(for subjectID: String) -> AnyPublisher<[Test], FirebaseGetTestsForASubjectServiceError> {
+    func getCards(for subjectID: String, with testID: String, filterBY cardsTestResult: CardTestResult) -> AnyPublisher<[Card], FirebaseGetTestCardsServiceError> {
         return Future { [weak self] promise in
             guard let userID = FirebaseAuthenticationService.getUserID() else {
                 promise(.failure(.userIsNotAvailable))
@@ -35,26 +35,27 @@ final class FirebaseGetTestsForASubjectService: FirebaseDatabaseService {
                 .child("subjects-tests")
                 .child(subjectID)
                 .child("tests")
-                .queryOrdered(byChild: "timestamp")
+                .child(testID)
+                .child(cardsTestResult == .correct ? "correctCards" : "wrongCards")
                 .observeSingleEvent(of: .value) { [weak self] snapshot in
                     guard let weakSelf = self else { return }
-                    let tests = weakSelf.setupTests(with: snapshot)
-                    promise(.success(tests))
+                    let cards = weakSelf.setupCards(with: snapshot)
+                    promise(.success(cards))
                 }
         }
         .eraseToAnyPublisher()
     }
     
-    private func setupTests(with snapshot: DataSnapshot) -> [Test] {
-        var tests = [Test]()
+    private func setupCards(with snapshot: DataSnapshot) -> [Card] {
+        var cards = [Card]()
         for child in snapshot.children {
             guard let snapshot = child as? DataSnapshot,
                   let dict = snapshot.value as? [String: Any],
-                  let test = Test(dictionary: dict) else {
+                  let card = Card(dictionary: dict) else {
                       continue
                   }
-            tests.append(test)
+            cards.append(card)
         }
-        return tests
+        return cards
     }
 }

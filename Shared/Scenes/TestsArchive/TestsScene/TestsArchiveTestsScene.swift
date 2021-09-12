@@ -19,7 +19,7 @@ struct TestsArchiveTestsScene: View {
         }
 #endif
     }
-    
+      
     private var content: some View {
         List {
 #if !os(iOS)
@@ -29,7 +29,7 @@ struct TestsArchiveTestsScene: View {
                 .padding()
 #endif
             ForEach(viewModel.tests, id: \.id) { test in
-                NavigationLink(destination: Text(test.dateCreated)) {
+                NavigationLink(destination: TestsArchiveCardsScene(subject: subject, test: test)) {
                     Text(test.dateCreated)
                 }
             }

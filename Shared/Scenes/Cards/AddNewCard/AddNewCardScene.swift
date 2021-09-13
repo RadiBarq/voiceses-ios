@@ -24,8 +24,10 @@ struct AddNewCardScene: View {
             }
         }
         .cornerRadius(25)
-        .shadow(color: addNewCardViewModel.parentColor.opacity(0.8), radius: 20, x: 0, y: 10)
         .padding()
+        .rotation3DEffect(addNewCardViewModel.cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
+        .animation(.linear(duration: 0.5), value: addNewCardViewModel.cardSide)
+        .shadow(color: addNewCardViewModel.parentColor.opacity(0.8), radius: 20, x: 0, y: 10)
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 Button(action: {
@@ -56,7 +58,6 @@ struct AddNewCardScene: View {
         }
         .navigationTitle("\(addNewCardViewModel.cardSide.rawValue.capitalized) side")
         .accentColor(Color.accent)
-        .animation(.linear(duration: 0.5))
         .alert(isPresented: $addNewCardViewModel.showingAlert) {
             Alert(title: Text(self.alertTitle),
                   message: Text(addNewCardViewModel.alertMessage),

@@ -21,7 +21,7 @@ struct DrawingCanvas: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: PKCanvasView, context: Context) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             DrawingCanvas.picker.addObserver(canvasView)
             DrawingCanvas.picker.setVisible(true, forFirstResponder: uiView)
             uiView.becomeFirstResponder()

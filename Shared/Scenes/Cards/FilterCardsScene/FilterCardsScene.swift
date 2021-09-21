@@ -20,12 +20,12 @@ struct FilterCardsScene: View {
         NavigationView {
             content
                 .toolbar(content: {
-                    ToolbarItem(placement: .automatic) {
+                    ToolbarItem(placement: .primaryAction) {
                         Button(action: {
                             applyFilter()
                         }, label: { Text("Apply") })
                     }
-                    ToolbarItem(placement: .navigationBarLeading) {
+                    ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {
                             filterIsApplied.toggle()
                             resetFilters()
@@ -58,11 +58,6 @@ struct FilterCardsScene: View {
                             isPresented = false
                         }, label: { Text("Remove filter") })
                             .disabled(!filterIsApplied)
-                    }
-                    ToolbarItem(placement: .destructiveAction) {
-                        Button(action: {
-                            isPresented = false
-                        }, label: { Text("Close") })
                     }
                 })
                 .alert(isPresented: $filterCardsViewModel.showingAlert) {
@@ -107,6 +102,13 @@ struct FilterCardsScene: View {
         }
         .navigationTitle("Filter Cards")
         .animation(.default, value: selectedDateFilterOption)
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button(action: {
+                    isPresented = false
+                }, label: { Text("Close") })
+            }
+        }
     }
 }
 

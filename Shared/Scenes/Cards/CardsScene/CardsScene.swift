@@ -14,6 +14,9 @@ struct CardsScene: View {
     @State private var currentSelectedCard: Card?
     @State private var displayCardScenePushed = false
 #endif
+#if os(iOS)
+@Environment(\.horizontalSizeClass) private var horizontalClass
+#endif
     
     var body: some View {
 #if os(iOS)
@@ -79,8 +82,9 @@ struct CardsScene: View {
                         }
                     }
                 }
-                .padding()
+                .padding(horizontalClass == .compact ? 16 : 25)
             }
+            .edgesIgnoringSafeArea([.leading, .trailing])
             .animation(.easeInOut(duration: 0.5), value: cardsViewModel.cards)
             .animation(.easeInOut(duration: 0.5), value: cardsViewModel.sortOptions)
             .sheet(isPresented: $cardsViewModel.showingFilterCardsScene) {

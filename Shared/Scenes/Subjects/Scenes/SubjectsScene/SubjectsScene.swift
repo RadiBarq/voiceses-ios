@@ -14,6 +14,11 @@ struct SubjectsScene: View {
     @State private var currentSelectedSubject: Subject?
     @State private var cardsScenePushed: Bool = false
 #endif
+    
+#if os(iOS)
+    @Environment(\.horizontalSizeClass) private var horizontalClass
+#endif
+    
     var body: some View {
         content
             .navigationTitle("Subjects")
@@ -84,7 +89,7 @@ struct SubjectsScene: View {
         return GeometryReader { geometry in
             ScrollView {
                 SearchBar(placeholder: "Search subjects...", text: $subjectsViewModel.searchText)
-                    .padding()
+                    .padding(horizontalClass == .compact ? 16 : 25)
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
                     ForEach(subjectsViewModel.searchedSubjects) { item in
                         NavigationLink(destination: CardsScene(cardsViewModel: CardsViewModel(subject: item))
@@ -102,9 +107,10 @@ struct SubjectsScene: View {
                     .animation(.easeInOut(duration: 0.5), value: subjectsViewModel.sortOptions)
                     .animation(.easeInOut(duration: 0.5), value: subjectsViewModel.searchedSubjects)
                 }
-                .padding()
+                .padding(horizontalClass == .compact ? 16 : 25)
             }
-           
+            .edgesIgnoringSafeArea([.leading, .trailing])
+            
         }
 #else
         return GeometryReader { geometry in
@@ -137,7 +143,6 @@ struct SubjectsScene: View {
             if cardsScenePushed {
                 CardsScene(cardsViewModel:  CardsViewModel(subject: currentSelectedSubject!), isPresented: $cardsScenePushed)
                     .transition(.move(edge: .trailing))
-
             }
         }
         .animation(.default, value: cardsScenePushed)

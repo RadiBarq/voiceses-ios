@@ -36,7 +36,7 @@ struct SetupTestScene: View {
                             Text("Start The Test")
                         })
                     }
-                    ToolbarItem(placement: .destructiveAction) {
+                    ToolbarItem(placement: .cancellationAction) {
                         Button(action: {
                             isPresented = false
                         }, label: { Text("Close") })
@@ -136,6 +136,13 @@ struct SetupTestScene: View {
                   message: Text(setupTestViewModel.alertMessage),
                   dismissButton: .default(Text(alertDismissButtonTitle))
             )
+        }
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button(action: {
+                    isPresented = false
+                }, label: { Text("Close") })
+            }
         }
     }
 }

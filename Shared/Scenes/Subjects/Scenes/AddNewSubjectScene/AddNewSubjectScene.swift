@@ -24,8 +24,12 @@ struct AddNewSubjectScene: View {
                         }, label: { Text("Add") })
                             .disabled(addNewSubjectViewModel.isDoneButtonDisabled)
                     }
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button(action: {
+                            isPresented = false
+                        }, label: { Text("Close") })
+                    }
                 })
-            
                 .alert(isPresented: $addNewSubjectViewModel.showingAlert) {
                     Alert(title: Text(alertTitle),
                           message: Text(addNewSubjectViewModel.alertMessage),
@@ -45,12 +49,6 @@ struct AddNewSubjectScene: View {
                             isPresented = false
                         }, label: { Text("Add") })
                             .disabled(addNewSubjectViewModel.isDoneButtonDisabled)
-                    }
-                    
-                    ToolbarItem(placement: .destructiveAction) {
-                        Button(action: {
-                            isPresented = false
-                        }, label: { Text("Close") })
                     }
                 })
                 .accentColor(Color.accent)

@@ -42,11 +42,8 @@ struct TestScene: View {
                         CardView(isFrontCard: .constant(isFrontCard), card: card, cardSide: $testViewModel.cardSide)
                     }
                 }
-                .animation(.easeIn)
                 .rotation3DEffect(testViewModel.nextAnimation == .front ? .degrees(0): .degrees(360), axis: (x: 0, y: 1, z: 0))
-                .animation(.easeIn.delay(0.8))
                 .rotation3DEffect(testViewModel.cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
-                .animation(.easeIn)
                 HStack(alignment: .center) {
                     Spacer()
                     if testViewModel.showingFlipButton {
@@ -72,24 +69,25 @@ struct TestScene: View {
                             guard testViewModel.isCorrectAndWrongButtonsDisabled == false else {
                                 return
                             }
+                            testViewModel.isCorrectAndWrongButtonsDisabled.toggle()
+                            testViewModel.showingCorrectAndWrongButtons.toggle()
+                            testViewModel.cardSide.toggle()
+                            testViewModel.addCorrectAnswer(card: testCards.last!)
+                            
                             if testCards.count == 1 {
-                                testViewModel.addTestResult(subjectID: subjectID)
-                                testViewModel.addCorrectAnswer(card: testCards.last!)
-                                testViewModel.cardSide.toggle()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                                    isPresented.toggle()
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                    testViewModel.addTestResult(subjectID: subjectID, isPresented: $isPresented)
                                 }
-                            } else {
-                                testViewModel.isCorrectAndWrongButtonsDisabled.toggle()
-                                testViewModel.showingCorrectAndWrongButtons.toggle()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                                    testCards.removeLast()
-                                    testViewModel.currentCard += 1
-                                    testViewModel.showingFlipButton.toggle()
-                                }
+                            }
+                        
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
                                 testViewModel.nextAnimation.toggle()
-                                testViewModel.cardSide.toggle()
-                                testViewModel.addCorrectAnswer(card: testCards.last!)
+                            }
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                                testCards.removeLast()
+                                testViewModel.currentCard += 1
+                                testViewModel.showingFlipButton.toggle()
                             }
                         }) {
                             Text("Correct")
@@ -103,27 +101,28 @@ struct TestScene: View {
                         .disabled(testViewModel.isCorrectAndWrongButtonsDisabled)
                         Spacer()
                         Button(action: {
-                            guard testViewModel.isCorrectAndWrongButtonsDisabled == false else {
+                            guard !testViewModel.isCorrectAndWrongButtonsDisabled else {
                                 return
                             }
+                            testViewModel.isCorrectAndWrongButtonsDisabled.toggle()
+                            testViewModel.showingCorrectAndWrongButtons.toggle()
+                            testViewModel.cardSide.toggle()
+                            testViewModel.addWrongAnswer(card: testCards.last!)
+                            
                             if testCards.count == 1 {
-                                testViewModel.addTestResult(subjectID: subjectID)
-                                testViewModel.addWrongAnswer(card: testCards.last!)
-                                testViewModel.cardSide.toggle()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                                    isPresented.toggle()
-                                }
-                            } else {
-                                testViewModel.isCorrectAndWrongButtonsDisabled.toggle()
-                                testViewModel.showingCorrectAndWrongButtons.toggle()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                                    testCards.removeLast()
-                                    testViewModel.currentCard += 1
-                                    testViewModel.showingFlipButton.toggle()
-                                }
-                                testViewModel.cardSide.toggle()
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                    testViewModel.addTestResult(subjectID: subjectID, isPresented: $isPresented)
+                               }
+                            }
+                        
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
                                 testViewModel.nextAnimation.toggle()
-                                testViewModel.addWrongAnswer(card: testCards.last!)
+                            }
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                                testCards.removeLast()
+                                testViewModel.currentCard += 1
+                                testViewModel.showingFlipButton.toggle()
                             }
                         }) {
                             Text("Wrong")
@@ -152,7 +151,10 @@ struct TestScene: View {
                 }
             }
         }
-        .animation(.linear(duration: 0.5))
+        .animation(.linear.delay(0.1), value: testViewModel.cardSide)
+        .animation(.linear.delay(0.1), value: testViewModel.currentCard)
+        .animation(.linear.delay(0.1), value: testViewModel.nextAnimation)
+        .animation(.linear.delay(0.1), value: testCards)
         .onAppear {
             testViewModel.testCardsCount = testCards.count
             testViewModel.testCards = testCards

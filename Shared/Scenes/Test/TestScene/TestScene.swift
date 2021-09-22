@@ -181,6 +181,7 @@ struct TestScene: View {
         @Binding var cardSide: CardSide
         @State private var imageURL: URL?
         @State private var cardShadowColor: Color = Color.getRandom().opacity(0.8)
+        @Environment(\.colorScheme) private var colorScheme
 #if os(iOS)
         @State private var cachedImage: UIImage?
 #endif
@@ -189,7 +190,8 @@ struct TestScene: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.white)
                 .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
-                .shadow(color: isFrontCard ? cardShadowColor : .clear, radius: 20, x: 0, y: cardSide == .front ? 10 : -10)
+                .shadow(color: colorScheme == .light ? (isFrontCard ? cardShadowColor : .clear) : .clear,
+                    radius: 20, x: 0, y: cardSide == .front ? 10 : -10)
                 .padding()
                 .onChange(of: cardSide) { newValue in
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {

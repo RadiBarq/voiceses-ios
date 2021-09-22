@@ -87,7 +87,7 @@ struct SubjectsScene: View {
     private var content: some View {
 #if os(iOS)
         return GeometryReader { geometry in
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 SearchBar(placeholder: "Search subjects...", text: $subjectsViewModel.searchText)
                     .padding(horizontalClass == .compact ? 16 : 25)
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
@@ -115,7 +115,7 @@ struct SubjectsScene: View {
 #else
         return GeometryReader { geometry in
             if !cardsScenePushed {
-                ScrollView {
+                ScrollView(showIndicators: false) {
                     SearchBar(placeholder: "Search subjects...", text: $subjectsViewModel.searchText)
                         .padding()
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 3), spacing: 16)]) {

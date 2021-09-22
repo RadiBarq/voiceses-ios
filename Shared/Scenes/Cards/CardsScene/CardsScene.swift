@@ -69,7 +69,7 @@ struct CardsScene: View {
             
 #if os(iOS)
         return GeometryReader { geometry in
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
                     ForEach(cardsViewModel.cards) { card in
                         NavigationLink(destination: DisplayCardScene(displayCardViewModel: DisplayCardViewModel(subject: cardsViewModel.subject, card: card))) {
@@ -118,7 +118,7 @@ struct CardsScene: View {
 #else
         GeometryReader { geometry in
             if !displayCardScenePushed {
-                ScrollView {
+                ScrollView(showIndicators: false) {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
                         ForEach(cardsViewModel.cards) { card in
                             CardView(card: .constant(card), shouldShowDeleteIcon: .constant(true)) {

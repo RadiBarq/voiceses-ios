@@ -19,21 +19,26 @@ struct TestsArchiveTestsScene: View {
         }
 #endif
     }
-      
     private var content: some View {
-        List {
+        Group {
+            if viewModel.showsLoadingIndicator {
+                ProgressView()
+            } else {
+                List {
 #if !os(iOS)
-            Text("Tests")
-                .font(.largeTitle)
-                .bold()
-                .padding()
+                    Text("Tests")
+                        .font(.largeTitle)
+                        .bold()
+                        .padding()
 #endif
-            ForEach(viewModel.tests, id: \.id) { test in
-                NavigationLink(destination: TestsArchiveCardsScene(subject: subject, test: test)) {
-                    Text(test.dateCreated)
+                    ForEach(viewModel.tests, id: \.id) { test in
+                        NavigationLink(destination: TestsArchiveCardsScene(subject: subject, test: test)) {
+                            Text(test.dateCreated)
+                        }
+                    }
+                    .onDelete(perform: viewModel.deleteTest)
                 }
             }
-            .onDelete(perform: viewModel.deleteTest)
         }
         .navigationTitle("Tests")
         .toolbar {
@@ -45,7 +50,6 @@ struct TestsArchiveTestsScene: View {
                 })
                     .disabled(viewModel.tests.isEmpty)
             }
-            
             ToolbarItem(placement: .automatic) {
                 Button(action: {
                     viewModel.reverseCards()

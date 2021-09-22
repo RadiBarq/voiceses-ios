@@ -15,6 +15,7 @@ class TestsArchiveTestsViewModel: ObservableObject {
     @Published var startDate = Date.startOfYesterday
     @Published var endDate = Date.endOfToday
     @Published var showingTestsArchiveFilterTestsScene = false
+    @Published var showsLoadingIndicator = true
     @Published var isFilterApplied = false {
         didSet {
             if isFilterApplied {
@@ -48,6 +49,14 @@ class TestsArchiveTestsViewModel: ObservableObject {
             .store(in: &subscriptions)
         
         getTestsShared
+            .print("Test publisher")
+            .handleEvents(receiveOutput: { [weak self] _ in
+                self?.showsLoadingIndicator = false
+            }, receiveCompletion: { [weak self] _ in
+                self?.showsLoadingIndicator = false
+            }, receiveCancel: { [weak self] in
+                self?.showsLoadingIndicator = false
+            })
             .map {
                 Array($0.reversed())
             }

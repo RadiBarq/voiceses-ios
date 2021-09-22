@@ -10,13 +10,15 @@ import SwiftUI
 struct TestsArchiveCardsScene: View {
     let subject: Subject
     let test: Test
-    
     @StateObject private var viewModel = TestsArchiveCardsViewModel()
 #if !os(iOS)
     @State private var selectedCard: Card!
     @State private var displayCardScenePushed = false
 #endif
     
+#if os(iOS)
+    @Environment(\.horizontalSizeClass) private var horizontalClass
+#endif
     var body: some View {
         content
             .onAppear {
@@ -40,7 +42,7 @@ struct TestsArchiveCardsScene: View {
     private var content: some View {
 #if os(iOS)
         return GeometryReader { geometry in
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
                     ForEach(viewModel.cards) { card in
                         NavigationLink(destination: DisplayCardScene(displayCardViewModel: DisplayCardViewModel(subject: subject, card: card))) {
@@ -52,13 +54,14 @@ struct TestsArchiveCardsScene: View {
                         }
                     }
                 }
-                .padding()
+                .padding(horizontalClass == .compact ? 16 : 25)
             }
+            .edgesIgnoringSafeArea([.leading, .trailing])
         }
 #else
         return GeometryReader { geometry in
             if !displayCardScenePushed {
-                ScrollView {
+                ScrollView(showIndicators: false) {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
                         ForEach(viewModel.cards) { card in
                             CardView(card: .constant(card), shouldShowDeleteIcon: .constant(false)) {}

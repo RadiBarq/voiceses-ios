@@ -15,9 +15,9 @@ struct CardsScene: View {
     @State private var displayCardScenePushed = false
 #endif
 #if os(iOS)
-@Environment(\.horizontalSizeClass) private var horizontalClass
+    @Environment(\.horizontalSizeClass) private var horizontalClass
 #endif
-    
+    @Environment(\.colorScheme) private var colorScheme
     var body: some View {
 #if os(iOS)
         content
@@ -66,7 +66,7 @@ struct CardsScene: View {
     }
     
     private var content: some View {
-            
+        
 #if os(iOS)
         return GeometryReader { geometry in
             ScrollView(showsIndicators: false) {
@@ -76,7 +76,7 @@ struct CardsScene: View {
                             CardView(card: .constant(card), shouldShowDeleteIcon: .constant(true)) {
                                 cardsViewModel.deleteCard(with: card.id)
                             }
-                            .shadow(color: Color(hex: cardsViewModel.subject.colorHex).opacity(0.8), radius: 20, x: 0, y: 10)
+                            .shadow(color: colorScheme == .light ? Color(hex: cardsViewModel.subject.colorHex).opacity(0.8) : .clear, radius: 20, x: 0, y: 10)
                             .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
                             .padding()
                         }
@@ -124,7 +124,7 @@ struct CardsScene: View {
                             CardView(card: .constant(card), shouldShowDeleteIcon: .constant(true)) {
                                 cardsViewModel.deleteCard(with: card.id)
                             }
-                            .shadow(color: Color(hex: cardsViewModel.subject.colorHex).opacity(0.8), radius: 20, x: 0, y: 10)
+                            .shadow(color: colorScheme == .light ? Color(hex: cardsViewModel.subject.colorHex).opacity(0.8) : .dark, radius: 20, x: 0, y: 10)
                             .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
                             .padding()
                             .onTapGesture {

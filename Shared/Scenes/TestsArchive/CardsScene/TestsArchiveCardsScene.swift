@@ -11,6 +11,7 @@ struct TestsArchiveCardsScene: View {
     let subject: Subject
     let test: Test
     @StateObject private var viewModel = TestsArchiveCardsViewModel()
+    @Environment(\.colorScheme) private var colorScheme
 #if !os(iOS)
     @State private var selectedCard: Card!
     @State private var displayCardScenePushed = false
@@ -48,7 +49,11 @@ struct TestsArchiveCardsScene: View {
                         NavigationLink(destination: DisplayCardScene(displayCardViewModel: DisplayCardViewModel(subject: subject, card: card))) {
                             CardView(card: .constant(card), shouldShowDeleteIcon: .constant(false)) {
                             }
-                            .shadow(color: (viewModel.isCorrectCard(card: card) ? Color.green : Color.red), radius: 20, x: 0, y: 10)
+                            .shadow(color: colorScheme == .light ?
+                                    (viewModel.isCorrectCard(card: card) ?
+                                                Color.green : Color.red) :
+                                     .clear,
+                                     radius: 20, x: 0, y: 10)
                             .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
                             .padding()
                         }

@@ -13,6 +13,7 @@ struct AddNewCardScene: View {
     var frontCanvas = PKCanvasView()
     var backCanvas = PKCanvasView()
     @ObservedObject var addNewCardViewModel: AddNewCardViewModel
+    @Environment(\.colorScheme) private var colorScheme
     var body: some View {
         VStack {
             Group {
@@ -27,7 +28,8 @@ struct AddNewCardScene: View {
         .padding()
         .rotation3DEffect(addNewCardViewModel.cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
         .animation(.linear(duration: 0.5), value: addNewCardViewModel.cardSide)
-        .shadow(color: addNewCardViewModel.parentColor.opacity(0.8), radius: 20, x: 0, y: 10)
+        .shadow(color: colorScheme == .light ? addNewCardViewModel.parentColor.opacity(0.8) : .clear,
+                radius: 20, x: 0, y: 10)
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 Button(action: {

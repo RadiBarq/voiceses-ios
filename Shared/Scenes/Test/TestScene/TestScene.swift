@@ -12,6 +12,7 @@ struct TestScene: View {
     var subjectID: String
     @Binding var testCards: [Card]
     @Binding var isPresented: Bool
+    @Binding var showsTestResultScene: Bool
     @StateObject private var testViewModel = TestViewModel()
     @State private var cancellationConfiratmion = false
     var body: some View {
@@ -76,7 +77,7 @@ struct TestScene: View {
                             
                             if testCards.count == 1 {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                    testViewModel.addTestResult(subjectID: subjectID, isPresented: $isPresented)
+                                    testViewModel.addTestResult(subjectID: subjectID, isPresented: $isPresented, showsTestResultScene: $showsTestResultScene)
                                 }
                             }
                         
@@ -111,7 +112,7 @@ struct TestScene: View {
                             
                             if testCards.count == 1 {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                    testViewModel.addTestResult(subjectID: subjectID, isPresented: $isPresented)
+                                    testViewModel.addTestResult(subjectID: subjectID, isPresented: $isPresented, showsTestResultScene: $showsTestResultScene)
                                }
                             }
                         
@@ -208,7 +209,6 @@ struct TestScene: View {
 #endif
                 }
         }
-        
         @ViewBuilder
         private var imageView: some View {
 #if os(iOS)

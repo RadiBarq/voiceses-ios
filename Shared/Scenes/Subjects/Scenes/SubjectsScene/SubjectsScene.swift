@@ -92,16 +92,15 @@ struct SubjectsScene: View {
                     .padding(horizontalClass == .compact ? 16 : 25)
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
                     ForEach(subjectsViewModel.searchedSubjects) { item in
-                        NavigationLink(destination: CardsScene(cardsViewModel: CardsViewModel(subject: item))
-                        ) {
+                        NavigationLink(destination: CardsScene(subject: item)) {
                             SubjectView(subject: .constant(item), deleteAction: {
                                 subjectsViewModel.showDeleteSubjectAlert.toggle()
                                 subjectsViewModel.selectedSubjectIDToBeDeleted = item.id!
                             }, updateSubjectAction: { subject in
                                 subjectsViewModel.update(subject: subject)
                             })
-                                .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
-                                .padding()
+                            .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
+                            .padding()
                         }
                     }
                     .animation(.easeInOut(duration: 0.5), value: subjectsViewModel.sortOptions)
@@ -115,7 +114,7 @@ struct SubjectsScene: View {
 #else
         return GeometryReader { geometry in
             if !cardsScenePushed {
-                ScrollView(showIndicators: false) {
+                ScrollView(showsIndicators: false) {
                     SearchBar(placeholder: "Search subjects...", text: $subjectsViewModel.searchText)
                         .padding()
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 3), spacing: 16)]) {
@@ -141,7 +140,7 @@ struct SubjectsScene: View {
                 .transition(.move(edge: .leading))
             }
             if cardsScenePushed {
-                CardsScene(cardsViewModel:  CardsViewModel(subject: currentSelectedSubject!), isPresented: $cardsScenePushed)
+                CardsScene(subject: currentSelectedSubject!, isPresented: $cardsScenePushed)
                     .transition(.move(edge: .trailing))
             }
         }

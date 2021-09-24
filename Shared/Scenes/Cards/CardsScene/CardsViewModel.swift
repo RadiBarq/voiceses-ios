@@ -11,10 +11,6 @@ import PencilKit
 import SwiftUI
 
 final class CardsViewModel: ObservableObject {
-    var title: String {
-        subject.title
-    }
-    var subject: Subject
     @Published var cards = [Card]()
     @Published var showingAddNewCardScene = false
     @Published var showingAddNewSubjectScene = false
@@ -47,31 +43,32 @@ final class CardsViewModel: ObservableObject {
     // Test related publishers
     @Published var testCards = [Card]()
     
+    @Published var showsTestResultScreen = false
+    
     private var subscriptions = Set<AnyCancellable>()
-    private var getCardsService: FirebaseGetCardsService
-    private var deleteCardService: FirebaseDeleteACardService
-    private var updateSubjectService: FirebaseUpdateSubjectService
-
-    init(subject: Subject) {
-        self.subject = subject
-        getCardsService = FirebaseGetCardsService(subjectID: subject.id!)
+    private var getCardsService: FirebaseGetCardsService!
+    private var deleteCardService = FirebaseDeleteACardService()
+    private var updateSubjectService = FirebaseUpdateSubjectService()
+    
+    init() {
         deleteCardService = FirebaseDeleteACardService()
         updateSubjectService = FirebaseUpdateSubjectService()
-        startListenToGetCardsService()
     }
     
-    func deleteCard(with id: String) {
+    func deleteCard(with id: String, for subject: Subject) {
+        var subjectCopy = subject
         deleteCardService.deleteCard(with: id, subjectID: subject.id!)
-        subject.numberOfCards! -= 1
-        updateSubjectService.updateNumberOfCards(for: subject)
-        GlobalService.shared.deleteCardImages(with: id, subjectID: subject.id!)
+        subjectCopy.numberOfCards! -= 1
+        updateSubjectService.updateNumberOfCards(for: subjectCopy)
+        GlobalService.shared.deleteCardImages(with: id, subjectID: subjectCopy.id!)
     }
     
     func reverseCards() {
         sortOptions.toggle()
     }
     
-    private func startListenToGetCardsService() {
+    func startListenToGetCards(for subject: Subject) {
+        getCardsService = FirebaseGetCardsService(subjectID: subject.id!)
         getCardsService
             .cards?
             .replaceError(with: [])

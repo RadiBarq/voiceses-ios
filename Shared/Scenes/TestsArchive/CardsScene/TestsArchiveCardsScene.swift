@@ -66,7 +66,7 @@ struct TestsArchiveCardsScene: View {
 #else
         return GeometryReader { geometry in
             if !displayCardScenePushed {
-                ScrollView(showIndicators: false) {
+                ScrollView(showsIndicators: false) {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
                         ForEach(viewModel.cards) { card in
                             CardView(card: .constant(card), shouldShowDeleteIcon: .constant(false)) {}

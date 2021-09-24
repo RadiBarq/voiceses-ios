@@ -14,9 +14,12 @@ struct TestResultScene: View {
         NavigationView {
             content
         }
+        .navigationTitle("Test Result")
 #else
         ScrollView {
             content
+            .frame(minWidth: 1000, maxWidth: .infinity, minHeight: 600, maxHeight: .infinity)
+            .accentColor(Color.accent)
         }
 #endif
     }
@@ -61,7 +64,7 @@ struct TestResultScene: View {
                     .shadow(color: Color.green.opacity(0.5), radius: 20, x: 0, y: 10)
                     .overlay {
                         VStack(alignment: .center) {
-                            Text(viewModel.testResult)
+                            Text("Your score is")
                                 .font(.largeTitle)
                                 .bold()
                                 .foregroundColor(.black)

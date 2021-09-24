@@ -39,7 +39,7 @@ class TestViewModel: ObservableObject {
         wrongCards.append(card)
     }
     
-    func addTestResult(subjectID: String, isPresented: Binding<Bool>) {
+    func addTestResult(subjectID: String, isPresented: Binding<Bool>, showsTestResultScene: Binding<Bool>) {
         let timestamp = Date.currentTimeStamp
         let dateCreated = Date().getCurrentDateWithTimeAsString()
         let test = Test(id: nil, subjectID: subjectID, allCards: testCards, correctCards: correctCards, wrongCards: wrongCards, dateCreated: dateCreated, timestamp: timestamp)
@@ -55,6 +55,10 @@ class TestViewModel: ObservableObject {
                 self?.updateCorrectCardsScore()
                 self?.updateWrongCardsScore()
                 isPresented.wrappedValue.toggle()
+                DispatchQueue.main.asyncAfter(deadline: .now() +  0.3) {
+                    showsTestResultScene.wrappedValue.toggle()
+                }
+                
             }, receiveValue: {})
             .store(in: &subscriptions)
     }

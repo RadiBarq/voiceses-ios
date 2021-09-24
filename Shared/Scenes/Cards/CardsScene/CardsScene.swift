@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CardsScene: View {
-    @ObservedObject var cardsViewModel: CardsViewModel
+    @StateObject private var cardsViewModel = CardsViewModel()
+    let subject: Subject
 #if !os(iOS)
     @Binding var isPresented: Bool
     @State private var currentSelectedCard: Card?
@@ -40,10 +41,10 @@ struct CardsScene: View {
                         .disabled(cardsViewModel.allCards.isEmpty)
                 }
             }
-            .navigationTitle(cardsViewModel.title)
+            .navigationTitle(subject.title)
             .fullScreenCover(isPresented: $cardsViewModel.showingAddNewCardScene) {
                 NavigationView {
-                    AddNewCardScene(isPresented: $cardsViewModel.showingAddNewCardScene, addNewCardViewModel: AddNewCardViewModel(subject: cardsViewModel.subject))
+                    AddNewCardScene(isPresented: $cardsViewModel.showingAddNewCardScene, addNewCardViewModel: AddNewCardViewModel(subject: subject))
                 }
             }
 #else
@@ -61,7 +62,7 @@ struct CardsScene: View {
                     }
                 }
             }
-            .navigationTitle(cardsViewModel.title)
+            .navigationTitle(subject.title)
 #endif
     }
     
@@ -72,11 +73,11 @@ struct CardsScene: View {
             ScrollView(showsIndicators: false) {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
                     ForEach(cardsViewModel.cards) { card in
-                        NavigationLink(destination: DisplayCardScene(displayCardViewModel: DisplayCardViewModel(subject: cardsViewModel.subject, card: card))) {
+                        NavigationLink(destination: DisplayCardScene(displayCardViewModel: DisplayCardViewModel(subject: subject, card: card))) {
                             CardView(card: .constant(card), shouldShowDeleteIcon: .constant(true)) {
-                                cardsViewModel.deleteCard(with: card.id)
+                                cardsViewModel.deleteCard(with: card.id, for: subject)
                             }
-                            .shadow(color: colorScheme == .light ? Color(hex: cardsViewModel.subject.colorHex).opacity(0.8) : .clear, radius: 20, x: 0, y: 10)
+                            .shadow(color: colorScheme == .light ? Color(hex: subject.colorHex).opacity(0.8) : .clear, radius: 20, x: 0, y: 10)
                             .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
                             .padding()
                         }
@@ -94,7 +95,10 @@ struct CardsScene: View {
                 SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, testCards: $cardsViewModel.testCards, showingTestScene: $cardsViewModel.showingTestScene)
             }
             .fullScreenCover(isPresented: $cardsViewModel.showingTestScene) {
-                TestScene(subjectID: cardsViewModel.subject.id!, testCards: $cardsViewModel.testCards, isPresented: $cardsViewModel.showingTestScene)
+                TestScene(subjectID: subject.id!, testCards: $cardsViewModel.testCards, isPresented: $cardsViewModel.showingTestScene, showsTestResultScene: $cardsViewModel.showsTestResultScreen)
+            }
+            .sheet(isPresented: $cardsViewModel.showsTestResultScreen) {
+                TestResultScene()
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -115,16 +119,19 @@ struct CardsScene: View {
                 }
             }
         }
+        .onAppear {
+            cardsViewModel.startListenToGetCards(for: subject)
+        }
 #else
         GeometryReader { geometry in
             if !displayCardScenePushed {
-                ScrollView(showIndicators: false) {
+                ScrollView(showsIndicators: false) {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
                         ForEach(cardsViewModel.cards) { card in
                             CardView(card: .constant(card), shouldShowDeleteIcon: .constant(true)) {
-                                cardsViewModel.deleteCard(with: card.id)
+                                cardsViewModel.deleteCard(with: card.id, for: subject)
                             }
-                            .shadow(color: colorScheme == .light ? Color(hex: cardsViewModel.subject.colorHex).opacity(0.8) : .dark, radius: 20, x: 0, y: 10)
+                            .shadow(color: colorScheme == .light ? Color(hex: subject.colorHex).opacity(0.8) : .clear, radius: 20, x: 0, y: 10)
                             .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
                             .padding()
                             .onTapGesture {
@@ -139,7 +146,7 @@ struct CardsScene: View {
                 .transition(.move(edge: .leading))
             }
             if displayCardScenePushed {
-                DisplayCardScene(isPresented: $displayCardScenePushed, displayCardViewModel: DisplayCardViewModel(subject: cardsViewModel.subject, card: currentSelectedCard!))
+                DisplayCardScene(isPresented: $displayCardScenePushed, displayCardViewModel: DisplayCardViewModel(subject: subject, card: currentSelectedCard!))
                     .transition(.move(edge: .trailing))
             }
         }
@@ -152,7 +159,13 @@ struct CardsScene: View {
             SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, testCards: $cardsViewModel.testCards, showingTestScene: $cardsViewModel.showingTestScene)
         }
         .sheet(isPresented: $cardsViewModel.showingTestScene) {
-            TestScene(subjectID: cardsViewModel.subject.id!, testCards: $cardsViewModel.testCards, isPresented: $cardsViewModel.showingTestScene)
+            TestScene(subjectID: subject.id!, testCards: $cardsViewModel.testCards, isPresented: $cardsViewModel.showingTestScene, showsTestResultScene: $cardsViewModel.showsTestResultScreen)
+        }
+        .sheet(isPresented: $cardsViewModel.showsTestResultScreen) {
+            TestResultScene()
+        }
+        .onAppear {
+            cardsViewModel.startListenToGetCards(for: subject)
         }
         .toolbar {
             ToolbarItem(placement: .automatic) {

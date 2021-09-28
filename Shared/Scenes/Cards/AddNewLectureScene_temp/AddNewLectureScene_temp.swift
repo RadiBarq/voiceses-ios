@@ -97,7 +97,7 @@ struct AddNewLectureScene_temp: View {
                             .frame(width: geometry.size.height / 14, height: geometry.size.height / 14, alignment: .center)
                         
                     })
-                    .buttonStyle(PlainButtonStyle())
+                        .buttonStyle(.plain)
                 }
                 .frame(width: (geometry.size.height / 3) + 80, height:  (geometry.size.height / 3) + 80)
                 .padding(.top, geometry.size.height / 12)

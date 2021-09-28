@@ -23,7 +23,11 @@ struct TestsArchiveCardsScene: View {
     var body: some View {
         content
             .onAppear {
-                viewModel.populateCards(for: subject.id!, with: test.id!)
+                guard let subjectID = subject.id, let testID = test.id else {
+                    viewModel.populateCards(for: test)
+                    return
+                }
+                viewModel.populateCards(for: subjectID, with: testID)
             }
             .animation(.easeInOut(duration: 0.5), value: viewModel.cards)
             .navigationTitle(test.dateCreated)
@@ -44,6 +48,11 @@ struct TestsArchiveCardsScene: View {
 #if os(iOS)
         return GeometryReader { geometry in
             ScrollView(showsIndicators: false) {
+                Text("Score: " + String(format: "%.2f", test.score) + "%")
+                    .font(.title)
+                    .bold()
+                    .padding()
+                    .foregroundColor(.accent)
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
                     ForEach(viewModel.cards) { card in
                         NavigationLink(destination: DisplayCardScene(displayCardViewModel: DisplayCardViewModel(subject: subject, card: card))) {
@@ -51,9 +60,9 @@ struct TestsArchiveCardsScene: View {
                             }
                             .shadow(color: colorScheme == .light ?
                                     (viewModel.isCorrectCard(card: card) ?
-                                                Color.green : Color.red) :
-                                     .clear,
-                                     radius: 20, x: 0, y: 10)
+                                     Color.green.opacity(0.6) : Color.red.opacity(0.6)) :
+                                            .clear,
+                                    radius: 20, x: 0, y: 10)
                             .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
                             .padding()
                         }
@@ -70,7 +79,7 @@ struct TestsArchiveCardsScene: View {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
                         ForEach(viewModel.cards) { card in
                             CardView(card: .constant(card), shouldShowDeleteIcon: .constant(false)) {}
-                            .shadow(color: (viewModel.isCorrectCard(card: card) ? Color.green : Color.red), radius: 20, x: 0, y: 10)
+                            .shadow(color: (viewModel.isCorrectCard(card: card) ? Color.green.opacity(0.6) : Color.red.opacity(0.6)), radius: 20, x: 0, y: 10)
                             .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
                             .padding()
                             .onTapGesture {

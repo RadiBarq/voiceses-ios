@@ -28,6 +28,14 @@ class TestsArchiveCardsViewModel: ObservableObject {
     private var allCards = [Card]()
     private let getTestCardsService = FirebaseGetTestCardsService()
     private var subscriptions = Set<AnyCancellable>()
+    
+    func populateCards(for test: Test) {
+        correctCards = test.correctCards ?? []
+        wrongCards = test.wrongCards ?? []
+        allCards = test.allCards
+        testsArchiveCardsFilter = .allCards
+    }
+    
     func populateCards(for subjectID: String, with testID: String) {
         getTestCardsService
             .getCards(for: subjectID, with: testID, filterBY: .correctCards)

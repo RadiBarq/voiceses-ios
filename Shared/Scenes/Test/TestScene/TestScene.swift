@@ -10,9 +10,11 @@ import SDWebImageSwiftUI
 
 struct TestScene: View {
     var subjectID: String
-    @Binding var testCards: [Card]
+    @Binding var cards: [Card]
     @Binding var isPresented: Bool
     @Binding var showsTestResultScene: Bool
+    @Binding var testReuslt: Double
+    @Binding var test: Test?
     @StateObject private var testViewModel = TestViewModel()
     @State private var cancellationConfiratmion = false
     var body: some View {
@@ -38,8 +40,8 @@ struct TestScene: View {
         GeometryReader { geometry in
             VStack {
                 ZStack(alignment: .top) {
-                    ForEach($testCards, id: \.id) { card in
-                        let isFrontCard = testViewModel.isFrontCard(card: card.wrappedValue, cards: testCards)
+                    ForEach($testViewModel.testCards, id: \.id) { card in
+                        let isFrontCard = testViewModel.isFrontCard(card: card.wrappedValue)
                         CardView(isFrontCard: .constant(isFrontCard), card: card, cardSide: $testViewModel.cardSide)
                     }
                 }
@@ -73,11 +75,11 @@ struct TestScene: View {
                             testViewModel.isCorrectAndWrongButtonsDisabled.toggle()
                             testViewModel.showingCorrectAndWrongButtons.toggle()
                             testViewModel.cardSide.toggle()
-                            testViewModel.addCorrectAnswer(card: testCards.last!)
+                            testViewModel.addCorrectAnswer(card: testViewModel.testCards.last!)
                             
-                            if testCards.count == 1 {
+                            if testViewModel.testCards.count == 1 {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                    testViewModel.addTestResult(subjectID: subjectID, isPresented: $isPresented, showsTestResultScene: $showsTestResultScene)
+                                    testViewModel.addTestResult(subjectID: subjectID, isPresented: $isPresented, showsTestResultScene: $showsTestResultScene, test: $test)
                                 }
                             }
                         
@@ -86,7 +88,7 @@ struct TestScene: View {
                             }
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                                testCards.removeLast()
+                                testViewModel.testCards.removeLast()
                                 testViewModel.currentCard += 1
                                 testViewModel.showingFlipButton.toggle()
                             }
@@ -108,11 +110,12 @@ struct TestScene: View {
                             testViewModel.isCorrectAndWrongButtonsDisabled.toggle()
                             testViewModel.showingCorrectAndWrongButtons.toggle()
                             testViewModel.cardSide.toggle()
-                            testViewModel.addWrongAnswer(card: testCards.last!)
+                            testViewModel.addWrongAnswer(card: testViewModel.testCards.last!)
                             
-                            if testCards.count == 1 {
+                            if testViewModel.testCards.count == 1 {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                    testViewModel.addTestResult(subjectID: subjectID, isPresented: $isPresented, showsTestResultScene: $showsTestResultScene)
+                                    testViewModel.addTestResult(subjectID: subjectID, isPresented: $isPresented, showsTestResultScene: $showsTestResultScene,                            
+                                        test: $test)
                                }
                             }
                         
@@ -121,7 +124,7 @@ struct TestScene: View {
                             }
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                                testCards.removeLast()
+                                testViewModel.testCards.removeLast()
                                 testViewModel.currentCard += 1
                                 testViewModel.showingFlipButton.toggle()
                             }
@@ -155,10 +158,11 @@ struct TestScene: View {
         .animation(.linear.delay(0.1), value: testViewModel.cardSide)
         .animation(.linear.delay(0.1), value: testViewModel.currentCard)
         .animation(.linear.delay(0.1), value: testViewModel.nextAnimation)
-        .animation(.linear.delay(0.1), value: testCards)
+        .animation(.linear.delay(0.1), value: testViewModel.testCards)
         .onAppear {
-            testViewModel.testCardsCount = testCards.count
-            testViewModel.testCards = testCards
+            testViewModel.testCardsCount = cards.count
+            testViewModel.testCards = cards
+            testViewModel.allTestCards = cards
         }
         .alert(isPresented: $testViewModel.showingAlert) {
             Alert(title: Text(alertTitle),
@@ -181,7 +185,7 @@ struct TestScene: View {
         @Binding var card: Card
         @Binding var cardSide: CardSide
         @State private var imageURL: URL?
-        @State private var cardShadowColor: Color = Color.getRandom().opacity(0.8)
+        @State private var cardShadowColor: Color = Color.getRandom().opacity(0.6)
         @Environment(\.colorScheme) private var colorScheme
 #if os(iOS)
         @State private var cachedImage: UIImage?

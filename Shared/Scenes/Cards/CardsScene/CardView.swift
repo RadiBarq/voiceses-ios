@@ -34,7 +34,7 @@ struct CardView: View {
                             .foregroundColor(.black)
                             .rotation3DEffect(cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
                     }
-                    .buttonStyle(PlainButtonStyle())
+                    .buttonStyle(.plain)
                 }
                 Spacer()
                 Button(action:  {
@@ -52,7 +52,7 @@ struct CardView: View {
                         .foregroundColor(.black)
                         .rotation3DEffect(cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
                 }
-                .buttonStyle(PlainButtonStyle())
+                .buttonStyle(.plain)
             }
             if cardSide == .front {
                 Spacer()

@@ -26,23 +26,12 @@ struct DisplayCardScene: View {
         .background(Color.white)
         .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
         .rotation3DEffect(displayCardViewModel.cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
-        .shadow(color: colorScheme == .light ? displayCardViewModel.parentColor.opacity(0.8) : .clear,
+        .shadow(color: colorScheme == .light ? displayCardViewModel.parentColor.opacity(0.6) : .clear,
                 radius: 20, x: 0, y: 10)
         .navigationTitle("\(displayCardViewModel.cardSide.rawValue.capitalized) side")
         .animation(.easeInOut(duration: 0.5), value: displayCardViewModel.cardSide)
 #if !os(iOS)
         .animation(.default, value: isPresented)
-#endif
-#if !os(iOS)
-        .toolbar {
-            ToolbarItem(placement: .navigation) {
-                Button(action: {
-                    isPresented.toggle()
-                }, label: {
-                    Image(systemName: "chevron.backward")
-                })
-            }
-        }
 #endif
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
@@ -55,6 +44,15 @@ struct DisplayCardScene: View {
                     Text("Switch side")
                 })
             }
+#if !os(iOS)
+            ToolbarItem(placement: .navigation) {
+                Button(action: {
+                    isPresented.toggle()
+                }, label: {
+                    Image(systemName: "chevron.backward")
+                })
+            }
+#endif
         }
         .padding()
         .onAppear {

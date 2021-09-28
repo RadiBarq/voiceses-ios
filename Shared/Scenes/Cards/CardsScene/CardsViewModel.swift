@@ -44,6 +44,8 @@ final class CardsViewModel: ObservableObject {
     @Published var testCards = [Card]()
     
     @Published var showsTestResultScreen = false
+    @Published var testResult: Double = 0.0
+    @Published var test: Test?
     
     private var subscriptions = Set<AnyCancellable>()
     private var getCardsService: FirebaseGetCardsService!

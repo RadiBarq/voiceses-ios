@@ -77,7 +77,7 @@ struct CardsScene: View {
                             CardView(card: .constant(card), shouldShowDeleteIcon: .constant(true)) {
                                 cardsViewModel.deleteCard(with: card.id, for: subject)
                             }
-                            .shadow(color: colorScheme == .light ? Color(hex: subject.colorHex).opacity(0.8) : .clear, radius: 20, x: 0, y: 10)
+                            .shadow(color: colorScheme == .light ? Color(hex: subject.colorHex).opacity(0.6) : .clear, radius: 20, x: 0, y: 10)
                             .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
                             .padding()
                         }
@@ -95,10 +95,13 @@ struct CardsScene: View {
                 SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, testCards: $cardsViewModel.testCards, showingTestScene: $cardsViewModel.showingTestScene)
             }
             .fullScreenCover(isPresented: $cardsViewModel.showingTestScene) {
-                TestScene(subjectID: subject.id!, testCards: $cardsViewModel.testCards, isPresented: $cardsViewModel.showingTestScene, showsTestResultScene: $cardsViewModel.showsTestResultScreen)
+                TestScene(subjectID: subject.id!,
+                          cards: $cardsViewModel.testCards, isPresented: $cardsViewModel.showingTestScene, showsTestResultScene: $cardsViewModel.showsTestResultScreen,
+                          testReuslt: $cardsViewModel.testResult,
+                          test: $cardsViewModel.test)
             }
             .sheet(isPresented: $cardsViewModel.showsTestResultScreen) {
-                TestResultScene()
+                TestResultScene(subject: subject, test: cardsViewModel.test!, isPresented: $cardsViewModel.showsTestResultScreen, showingTestScene: $cardsViewModel.showingTestScene)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -131,7 +134,7 @@ struct CardsScene: View {
                             CardView(card: .constant(card), shouldShowDeleteIcon: .constant(true)) {
                                 cardsViewModel.deleteCard(with: card.id, for: subject)
                             }
-                            .shadow(color: colorScheme == .light ? Color(hex: subject.colorHex).opacity(0.8) : .clear, radius: 20, x: 0, y: 10)
+                            .shadow(color: colorScheme == .light ? Color(hex: subject.colorHex).opacity(0.6) : .clear, radius: 20, x: 0, y: 10)
                             .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
                             .padding()
                             .onTapGesture {
@@ -159,10 +162,13 @@ struct CardsScene: View {
             SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, testCards: $cardsViewModel.testCards, showingTestScene: $cardsViewModel.showingTestScene)
         }
         .sheet(isPresented: $cardsViewModel.showingTestScene) {
-            TestScene(subjectID: subject.id!, testCards: $cardsViewModel.testCards, isPresented: $cardsViewModel.showingTestScene, showsTestResultScene: $cardsViewModel.showsTestResultScreen)
+            TestScene(subjectID: subject.id!,
+                      cards: $cardsViewModel.testCards, isPresented: $cardsViewModel.showingTestScene, showsTestResultScene: $cardsViewModel.showsTestResultScreen,
+                      testReuslt: $cardsViewModel.testResult,
+                      test: $cardsViewModel.test)
         }
         .sheet(isPresented: $cardsViewModel.showsTestResultScreen) {
-            TestResultScene()
+            TestResultScene(subject: subject, test: cardsViewModel.test!, isPresented: $cardsViewModel.showsTestResultScreen, testResult: $cardsViewModel.testResult, showingTestScene: $cardsViewModel.showingTestScene)
         }
         .onAppear {
             cardsViewModel.startListenToGetCards(for: subject)

@@ -14,4 +14,5 @@ struct Test: Identifiable, Codable {
     let wrongCards: [Card]?
     let dateCreated: String
     let timestamp: Int64
+    let score: Double
 }

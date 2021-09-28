@@ -21,14 +21,15 @@ class TestViewModel: ObservableObject {
     @Published var wrongCards = [Card]()
     @Published var showingAlert = false
     @Published var alertMessage = ""
-    var testCards = [Card]()
+    @Published var testCards = [Card]()
+    var allTestCards = [Card]()
     private var addNewTestService = FirebaseAddNewTestService()
     private var updateCardService = FirebaseUpdateCardService()
     private var subscriptions = Set<AnyCancellable>()
     
     // This should be moved to be global in the future
-    func isFrontCard(card: Card, cards: [Card]) -> Bool {
-        return card.id == (cards.last?.id ?? "0")
+    func isFrontCard(card: Card) -> Bool {
+        return card.id == (testCards.last?.id ?? "0")
     }
     
     func addCorrectAnswer(card: Card) {
@@ -39,11 +40,16 @@ class TestViewModel: ObservableObject {
         wrongCards.append(card)
     }
     
-    func addTestResult(subjectID: String, isPresented: Binding<Bool>, showsTestResultScene: Binding<Bool>) {
+    func addTestResult(subjectID: String,
+                       isPresented: Binding<Bool>,
+                       showsTestResultScene: Binding<Bool>,
+                       test: Binding<Test?>) {
         let timestamp = Date.currentTimeStamp
         let dateCreated = Date().getCurrentDateWithTimeAsString()
-        let test = Test(id: nil, subjectID: subjectID, allCards: testCards, correctCards: correctCards, wrongCards: wrongCards, dateCreated: dateCreated, timestamp: timestamp)
-        addNewTestService.addNewTest(test: test)
+        let testScore = (Double(correctCards.count) / Double(allTestCards.count)) * 100
+        let currentTest = Test(id: nil, subjectID: subjectID, allCards: allTestCards, correctCards: correctCards, wrongCards: wrongCards, dateCreated: dateCreated, timestamp: timestamp, score: testScore)
+        test.wrappedValue = currentTest
+        addNewTestService.addNewTest(test: currentTest)
             .sink(receiveCompletion: { [weak self] result in
                 guard let weakSelf = self else {
                     return }
@@ -58,7 +64,6 @@ class TestViewModel: ObservableObject {
                 DispatchQueue.main.asyncAfter(deadline: .now() +  0.3) {
                     showsTestResultScene.wrappedValue.toggle()
                 }
-                
             }, receiveValue: {})
             .store(in: &subscriptions)
     }

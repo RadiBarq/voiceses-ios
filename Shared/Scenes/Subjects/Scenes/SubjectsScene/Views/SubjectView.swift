@@ -26,7 +26,7 @@ struct SubjectView: View {
                             .font(.title2)
                     }
                     .background(Color.clear)
-                    .buttonStyle(PlainButtonStyle())
+                    .buttonStyle(.plain)
                     Spacer()
                     Button(action: {
                         showingTextField.toggle()
@@ -36,7 +36,7 @@ struct SubjectView: View {
                             .foregroundColor(Color(hex: subject.colorHex).whiteOrBlack)
                     }
                     .background(Color.clear)
-                    .buttonStyle(PlainButtonStyle())
+                    .buttonStyle(.plain)
                 }
                 titleView
                 Text("Cards: \(subject.numberOfCards ?? 0)")

@@ -24,7 +24,7 @@ enum NavigationItem: Int, CaseIterable, Identifiable {
         case .testsArchive:
             return "Tests Archive"
         case .calendar:
-            return "Calander"
+            return "Calender"
         case .settings:
             return "Settings"
         }
@@ -33,7 +33,7 @@ enum NavigationItem: Int, CaseIterable, Identifiable {
     var systemImageName: String {
         switch self {
         case .subjects:
-            return "book.closed"
+            return "book.closed.fill"
         case .testsArchive:
             return "archivebox.fill"
         case .calendar:
@@ -51,7 +51,7 @@ enum NavigationItem: Int, CaseIterable, Identifiable {
         case .testsArchive:
             TestsArchiveSubjectsScene()
         case .calendar:
-            CalanderScene()
+            CalendarScene(calendar: Calendar(identifier: .gregorian))
         case .settings:
             SettingsScene()
         }

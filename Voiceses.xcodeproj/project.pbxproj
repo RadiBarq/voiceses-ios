@@ -101,7 +101,7 @@
 		CD8F040B264567BC00059C53 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8F040A264567BC00059C53 /* Card.swift */; };
 		CD8F040C264567BC00059C53 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8F040A264567BC00059C53 /* Card.swift */; };
 		CD96751D26065E420067FCC5 /* SubjectsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B7F9260638DE003537A8 /* SubjectsScene.swift */; };
-		CD96752226065E440067FCC5 /* CalanderScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80226063A1B003537A8 /* CalanderScene.swift */; };
+		CD96752226065E440067FCC5 /* CalendarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80226063A1B003537A8 /* CalendarScene.swift */; };
 		CD96752726065E460067FCC5 /* TestsArchiveSubjectsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80826063A2C003537A8 /* TestsArchiveSubjectsScene.swift */; };
 		CD96752C26065E490067FCC5 /* CardsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80E26063A38003537A8 /* CardsScene.swift */; };
 		CD96753126065E4F0067FCC5 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFA977F2600A4F0006DB5A6 /* HomeScene.swift */; };
@@ -123,7 +123,7 @@
 		CDCF580A266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCF5808266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift */; };
 		CDCF580D266C0B4100D4BCDF /* iOSCustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCF580C266C0B4100D4BCDF /* iOSCustomTextView.swift */; };
 		CDD0B7FA260638DE003537A8 /* SubjectsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B7F9260638DE003537A8 /* SubjectsScene.swift */; };
-		CDD0B80326063A1B003537A8 /* CalanderScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80226063A1B003537A8 /* CalanderScene.swift */; };
+		CDD0B80326063A1B003537A8 /* CalendarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80226063A1B003537A8 /* CalendarScene.swift */; };
 		CDD0B80926063A2C003537A8 /* TestsArchiveSubjectsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80826063A2C003537A8 /* TestsArchiveSubjectsScene.swift */; };
 		CDD0B80F26063A38003537A8 /* CardsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80E26063A38003537A8 /* CardsScene.swift */; };
 		CDD0B81626063AB3003537A8 /* NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B81526063AB3003537A8 /* NavigationItem.swift */; };
@@ -251,7 +251,7 @@
 		CDCF5808266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUpdateSubjectService.swift; sourceTree = "<group>"; };
 		CDCF580C266C0B4100D4BCDF /* iOSCustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSCustomTextView.swift; sourceTree = "<group>"; };
 		CDD0B7F9260638DE003537A8 /* SubjectsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsScene.swift; sourceTree = "<group>"; };
-		CDD0B80226063A1B003537A8 /* CalanderScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalanderScene.swift; sourceTree = "<group>"; };
+		CDD0B80226063A1B003537A8 /* CalendarScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarScene.swift; sourceTree = "<group>"; };
 		CDD0B80826063A2C003537A8 /* TestsArchiveSubjectsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsArchiveSubjectsScene.swift; sourceTree = "<group>"; };
 		CDD0B80E26063A38003537A8 /* CardsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsScene.swift; sourceTree = "<group>"; };
 		CDD0B81526063AB3003537A8 /* NavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItem.swift; sourceTree = "<group>"; };
@@ -640,12 +640,12 @@
 			path = TestsArchive;
 			sourceTree = "<group>";
 		};
-		CDD0B80126063916003537A8 /* Calander */ = {
+		CDD0B80126063916003537A8 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				CDD0B80226063A1B003537A8 /* CalanderScene.swift */,
+				CDD0B80226063A1B003537A8 /* CalendarScene.swift */,
 			);
-			path = Calander;
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 		CDD0B81426063A8B003537A8 /* SideBar */ = {
@@ -765,7 +765,7 @@
 				CDFA977E2600A4BA006DB5A6 /* Home */,
 				CDD0B7F8260638BC003537A8 /* Subjects */,
 				CDD0B7FF260638FA003537A8 /* Cards */,
-				CDD0B80126063916003537A8 /* Calander */,
+				CDD0B80126063916003537A8 /* Calendar */,
 				CDD0B80026063911003537A8 /* TestsArchive */,
 			);
 			path = Scenes;
@@ -1189,7 +1189,7 @@
 				CDF24DCD2618BB9100CC866F /* LunchWindowViewModel.swift in Sources */,
 				CDDA5068268C98F70033A97A /* FilterCardsViewModel.swift in Sources */,
 				CD28F9BA2650496800D87DDC /* FirebaseDeleteACardService.swift in Sources */,
-				CDD0B80326063A1B003537A8 /* CalanderScene.swift in Sources */,
+				CDD0B80326063A1B003537A8 /* CalendarScene.swift in Sources */,
 				CDD9DFFF25FD13CE00E3BF53 /* VoicesesApp.swift in Sources */,
 				CDB4D0F6269A3C160057878E /* FirebaseGetUpdatedSubjectsService.swift in Sources */,
 				CD0C6B3926E6A66300E15E5D /* TestsArchiveCardsViewModel.swift in Sources */,
@@ -1262,7 +1262,7 @@
 				CD0C6B3626E660B100E15E5D /* TestsArchiveFilterTestsViewModel.swift in Sources */,
 				CD523BD926ADD4180072EDCD /* TestViewModel.swift in Sources */,
 				CD0BB30F260B259200CD0A03 /* SubjectView.swift in Sources */,
-				CD96752226065E440067FCC5 /* CalanderScene.swift in Sources */,
+				CD96752226065E440067FCC5 /* CalendarScene.swift in Sources */,
 				CD6079122610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */,
 				CD00F718267A6A1000475016 /* DisplayCardScene.swift in Sources */,
 				CD6078F426107FAC00928B20 /* SettingsScene.swift in Sources */,

@@ -1,21 +1,21 @@
 import SwiftUI
 
 struct CalendarScene: View {
+    @State private var selectedDate = Self.now
+    @State private var selectedYear: Int?
     private let calendar: Calendar
     private let monthFormatter: DateFormatter
     private let dayFormatter: DateFormatter
     private let weekDayFormatter: DateFormatter
-    private let fullFormatter: DateFormatter
-    
-    @State private var selectedDate = Self.now
+    private let defaultFormatter: DateFormatter
     private static var now = Date() // Cache now
     
     init(calendar: Calendar) {
         self.calendar = calendar
-        self.monthFormatter = DateFormatter(dateFormat: "MMMM", calendar: calendar)
-        self.dayFormatter = DateFormatter(dateFormat: "d", calendar: calendar)
-        self.weekDayFormatter = DateFormatter(dateFormat: "EEEEE", calendar: calendar)
-        self.fullFormatter = DateFormatter(dateFormat: "MMMM dd, yyyy", calendar: calendar)
+        self.monthFormatter = DateFormatter.getMonthFormatter(for: calendar)
+        self.dayFormatter = DateFormatter.getDayFormatter(for: calendar)
+        self.weekDayFormatter = DateFormatter.getWeekDayFormatter(for: calendar)
+        self.defaultFormatter = DateFormatter.getDefaultFormatter()
     }
     
     var body: some View {
@@ -52,7 +52,7 @@ struct CalendarScene: View {
                     },
                     title: { date in
                         HStack {
-                            Text(fullFormatter.string(from: date))
+                            Text(defaultFormatter.string(from: date))
                                 .font(.headline)
                                 .padding()
                             Spacer()
@@ -101,6 +101,27 @@ struct CalendarScene: View {
             }
             .padding(.leading, 16)
             .padding(.trailing, 16)
+        }
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                HStack {
+                    Text("Selected year")
+                    Picker("", selection: $selectedYear) {
+                        ForEach(2021...calendar.component(.year, from: Self.now), id: \.self) {
+                            Text(String($0))
+                        }
+                    }
+                    .pickerStyle(.menu)
+                    .onChange(of: selectedYear) { selectedYear in
+                        var component = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: selectedDate)
+                        component.year = selectedYear
+                        selectedDate = Calendar.current.date(from: component) ?? selectedDate
+                    }
+                }
+            }
+        }
+        .onAppear {
+            selectedYear = calendar.component(.year, from: Self.now)
         }
     }
 }
@@ -219,13 +240,5 @@ private extension Date {
         calendar.date(
             from: calendar.dateComponents([.year, .month], from: self)
         ) ?? self
-    }
-}
-
-private extension DateFormatter {
-    convenience init(dateFormat: String, calendar: Calendar) {
-        self.init()
-        self.dateFormat = dateFormat
-        self.calendar = calendar
     }
 }

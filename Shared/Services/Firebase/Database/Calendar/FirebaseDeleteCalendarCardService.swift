@@ -1,20 +1,21 @@
 //
-//  FirebaseDeleteCardService.swift
+//  FirebaseDeleteCalendarCardService.swift
 //  Voiceses
 //
-//  Created by Radi Barq on 15/05/2021.
+//  Created by Radi Barq on 11/10/2021.
 //
 
 import Foundation
 import Firebase
 
-final class FirebaseDeleteACardService: FirebaseDatabaseService {
+final class FirebaseDeleteCalendarCardService: FirebaseDatabaseService {
     let ref = Database.database().reference().child("users")
-    func deleteCard(with id: String, subjectID: String) {
+    func deleteCard(with id: String, for date: String) {
         guard let userID = FirebaseAuthenticationService.getUserID() else { return }
         ref.child(userID)
-            .child("subjects-cards")
-            .child(subjectID)
+            .child("calendar-cards")
+            .child("dates")
+            .child(date)
             .child("cards")
             .child(id)
             .removeValue()

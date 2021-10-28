@@ -13,7 +13,7 @@ final class FirebaseUpdateCardService: FirebaseDatabaseService {
     func updateTestScore(for card: Card) {
         guard let userID = FirebaseAuthenticationService.getUserID() else { return }
         ref.child(userID)
-            .child("subjects")
+            .child("subjects-cards")
             .child(card.subjectID)
             .child("cards")
             .child(card.id)

@@ -21,6 +21,12 @@ extension DateFormatter {
         return dateFormatter
     }
     
+    static func getDefaultCalanderFormatter() -> DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy"
+        return dateFormatter
+    }
+    
     static func getDefaultFormatterWithTime() -> DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .medium

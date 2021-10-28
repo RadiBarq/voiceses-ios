@@ -20,8 +20,10 @@ final class AddNewCardViewModel: ObservableObject {
     var parentColor: Color {
         Color(hex: subject.colorHex)
     }
+    
     private var subject: Subject
     private let addNewCardService = FirebaseAddNewCardService()
+    private let addNewCalendarCardService = FirebaseAddNewCalendarCardService()
     private let updateSubjectService = FirebaseUpdateSubjectService()
     private var subscriptions: Set<AnyCancellable> = []
     
@@ -39,7 +41,7 @@ final class AddNewCardViewModel: ObservableObject {
         let imageRect = frontCanvas.frame
         let frontCanvasImage = frontCanvas.drawing.image(from: imageRect, scale: 1)
         let backCanvasImage = backCanvas.drawing.image(from: imageRect, scale: 1)
-        let cardID = Database.database().reference().child("users").child("subjects")
+        let cardID = Database.database().reference().child("users").child("subjects-cards")
             .child(subject.id!)
             .child("cards")
             .childByAutoId().key!
@@ -64,17 +66,22 @@ final class AddNewCardViewModel: ObservableObject {
     }
     
     private func addNew(card: Card) {
-        let result = self.addNewCardService.addNewCard(card: card)
-        switch result {
+        let addNewCardResult = self.addNewCardService.addNewCard(card: card)
+        switch addNewCardResult {
         case .failure(let error):
             self.alertMessage = error.errorDescription
             self.showingAlert = true
         case .success:
             self.subject.numberOfCards! += 1
             self.updateSubjectService.updateNumberOfCards(for: self.subject)
+            let addNewCalendarResult = addNewCalendarCardService.addNew(card: card, for: card.dateCreated)
+            if case let .failure(error) = addNewCalendarResult {
+                self.alertMessage = error.errorDescription
+                self.showingAlert = true
+            }
         }
     }
-
+    
     private func isOneOfTheCanvasesEmpty(frontCanvas: PKCanvasView, backCanvas: PKCanvasView) -> Bool {
         return frontCanvas.drawing.bounds.isEmpty || backCanvas.drawing.bounds.isEmpty
     }

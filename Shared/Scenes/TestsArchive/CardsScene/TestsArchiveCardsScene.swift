@@ -30,7 +30,8 @@ struct TestsArchiveCardsScene: View {
                 viewModel.populateCards(for: subjectID, with: testID)
             }
             .animation(.easeInOut(duration: 0.5), value: viewModel.cards)
-            .navigationTitle(test.dateCreated)
+            .navigationTitle(viewModel.getNavigationTitleFor(test: test))
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Picker("", selection: $viewModel.testsArchiveCardsFilter) {

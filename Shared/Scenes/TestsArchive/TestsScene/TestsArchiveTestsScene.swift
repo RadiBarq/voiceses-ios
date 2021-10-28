@@ -33,7 +33,8 @@ struct TestsArchiveTestsScene: View {
 #endif
                     ForEach(viewModel.tests, id: \.id) { test in
                         NavigationLink(destination: TestsArchiveCardsScene(subject: subject, test: test)) {
-                            Text(test.dateCreated)
+                            let dateString = Date(timeIntervalSince1970: TimeInterval(test.timestamp / 1000)).getCurrentDateWithTimeAsString()
+                            Text(dateString)
                         }
                     }
                     .onDelete(perform: viewModel.deleteTest)

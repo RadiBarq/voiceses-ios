@@ -75,7 +75,7 @@ struct CardsScene: View {
                     ForEach(cardsViewModel.cards) { card in
                         NavigationLink(destination: DisplayCardScene(displayCardViewModel: DisplayCardViewModel(subject: subject, card: card))) {
                             CardView(card: .constant(card), shouldShowDeleteIcon: .constant(true)) {
-                                cardsViewModel.deleteCard(with: card.id, for: subject)
+                                cardsViewModel.deleteCard(with: card.id, date: card.dateCreated, for: subject)
                             }
                             .shadow(color: colorScheme == .light ? Color(hex: subject.colorHex).opacity(0.6) : .clear, radius: 20, x: 0, y: 10)
                             .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)

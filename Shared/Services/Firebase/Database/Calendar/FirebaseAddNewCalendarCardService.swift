@@ -1,15 +1,15 @@
 //
-//  AddNewCardService.swift
-//  Voiceses (iOS)
+//  FirebaseAddNewCalendarCardService.swift
+//  Voiceses
 //
-//  Created by Radi Barq on 07/05/2021.
+//  Created by Radi Barq on 11/10/2021.
 //
 
 import Foundation
 import Firebase
 import Combine
 
-enum FirebaseAddNewCardServiceError: Error, LocalizedError {
+enum FirebaseAddNewCalendarCardServiceError: Error, LocalizedError {
     case userIsNotAvailable
     case encodingFormatIsNotValid
     var errorDescription: String {
@@ -22,15 +22,16 @@ enum FirebaseAddNewCardServiceError: Error, LocalizedError {
     }
 }
 
-final class FirebaseAddNewCardService: FirebaseDatabaseService {
+final class FirebaseAddNewCalendarCardService: FirebaseDatabaseService {
     var ref = Database.database().reference().child("users")
-    func addNewCard(card: Card) -> Result<Void, FirebaseAddNewCardServiceError> {
+    func addNew(card: Card, for date: String) -> Result<Void, FirebaseAddNewCalendarCardServiceError> {
         guard let userID = FirebaseAuthenticationService.getUserID() else {
             return .failure(.userIsNotAvailable)
         }
         let currentRef = self.ref.child(userID)
-            .child("subjects-cads")
-            .child(card.subjectID)
+            .child("calendar-cards")
+            .child("dates")
+            .child(date)
             .child("cards")
             .child(card.id)
         guard let dictionary = card.getDictionary() else {

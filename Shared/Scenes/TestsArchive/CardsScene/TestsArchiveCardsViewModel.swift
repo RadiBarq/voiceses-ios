@@ -60,4 +60,8 @@ class TestsArchiveCardsViewModel: ObservableObject {
     func isCorrectCard(card: Card) -> Bool {
         return correctCards.contains(card)
     }
+    
+    func getNavigationTitleFor(test: Test) -> String {
+        return Date(timeIntervalSince1970: TimeInterval(test.timestamp / 1000)).getCurrentDateWithTimeAsString()
+    }
 }

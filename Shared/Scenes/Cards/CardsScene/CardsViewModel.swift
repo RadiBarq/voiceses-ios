@@ -51,15 +51,17 @@ final class CardsViewModel: ObservableObject {
     private var getCardsService: FirebaseGetCardsService!
     private var deleteCardService = FirebaseDeleteACardService()
     private var updateSubjectService = FirebaseUpdateSubjectService()
+    private var firebaseDeleteCalendarCardService = FirebaseDeleteCalendarCardService()
     
     init() {
         deleteCardService = FirebaseDeleteACardService()
         updateSubjectService = FirebaseUpdateSubjectService()
     }
     
-    func deleteCard(with id: String, for subject: Subject) {
+    func deleteCard(with id: String, date: String, for subject: Subject) {
         var subjectCopy = subject
         deleteCardService.deleteCard(with: id, subjectID: subject.id!)
+        firebaseDeleteCalendarCardService.deleteCard(with: id, for: date)
         subjectCopy.numberOfCards! -= 1
         updateSubjectService.updateNumberOfCards(for: subjectCopy)
         GlobalService.shared.deleteCardImages(with: id, subjectID: subjectCopy.id!)

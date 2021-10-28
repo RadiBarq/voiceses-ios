@@ -8,7 +8,7 @@ struct CalendarScene: View {
     private let dayFormatter: DateFormatter
     private let weekDayFormatter: DateFormatter
     private let defaultFormatter: DateFormatter
-    private static var now = Date() // Cache now
+    private static var now = Date()
     
     init(calendar: Calendar) {
         self.calendar = calendar

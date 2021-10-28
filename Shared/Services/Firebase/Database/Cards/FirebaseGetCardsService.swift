@@ -45,7 +45,7 @@ final class FirebaseGetCardsService: FirebaseDatabaseService {
             }
             cardsRef = weakSelf.ref
                 .child(userID)
-                .child("subjects")
+                .child("subjects-cards")
                 .child(weakSelf.subjectID)
                 .child("cards")
             handle =

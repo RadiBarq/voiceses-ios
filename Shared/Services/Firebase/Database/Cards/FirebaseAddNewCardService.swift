@@ -29,7 +29,7 @@ final class FirebaseAddNewCardService: FirebaseDatabaseService {
             return .failure(.userIsNotAvailable)
         }
         let currentRef = self.ref.child(userID)
-            .child("subjects-cads")
+            .child("subjects-cards")
             .child(card.subjectID)
             .child("cards")
             .child(card.id)

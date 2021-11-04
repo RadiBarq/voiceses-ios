@@ -56,7 +56,7 @@ struct TestsArchiveCardsScene: View {
                     .foregroundColor(.accent)
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
                     ForEach(viewModel.cards) { card in
-                        NavigationLink(destination: DisplayCardScene(displayCardViewModel: DisplayCardViewModel(subject: subject, card: card))) {
+                        NavigationLink(destination: DisplayCardScene(displayCardViewModel: DisplayCardViewModel(subject: subject, card: card, shadowColor: viewModel.isCorrectCard(card: card) ? Color.green.opacity(0.6) : Color.red.opacity(0.6)))) {
                             CardView(card: .constant(card), shouldShowDeleteIcon: .constant(false)) {
                             }
                             .shadow(color: colorScheme == .light ?

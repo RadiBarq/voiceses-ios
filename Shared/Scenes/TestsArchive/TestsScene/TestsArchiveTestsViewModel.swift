@@ -19,7 +19,7 @@ class TestsArchiveTestsViewModel: ObservableObject {
     @Published var isFilterApplied = false {
         didSet {
             if isFilterApplied {
-                tests = allTests.filter {$0.timestamp >= startDate.timestamp && $0.timestamp <= endDate.timestamp }
+                tests = allTests.filter { $0.timestamp >= startDate.timestamp && $0.timestamp <= endDate.timestamp }
             } else {
                 tests = allTests
             }

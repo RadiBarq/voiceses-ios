@@ -11,13 +11,15 @@ import Combine
 
 class DisplayCardViewModel: ObservableObject {
     @Published var cardSide: CardSide = .front
-    var parentColor: Color {
-        Color(hex: subject.colorHex)
+    var shadowColor: Color {
+        _shadowColor ?? Color(hex: subject.colorHex)
     }
     var card: Card
     private var subject: Subject
-    init(subject: Subject, card: Card) {
+    private var _shadowColor: Color?
+    init(subject: Subject, card: Card, shadowColor: Color? = nil) {
         self.subject = subject
         self.card = card
+        self._shadowColor = shadowColor
     }
 }

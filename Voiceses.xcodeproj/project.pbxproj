@@ -33,6 +33,10 @@
 		CD0C6B3D26E6A6BC00E15E5D /* TestsArchiveCardsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6B3B26E6A6BC00E15E5D /* TestsArchiveCardsScene.swift */; };
 		CD0C6B3F26E6A87600E15E5D /* FirebaseGetTestCardsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6B3E26E6A87600E15E5D /* FirebaseGetTestCardsService.swift */; };
 		CD0C6B4026E6A87600E15E5D /* FirebaseGetTestCardsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6B3E26E6A87600E15E5D /* FirebaseGetTestCardsService.swift */; };
+		CD10D99F272B1DBB0085C316 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD10D99E272B1DBB0085C316 /* CalendarViewModel.swift */; };
+		CD10D9A0272B1DBB0085C316 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD10D99E272B1DBB0085C316 /* CalendarViewModel.swift */; };
+		CD10D9A2272B26430085C316 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD10D9A1272B26430085C316 /* CalendarView.swift */; };
+		CD10D9A3272B26430085C316 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD10D9A1272B26430085C316 /* CalendarView.swift */; };
 		CD17F1E1262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */; };
 		CD17F1E2262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */; };
 		CD17F248262B4F1100C2C903 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17F247262B4F1100C2C903 /* SearchBar.swift */; };
@@ -211,6 +215,8 @@
 		CD0C6B3826E6A66300E15E5D /* TestsArchiveCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsArchiveCardsViewModel.swift; sourceTree = "<group>"; };
 		CD0C6B3B26E6A6BC00E15E5D /* TestsArchiveCardsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsArchiveCardsScene.swift; sourceTree = "<group>"; };
 		CD0C6B3E26E6A87600E15E5D /* FirebaseGetTestCardsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGetTestCardsService.swift; sourceTree = "<group>"; };
+		CD10D99E272B1DBB0085C316 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		CD10D9A1272B26430085C316 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDeleteASubjectService.swift; sourceTree = "<group>"; };
 		CD17F247262B4F1100C2C903 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		CD1A804726821B77003F78C0 /* DrawingCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCanvas.swift; sourceTree = "<group>"; };
@@ -660,6 +666,8 @@
 			isa = PBXGroup;
 			children = (
 				CDD0B80226063A1B003537A8 /* CalendarScene.swift */,
+				CD10D99E272B1DBB0085C316 /* CalendarViewModel.swift */,
+				CD10D9A1272B26430085C316 /* CalendarView.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -1141,6 +1149,7 @@
 				CD6079EE2610AE5F00928B20 /* UIView+Extension.swift in Sources */,
 				CD84F10127149C420062E67B /* FirebaseDeleteCalendarCardService.swift in Sources */,
 				CD6079F52610D2B700928B20 /* Encodable+Extension.swift in Sources */,
+				CD10D99F272B1DBB0085C316 /* CalendarViewModel.swift in Sources */,
 				CD28F97F264FD28600D87DDC /* Date+Extension.swift in Sources */,
 				CD17F1E1262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */,
 				CDCF580D266C0B4100D4BCDF /* iOSCustomTextView.swift in Sources */,
@@ -1172,6 +1181,7 @@
 				CD00F717267A6A1000475016 /* DisplayCardScene.swift in Sources */,
 				CD0C6B3C26E6A6BC00E15E5D /* TestsArchiveCardsScene.swift in Sources */,
 				CD28F978264FD15F00D87DDC /* DateFormatter+Extension.swift in Sources */,
+				CD10D9A2272B26430085C316 /* CalendarView.swift in Sources */,
 				CD3072D32635E73900E4C743 /* FirebaseGetCardsService.swift in Sources */,
 				CD8F03CC264550B500059C53 /* FirebaseAddNewCardImageFirebaseService.swift in Sources */,
 				CD8F03FD264566C900059C53 /* FirebaseAddNewCardService.swift in Sources */,
@@ -1228,6 +1238,7 @@
 			files = (
 				CD6B1DC126920EE20084A1D4 /* FilterOptions.swift in Sources */,
 				CD00F714267A685A00475016 /* MacOSCustomTextView.swift in Sources */,
+				CD10D9A0272B1DBB0085C316 /* CalendarViewModel.swift in Sources */,
 				CD6B1DC226920F560084A1D4 /* FilterCardsViewModel.swift in Sources */,
 				CD5FE77426778B2F0029B23F /* FirebaseDeleteSubjectImagesService.swift in Sources */,
 				CDF71A9A26D84137007E383D /* FirebaseGetTestsForASubjectService.swift in Sources */,
@@ -1257,6 +1268,7 @@
 				CDB4D0F4269A3BF50057878E /* FirebaseGetDeletedSubjectsService.swift in Sources */,
 				CD5785D626A0301F00CFBA6A /* SetupTestScene.swift in Sources */,
 				CD96751D26065E420067FCC5 /* SubjectsScene.swift in Sources */,
+				CD10D9A3272B26430085C316 /* CalendarView.swift in Sources */,
 				CD6079CB2610A5A800928B20 /* FirebaseDatabaseService.swift in Sources */,
 				CD7DCE4326FC90D10005FA81 /* TestResultScene.swift in Sources */,
 				CD0C6B3326E6606B00E15E5D /* TestsArchiveFilterTestsScene.swift in Sources */,

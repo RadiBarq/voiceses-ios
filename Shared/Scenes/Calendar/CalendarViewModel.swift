@@ -46,12 +46,14 @@ class CalendarViewModel: ObservableObject {
     private var subscriptions = Set<AnyCancellable>()
     
     func setup(with calendar: Calendar) {
-        self.calendar = calendar
-        self.selectedYear = calendar.component(.year, from: Date.now)
-        self.monthFormatter = DateFormatter.getMonthFormatter(for: calendar)
-        self.dayFormatter = DateFormatter.getDayFormatter(for: calendar)
-        self.weekDayFormatter = DateFormatter.getWeekDayFormatter(for: calendar)
-        self.defaultFormatter = DateFormatter.getDefaultFormatter()
+        if self.calendar == nil {
+            self.calendar = calendar
+            self.selectedYear = calendar.component(.year, from: Date.now)
+            self.monthFormatter = DateFormatter.getMonthFormatter(for: calendar)
+            self.dayFormatter = DateFormatter.getDayFormatter(for: calendar)
+            self.weekDayFormatter = DateFormatter.getWeekDayFormatter(for: calendar)
+            self.defaultFormatter = DateFormatter.getDefaultFormatter()
+        }
         
         if firebaseGetDeletedCalendarCardsService == nil {
             self.firebaseGetDeletedCalendarCardsService = FirebaseGetDeletedCalendarCardsService(year: selectedYear)
@@ -74,6 +76,15 @@ class CalendarViewModel: ObservableObject {
     }
     
     func set(selectedDate: Date) {
+        subscriptions = Set<AnyCancellable>()
+        let newDateYear = calendar!.component(.year, from: selectedDate)
+        let currentDateYear = calendar!.component(.year, from: self.selectedDate)
+        if newDateYear != currentDateYear {
+            self.firebaseGetDeletedCalendarCardsService = FirebaseGetDeletedCalendarCardsService(year: newDateYear)
+            self.startListenToDeletedCards()
+            self.firebaseGetAddedCalendarCardsService = FirebaseGetAddedCalendarCardsService(year: newDateYear)
+            self.startListenToAddedCards()
+        }
         self.selectedDate = selectedDate
     }
     

@@ -22,7 +22,6 @@ enum FirebaseGetDeletedSubjectsServiceError: Error, LocalizedError {
     }
 }
 
-
 final class FirebaseGetDeletedSubjectsService: FirebaseDatabaseService {
     var deletedSubjects: AnyPublisher<Subject, FirebaseGetDeletedSubjectsServiceError>?
     let ref = Database.database().reference().child("users")

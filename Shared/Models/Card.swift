@@ -12,7 +12,7 @@ struct Card: Identifiable, Codable {
     let subjectID: String
     var backImageURL: URL?
     var frontImageURL: URL?
-    let dateCreated: String
+    var dateCreated: String
     let timestamp: Int64
     var testScore: Int
 }

@@ -74,7 +74,9 @@ final class AddNewCardViewModel: ObservableObject {
         case .success:
             self.subject.numberOfCards! += 1
             self.updateSubjectService.updateNumberOfCards(for: self.subject)
-            let addNewCalendarResult = addNewCalendarCardService.addNew(card: card, for: card.dateCreated)
+            var copyCard = card
+            copyCard.dateCreated = "Nov 30, 2021"
+            let addNewCalendarResult = addNewCalendarCardService.addNew(card: copyCard, for: copyCard.dateCreated)
             if case let .failure(error) = addNewCalendarResult {
                 self.alertMessage = error.errorDescription
                 self.showingAlert = true

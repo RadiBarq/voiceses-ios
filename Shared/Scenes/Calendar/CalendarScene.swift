@@ -12,15 +12,14 @@ struct CalendarScene: View {
                 CalendarView(
                     calendar: calendar,
                     date: $viewModel.selectedDate,
+                    datesWithCards: $viewModel.dates,
                     content: { date in
                         Button(action: { viewModel.set(selectedDate: date) }) {
                             Text("00")
                                 .frame(minWidth: geometry.size.width / 9.5, minHeight: geometry.size.height / 9.5)
                                 .foregroundColor(.clear)
                                 .background(
-                                    calendar.isDate(date, inSameDayAs: viewModel.selectedDate) ? Color.accent
-                                    : calendar.isDateInToday(date) ? .green
-                                    : Color.primary
+                                    viewModel.areCardsAddedTo(date: date) ? Color.accent : Color.primary
                                 )
                                 .clipShape(RoundedRectangle(cornerRadius: geometry.size.height / 20, style: .continuous))
                                 .accessibilityHidden(true)
@@ -91,7 +90,7 @@ struct CalendarScene: View {
                         .padding(.bottom, 6)
                     }
                 )
-                    .equatable()
+                .equatable()
             }
             .padding(.leading, 15)
             .padding(.trailing, 15)

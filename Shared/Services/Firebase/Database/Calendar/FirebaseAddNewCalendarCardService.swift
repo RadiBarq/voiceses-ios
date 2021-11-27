@@ -23,15 +23,20 @@ enum FirebaseAddNewCalendarCardServiceError: Error, LocalizedError {
 }
 
 final class FirebaseAddNewCalendarCardService: FirebaseDatabaseService {
-    var ref = Database.database().reference().child("users")
+    var ref = Database
+        .database()
+        .reference()
+        .child("users")
     func addNew(card: Card, for date: String) -> Result<Void, FirebaseAddNewCalendarCardServiceError> {
+        let year = Calendar.current.dateComponents([.year], from: DateFormatter.getDefaultCalanderFormatter().date(from: date)!).year
         guard let userID = FirebaseAuthenticationService.getUserID() else {
             return .failure(.userIsNotAvailable)
         }
-        let currentRef = self.ref.child(userID)
+        let currentRef = self.ref
+            .child(userID)
             .child("calendar-cards")
-            .child("dates")
-            .child(date)
+            .child("years")
+            .child(String(year!))
             .child("cards")
             .child(card.id)
         guard let dictionary = card.getDictionary() else {

@@ -16,9 +16,12 @@ extension Date {
     static var currentTimeStamp: Int64 { return Date().timestamp }
     
     func getCurrentDateAsString() -> String {
-        DateFormatter.getDefaultFormatter().string(from: self)
+        DateFormatter.getDefaultCalanderFormatter().string(from: self)
     }
     
+    func getCalendarDateAsString() -> String {
+        DateFormatter.getDefaultCalanderFormatter().string(from: self)
+    }
     
     func getCurrentDateWithTimeAsString() -> String {
         DateFormatter.getDefaultFormatterWithTime()

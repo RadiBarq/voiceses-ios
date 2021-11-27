@@ -8,7 +8,8 @@
 import SwiftUI
 
 public struct CalendarView<Day: View, Header: View, Title: View, Trailing: View>: View {
-    @Binding private var date: Date
+    @Binding private  var date: Date
+    @Binding private var datesWithCards: [String: [Card]]
     private var calendar: Calendar
     private let content: (Date) -> Day
     private let trailing: (Date) -> Trailing
@@ -16,9 +17,10 @@ public struct CalendarView<Day: View, Header: View, Title: View, Trailing: View>
     private let title: (Date) -> Title
     private let daysInWeek = 7
     
-    public init(
+    init(
         calendar: Calendar,
         date: Binding<Date>,
+        datesWithCards: Binding<[String: [Card]]>,
         @ViewBuilder content: @escaping (Date) -> Day,
         @ViewBuilder trailing: @escaping (Date) -> Trailing,
         @ViewBuilder header: @escaping (Date) -> Header,
@@ -29,6 +31,7 @@ public struct CalendarView<Day: View, Header: View, Title: View, Trailing: View>
             self.trailing = trailing
             self.header = header
             self.title = title
+            self._datesWithCards = datesWithCards
         }
     
     public var body: some View {
@@ -55,7 +58,7 @@ public struct CalendarView<Day: View, Header: View, Title: View, Trailing: View>
 
 extension CalendarView: Equatable {
     public static func == (lhs: CalendarView<Day, Header, Title, Trailing>, rhs: CalendarView<Day, Header, Title, Trailing>) -> Bool {
-        lhs.calendar == rhs.calendar && lhs.date == rhs.date
+        lhs.calendar == rhs.calendar && lhs.date == rhs.date && lhs.datesWithCards == rhs.datesWithCards
     }
 }
 
@@ -101,8 +104,7 @@ private extension Calendar {
     func generateDays(for dateInterval: DateInterval) -> [Date] {
         generateDates(
             for: dateInterval,
-               matching: dateComponents([.hour, .minute, .second], from: dateInterval.start)
-        )
+               matching: dateComponents([.hour, .minute, .second], from: dateInterval.start))
     }
 }
 

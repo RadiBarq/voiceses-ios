@@ -78,7 +78,7 @@ final class SubjectsViewModel: ObservableObject {
                     weakSelf.showingAlert = true
                     return
                 }
-            }, receiveValue: { [weak self] subject in
+            }, receiveValue: { [weak self]  subject in
                 self?.subjects.append(subject)
             })
             .store(in: &subscriptions)

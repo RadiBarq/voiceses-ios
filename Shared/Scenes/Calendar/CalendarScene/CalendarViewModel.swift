@@ -75,6 +75,11 @@ class CalendarViewModel: ObservableObject {
         }
     }
     
+    func getCardsFor(date: Date) -> [Card] {
+        let dateString = date.getCurrentDateAsString()
+        return dates[dateString] ?? []
+    }
+    
     func set(selectedDate: Date) {
         subscriptions = Set<AnyCancellable>()
         let newDateYear = calendar!.component(.year, from: selectedDate)

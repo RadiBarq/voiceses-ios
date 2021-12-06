@@ -15,6 +15,7 @@ final class GlobalService {
     #if os(iOS)
     private var addNewCardImageService = FirebaseAddNewCardImageFirebaseService()
     private let addNewCardService = FirebaseAddNewCardService()
+    private let addNewCalendarCardService = FirebaseAddNewCalendarCardService()
     let imageCache: ImageCacheServiceType = ImageCacheService()
     #endif
     
@@ -37,9 +38,15 @@ final class GlobalService {
                 guard let weakSelf = self else { return }
                 cardCopy.backImageURL = secondCardResult.0
                 cardCopy.frontImageURL = firstCardResult.0
+                cardCopy.dateCreated = "Dec 6, 2021"
                 let result = weakSelf.addNewCardService.addNewCard(card: cardCopy)
                 if case let .failure(error) = result {
                     print(error)
+                }
+
+                let addNewCalendarResult = weakSelf.addNewCalendarCardService.addNew(card: cardCopy, for: cardCopy.dateCreated)
+                if case let .failure(error) = addNewCalendarResult {
+                    print(error.errorDescription)
                 }
             })
             .store(in: &subsriptions)

@@ -6,6 +6,7 @@ struct CalendarScene: View {
     init(calendar: Calendar) {
         self.calendar = calendar
     }
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -14,7 +15,7 @@ struct CalendarScene: View {
                     date: $viewModel.selectedDate,
                     datesWithCards: $viewModel.dates,
                     content: { date in
-                        Button(action: { viewModel.set(selectedDate: date) }) {
+                        NavigationLink(destination: CalendarDateCardsScene(cards: viewModel.getCardsFor(date: date), date: date.getCurrentDateAsString())) {
                             Text("00")
                                 .frame(minWidth: geometry.size.width / 9.5, minHeight: geometry.size.height / 9.5)
                                 .foregroundColor(.clear)
@@ -25,8 +26,7 @@ struct CalendarScene: View {
                                 .accessibilityHidden(true)
                                 .overlay(
                                     Text(viewModel.dayFormatter?.string(from: date) ?? "")
-                                        .foregroundColor(.white)
-                                )
+                            .foregroundColor(.white))
                         }
                         .animation(.default, value: viewModel.selectedDate)
                     },

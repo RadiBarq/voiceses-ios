@@ -73,7 +73,7 @@ struct CardsScene: View {
             ScrollView(showsIndicators: false) {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: geometry.size.width / 2.5), spacing: 16)]) {
                     ForEach(cardsViewModel.cards) { card in
-                        NavigationLink(destination: DisplayCardScene(displayCardViewModel: DisplayCardViewModel(subject: subject, card: card))) {
+                        NavigationLink(destination: DisplayCardScene(displayCardViewModel: DisplayCardViewModel(card: card, subject: subject))) {
                             CardView(card: .constant(card), shouldShowDeleteIcon: .constant(true)) {
                                 cardsViewModel.deleteCard(with: card.id, date: card.dateCreated, for: subject)
                             }

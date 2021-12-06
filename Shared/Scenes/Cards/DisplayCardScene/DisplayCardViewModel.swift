@@ -10,14 +10,19 @@ import SwiftUI
 import Combine
 
 class DisplayCardViewModel: ObservableObject {
+    
     @Published var cardSide: CardSide = .front
+    
     var shadowColor: Color {
-        _shadowColor ?? Color(hex: subject.colorHex)
+        if let shadowColor = _shadowColor { return shadowColor }
+        else if let subject = subject { return Color(hex: subject.colorHex) }
+        else { return Color.primary }
     }
+    
     var card: Card
-    private var subject: Subject
+    private var subject: Subject?
     private var _shadowColor: Color?
-    init(subject: Subject, card: Card, shadowColor: Color? = nil) {
+    init(card: Card, subject: Subject? = nil, shadowColor: Color? = nil) {
         self.subject = subject
         self.card = card
         self._shadowColor = shadowColor

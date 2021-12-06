@@ -39,7 +39,7 @@ final class FirebaseAddNewTestService: FirebaseDatabaseService {
             guard let dictionary = test.getDictionary() else {
                 promise(.failure(.encodingFormatIsNotValid))
                 return
-            }
+             }
             self?.ref
                 .child(userID)
                 .child("subjects-tests")

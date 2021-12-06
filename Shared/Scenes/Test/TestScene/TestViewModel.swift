@@ -40,6 +40,20 @@ class TestViewModel: ObservableObject {
         wrongCards.append(card)
     }
     
+    func addTestResultLocally(isPresented: Binding<Bool>,
+                              showsTestResultScene: Binding<Bool>,
+                              test: Binding<Test?>) {
+        let timestamp = Date.currentTimeStamp
+        let dateCreated = Date().getCurrentDateWithTimeAsString()
+        let testScore = (Double(correctCards.count) / Double(allTestCards.count)) * 100
+        let currentTest = Test(id: nil, subjectID: nil, allCards: allTestCards, correctCards: correctCards, wrongCards: wrongCards, dateCreated: dateCreated, timestamp: timestamp, score: testScore)
+        test.wrappedValue = currentTest
+        isPresented.wrappedValue.toggle()
+        DispatchQueue.main.asyncAfter(deadline: .now() +  0.3) {
+            showsTestResultScene.wrappedValue.toggle()
+        }
+    }
+    
     func addTestResult(subjectID: String,
                        isPresented: Binding<Bool>,
                        showsTestResultScene: Binding<Bool>,

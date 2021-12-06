@@ -9,14 +9,14 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct TestScene: View {
-    var subjectID: String
     @Binding var cards: [Card]
     @Binding var isPresented: Bool
     @Binding var showsTestResultScene: Bool
-    @Binding var testReuslt: Double
+    @Binding var testResult: Double
     @Binding var test: Test?
     @StateObject private var testViewModel = TestViewModel()
     @State private var cancellationConfiratmion = false
+    var subjectID: String?
     var body: some View {
 #if os(iOS)
         NavigationView {
@@ -79,6 +79,10 @@ struct TestScene: View {
                             
                             if testViewModel.testCards.count == 1 {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                    guard let subjectID = subjectID else {
+                                        testViewModel.addTestResultLocally(isPresented: $isPresented, showsTestResultScene: $showsTestResultScene, test: $test)
+                                        return
+                                    }
                                     testViewModel.addTestResult(subjectID: subjectID, isPresented: $isPresented, showsTestResultScene: $showsTestResultScene, test: $test)
                                 }
                             }
@@ -114,9 +118,14 @@ struct TestScene: View {
                             
                             if testViewModel.testCards.count == 1 {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                    testViewModel.addTestResult(subjectID: subjectID, isPresented: $isPresented, showsTestResultScene: $showsTestResultScene,                            
-                                        test: $test)
-                               }
+                                    guard let subjectID = subjectID else {
+                                        testViewModel.addTestResultLocally(isPresented: $isPresented, showsTestResultScene: $showsTestResultScene, test: $test)
+                                        return
+                                    }
+                                    testViewModel.addTestResult(subjectID: subjectID,
+                                                                isPresented: $isPresented, showsTestResultScene: $showsTestResultScene,
+                                                                test: $test)
+                                }
                             }
                         
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {

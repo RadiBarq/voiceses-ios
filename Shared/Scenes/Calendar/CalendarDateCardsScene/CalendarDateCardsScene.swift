@@ -23,6 +23,25 @@ struct CalendarDateCardsScene: View {
             .onAppear {
                 viewModel.setup(cards: cards)
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        viewModel.showingTestScene.toggle()
+                    }, label: {
+                        Text("Start Test")
+                    })
+                        .disabled(cards.isEmpty)
+                }
+            }
+            .sheet(isPresented: $viewModel.showsTestResultScreen) {
+                TestResultScene(subject: nil,
+                                test: viewModel.test!,
+                                isPresented: $viewModel.showsTestResultScreen,
+                                showingTestScene: $viewModel.showingTestScene)
+            }
+            .fullScreenCover(isPresented: $viewModel.showingTestScene) {
+                TestScene(cards: $viewModel.cards, isPresented: $viewModel.showingTestScene, showsTestResultScene: $viewModel.showsTestResultScreen, testResult: $viewModel.testResult, test: $viewModel.test)
+            }
     }
     
     private var content: some View {

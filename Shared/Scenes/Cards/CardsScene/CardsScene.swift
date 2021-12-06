@@ -95,10 +95,8 @@ struct CardsScene: View {
                 SetupTestScene(isPresented: $cardsViewModel.showingSetupTestScene, testCards: $cardsViewModel.testCards, showingTestScene: $cardsViewModel.showingTestScene)
             }
             .fullScreenCover(isPresented: $cardsViewModel.showingTestScene) {
-                TestScene(subjectID: subject.id!,
-                          cards: $cardsViewModel.testCards, isPresented: $cardsViewModel.showingTestScene, showsTestResultScene: $cardsViewModel.showsTestResultScreen,
-                          testReuslt: $cardsViewModel.testResult,
-                          test: $cardsViewModel.test)
+                TestScene(cards: $cardsViewModel.testCards, isPresented: $cardsViewModel.showingTestScene, showsTestResultScene: $cardsViewModel.showsTestResultScreen, testResult: $cardsViewModel.testResult,
+                    test: $cardsViewModel.test, subjectID: subject.id!)
             }
             .sheet(isPresented: $cardsViewModel.showsTestResultScreen) {
                 TestResultScene(subject: subject, test: cardsViewModel.test!, isPresented: $cardsViewModel.showsTestResultScreen, showingTestScene: $cardsViewModel.showingTestScene)

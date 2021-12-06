@@ -8,7 +8,7 @@ import Foundation
 
 struct Test: Identifiable, Codable {
     var id: String?
-    let subjectID: String
+    let subjectID: String?
     let allCards: [Card]
     let correctCards: [Card]?
     let wrongCards: [Card]?

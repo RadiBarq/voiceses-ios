@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TestResultScene: View {
-    let subject: Subject
+    let subject: Subject?
     let test: Test
     @Binding var isPresented: Bool
     @Binding var showingTestScene: Bool
@@ -35,7 +35,7 @@ struct TestResultScene: View {
     private var content: some View {
         GeometryReader { geometry in
             if viewModel.testsArchivesCardPushed {
-                TestsArchiveCardsScene(subject: subject, test: test)
+                TestsArchiveCardsScene(subject: subject!, test: test)
                     .transition(.move(edge: .trailing))
             }
             
@@ -55,10 +55,23 @@ struct TestResultScene: View {
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .foregroundColor(.white)
                         .buttonStyle(.plain)
+                        
+                        if subject != nil {
 #if os(iOS)
-                        NavigationLink(destination: TestsArchiveCardsScene(subject: subject, test: test), tag: 0, selection: $selection) {
+                            NavigationLink(destination: TestsArchiveCardsScene(subject: subject!, test: test), tag: 0, selection: $selection) {
+                                Button("Show Full Details") {
+                                    self.selection = 0
+                                }
+                                .padding()
+                                .frame(width: geometry.size.width / 1.5, height: 40)
+                                .background(Color.accent)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .foregroundColor(.white)
+                                .buttonStyle(.plain)
+                            }
+#else
                             Button("Show Full Details") {
-                                self.selection = 0
+                                viewModel.testsArchivesCardPushed.toggle()
                             }
                             .padding()
                             .frame(width: geometry.size.width / 1.5, height: 40)
@@ -66,18 +79,9 @@ struct TestResultScene: View {
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .foregroundColor(.white)
                             .buttonStyle(.plain)
-                        }
-#else
-                        Button("Show Full Details") {
-                            viewModel.testsArchivesCardPushed.toggle()
-                        }
-                        .padding()
-                        .frame(width: geometry.size.width / 1.5, height: 40)
-                        .background(Color.accent)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .foregroundColor(.white)
-                        .buttonStyle(.plain)
 #endif
+                        }
+
                         Spacer()
                     }
                 }

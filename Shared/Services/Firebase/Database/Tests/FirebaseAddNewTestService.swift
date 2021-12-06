@@ -43,7 +43,7 @@ final class FirebaseAddNewTestService: FirebaseDatabaseService {
             self?.ref
                 .child(userID)
                 .child("subjects-tests")
-                .child(test.subjectID)
+                .child(test.subjectID!)
                 .child("tests")
                 .child(testID!)
                 .setValue(dictionary)

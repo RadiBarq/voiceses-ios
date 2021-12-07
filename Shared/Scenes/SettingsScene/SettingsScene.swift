@@ -8,8 +8,36 @@
 import SwiftUI
 
 struct SettingsScene: View {
+    private let viewModel = SettingsViewModel()
     var body: some View {
-        Text("Hello, World!")
+        Form {
+            Section() {
+                HStack {
+                    Text("Email:")
+                    Text("radibaraq@gmail.com")
+                }
+            }
+            Section() {
+                List(viewModel.listItems, id: \.self) { item in
+                    NavigationLink(destination: {
+                        Text("Item is added here")
+                    }) {
+                        Text(item)
+                    }
+                }
+            }
+            Section() {
+                HStack {
+                    Text("Version:")
+                    Text("1.0.0")
+                }
+                Button("Logout") {
+                    
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 25))
+                .foregroundColor(Color.accent)
+            }
+        }
     }
 }
 

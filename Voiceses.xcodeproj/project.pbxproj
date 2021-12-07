@@ -166,6 +166,8 @@
 		CDDA5066268C98DF0033A97A /* FilterCardsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDA5065268C98DF0033A97A /* FilterCardsScene.swift */; };
 		CDDA5068268C98F70033A97A /* FilterCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDA5067268C98F70033A97A /* FilterCardsViewModel.swift */; };
 		CDDA5069268CAFAF0033A97A /* FilterCardsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDA5065268C98DF0033A97A /* FilterCardsScene.swift */; };
+		CDE4C2B7275FB1730099D491 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE4C2B6275FB1730099D491 /* SettingsViewModel.swift */; };
+		CDE4C2B8275FB1730099D491 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE4C2B6275FB1730099D491 /* SettingsViewModel.swift */; };
 		CDEE1DA7260DDD31005F6D07 /* Colors+Extenison.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DA6260DDD31005F6D07 /* Colors+Extenison.swift */; };
 		CDEE1DA8260DDD31005F6D07 /* Colors+Extenison.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DA6260DDD31005F6D07 /* Colors+Extenison.swift */; };
 		CDEE1DB8260DDE72005F6D07 /* AddNewSubjectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DB7260DDE72005F6D07 /* AddNewSubjectScene.swift */; };
@@ -304,6 +306,7 @@
 		CDD9E05325FE2C0600E3BF53 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CDDA5065268C98DF0033A97A /* FilterCardsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCardsScene.swift; sourceTree = "<group>"; };
 		CDDA5067268C98F70033A97A /* FilterCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCardsViewModel.swift; sourceTree = "<group>"; };
+		CDE4C2B6275FB1730099D491 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		CDEE1DA6260DDD31005F6D07 /* Colors+Extenison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Extenison.swift"; sourceTree = "<group>"; };
 		CDEE1DB7260DDE72005F6D07 /* AddNewSubjectScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSubjectScene.swift; sourceTree = "<group>"; };
 		CDF1C1C62664F228002BF9E4 /* GlobalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalService.swift; sourceTree = "<group>"; };
@@ -491,6 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				CD6078F226107FAC00928B20 /* SettingsScene.swift */,
+				CDE4C2B6275FB1730099D491 /* SettingsViewModel.swift */,
 			);
 			path = SettingsScene;
 			sourceTree = "<group>";
@@ -1229,6 +1233,7 @@
 				CD84F0FE271490EC0062E67B /* FirebaseAddNewCalendarCardService.swift in Sources */,
 				CDC480172752DC9B00B9BED1 /* CalendarDateCardsScene.swift in Sources */,
 				CDD9E03D25FD3D6000E3BF53 /* LoginScene.swift in Sources */,
+				CDE4C2B7275FB1730099D491 /* SettingsViewModel.swift in Sources */,
 				CDDA5066268C98DF0033A97A /* FilterCardsScene.swift in Sources */,
 				CD8F040B264567BC00059C53 /* Card.swift in Sources */,
 				CD5785D926A0717100CFBA6A /* TestIncludedCardsOption.swift in Sources */,
@@ -1360,6 +1365,7 @@
 				CD30669627344A38003FC0E9 /* FirebaseGetAddedCalendarCardsService.swift in Sources */,
 				CD0C6B4026E6A87600E15E5D /* FirebaseGetTestCardsService.swift in Sources */,
 				CD5785DA26A0717100CFBA6A /* TestIncludedCardsOption.swift in Sources */,
+				CDE4C2B8275FB1730099D491 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

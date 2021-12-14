@@ -23,4 +23,13 @@ class SettingsViewModel: ObservableObject {
             alertMessage = "Can't send emails, please make sure you have an email account provided inside Apple mail app."
         }
     }
+    
+    func logout() {
+        do {
+            try FirebaseAuthenticationService.logout()
+        } catch {
+            showingAlert.toggle()
+            alertMessage = "An error happened while logging out, please try again later!"
+        }
+    }
 }

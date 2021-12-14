@@ -22,6 +22,8 @@ final class GlobalService {
     private var deleteCardImageService = FirebaseDeleteCardImageService()
     private var firebaseDeleteSubjectImagesService = FirebaseDeleteSubjectImagesService()
 
+    private init() {}
+    
     #if os(iOS)
     func saveCardImages(frontImage: Data, backImage: Data, card: Card) {
         var cardCopy = card

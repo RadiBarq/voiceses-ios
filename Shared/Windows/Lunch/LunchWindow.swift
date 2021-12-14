@@ -23,6 +23,7 @@ struct LunchWindow: View {
             UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(Color.accent)], for: .selected)
             #endif
         }
+        .animation(.easeInOut, value: lunchWindowViewModel.isUserLoggedin)
     }
 }
 

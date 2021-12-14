@@ -389,8 +389,7 @@
 		CD0BB30B260B254700CD0A03 /* Windows */ = {
 			isa = PBXGroup;
 			children = (
-				CDD9DFD725FD13CD00E3BF53 /* LunchWindow.swift */,
-				CDF24DCC2618BB9100CC866F /* LunchWindowViewModel.swift */,
+				CD4A59F42768DF56008DCE2D /* Lunch */,
 			);
 			path = Windows;
 			sourceTree = "<group>";
@@ -445,6 +444,15 @@
 				CD28F989264FEE3700D87DDC /* CardView.swift */,
 			);
 			path = CardsScene;
+			sourceTree = "<group>";
+		};
+		CD4A59F42768DF56008DCE2D /* Lunch */ = {
+			isa = PBXGroup;
+			children = (
+				CDF24DCC2618BB9100CC866F /* LunchWindowViewModel.swift */,
+				CDD9DFD725FD13CD00E3BF53 /* LunchWindow.swift */,
+			);
+			path = Lunch;
 			sourceTree = "<group>";
 		};
 		CD523BCF26ADCC510072EDCD /* TestScene */ = {
@@ -1542,6 +1550,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Voiceses.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5S7V735958;
@@ -1566,6 +1575,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Voiceses.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5S7V735958;

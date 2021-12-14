@@ -21,8 +21,15 @@ final class FirebaseAuthenticationService {
     }
 
     static func getUserID() -> String? {
-        //return Auth.auth().currentUser!.uid
-       return "7tWnL6JKhAUn4QtuwcNeSrXfiAn2"
+        return Auth.auth().currentUser!.uid
+    }
+    
+    static func getUserEmail() -> String? {
+        return Auth.auth().currentUser?.email
+    }
+    
+    static func logout() throws {
+       try Auth.auth().signOut()
     }
     
     private func startUserStateListener() {

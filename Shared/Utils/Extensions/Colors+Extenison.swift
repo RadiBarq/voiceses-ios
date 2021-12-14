@@ -87,16 +87,3 @@ extension Color {
         )
     }
 }
-
-//#if os(iOS) {
-//    extension Color {
-//        var uiColor: UIColor { .init(self) }
-//    }
-//}
-//#else {
-//    extension Color {
-//        var uiColor: UIColor { .init(self) }
-//    }
-//}
-//
-//#endif

@@ -25,7 +25,7 @@ enum FirebaseAddNewCardServiceError: Error, LocalizedError {
 final class FirebaseAddNewCardService: FirebaseDatabaseService {
     var ref = Database.database().reference().child("users")
     func addNewCard(card: Card) -> Result<Void, FirebaseAddNewCardServiceError> {
-        guard let userID = FirebaseAuthenticationService.getUserID() else {
+        guard let userID = FirebaseAuthenticationService.shared.getUserID() else {
             return .failure(.userIsNotAvailable)
         }
         let currentRef = self.ref.child(userID)

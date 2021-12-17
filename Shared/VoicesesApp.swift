@@ -12,6 +12,7 @@ import Firebase
 struct VoicesesApp: App {
     init() {
         FirebaseApp.configure()
+        FirebaseAuthenticationService.shared.startUpdatingUserState()
     }
     
     var body: some Scene {

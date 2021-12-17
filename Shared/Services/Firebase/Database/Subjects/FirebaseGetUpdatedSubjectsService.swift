@@ -38,7 +38,7 @@ final class FirebaseGetUpdatedSubjectsService: FirebaseDatabaseService {
         updatedSubjects = updatedSubjectsSubject
             .handleEvents(receiveSubscription: { [weak self] _ in
                 guard let weakSelf = self else { return }
-                guard let userID = FirebaseAuthenticationService.getUserID() else {
+                guard let userID = FirebaseAuthenticationService.shared.getUserID() else {
                     weakSelf.updatedSubjectsSubject.send(completion: .failure(.userIsNotAvailable))
                     return
                 }

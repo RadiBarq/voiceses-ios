@@ -26,7 +26,7 @@ final class FirebaseGetTestCardsService: FirebaseDatabaseService {
     let ref: DatabaseReference = Database.database().reference().child("users")
     func getCards(for subjectID: String, with testID: String, filterBY testsArchiveCardsFilter: TestsArchiveCardsFilter) -> AnyPublisher<[Card], FirebaseGetTestCardsServiceError> {
         return Future { [weak self] promise in
-            guard let userID = FirebaseAuthenticationService.getUserID() else {
+            guard let userID = FirebaseAuthenticationService.shared.getUserID() else {
                 promise(.failure(.userIsNotAvailable))
                 return
             }

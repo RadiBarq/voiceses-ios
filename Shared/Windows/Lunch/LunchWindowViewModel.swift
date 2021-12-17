@@ -10,16 +10,15 @@ import SwiftUI
 import Combine
 
 final class LunchWindowViewModel: ObservableObject {
-    @Published var isUserLoggedin = true
+    @Published var isUserLoggedin: Bool? = nil
     private var subscriptions = Set<AnyCancellable>()
-    private var authenticationService = FirebaseAuthenticationService()
 
     init() {
         startListenToAuthenticationService()
     }
     
     private func startListenToAuthenticationService() {
-       authenticationService
+        FirebaseAuthenticationService.shared
             .isUserLoggedinPublisher
             .assign(to: \.isUserLoggedin, on: self)
             .store(in: &subscriptions)

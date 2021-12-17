@@ -30,7 +30,7 @@ final class FirebaseAddNewCardImageFirebaseService: FirebaseStorageService {
     func uploadImage(with data: Data, subjectID: String, cardID: String, imageName: String) -> AnyPublisher<(URL, String), FirebaseAddNewCardImageFirebaseServiceError> {
         return Future<(URL, String), FirebaseAddNewCardImageFirebaseServiceError> { [weak self] promise in
             guard let weakSelf = self else { return }
-            guard let userID = FirebaseAuthenticationService.getUserID() else {
+            guard let userID = FirebaseAuthenticationService.shared.getUserID() else {
                 promise(.failure(.userIsNotAvailable))
                 return
             }

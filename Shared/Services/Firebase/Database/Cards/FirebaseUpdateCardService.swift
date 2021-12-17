@@ -11,7 +11,7 @@ import Firebase
 final class FirebaseUpdateCardService: FirebaseDatabaseService {
     var ref = Database.database().reference().child("users")
     func updateTestScore(for card: Card) {
-        guard let userID = FirebaseAuthenticationService.getUserID() else { return }
+        guard let userID = FirebaseAuthenticationService.shared.getUserID() else { return }
         ref.child(userID)
             .child("subjects-cards")
             .child(card.subjectID)

@@ -11,7 +11,7 @@ import Firebase
 final class FirebaseDeleteCalendarCardService: FirebaseDatabaseService {
     let ref = Database.database().reference().child("users")
     func deleteCard(with id: String, for date: String) {
-        guard let userID = FirebaseAuthenticationService.getUserID() else { return }
+        guard let userID = FirebaseAuthenticationService.shared.getUserID() else { return }
         let year = Calendar.current.dateComponents([.year], from: DateFormatter.getDefaultCalanderFormatter().date(from: date)!).year
         ref.child(userID)
             .child("calendar-cards")

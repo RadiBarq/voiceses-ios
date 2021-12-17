@@ -29,7 +29,7 @@ final class FirebaseAddNewCalendarCardService: FirebaseDatabaseService {
         .child("users")
     func addNew(card: Card, for date: String) -> Result<Void, FirebaseAddNewCalendarCardServiceError> {
         let year = Calendar.current.dateComponents([.year], from: DateFormatter.getDefaultCalanderFormatter().date(from: date)!).year
-        guard let userID = FirebaseAuthenticationService.getUserID() else {
+        guard let userID = FirebaseAuthenticationService.shared.getUserID() else {
             return .failure(.userIsNotAvailable)
         }
         let currentRef = self.ref

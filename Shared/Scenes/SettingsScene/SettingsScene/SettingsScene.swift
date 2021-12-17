@@ -16,7 +16,7 @@ struct SettingsScene: View {
                 HStack {
                     Text("Email:")
                         .foregroundColor(Color.accent)
-                    Text(FirebaseAuthenticationService.getUserEmail() ?? "")
+                    Text(FirebaseAuthenticationService.shared.getUserEmail() ?? "")
                 }
             }
             

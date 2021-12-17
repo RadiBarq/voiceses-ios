@@ -12,16 +12,20 @@ struct LunchWindow: View {
     @StateObject private var lunchWindowViewModel = LunchWindowViewModel()
     var body: some View {
         Group {
-            if lunchWindowViewModel.isUserLoggedin {
-                HomeScene()
+            if let isUserLoggedin = lunchWindowViewModel.isUserLoggedin {
+                if isUserLoggedin {
+                    HomeScene()
+                } else {
+                    LoginScene()
+                }
             } else {
-                LoginScene()
+                EmptyView()
             }
         }
         .onAppear {
-            #if os(iOS)
+#if os(iOS)
             UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(Color.accent)], for: .selected)
-            #endif
+#endif
         }
         .animation(.easeInOut, value: lunchWindowViewModel.isUserLoggedin)
     }

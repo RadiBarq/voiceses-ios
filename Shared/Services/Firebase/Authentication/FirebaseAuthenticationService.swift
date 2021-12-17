@@ -10,29 +10,31 @@ import Firebase
 import Combine
 
 final class FirebaseAuthenticationService {
-    var isUserLoggedinPublisher: AnyPublisher<Bool, Never> {
+    
+    static var shared = FirebaseAuthenticationService()
+    
+    var isUserLoggedinPublisher: AnyPublisher<Bool?, Never> {
         isUserLoggedInSubject.eraseToAnyPublisher()
     }
 
-    private var isUserLoggedInSubject = CurrentValueSubject<Bool, Never>(false)
+    private var isUserLoggedInSubject = CurrentValueSubject<Bool?, Never>(nil)
     
-    init() {
-        startUserStateListener()
+    private init() {
     }
 
-    static func getUserID() -> String? {
+    func getUserID() -> String? {
         return Auth.auth().currentUser!.uid
     }
     
-    static func getUserEmail() -> String? {
+    func getUserEmail() -> String? {
         return Auth.auth().currentUser?.email
     }
     
-    static func logout() throws {
+    func logout() throws {
        try Auth.auth().signOut()
     }
     
-    private func startUserStateListener() {
+    func startUpdatingUserState() {
         Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
             self?.isUserLoggedInSubject.send(user != nil)
         }

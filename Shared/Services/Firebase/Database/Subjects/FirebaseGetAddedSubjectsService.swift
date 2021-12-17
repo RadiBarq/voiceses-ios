@@ -38,7 +38,7 @@ final class FirebaseGetAddedSubjectsService: FirebaseDatabaseService {
         var subjectsRef: DatabaseReference?
         subjects = subjectsSubject.handleEvents(receiveSubscription: { [weak self] _ in
             guard let weakSelf = self else { return }
-            guard let userID = FirebaseAuthenticationService.getUserID() else {
+            guard let userID = FirebaseAuthenticationService.shared.getUserID() else {
                 weakSelf.subjectsSubject.send(completion: .failure(.userIsNotAvailable))
                 return
             }

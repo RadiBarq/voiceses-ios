@@ -26,7 +26,7 @@ final class FirebaseGetTestsForASubjectService: FirebaseDatabaseService {
     let ref: DatabaseReference = Database.database().reference().child("users")
     func getTests(for subjectID: String) -> AnyPublisher<[Test], FirebaseGetTestsForASubjectServiceError> {
         return Future { [weak self] promise in
-            guard let userID = FirebaseAuthenticationService.getUserID() else {
+            guard let userID = FirebaseAuthenticationService.shared.getUserID() else {
                 promise(.failure(.userIsNotAvailable))
                 return
             }

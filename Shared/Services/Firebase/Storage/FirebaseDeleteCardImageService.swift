@@ -27,7 +27,7 @@ final class FirebaseDeleteCardImageService: FirebaseStorageService {
     func deleteImage(with id: String, cardID: String, subjectID: String) -> AnyPublisher<Void, FirebaseDeleteACardServiceError> {
         return Future { [weak self] promise in
             guard let weakSelf = self else { return }
-            guard let userID = FirebaseAuthenticationService.getUserID() else {
+            guard let userID = FirebaseAuthenticationService.shared.getUserID() else {
                 promise(.failure(.userIsNotAvailable))
                 return
             }

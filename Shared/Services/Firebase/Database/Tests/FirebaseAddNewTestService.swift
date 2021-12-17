@@ -26,7 +26,7 @@ final class FirebaseAddNewTestService: FirebaseDatabaseService {
     var ref = Database.database().reference().child("users")
     func addNewTest(test: Test) -> AnyPublisher<Void, FirebaseAddNewTestServiceError> {
         return Future { [weak self] promise in
-            guard let userID = FirebaseAuthenticationService.getUserID() else {
+            guard let userID = FirebaseAuthenticationService.shared.getUserID() else {
                 promise(.failure(.userIsNotAvailable))
                 return
             }

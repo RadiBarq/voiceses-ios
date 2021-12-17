@@ -38,7 +38,7 @@ final class FirebaseGetDeletedCalendarCardsService: FirebaseDatabaseService {
         deletedCards = deletedCardsSubject
             .handleEvents(receiveSubscription: { [weak self] _ in
                 guard let weakSelf = self else { return }
-                guard let userID = FirebaseAuthenticationService.getUserID() else {
+                guard let userID = FirebaseAuthenticationService.shared.getUserID() else {
                     weakSelf.deletedCardsSubject.send(completion: .failure(.userIsNotAvailable))
                     return
                 }

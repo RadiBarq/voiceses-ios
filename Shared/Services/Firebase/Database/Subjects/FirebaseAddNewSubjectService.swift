@@ -26,7 +26,7 @@ class FirebaseAddNewSubjectService: FirebaseDatabaseService {
     let ref = Database.database().reference().child("users")
     func addNewSubject(subject: Subject) -> AnyPublisher<Void, FirebaseAddNewSubjectServiceError> {
         return Future { [weak self] promise in
-            guard let userID = FirebaseAuthenticationService.getUserID() else {
+            guard let userID = FirebaseAuthenticationService.shared.getUserID() else {
                 promise(.failure(.userIsNotAvailable))
                 return
             }

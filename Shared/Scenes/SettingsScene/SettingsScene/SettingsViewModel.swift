@@ -26,7 +26,7 @@ class SettingsViewModel: ObservableObject {
     
     func logout() {
         do {
-            try FirebaseAuthenticationService.logout()
+            try FirebaseAuthenticationService.shared.logout()
         } catch {
             showingAlert.toggle()
             alertMessage = "An error happened while logging out, please try again later!"

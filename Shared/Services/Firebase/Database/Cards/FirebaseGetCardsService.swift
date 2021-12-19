@@ -69,6 +69,9 @@ final class FirebaseGetCardsService: FirebaseDatabaseService {
                       cardsSubject.send(completion: .failure(.decodingFormatIsNotValid))
                       return
                   }
+            guard card.backImageURL != nil && card.frontImageURL != nil else {
+                continue
+            }
             cards.append(card)
         }
         cardsSubject.send(cards)

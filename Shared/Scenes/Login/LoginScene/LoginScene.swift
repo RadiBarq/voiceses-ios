@@ -32,7 +32,7 @@ struct LoginScene: View {
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
                     .padding()
-                Text("Keep your school records simply organized")
+                Text("Keep your flashcards simply organized")
                     .font(.title3)
                     .foregroundColor(.black)
                     .multilineTextAlignment(.center)

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CalendarDateCardsScene: View {
     @StateObject private var viewModel = CalendarDateCardsViewModel()
+    @Environment(\.colorScheme) private var colorScheme
     
 #if os(iOS)
     @Environment(\.horizontalSizeClass) private var horizontalClass
@@ -53,7 +54,7 @@ struct CalendarDateCardsScene: View {
                             CardView(card: .constant(card),
                                      shouldShowDeleteIcon: .constant(false)) {
                             }
-                                     .shadow(color: Color.primary, radius: 20, x: 0, y: 10)
+                                     .shadow(color: colorScheme == .light ? Color.primary : .clear, radius: 20, x: 0, y: 10)
                                      .frame(minWidth: geometry.size.width / 2.3, minHeight: geometry.size.height / 2.3)
                                      .padding()
                         }

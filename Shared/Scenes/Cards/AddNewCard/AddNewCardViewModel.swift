@@ -18,15 +18,16 @@ final class AddNewCardViewModel: ObservableObject {
     @Published var alertMessage: String = ""
     @Published var showingCloseConfirmationAlert = false
     var parentColor: Color {
-        Color(hex: subject.colorHex)
+        guard let subject = subject else { return .white }
+        return Color(hex: subject.colorHex)
     }
     
-    private var subject: Subject
+    @Published var subject: Subject?
     private let addNewCardService = FirebaseAddNewCardService()
     private let updateSubjectService = FirebaseUpdateSubjectService()
     private var subscriptions: Set<AnyCancellable> = []
     
-    init(subject: Subject) {
+    func setup(subject: Subject) {
         self.subject = subject
     }
     
@@ -41,12 +42,12 @@ final class AddNewCardViewModel: ObservableObject {
         let frontCanvasImage = frontCanvas.drawing.image(from: imageRect, scale: 1)
         let backCanvasImage = backCanvas.drawing.image(from: imageRect, scale: 1)
         let cardID = Database.database().reference().child("users").child("subjects-cards")
-            .child(subject.id!)
+            .child(subject!.id!)
             .child("cards")
             .childByAutoId().key!
         let timestamp = Date.currentTimeStamp
         let date = Date().getCurrentDateAsString()
-        let card = Card(id: cardID, subjectID: subject.id!, backImageURL: nil, frontImageURL: nil, dateCreated: date, timestamp: timestamp, testScore: 0)
+        let card = Card(id: cardID, subjectID: subject!.id!, backImageURL: nil, frontImageURL: nil, dateCreated: date, timestamp: timestamp, testScore: 0)
         GlobalService.shared.imageCache.insert(frontCanvasImage, for: "-front" + cardID)
         GlobalService.shared.imageCache.insert(backCanvasImage, for: "-back" + cardID)
         GlobalService.shared.saveCardImages(frontImage: frontCanvasImage.pngData()!, backImage: backCanvasImage.pngData()!, card: card)
@@ -71,8 +72,8 @@ final class AddNewCardViewModel: ObservableObject {
             self.alertMessage = error.errorDescription
             self.showingAlert = true
         case .success:
-            self.subject.numberOfCards! += 1
-            self.updateSubjectService.updateNumberOfCards(for: self.subject)
+            self.subject!.numberOfCards! += 1
+            self.updateSubjectService.updateNumberOfCards(for: self.subject!)
         }
     }
     

@@ -38,6 +38,10 @@ struct DisplayCardScene: View {
                     displayCardViewModel.cardSide.toggle()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                         imageURL = displayCardViewModel.cardSide == .back ? displayCardViewModel.card.backImageURL : displayCardViewModel.card.frontImageURL
+                        #if os(iOS)
+                        let cardSideName = "-\(displayCardViewModel.cardSide)"
+                        cachedImage = GlobalService.shared.imageCache.image(for: cardSideName + displayCardViewModel.card.id)
+                        #endif
                     }
                 }, label: {
                     Text("Switch side")
@@ -56,6 +60,10 @@ struct DisplayCardScene: View {
         .padding()
         .onAppear {
             imageURL = displayCardViewModel.cardSide == .front ? displayCardViewModel.card.frontImageURL : displayCardViewModel.card.backImageURL
+            
+#if os(iOS)
+            cachedImage = GlobalService.shared.imageCache.image(for: "-front" + displayCardViewModel.card.id)
+#endif
         }
     }
     
@@ -66,14 +74,17 @@ struct DisplayCardScene: View {
             AnimatedImage(url: imageURL)
                 .indicator(SDWebImageActivityIndicator.gray)
                 .resizable()
+                .scaledToFit()
         } else {
             Image(uiImage: cachedImage ?? UIImage())
                 .resizable()
+                .scaledToFit()
         }
 #else
         AnimatedImage(url: imageURL)
             .indicator(SDWebImageActivityIndicator.gray)
             .resizable()
+            .scaledToFit()
 #endif
     }
 }

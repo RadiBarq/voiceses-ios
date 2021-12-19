@@ -44,7 +44,7 @@ struct CardsScene: View {
             .navigationTitle(subject.title)
             .fullScreenCover(isPresented: $cardsViewModel.showingAddNewCardScene) {
                 NavigationView {
-                    AddNewCardScene(isPresented: $cardsViewModel.showingAddNewCardScene, addNewCardViewModel: AddNewCardViewModel(subject: subject))
+                    AddNewCardScene(isPresented: $cardsViewModel.showingAddNewCardScene, subject: subject)
                 }
             }
 #else

@@ -10,10 +10,12 @@ import PencilKit
 
 struct AddNewCardScene: View {
     @Binding var isPresented: Bool
+    var subject: Subject
     var frontCanvas = PKCanvasView()
     var backCanvas = PKCanvasView()
-    @ObservedObject var addNewCardViewModel: AddNewCardViewModel
-    @Environment(\.colorScheme) private var colorScheme
+    @StateObject var addNewCardViewModel = AddNewCardViewModel()
+    @Environment(\.colorScheme) var colorScheme
+
     var body: some View {
         VStack {
             Group {
@@ -55,7 +57,6 @@ struct AddNewCardScene: View {
                 }, label: {
                     Text("Switch side")
                 })
-                
             }
         }
         .navigationTitle("\(addNewCardViewModel.cardSide.rawValue.capitalized) side")
@@ -78,12 +79,9 @@ struct AddNewCardScene: View {
                 isPresented.toggle()
             }))
         }
-    }
-}
-
-struct AddNewCardScene_Previews: PreviewProvider {
-    @State static var isPresented = false
-    static var previews: some View {
-        AddNewCardScene(isPresented: $isPresented, addNewCardViewModel: AddNewCardViewModel(subject: testSubjects[0]))
+        .onAppear {
+            addNewCardViewModel.setup(subject: subject)
+        }
+        .animation(.default, value: addNewCardViewModel.subject)
     }
 }

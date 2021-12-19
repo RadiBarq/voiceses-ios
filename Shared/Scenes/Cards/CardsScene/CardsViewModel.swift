@@ -76,14 +76,21 @@ final class CardsViewModel: ObservableObject {
         getCardsService
             .cards?
             .replaceError(with: [])
-            .map { [weak self] in
+            .map { [weak self] cards -> [Card] in
                 guard let weakSelf = self else { return [] }
                 if weakSelf.isFilterApplied {
                     let (startDate, endDate) = weakSelf.getFirstAndEndTimestamps()
-                    return $0.filter { $0.timestamp >= startDate && $0.timestamp <= endDate }
+                    return cards.filter { $0.timestamp >= startDate && $0.timestamp <= endDate }
                 } else {
-                    return $0
+                    return cards
                 }
+            }
+            .map { [weak self] cards -> [Card] in
+                guard let weakSelf = self else { return [] }
+                if weakSelf.sortOptions == .descend {
+                    return cards.reversed()
+                }
+                return cards
             }
             .assign(to: \.cards, on: self)
             .store(in: &subscriptions)

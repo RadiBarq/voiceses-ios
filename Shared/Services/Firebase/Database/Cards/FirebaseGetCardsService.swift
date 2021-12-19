@@ -69,7 +69,9 @@ final class FirebaseGetCardsService: FirebaseDatabaseService {
                       cardsSubject.send(completion: .failure(.decodingFormatIsNotValid))
                       return
                   }
-            guard card.backImageURL != nil && card.frontImageURL != nil else {
+            let frontImage = GlobalService.shared.imageCache.image(for: "-front" + card.id)
+            let backImage = GlobalService.shared.imageCache.image(for: "-back" + card.id)
+            guard (card.backImageURL != nil && card.frontImageURL != nil) || (backImage != nil && frontImage != nil) else {
                 continue
             }
             cards.append(card)

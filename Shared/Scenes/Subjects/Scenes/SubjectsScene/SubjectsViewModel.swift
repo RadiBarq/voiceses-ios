@@ -79,7 +79,13 @@ final class SubjectsViewModel: ObservableObject {
                     return
                 }
             }, receiveValue: { [weak self]  subject in
-                self?.subjects.append(subject)
+                guard let weakSelf = self else { return }
+                switch weakSelf.sortOptions {
+                case .ascend:
+                    self?.subjects.append(subject)
+                case .descend:
+                    self?.subjects.insert(subject, at: 0)
+                }
             })
             .store(in: &subscriptions)
     }

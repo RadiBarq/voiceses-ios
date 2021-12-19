@@ -74,11 +74,11 @@ struct DisplayCardScene: View {
             AnimatedImage(url: imageURL)
                 .indicator(SDWebImageActivityIndicator.gray)
                 .resizable()
-                .scaledToFit()
+                //.scaledToFit()
         } else {
             Image(uiImage: cachedImage ?? UIImage())
                 .resizable()
-                .scaledToFit()
+               // .scaledToFit()
         }
 #else
         AnimatedImage(url: imageURL)

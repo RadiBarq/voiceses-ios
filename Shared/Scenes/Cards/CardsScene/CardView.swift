@@ -82,11 +82,9 @@ struct CardView: View {
             AnimatedImage(url: imageURL)
                 .indicator(SDWebImageActivityIndicator.gray)
                 .resizable()
-                .scaledToFit()
         } else {
             Image(uiImage: cachedImage ?? UIImage())
                 .resizable()
-                .scaledToFit()
         }
 #else
         AnimatedImage(url: imageURL)

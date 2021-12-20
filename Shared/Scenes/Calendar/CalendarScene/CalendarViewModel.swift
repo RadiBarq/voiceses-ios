@@ -10,7 +10,7 @@ import Combine
 import SwiftUI
 
 class CalendarViewModel: ObservableObject {
-    let minYear = 2020
+    let minYear = 2021
     @Published var selectedDate = Date.now {
         didSet {
             selectedYear = calendar!.component(.year, from: selectedDate)

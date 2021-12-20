@@ -24,20 +24,21 @@ struct CardView: View {
             if cardSide == .back {
                 Spacer()
             }
+            
             HStack {
                 if shouldShowDeleteIcon {
                     Button(action: {
                         deleteAction()
                     }) {
                         Image(systemName: "trash.circle.fill")
-                            .font(.title2)
+                            .font(.title)
                             .foregroundColor(.black)
                             .rotation3DEffect(cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
                     }
                     .buttonStyle(.plain)
                 }
                 Spacer()
-                Button(action:  {
+                Button(action: {
                     cardSide.toggle()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                         imageURL = cardSide == .back ? card.backImageURL : card.frontImageURL
@@ -48,7 +49,7 @@ struct CardView: View {
                     }
                 }) {
                     Image(systemName: "rotate.right.fill")
-                        .font(.title2)
+                        .font(.title)
                         .foregroundColor(.black)
                         .rotation3DEffect(cardSide == .front ? .degrees(0): .degrees(-180), axis: (x: 1, y: 0, z: 0))
                 }
@@ -90,7 +91,6 @@ struct CardView: View {
         AnimatedImage(url: imageURL)
             .indicator(SDWebImageActivityIndicator.gray)
             .resizable()
-            .scaledToFit()
 #endif
     }
 }

@@ -38,7 +38,7 @@ final class GlobalService {
                 guard let weakSelf = self else { return }
                 cardCopy.backImageURL = secondCardResult.0
                 cardCopy.frontImageURL = firstCardResult.0
-                cardCopy.dateCreated = "Dec 6, 2021"
+                cardCopy.dateCreated = "Dec 6, 2020"
                 let result = weakSelf.addNewCardService.addNewCard(card: cardCopy)
                 if case let .failure(error) = result {
                     print(error)

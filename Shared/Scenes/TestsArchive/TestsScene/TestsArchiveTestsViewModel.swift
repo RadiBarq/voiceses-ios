@@ -49,7 +49,6 @@ class TestsArchiveTestsViewModel: ObservableObject {
             .store(in: &subscriptions)
         
         getTestsShared
-            .print("Test publisher")
             .handleEvents(receiveOutput: { [weak self] _ in
                 self?.showsLoadingIndicator = false
             }, receiveCompletion: { [weak self] _ in

@@ -116,7 +116,7 @@ struct CardsScene: View {
                     }, label: {
                         Image(systemName: self.cardsViewModel.sortOptions == .ascend ? "arrow.up.arrow.down.circle" : "arrow.up.arrow.down.circle.fill")
                     })
-                        .disabled(cardsViewModel.allCards.isEmpty)
+                        .disabled(cardsViewModel.cards.count <= 1)
                 }
             }
         }
@@ -191,7 +191,7 @@ struct CardsScene: View {
                     }, label: {
                         Image(systemName: cardsViewModel.sortOptions == .ascend ? "arrow.up.arrow.down.circle" : "arrow.up.arrow.down.circle.fill")
                     })
-                        .disabled(cardsViewModel.allCards.isEmpty)
+                        .disabled(cardsViewModel.cards.count <= 1)
                 } else {
                     EmptyView()
                 }

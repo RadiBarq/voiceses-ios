@@ -49,7 +49,7 @@ struct TestsArchiveTestsScene: View {
                 }, label: {
                     Text("Filter")
                 })
-                    .disabled(viewModel.tests.isEmpty)
+                    .disabled(viewModel.allTests.isEmpty)
             }
             ToolbarItem(placement: .automatic) {
                 Button(action: {
@@ -57,7 +57,7 @@ struct TestsArchiveTestsScene: View {
                 }, label: {
                     Image(systemName: self.viewModel.sortOptions == .ascend ? "arrow.up.arrow.down.circle" : "arrow.up.arrow.down.circle.fill")
                 })
-                    .disabled(viewModel.tests.isEmpty)
+                    .disabled(viewModel.tests.count <= 1)
             }
         }
         .animation(.default, value: self.viewModel.sortOptions)

@@ -90,7 +90,7 @@ struct TestsArchiveFilterTestsScene: View {
 fileprivate extension TestsArchiveFilterTestsScene {
     private func applyFilter() {
         if viewModel.isSelectedDateValid(from: startDate, to: endDate) {
-            isFilterApplied.toggle()
+            isFilterApplied = true
             isPresented.toggle()
         } else {
             viewModel.showInvalidSelectedDateMessage()

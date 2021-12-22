@@ -11,8 +11,8 @@ import PencilKit
 struct AddNewCardScene: View {
     @Binding var isPresented: Bool
     var subject: Subject
-    var frontCanvas = PKCanvasView()
-    var backCanvas = PKCanvasView()
+    @State private var frontCanvas = PKCanvasView()
+    @State private var backCanvas = PKCanvasView()
     @StateObject var addNewCardViewModel = AddNewCardViewModel()
     @Environment(\.colorScheme) var colorScheme
 
@@ -20,9 +20,9 @@ struct AddNewCardScene: View {
         VStack {
             Group {
                 if addNewCardViewModel.cardSide == .front {
-                    DrawingCanvas(canvasView: frontCanvas)
+                    DrawingCanvas(canvasView: $frontCanvas)
                 } else {
-                    DrawingCanvas(canvasView: backCanvas)
+                    DrawingCanvas(canvasView: $backCanvas)
                 }
             }
         }
@@ -48,7 +48,7 @@ struct AddNewCardScene: View {
                 Button(action: {
                     addNewCardViewModel.saveCard(frontCanvas: frontCanvas, backCanvas: backCanvas, isPresented: $isPresented)
                 }, label: {
-                    Text("Save")
+                    Text("Save") 
                 })
             }
             ToolbarItem(placement: .automatic) {

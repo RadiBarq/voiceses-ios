@@ -71,6 +71,7 @@ class TestsArchiveTestsViewModel: ObservableObject {
         let testsIDsToDelete = offsets.map { tests[$0].id }
         for testID in testsIDsToDelete {
             deleteATestForASubjectService.delete(at: testID!, for: subjectID)
+            allTests.removeAll { $0.id == testID }
         }
         tests.remove(atOffsets: offsets)
     }

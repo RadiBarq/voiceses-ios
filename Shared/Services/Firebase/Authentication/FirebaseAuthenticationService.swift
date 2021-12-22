@@ -16,14 +16,14 @@ final class FirebaseAuthenticationService {
     var isUserLoggedinPublisher: AnyPublisher<Bool?, Never> {
         isUserLoggedInSubject.eraseToAnyPublisher()
     }
-
+    
     private var isUserLoggedInSubject = CurrentValueSubject<Bool?, Never>(nil)
     
     private init() {
     }
-
+    
     func getUserID() -> String? {
-        return Auth.auth().currentUser!.uid
+        return Auth.auth().currentUser?.uid
     }
     
     func getUserEmail() -> String? {
@@ -31,10 +31,11 @@ final class FirebaseAuthenticationService {
     }
     
     func logout() throws {
-       try Auth.auth().signOut()
+        try Auth.auth().signOut()
     }
     
     func startUpdatingUserState() {
+        self.isUserLoggedInSubject.send(true)
         Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
             self?.isUserLoggedInSubject.send(user != nil)
         }

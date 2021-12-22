@@ -11,10 +11,10 @@ import SwiftUI
 fileprivate let randomColors: [Color] = [
     Color(#colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)),
     Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)),
-    Color(#colorLiteral(red: 0, green: 0.5217629075, blue: 1, alpha: 1)),
+    Color(#colorLiteral(red: 0, green: 0.5215686275, blue: 1, alpha: 1)),
     Color(#colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)),
     Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)),
-    Color(#colorLiteral(red: 0.4500938654, green: 0.9813225865, blue: 0.4743030667, alpha: 1)),
+    Color(#colorLiteral(red: 0.4509803922, green: 0.9803921569, blue: 0.4745098039, alpha: 1)),
     Color(#colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1)),
     Color(#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)),
     Color(#colorLiteral(red: 0.6196078431, green: 0.4196078431, blue: 0.5764705882, alpha: 1)),

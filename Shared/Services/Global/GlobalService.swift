@@ -38,7 +38,7 @@ final class GlobalService {
                 guard let weakSelf = self else { return }
                 cardCopy.backImageURL = secondCardResult.0
                 cardCopy.frontImageURL = firstCardResult.0
-                cardCopy.dateCreated = "Dec 6, 2020"
+                cardCopy.dateCreated = Date.now.getCurrentDateAsString()
                 let result = weakSelf.addNewCardService.addNewCard(card: cardCopy)
                 if case let .failure(error) = result {
                     print(error)
@@ -56,7 +56,6 @@ final class GlobalService {
     func deleteCardImages(with cardID: String, subjectID: String) {
         let deleteFrontImagePublisher = deleteCardImageService.deleteImage(with: "frontImage.png", cardID: cardID, subjectID: subjectID)
         let deleteBackImagePublihser = deleteCardImageService.deleteImage(with: "backImage.png", cardID: cardID, subjectID: subjectID)
-        
         deleteFrontImagePublisher
             .combineLatest(deleteBackImagePublihser)
             .sink(receiveCompletion: { completion in

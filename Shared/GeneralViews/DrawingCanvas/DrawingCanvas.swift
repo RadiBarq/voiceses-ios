@@ -9,7 +9,7 @@ import SwiftUI
 import PencilKit
 
 struct DrawingCanvas: UIViewRepresentable {
-    var canvasView: PKCanvasView
+    @Binding var canvasView: PKCanvasView
     static var picker = PKToolPicker()
     
     func makeUIView(context: Context) -> PKCanvasView {

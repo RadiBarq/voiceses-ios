@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct VoicesesApp: App {
+    init() {
+        FirebaseApp.configure()
+        FirebaseAuthenticationService.shared.startUpdatingUserState()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LunchWindow()
         }
     }
 }

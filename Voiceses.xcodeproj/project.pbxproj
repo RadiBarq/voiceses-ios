@@ -3,18 +3,193 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A9869C7B3C8F5AF88B9F8D2 /* Pods_Voiceses__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A73E14C250082A6482EC8E87 /* Pods_Voiceses__iOS_.framework */; };
+		B7B11286030D6ECFA15E6B17 /* Pods_Voiceses__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40106E9917A7D79C82DB5B3E /* Pods_Voiceses__macOS_.framework */; };
+		CD00F70E267A0CB500475016 /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8F03D5264550E600059C53 /* FirebaseStorageService.swift */; };
+		CD00F714267A685A00475016 /* MacOSCustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F713267A685A00475016 /* MacOSCustomTextView.swift */; };
+		CD00F717267A6A1000475016 /* DisplayCardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F716267A6A1000475016 /* DisplayCardScene.swift */; };
+		CD00F718267A6A1000475016 /* DisplayCardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F716267A6A1000475016 /* DisplayCardScene.swift */; };
+		CD00F71A267A703D00475016 /* DisplayCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F719267A703D00475016 /* DisplayCardViewModel.swift */; };
+		CD00F71B267A703D00475016 /* DisplayCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00F719267A703D00475016 /* DisplayCardViewModel.swift */; };
+		CD048D7C26E6AA3C000F8382 /* TestsArchiveCardsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD048D7B26E6AA3C000F8382 /* TestsArchiveCardsFilter.swift */; };
+		CD048D7D26E6AA3C000F8382 /* TestsArchiveCardsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD048D7B26E6AA3C000F8382 /* TestsArchiveCardsFilter.swift */; };
+		CD07A2BA268E249000312E15 /* FilterOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07A2B9268E249000312E15 /* FilterOptions.swift */; };
+		CD07A2BC268E24AF00312E15 /* SortOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07A2BB268E24AF00312E15 /* SortOptions.swift */; };
+		CD0BB30E260B259200CD0A03 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0BB30D260B259200CD0A03 /* SubjectView.swift */; };
+		CD0BB30F260B259200CD0A03 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0BB30D260B259200CD0A03 /* SubjectView.swift */; };
+		CD0C6B2F26E0F0A500E15E5D /* FirebaseDeleteATestForASubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6B2E26E0F0A500E15E5D /* FirebaseDeleteATestForASubjectService.swift */; };
+		CD0C6B3026E0F0A500E15E5D /* FirebaseDeleteATestForASubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6B2E26E0F0A500E15E5D /* FirebaseDeleteATestForASubjectService.swift */; };
+		CD0C6B3226E6606B00E15E5D /* TestsArchiveFilterTestsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6B3126E6606B00E15E5D /* TestsArchiveFilterTestsScene.swift */; };
+		CD0C6B3326E6606B00E15E5D /* TestsArchiveFilterTestsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6B3126E6606B00E15E5D /* TestsArchiveFilterTestsScene.swift */; };
+		CD0C6B3526E660B100E15E5D /* TestsArchiveFilterTestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6B3426E660B100E15E5D /* TestsArchiveFilterTestsViewModel.swift */; };
+		CD0C6B3626E660B100E15E5D /* TestsArchiveFilterTestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6B3426E660B100E15E5D /* TestsArchiveFilterTestsViewModel.swift */; };
+		CD0C6B3926E6A66300E15E5D /* TestsArchiveCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6B3826E6A66300E15E5D /* TestsArchiveCardsViewModel.swift */; };
+		CD0C6B3A26E6A66300E15E5D /* TestsArchiveCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6B3826E6A66300E15E5D /* TestsArchiveCardsViewModel.swift */; };
+		CD0C6B3C26E6A6BC00E15E5D /* TestsArchiveCardsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6B3B26E6A6BC00E15E5D /* TestsArchiveCardsScene.swift */; };
+		CD0C6B3D26E6A6BC00E15E5D /* TestsArchiveCardsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6B3B26E6A6BC00E15E5D /* TestsArchiveCardsScene.swift */; };
+		CD0C6B3F26E6A87600E15E5D /* FirebaseGetTestCardsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6B3E26E6A87600E15E5D /* FirebaseGetTestCardsService.swift */; };
+		CD0C6B4026E6A87600E15E5D /* FirebaseGetTestCardsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0C6B3E26E6A87600E15E5D /* FirebaseGetTestCardsService.swift */; };
+		CD10D99F272B1DBB0085C316 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD10D99E272B1DBB0085C316 /* CalendarViewModel.swift */; };
+		CD10D9A0272B1DBB0085C316 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD10D99E272B1DBB0085C316 /* CalendarViewModel.swift */; };
+		CD10D9A2272B26430085C316 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD10D9A1272B26430085C316 /* CalendarView.swift */; };
+		CD10D9A3272B26430085C316 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD10D9A1272B26430085C316 /* CalendarView.swift */; };
+		CD17F1E1262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */; };
+		CD17F1E2262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */; };
+		CD17F248262B4F1100C2C903 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17F247262B4F1100C2C903 /* SearchBar.swift */; };
+		CD17F249262B4F1100C2C903 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD17F247262B4F1100C2C903 /* SearchBar.swift */; };
+		CD1A804826821B77003F78C0 /* DrawingCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1A804726821B77003F78C0 /* DrawingCanvas.swift */; };
+		CD28F978264FD15F00D87DDC /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD28F977264FD15F00D87DDC /* DateFormatter+Extension.swift */; };
+		CD28F979264FD15F00D87DDC /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD28F977264FD15F00D87DDC /* DateFormatter+Extension.swift */; };
+		CD28F97F264FD28600D87DDC /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD28F97E264FD28600D87DDC /* Date+Extension.swift */; };
+		CD28F980264FD28600D87DDC /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD28F97E264FD28600D87DDC /* Date+Extension.swift */; };
+		CD28F98A264FEE3700D87DDC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD28F989264FEE3700D87DDC /* CardView.swift */; };
+		CD28F98B264FEE3700D87DDC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD28F989264FEE3700D87DDC /* CardView.swift */; };
+		CD28F9BA2650496800D87DDC /* FirebaseDeleteACardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD28F9B92650496800D87DDC /* FirebaseDeleteACardService.swift */; };
+		CD28F9BB2650496800D87DDC /* FirebaseDeleteACardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD28F9B92650496800D87DDC /* FirebaseDeleteACardService.swift */; };
+		CD30669227344937003FC0E9 /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30669127344937003FC0E9 /* CalendarData.swift */; };
+		CD30669327344937003FC0E9 /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30669127344937003FC0E9 /* CalendarData.swift */; };
+		CD30669527344A38003FC0E9 /* FirebaseGetAddedCalendarCardsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30669427344A38003FC0E9 /* FirebaseGetAddedCalendarCardsService.swift */; };
+		CD30669627344A38003FC0E9 /* FirebaseGetAddedCalendarCardsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30669427344A38003FC0E9 /* FirebaseGetAddedCalendarCardsService.swift */; };
+		CD3072CC2635E62A00E4C743 /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3072CB2635E62A00E4C743 /* CardsViewModel.swift */; };
+		CD3072CD2635E62A00E4C743 /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3072CB2635E62A00E4C743 /* CardsViewModel.swift */; };
+		CD3072D32635E73900E4C743 /* FirebaseGetCardsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3072D22635E73900E4C743 /* FirebaseGetCardsService.swift */; };
+		CD3072D42635E73900E4C743 /* FirebaseGetCardsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3072D22635E73900E4C743 /* FirebaseGetCardsService.swift */; };
+		CD30732D263752DC00E4C743 /* AddNewLectureScene_temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30732C263752DC00E4C743 /* AddNewLectureScene_temp.swift */; };
+		CD30732E263752DC00E4C743 /* AddNewLectureScene_temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30732C263752DC00E4C743 /* AddNewLectureScene_temp.swift */; };
+		CD523BD226ADCC920072EDCD /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD523BD126ADCC920072EDCD /* TestScene.swift */; };
+		CD523BD326ADCC920072EDCD /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD523BD126ADCC920072EDCD /* TestScene.swift */; };
+		CD523BD826ADD4180072EDCD /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD523BD726ADD4180072EDCD /* TestViewModel.swift */; };
+		CD523BD926ADD4180072EDCD /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD523BD726ADD4180072EDCD /* TestViewModel.swift */; };
+		CD5785D226A026D800CFBA6A /* SetupTestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5785D126A026D800CFBA6A /* SetupTestScene.swift */; };
+		CD5785D626A0301F00CFBA6A /* SetupTestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5785D126A026D800CFBA6A /* SetupTestScene.swift */; };
+		CD5785D926A0717100CFBA6A /* TestIncludedCardsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5785D826A0717100CFBA6A /* TestIncludedCardsOption.swift */; };
+		CD5785DA26A0717100CFBA6A /* TestIncludedCardsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5785D826A0717100CFBA6A /* TestIncludedCardsOption.swift */; };
+		CD5785DC26A09F6B00CFBA6A /* TestCardsOrderOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5785DB26A09F6B00CFBA6A /* TestCardsOrderOption.swift */; };
+		CD5785DD26A09F6B00CFBA6A /* TestCardsOrderOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5785DB26A09F6B00CFBA6A /* TestCardsOrderOption.swift */; };
+		CD5F15D026BB387F00326AA4 /* SetupTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5F15CF26BB387F00326AA4 /* SetupTestViewModel.swift */; };
+		CD5F15D126BB387F00326AA4 /* SetupTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5F15CF26BB387F00326AA4 /* SetupTestViewModel.swift */; };
+		CD5FE770267763B00029B23F /* FirebaseDeleteCardImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5FE76F267763B00029B23F /* FirebaseDeleteCardImageService.swift */; };
+		CD5FE771267763B00029B23F /* FirebaseDeleteCardImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5FE76F267763B00029B23F /* FirebaseDeleteCardImageService.swift */; };
+		CD5FE77326778B2F0029B23F /* FirebaseDeleteSubjectImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5FE77226778B2F0029B23F /* FirebaseDeleteSubjectImagesService.swift */; };
+		CD5FE77426778B2F0029B23F /* FirebaseDeleteSubjectImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5FE77226778B2F0029B23F /* FirebaseDeleteSubjectImagesService.swift */; };
+		CD6078F326107FAC00928B20 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6078F226107FAC00928B20 /* SettingsScene.swift */; };
+		CD6078F426107FAC00928B20 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6078F226107FAC00928B20 /* SettingsScene.swift */; };
+		CD6079112610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6079102610873C00928B20 /* AddNewSubjectViewModel.swift */; };
+		CD6079122610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6079102610873C00928B20 /* AddNewSubjectViewModel.swift */; };
+		CD607956261096B400928B20 /* FirebaseAddNewSubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD607955261096B400928B20 /* FirebaseAddNewSubjectService.swift */; };
+		CD60795E2610974B00928B20 /* FirebaseDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD60795D2610974B00928B20 /* FirebaseDatabaseService.swift */; };
+		CD60798126109B5300928B20 /* FirebaseAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD60798026109B5300928B20 /* FirebaseAuthenticationService.swift */; };
+		CD6079BC2610A59F00928B20 /* FirebaseAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD60798026109B5300928B20 /* FirebaseAuthenticationService.swift */; };
+		CD6079C62610A5A600928B20 /* FirebaseAddNewSubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD607955261096B400928B20 /* FirebaseAddNewSubjectService.swift */; };
+		CD6079CB2610A5A800928B20 /* FirebaseDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD60795D2610974B00928B20 /* FirebaseDatabaseService.swift */; };
+		CD6079EE2610AE5F00928B20 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6079ED2610AE5F00928B20 /* UIView+Extension.swift */; };
+		CD6079EF2610AE5F00928B20 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6079ED2610AE5F00928B20 /* UIView+Extension.swift */; };
+		CD6079F52610D2B700928B20 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6079F42610D2B700928B20 /* Encodable+Extension.swift */; };
+		CD6079F62610D2B700928B20 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6079F42610D2B700928B20 /* Encodable+Extension.swift */; };
+		CD607A1D2610DAA800928B20 /* Decodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD607A1C2610DAA800928B20 /* Decodable+Extension.swift */; };
+		CD607A1E2610DAA800928B20 /* Decodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD607A1C2610DAA800928B20 /* Decodable+Extension.swift */; };
+		CD6B1DC026920EDE0084A1D4 /* SortOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07A2BB268E24AF00312E15 /* SortOptions.swift */; };
+		CD6B1DC126920EE20084A1D4 /* FilterOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD07A2B9268E249000312E15 /* FilterOptions.swift */; };
+		CD6B1DC226920F560084A1D4 /* FilterCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDA5067268C98F70033A97A /* FilterCardsViewModel.swift */; };
+		CD7C980726DBABAC00901F47 /* FirebaseUpdateCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7C980626DBABAC00901F47 /* FirebaseUpdateCardService.swift */; };
+		CD7C980826DBABAC00901F47 /* FirebaseUpdateCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7C980626DBABAC00901F47 /* FirebaseUpdateCardService.swift */; };
+		CD7C980C26DBBFA800901F47 /* TestsArchiveSubjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7C980B26DBBFA800901F47 /* TestsArchiveSubjectsViewModel.swift */; };
+		CD7C980D26DBBFA800901F47 /* TestsArchiveSubjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7C980B26DBBFA800901F47 /* TestsArchiveSubjectsViewModel.swift */; };
+		CD7DCE4226FC90D10005FA81 /* TestResultScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7DCE4126FC90D10005FA81 /* TestResultScene.swift */; };
+		CD7DCE4326FC90D10005FA81 /* TestResultScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7DCE4126FC90D10005FA81 /* TestResultScene.swift */; };
+		CD7DCE4526FCA8FD0005FA81 /* TestResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7DCE4426FCA8FD0005FA81 /* TestResultViewModel.swift */; };
+		CD7DCE4626FCA8FD0005FA81 /* TestResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7DCE4426FCA8FD0005FA81 /* TestResultViewModel.swift */; };
+		CD84F0FE271490EC0062E67B /* FirebaseAddNewCalendarCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD84F0FD271490EB0062E67B /* FirebaseAddNewCalendarCardService.swift */; };
+		CD84F0FF271490EC0062E67B /* FirebaseAddNewCalendarCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD84F0FD271490EB0062E67B /* FirebaseAddNewCalendarCardService.swift */; };
+		CD84F10127149C420062E67B /* FirebaseDeleteCalendarCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD84F10027149C420062E67B /* FirebaseDeleteCalendarCardService.swift */; };
+		CD84F10227149C420062E67B /* FirebaseDeleteCalendarCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD84F10027149C420062E67B /* FirebaseDeleteCalendarCardService.swift */; };
+		CD8F03CC264550B500059C53 /* FirebaseAddNewCardImageFirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8F03CB264550B500059C53 /* FirebaseAddNewCardImageFirebaseService.swift */; };
+		CD8F03D6264550E600059C53 /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8F03D5264550E600059C53 /* FirebaseStorageService.swift */; };
+		CD8F03FD264566C900059C53 /* FirebaseAddNewCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8F03FC264566C900059C53 /* FirebaseAddNewCardService.swift */; };
+		CD8F040B264567BC00059C53 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8F040A264567BC00059C53 /* Card.swift */; };
+		CD8F040C264567BC00059C53 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8F040A264567BC00059C53 /* Card.swift */; };
+		CD96751D26065E420067FCC5 /* SubjectsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B7F9260638DE003537A8 /* SubjectsScene.swift */; };
+		CD96752226065E440067FCC5 /* CalendarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80226063A1B003537A8 /* CalendarScene.swift */; };
+		CD96752726065E460067FCC5 /* TestsArchiveSubjectsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80826063A2C003537A8 /* TestsArchiveSubjectsScene.swift */; };
+		CD96752C26065E490067FCC5 /* CardsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80E26063A38003537A8 /* CardsScene.swift */; };
+		CD96753126065E4F0067FCC5 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFA977F2600A4F0006DB5A6 /* HomeScene.swift */; };
+		CD96753626065E550067FCC5 /* NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B81526063AB3003537A8 /* NavigationItem.swift */; };
+		CD96753C26066F260067FCC5 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD96753B26066F260067FCC5 /* Subject.swift */; };
+		CD96753D26066F260067FCC5 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD96753B26066F260067FCC5 /* Subject.swift */; };
+		CD9EDD4B26C30592001191D3 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9EDD4A26C30592001191D3 /* Test.swift */; };
+		CD9EDD4C26C30592001191D3 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9EDD4A26C30592001191D3 /* Test.swift */; };
+		CD9EDD4F26C30F2A001191D3 /* FirebaseAddNewTestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9EDD4E26C30F2A001191D3 /* FirebaseAddNewTestService.swift */; };
+		CD9EDD5026C30F2A001191D3 /* FirebaseAddNewTestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9EDD4E26C30F2A001191D3 /* FirebaseAddNewTestService.swift */; };
+		CDA2E504263DA17300ED287C /* AddNewCardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA2E503263DA17300ED287C /* AddNewCardScene.swift */; };
+		CDA2E555263DD8F500ED287C /* AddNewCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA2E554263DD8F500ED287C /* AddNewCardViewModel.swift */; };
+		CDB4D0F1269A21820057878E /* FirebaseAddNewCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8F03FC264566C900059C53 /* FirebaseAddNewCardService.swift */; };
+		CDB4D0F3269A3BF50057878E /* FirebaseGetDeletedSubjectsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB4D0F2269A3BF50057878E /* FirebaseGetDeletedSubjectsService.swift */; };
+		CDB4D0F4269A3BF50057878E /* FirebaseGetDeletedSubjectsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB4D0F2269A3BF50057878E /* FirebaseGetDeletedSubjectsService.swift */; };
+		CDB4D0F6269A3C160057878E /* FirebaseGetUpdatedSubjectsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB4D0F5269A3C160057878E /* FirebaseGetUpdatedSubjectsService.swift */; };
+		CDB4D0F7269A3C160057878E /* FirebaseGetUpdatedSubjectsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB4D0F5269A3C160057878E /* FirebaseGetUpdatedSubjectsService.swift */; };
+		CDC480132752B59E00B9BED1 /* FirebaseGetDeletedCalendarCardsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC480122752B59E00B9BED1 /* FirebaseGetDeletedCalendarCardsService.swift */; };
+		CDC480142752B59E00B9BED1 /* FirebaseGetDeletedCalendarCardsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC480122752B59E00B9BED1 /* FirebaseGetDeletedCalendarCardsService.swift */; };
+		CDC480172752DC9B00B9BED1 /* CalendarDateCardsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC480162752DC9B00B9BED1 /* CalendarDateCardsScene.swift */; };
+		CDC480182752DC9B00B9BED1 /* CalendarDateCardsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC480162752DC9B00B9BED1 /* CalendarDateCardsScene.swift */; };
+		CDC4801B2752DCEB00B9BED1 /* CalendarDateCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC4801A2752DCEB00B9BED1 /* CalendarDateCardsViewModel.swift */; };
+		CDC4801C2752DCEB00B9BED1 /* CalendarDateCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC4801A2752DCEB00B9BED1 /* CalendarDateCardsViewModel.swift */; };
+		CDCF5809266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCF5808266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift */; };
+		CDCF580A266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCF5808266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift */; };
+		CDCF580D266C0B4100D4BCDF /* iOSCustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCF580C266C0B4100D4BCDF /* iOSCustomTextView.swift */; };
+		CDD0B7FA260638DE003537A8 /* SubjectsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B7F9260638DE003537A8 /* SubjectsScene.swift */; };
+		CDD0B80326063A1B003537A8 /* CalendarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80226063A1B003537A8 /* CalendarScene.swift */; };
+		CDD0B80926063A2C003537A8 /* TestsArchiveSubjectsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80826063A2C003537A8 /* TestsArchiveSubjectsScene.swift */; };
+		CDD0B80F26063A38003537A8 /* CardsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B80E26063A38003537A8 /* CardsScene.swift */; };
+		CDD0B81626063AB3003537A8 /* NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0B81526063AB3003537A8 /* NavigationItem.swift */; };
+		CDD45FFE26DF8EB40089A27D /* TestsArchiveTestsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD45FFD26DF8EB40089A27D /* TestsArchiveTestsScene.swift */; };
+		CDD45FFF26DF8EB40089A27D /* TestsArchiveTestsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD45FFD26DF8EB40089A27D /* TestsArchiveTestsScene.swift */; };
+		CDD4600126DF8ECA0089A27D /* TestsArchiveTestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD4600026DF8ECA0089A27D /* TestsArchiveTestsViewModel.swift */; };
+		CDD4600226DF8ECA0089A27D /* TestsArchiveTestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD4600026DF8ECA0089A27D /* TestsArchiveTestsViewModel.swift */; };
 		CDD9DFF225FD13CE00E3BF53 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFF125FD13CE00E3BF53 /* Tests_iOS.swift */; };
 		CDD9DFFD25FD13CE00E3BF53 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFFC25FD13CE00E3BF53 /* Tests_macOS.swift */; };
 		CDD9DFFF25FD13CE00E3BF53 /* VoicesesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFD625FD13CD00E3BF53 /* VoicesesApp.swift */; };
 		CDD9E00025FD13CE00E3BF53 /* VoicesesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFD625FD13CD00E3BF53 /* VoicesesApp.swift */; };
-		CDD9E00125FD13CE00E3BF53 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFD725FD13CD00E3BF53 /* ContentView.swift */; };
-		CDD9E00225FD13CE00E3BF53 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFD725FD13CD00E3BF53 /* ContentView.swift */; };
+		CDD9E00125FD13CE00E3BF53 /* LunchWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFD725FD13CD00E3BF53 /* LunchWindow.swift */; };
+		CDD9E00225FD13CE00E3BF53 /* LunchWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9DFD725FD13CD00E3BF53 /* LunchWindow.swift */; };
 		CDD9E00325FD13CE00E3BF53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDD9DFD825FD13CE00E3BF53 /* Assets.xcassets */; };
 		CDD9E00425FD13CE00E3BF53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDD9DFD825FD13CE00E3BF53 /* Assets.xcassets */; };
+		CDD9E01925FD1B9900E3BF53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDD9E01825FD1B9900E3BF53 /* GoogleService-Info.plist */; };
+		CDD9E01A25FD1B9900E3BF53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDD9E01825FD1B9900E3BF53 /* GoogleService-Info.plist */; };
+		CDD9E03D25FD3D6000E3BF53 /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9E03C25FD3D6000E3BF53 /* LoginScene.swift */; };
+		CDD9E03E25FD3D6000E3BF53 /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9E03C25FD3D6000E3BF53 /* LoginScene.swift */; };
+		CDD9E05425FE2C0600E3BF53 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9E05325FE2C0600E3BF53 /* LoginViewModel.swift */; };
+		CDD9E05525FE2C0600E3BF53 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD9E05325FE2C0600E3BF53 /* LoginViewModel.swift */; };
+		CDDA5066268C98DF0033A97A /* FilterCardsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDA5065268C98DF0033A97A /* FilterCardsScene.swift */; };
+		CDDA5068268C98F70033A97A /* FilterCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDA5067268C98F70033A97A /* FilterCardsViewModel.swift */; };
+		CDDA5069268CAFAF0033A97A /* FilterCardsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDA5065268C98DF0033A97A /* FilterCardsScene.swift */; };
+		CDE4C2B7275FB1730099D491 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE4C2B6275FB1730099D491 /* SettingsViewModel.swift */; };
+		CDE4C2B8275FB1730099D491 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE4C2B6275FB1730099D491 /* SettingsViewModel.swift */; };
+		CDE4C2BB275FE1D60099D491 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE4C2BA275FE1D60099D491 /* MailView.swift */; };
+		CDE4C2BC275FE1D60099D491 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE4C2BA275FE1D60099D491 /* MailView.swift */; };
+		CDEE1DA7260DDD31005F6D07 /* Colors+Extenison.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DA6260DDD31005F6D07 /* Colors+Extenison.swift */; };
+		CDEE1DA8260DDD31005F6D07 /* Colors+Extenison.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DA6260DDD31005F6D07 /* Colors+Extenison.swift */; };
+		CDEE1DB8260DDE72005F6D07 /* AddNewSubjectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DB7260DDE72005F6D07 /* AddNewSubjectScene.swift */; };
+		CDEE1DB9260DDE72005F6D07 /* AddNewSubjectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE1DB7260DDE72005F6D07 /* AddNewSubjectScene.swift */; };
+		CDF1C1C72664F228002BF9E4 /* GlobalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1C1C62664F228002BF9E4 /* GlobalService.swift */; };
+		CDF1C1C82664F228002BF9E4 /* GlobalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1C1C62664F228002BF9E4 /* GlobalService.swift */; };
+		CDF1C1D32664F92A002BF9E4 /* ImageCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1C1D22664F92A002BF9E4 /* ImageCacheService.swift */; };
+		CDF1C208266699F8002BF9E4 /* CardSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1C207266699F8002BF9E4 /* CardSide.swift */; };
+		CDF1C21126669A05002BF9E4 /* CardSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1C207266699F8002BF9E4 /* CardSide.swift */; };
+		CDF24DCD2618BB9100CC866F /* LunchWindowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DCC2618BB9100CC866F /* LunchWindowViewModel.swift */; };
+		CDF24DCE2618BB9100CC866F /* LunchWindowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DCC2618BB9100CC866F /* LunchWindowViewModel.swift */; };
+		CDF24DF52618C67500CC866F /* SubjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DF42618C67500CC866F /* SubjectsViewModel.swift */; };
+		CDF24DF62618C67500CC866F /* SubjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DF42618C67500CC866F /* SubjectsViewModel.swift */; };
+		CDF24DFC2618C97200CC866F /* FirebaseGetAddedSubjectsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DFB2618C97200CC866F /* FirebaseGetAddedSubjectsService.swift */; };
+		CDF24DFD2618C97200CC866F /* FirebaseGetAddedSubjectsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF24DFB2618C97200CC866F /* FirebaseGetAddedSubjectsService.swift */; };
+		CDF71A9926D84137007E383D /* FirebaseGetTestsForASubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF71A9826D84137007E383D /* FirebaseGetTestsForASubjectService.swift */; };
+		CDF71A9A26D84137007E383D /* FirebaseGetTestsForASubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF71A9826D84137007E383D /* FirebaseGetTestsForASubjectService.swift */; };
+		CDFA97802600A4F0006DB5A6 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFA977F2600A4F0006DB5A6 /* HomeScene.swift */; };
+		CDFA979F2600A821006DB5A6 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFA979E2600A821006DB5A6 /* SideBar.swift */; };
+		CDFA97A02600A821006DB5A6 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFA979E2600A821006DB5A6 /* SideBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +210,86 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07F20FD7E91CE384244DC589 /* Pods-Voiceses (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voiceses (macOS).debug.xcconfig"; path = "Target Support Files/Pods-Voiceses (macOS)/Pods-Voiceses (macOS).debug.xcconfig"; sourceTree = "<group>"; };
+		40106E9917A7D79C82DB5B3E /* Pods_Voiceses__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Voiceses__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E88E14D52F7AD55086DF537 /* Pods-Voiceses (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voiceses (macOS).release.xcconfig"; path = "Target Support Files/Pods-Voiceses (macOS)/Pods-Voiceses (macOS).release.xcconfig"; sourceTree = "<group>"; };
+		7B0BF16A397CB5E9A32E9A3C /* Pods-Voiceses (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voiceses (iOS).debug.xcconfig"; path = "Target Support Files/Pods-Voiceses (iOS)/Pods-Voiceses (iOS).debug.xcconfig"; sourceTree = "<group>"; };
+		A73E14C250082A6482EC8E87 /* Pods_Voiceses__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Voiceses__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B322BFA62899C9BEE5F20A85 /* Pods-Voiceses (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voiceses (iOS).release.xcconfig"; path = "Target Support Files/Pods-Voiceses (iOS)/Pods-Voiceses (iOS).release.xcconfig"; sourceTree = "<group>"; };
+		CD00F713267A685A00475016 /* MacOSCustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOSCustomTextView.swift; sourceTree = "<group>"; };
+		CD00F716267A6A1000475016 /* DisplayCardScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCardScene.swift; sourceTree = "<group>"; };
+		CD00F719267A703D00475016 /* DisplayCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCardViewModel.swift; sourceTree = "<group>"; };
+		CD048D7B26E6AA3C000F8382 /* TestsArchiveCardsFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsArchiveCardsFilter.swift; sourceTree = "<group>"; };
+		CD07A2B9268E249000312E15 /* FilterOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptions.swift; sourceTree = "<group>"; };
+		CD07A2BB268E24AF00312E15 /* SortOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOptions.swift; sourceTree = "<group>"; };
+		CD0BB30D260B259200CD0A03 /* SubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectView.swift; sourceTree = "<group>"; };
+		CD0C6B2E26E0F0A500E15E5D /* FirebaseDeleteATestForASubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDeleteATestForASubjectService.swift; sourceTree = "<group>"; };
+		CD0C6B3126E6606B00E15E5D /* TestsArchiveFilterTestsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsArchiveFilterTestsScene.swift; sourceTree = "<group>"; };
+		CD0C6B3426E660B100E15E5D /* TestsArchiveFilterTestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsArchiveFilterTestsViewModel.swift; sourceTree = "<group>"; };
+		CD0C6B3826E6A66300E15E5D /* TestsArchiveCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsArchiveCardsViewModel.swift; sourceTree = "<group>"; };
+		CD0C6B3B26E6A6BC00E15E5D /* TestsArchiveCardsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsArchiveCardsScene.swift; sourceTree = "<group>"; };
+		CD0C6B3E26E6A87600E15E5D /* FirebaseGetTestCardsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGetTestCardsService.swift; sourceTree = "<group>"; };
+		CD10D99E272B1DBB0085C316 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		CD10D9A1272B26430085C316 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDeleteASubjectService.swift; sourceTree = "<group>"; };
+		CD17F247262B4F1100C2C903 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		CD1A804726821B77003F78C0 /* DrawingCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCanvas.swift; sourceTree = "<group>"; };
+		CD28F977264FD15F00D87DDC /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
+		CD28F97E264FD28600D87DDC /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		CD28F989264FEE3700D87DDC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		CD28F9B92650496800D87DDC /* FirebaseDeleteACardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDeleteACardService.swift; sourceTree = "<group>"; };
+		CD30669127344937003FC0E9 /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
+		CD30669427344A38003FC0E9 /* FirebaseGetAddedCalendarCardsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGetAddedCalendarCardsService.swift; sourceTree = "<group>"; };
+		CD3072CB2635E62A00E4C743 /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
+		CD3072D22635E73900E4C743 /* FirebaseGetCardsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGetCardsService.swift; sourceTree = "<group>"; };
+		CD30732C263752DC00E4C743 /* AddNewLectureScene_temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLectureScene_temp.swift; sourceTree = "<group>"; };
+		CD523BD126ADCC920072EDCD /* TestScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
+		CD523BD726ADD4180072EDCD /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
+		CD5785D126A026D800CFBA6A /* SetupTestScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupTestScene.swift; sourceTree = "<group>"; };
+		CD5785D826A0717100CFBA6A /* TestIncludedCardsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIncludedCardsOption.swift; sourceTree = "<group>"; };
+		CD5785DB26A09F6B00CFBA6A /* TestCardsOrderOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCardsOrderOption.swift; sourceTree = "<group>"; };
+		CD5F15CF26BB387F00326AA4 /* SetupTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupTestViewModel.swift; sourceTree = "<group>"; };
+		CD5FE76F267763B00029B23F /* FirebaseDeleteCardImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDeleteCardImageService.swift; sourceTree = "<group>"; };
+		CD5FE77226778B2F0029B23F /* FirebaseDeleteSubjectImagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDeleteSubjectImagesService.swift; sourceTree = "<group>"; };
+		CD6078F226107FAC00928B20 /* SettingsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
+		CD6079102610873C00928B20 /* AddNewSubjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSubjectViewModel.swift; sourceTree = "<group>"; };
+		CD607955261096B400928B20 /* FirebaseAddNewSubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAddNewSubjectService.swift; sourceTree = "<group>"; };
+		CD60795D2610974B00928B20 /* FirebaseDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabaseService.swift; sourceTree = "<group>"; };
+		CD60798026109B5300928B20 /* FirebaseAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthenticationService.swift; sourceTree = "<group>"; };
+		CD6079ED2610AE5F00928B20 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		CD6079F42610D2B700928B20 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
+		CD607A1C2610DAA800928B20 /* Decodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extension.swift"; sourceTree = "<group>"; };
+		CD7C980626DBABAC00901F47 /* FirebaseUpdateCardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUpdateCardService.swift; sourceTree = "<group>"; };
+		CD7C980B26DBBFA800901F47 /* TestsArchiveSubjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsArchiveSubjectsViewModel.swift; sourceTree = "<group>"; };
+		CD7DCE4126FC90D10005FA81 /* TestResultScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultScene.swift; sourceTree = "<group>"; };
+		CD7DCE4426FCA8FD0005FA81 /* TestResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultViewModel.swift; sourceTree = "<group>"; };
+		CD84F0FD271490EB0062E67B /* FirebaseAddNewCalendarCardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAddNewCalendarCardService.swift; sourceTree = "<group>"; };
+		CD84F10027149C420062E67B /* FirebaseDeleteCalendarCardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDeleteCalendarCardService.swift; sourceTree = "<group>"; };
+		CD8F03CB264550B500059C53 /* FirebaseAddNewCardImageFirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAddNewCardImageFirebaseService.swift; sourceTree = "<group>"; };
+		CD8F03D5264550E600059C53 /* FirebaseStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageService.swift; sourceTree = "<group>"; };
+		CD8F03FC264566C900059C53 /* FirebaseAddNewCardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAddNewCardService.swift; sourceTree = "<group>"; };
+		CD8F040A264567BC00059C53 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		CD96753B26066F260067FCC5 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		CD9EDD4A26C30592001191D3 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		CD9EDD4E26C30F2A001191D3 /* FirebaseAddNewTestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAddNewTestService.swift; sourceTree = "<group>"; };
+		CDA2E503263DA17300ED287C /* AddNewCardScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardScene.swift; sourceTree = "<group>"; };
+		CDA2E554263DD8F500ED287C /* AddNewCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardViewModel.swift; sourceTree = "<group>"; };
+		CDB4D0F2269A3BF50057878E /* FirebaseGetDeletedSubjectsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGetDeletedSubjectsService.swift; sourceTree = "<group>"; };
+		CDB4D0F5269A3C160057878E /* FirebaseGetUpdatedSubjectsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGetUpdatedSubjectsService.swift; sourceTree = "<group>"; };
+		CDC480122752B59E00B9BED1 /* FirebaseGetDeletedCalendarCardsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGetDeletedCalendarCardsService.swift; sourceTree = "<group>"; };
+		CDC480162752DC9B00B9BED1 /* CalendarDateCardsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDateCardsScene.swift; sourceTree = "<group>"; };
+		CDC4801A2752DCEB00B9BED1 /* CalendarDateCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDateCardsViewModel.swift; sourceTree = "<group>"; };
+		CDCF5808266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUpdateSubjectService.swift; sourceTree = "<group>"; };
+		CDCF580C266C0B4100D4BCDF /* iOSCustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSCustomTextView.swift; sourceTree = "<group>"; };
+		CDD0B7F9260638DE003537A8 /* SubjectsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsScene.swift; sourceTree = "<group>"; };
+		CDD0B80226063A1B003537A8 /* CalendarScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarScene.swift; sourceTree = "<group>"; };
+		CDD0B80826063A2C003537A8 /* TestsArchiveSubjectsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsArchiveSubjectsScene.swift; sourceTree = "<group>"; };
+		CDD0B80E26063A38003537A8 /* CardsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsScene.swift; sourceTree = "<group>"; };
+		CDD0B81526063AB3003537A8 /* NavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItem.swift; sourceTree = "<group>"; };
+		CDD45FFD26DF8EB40089A27D /* TestsArchiveTestsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsArchiveTestsScene.swift; sourceTree = "<group>"; };
+		CDD4600026DF8ECA0089A27D /* TestsArchiveTestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsArchiveTestsViewModel.swift; sourceTree = "<group>"; };
 		CDD9DFD625FD13CD00E3BF53 /* VoicesesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicesesApp.swift; sourceTree = "<group>"; };
-		CDD9DFD725FD13CD00E3BF53 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CDD9DFD725FD13CD00E3BF53 /* LunchWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchWindow.swift; sourceTree = "<group>"; };
 		CDD9DFD825FD13CE00E3BF53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDD9DFDD25FD13CE00E3BF53 /* Voiceses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voiceses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD9DFE025FD13CE00E3BF53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +302,25 @@
 		CDD9DFF825FD13CE00E3BF53 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD9DFFC25FD13CE00E3BF53 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		CDD9DFFE25FD13CE00E3BF53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDD9E01825FD1B9900E3BF53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CDD9E03C25FD3D6000E3BF53 /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
+		CDD9E04925FD626400E3BF53 /* Voiceses.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Voiceses.entitlements; sourceTree = "<group>"; };
+		CDD9E05325FE2C0600E3BF53 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		CDDA5065268C98DF0033A97A /* FilterCardsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCardsScene.swift; sourceTree = "<group>"; };
+		CDDA5067268C98F70033A97A /* FilterCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCardsViewModel.swift; sourceTree = "<group>"; };
+		CDE4C2B6275FB1730099D491 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		CDE4C2BA275FE1D60099D491 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
+		CDEE1DA6260DDD31005F6D07 /* Colors+Extenison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Extenison.swift"; sourceTree = "<group>"; };
+		CDEE1DB7260DDE72005F6D07 /* AddNewSubjectScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSubjectScene.swift; sourceTree = "<group>"; };
+		CDF1C1C62664F228002BF9E4 /* GlobalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalService.swift; sourceTree = "<group>"; };
+		CDF1C1D22664F92A002BF9E4 /* ImageCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheService.swift; sourceTree = "<group>"; };
+		CDF1C207266699F8002BF9E4 /* CardSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSide.swift; sourceTree = "<group>"; };
+		CDF24DCC2618BB9100CC866F /* LunchWindowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchWindowViewModel.swift; sourceTree = "<group>"; };
+		CDF24DF42618C67500CC866F /* SubjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsViewModel.swift; sourceTree = "<group>"; };
+		CDF24DFB2618C97200CC866F /* FirebaseGetAddedSubjectsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGetAddedSubjectsService.swift; sourceTree = "<group>"; };
+		CDF71A9826D84137007E383D /* FirebaseGetTestsForASubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGetTestsForASubjectService.swift; sourceTree = "<group>"; };
+		CDFA977F2600A4F0006DB5A6 /* HomeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
+		CDFA979E2600A821006DB5A6 /* SideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +328,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A9869C7B3C8F5AF88B9F8D2 /* Pods_Voiceses__iOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +336,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7B11286030D6ECFA15E6B17 /* Pods_Voiceses__macOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,23 +357,428 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD0D29B72E0FAF5422BEDBBC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7B0BF16A397CB5E9A32E9A3C /* Pods-Voiceses (iOS).debug.xcconfig */,
+				B322BFA62899C9BEE5F20A85 /* Pods-Voiceses (iOS).release.xcconfig */,
+				07F20FD7E91CE384244DC589 /* Pods-Voiceses (macOS).debug.xcconfig */,
+				6E88E14D52F7AD55086DF537 /* Pods-Voiceses (macOS).release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CD00F715267A69F000475016 /* DisplayCardScene */ = {
+			isa = PBXGroup;
+			children = (
+				CD00F716267A6A1000475016 /* DisplayCardScene.swift */,
+				CD00F719267A703D00475016 /* DisplayCardViewModel.swift */,
+			);
+			path = DisplayCardScene;
+			sourceTree = "<group>";
+		};
+		CD07A2B8268E247E00312E15 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CD07A2B9268E249000312E15 /* FilterOptions.swift */,
+				CD07A2BB268E24AF00312E15 /* SortOptions.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CD0BB30B260B254700CD0A03 /* Windows */ = {
+			isa = PBXGroup;
+			children = (
+				CD4A59F42768DF56008DCE2D /* Lunch */,
+			);
+			path = Windows;
+			sourceTree = "<group>";
+		};
+		CD0BB30C260B255F00CD0A03 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CD0BB30D260B259200CD0A03 /* SubjectView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CD0C6B3726E6A64600E15E5D /* CardsScene */ = {
+			isa = PBXGroup;
+			children = (
+				CD0C6B3826E6A66300E15E5D /* TestsArchiveCardsViewModel.swift */,
+				CD0C6B3B26E6A6BC00E15E5D /* TestsArchiveCardsScene.swift */,
+				CD048D7B26E6AA3C000F8382 /* TestsArchiveCardsFilter.swift */,
+			);
+			path = CardsScene;
+			sourceTree = "<group>";
+		};
+		CD17F242262B4E1D00C2C903 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				CD17F247262B4F1100C2C903 /* SearchBar.swift */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		CD1A804626821B68003F78C0 /* DrawingCanvas */ = {
+			isa = PBXGroup;
+			children = (
+				CD1A804726821B77003F78C0 /* DrawingCanvas.swift */,
+			);
+			path = DrawingCanvas;
+			sourceTree = "<group>";
+		};
+		CD30730A2637474A00E4C743 /* AddNewLectureScene_temp */ = {
+			isa = PBXGroup;
+			children = (
+				CD30732C263752DC00E4C743 /* AddNewLectureScene_temp.swift */,
+			);
+			path = AddNewLectureScene_temp;
+			sourceTree = "<group>";
+		};
+		CD30730B2637476500E4C743 /* CardsScene */ = {
+			isa = PBXGroup;
+			children = (
+				CD3072CB2635E62A00E4C743 /* CardsViewModel.swift */,
+				CDD0B80E26063A38003537A8 /* CardsScene.swift */,
+				CD28F989264FEE3700D87DDC /* CardView.swift */,
+			);
+			path = CardsScene;
+			sourceTree = "<group>";
+		};
+		CD4A59F42768DF56008DCE2D /* Lunch */ = {
+			isa = PBXGroup;
+			children = (
+				CDF24DCC2618BB9100CC866F /* LunchWindowViewModel.swift */,
+				CDD9DFD725FD13CD00E3BF53 /* LunchWindow.swift */,
+			);
+			path = Lunch;
+			sourceTree = "<group>";
+		};
+		CD523BCF26ADCC510072EDCD /* TestScene */ = {
+			isa = PBXGroup;
+			children = (
+				CD523BD726ADD4180072EDCD /* TestViewModel.swift */,
+				CD523BD026ADCC630072EDCD /* Model */,
+				CD523BD126ADCC920072EDCD /* TestScene.swift */,
+			);
+			path = TestScene;
+			sourceTree = "<group>";
+		};
+		CD523BD026ADCC630072EDCD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CD5785CE26A0258400CFBA6A /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				CD7DCE3D26FC90190005FA81 /* TestResultScene */,
+				CD523BCF26ADCC510072EDCD /* TestScene */,
+				CD5785D026A025E500CFBA6A /* SetupTestScene */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		CD5785D026A025E500CFBA6A /* SetupTestScene */ = {
+			isa = PBXGroup;
+			children = (
+				CD5785D726A0714400CFBA6A /* Models */,
+				CD5785D126A026D800CFBA6A /* SetupTestScene.swift */,
+				CD5F15CF26BB387F00326AA4 /* SetupTestViewModel.swift */,
+			);
+			path = SetupTestScene;
+			sourceTree = "<group>";
+		};
+		CD5785D726A0714400CFBA6A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CD5785D826A0717100CFBA6A /* TestIncludedCardsOption.swift */,
+				CD5785DB26A09F6B00CFBA6A /* TestCardsOrderOption.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CD6078F126107F7A00928B20 /* SettingsScene */ = {
+			isa = PBXGroup;
+			children = (
+				CDE4C2BD275FED130099D491 /* SettingsScene */,
+			);
+			path = SettingsScene;
+			sourceTree = "<group>";
+		};
+		CD60790B261085C300928B20 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE1DA6260DDD31005F6D07 /* Colors+Extenison.swift */,
+				CD6079ED2610AE5F00928B20 /* UIView+Extension.swift */,
+				CD6079F42610D2B700928B20 /* Encodable+Extension.swift */,
+				CD607A1C2610DAA800928B20 /* Decodable+Extension.swift */,
+				CD28F977264FD15F00D87DDC /* DateFormatter+Extension.swift */,
+				CD28F97E264FD28600D87DDC /* Date+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CD6079542610969F00928B20 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CDF1C1D12664F912002BF9E4 /* ImageCaching */,
+				CDF1C1C52664F218002BF9E4 /* Global */,
+				CD60795B2610970400928B20 /* Firebase */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CD60795B2610970400928B20 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				CD8F03CA26454FA000059C53 /* Storage */,
+				CD6079B62610A50600928B20 /* Authentication */,
+				CD6079B72610A51800928B20 /* Error */,
+				CD6079B52610A4F900928B20 /* Database */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		CD6079B52610A4F900928B20 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				CD84F0F827148C060062E67B /* Calendar */,
+				CD9EDD4D26C30F00001191D3 /* Tests */,
+				CDB4D0F0269A216E0057878E /* Cards */,
+				CD60795D2610974B00928B20 /* FirebaseDatabaseService.swift */,
+				CDB4D0EF269A21680057878E /* Subjects */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		CD6079B62610A50600928B20 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				CD60798026109B5300928B20 /* FirebaseAuthenticationService.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		CD6079B72610A51800928B20 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		CD7C980926DBBF6600901F47 /* SubjectsScene */ = {
+			isa = PBXGroup;
+			children = (
+				CDD0B80826063A2C003537A8 /* TestsArchiveSubjectsScene.swift */,
+				CD7C980B26DBBFA800901F47 /* TestsArchiveSubjectsViewModel.swift */,
+			);
+			path = SubjectsScene;
+			sourceTree = "<group>";
+		};
+		CD7DCE3D26FC90190005FA81 /* TestResultScene */ = {
+			isa = PBXGroup;
+			children = (
+				CD7DCE4126FC90D10005FA81 /* TestResultScene.swift */,
+				CD7DCE4426FCA8FD0005FA81 /* TestResultViewModel.swift */,
+			);
+			path = TestResultScene;
+			sourceTree = "<group>";
+		};
+		CD84F0F827148C060062E67B /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				CD84F0FD271490EB0062E67B /* FirebaseAddNewCalendarCardService.swift */,
+				CD84F10027149C420062E67B /* FirebaseDeleteCalendarCardService.swift */,
+				CD30669427344A38003FC0E9 /* FirebaseGetAddedCalendarCardsService.swift */,
+				CDC480122752B59E00B9BED1 /* FirebaseGetDeletedCalendarCardsService.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		CD8F03CA26454FA000059C53 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				CD8F03CB264550B500059C53 /* FirebaseAddNewCardImageFirebaseService.swift */,
+				CD8F03D5264550E600059C53 /* FirebaseStorageService.swift */,
+				CD5FE76F267763B00029B23F /* FirebaseDeleteCardImageService.swift */,
+				CD5FE77226778B2F0029B23F /* FirebaseDeleteSubjectImagesService.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		CD9EDD4D26C30F00001191D3 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				CD9EDD4E26C30F2A001191D3 /* FirebaseAddNewTestService.swift */,
+				CDF71A9826D84137007E383D /* FirebaseGetTestsForASubjectService.swift */,
+				CD0C6B2E26E0F0A500E15E5D /* FirebaseDeleteATestForASubjectService.swift */,
+				CD0C6B3E26E6A87600E15E5D /* FirebaseGetTestCardsService.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		CDA2E4EF263D9A4200ED287C /* AddNewCard */ = {
+			isa = PBXGroup;
+			children = (
+				CDA2E503263DA17300ED287C /* AddNewCardScene.swift */,
+				CDA2E554263DD8F500ED287C /* AddNewCardViewModel.swift */,
+			);
+			path = AddNewCard;
+			sourceTree = "<group>";
+		};
+		CDB4D0EF269A21680057878E /* Subjects */ = {
+			isa = PBXGroup;
+			children = (
+				CDB4D0F5269A3C160057878E /* FirebaseGetUpdatedSubjectsService.swift */,
+				CDB4D0F2269A3BF50057878E /* FirebaseGetDeletedSubjectsService.swift */,
+				CD607955261096B400928B20 /* FirebaseAddNewSubjectService.swift */,
+				CDF24DFB2618C97200CC866F /* FirebaseGetAddedSubjectsService.swift */,
+				CD17F1E0262B18E900C2C903 /* FirebaseDeleteASubjectService.swift */,
+				CDCF5808266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift */,
+			);
+			path = Subjects;
+			sourceTree = "<group>";
+		};
+		CDB4D0F0269A216E0057878E /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				CD28F9B92650496800D87DDC /* FirebaseDeleteACardService.swift */,
+				CD8F03FC264566C900059C53 /* FirebaseAddNewCardService.swift */,
+				CD3072D22635E73900E4C743 /* FirebaseGetCardsService.swift */,
+				CD7C980626DBABAC00901F47 /* FirebaseUpdateCardService.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		CDC480152752DC8200B9BED1 /* CalendarScene */ = {
+			isa = PBXGroup;
+			children = (
+				CD10D9A1272B26430085C316 /* CalendarView.swift */,
+				CD10D99E272B1DBB0085C316 /* CalendarViewModel.swift */,
+				CDD0B80226063A1B003537A8 /* CalendarScene.swift */,
+			);
+			path = CalendarScene;
+			sourceTree = "<group>";
+		};
+		CDC480192752DCA200B9BED1 /* CalendarDateCardsScene */ = {
+			isa = PBXGroup;
+			children = (
+				CDC480162752DC9B00B9BED1 /* CalendarDateCardsScene.swift */,
+				CDC4801A2752DCEB00B9BED1 /* CalendarDateCardsViewModel.swift */,
+			);
+			path = CalendarDateCardsScene;
+			sourceTree = "<group>";
+		};
+		CDCF580B266C0B2D00D4BCDF /* CustomTextField */ = {
+			isa = PBXGroup;
+			children = (
+				CDCF580C266C0B4100D4BCDF /* iOSCustomTextView.swift */,
+				CD00F713267A685A00475016 /* MacOSCustomTextView.swift */,
+			);
+			path = CustomTextField;
+			sourceTree = "<group>";
+		};
+		CDD0B7F8260638BC003537A8 /* Subjects */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE1D8B260DD22F005F6D07 /* Scenes */,
+			);
+			path = Subjects;
+			sourceTree = "<group>";
+		};
+		CDD0B7FF260638FA003537A8 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				CDDA5064268C98900033A97A /* FilterCardsScene */,
+				CD00F715267A69F000475016 /* DisplayCardScene */,
+				CDA2E4EF263D9A4200ED287C /* AddNewCard */,
+				CD30730B2637476500E4C743 /* CardsScene */,
+				CD30730A2637474A00E4C743 /* AddNewLectureScene_temp */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		CDD0B80026063911003537A8 /* TestsArchive */ = {
+			isa = PBXGroup;
+			children = (
+				CD0C6B3726E6A64600E15E5D /* CardsScene */,
+				CDD45FFC26DF8E6A0089A27D /* TestsScene */,
+				CD7C980926DBBF6600901F47 /* SubjectsScene */,
+			);
+			path = TestsArchive;
+			sourceTree = "<group>";
+		};
+		CDD0B80126063916003537A8 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				CDC480192752DCA200B9BED1 /* CalendarDateCardsScene */,
+				CDC480152752DC8200B9BED1 /* CalendarScene */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		CDD0B81426063A8B003537A8 /* SideBar */ = {
+			isa = PBXGroup;
+			children = (
+				CDFA979E2600A821006DB5A6 /* SideBar.swift */,
+			);
+			path = SideBar;
+			sourceTree = "<group>";
+		};
+		CDD0B82E26063D1F003537A8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CDF1C207266699F8002BF9E4 /* CardSide.swift */,
+				CDD0B81526063AB3003537A8 /* NavigationItem.swift */,
+				CD96753B26066F260067FCC5 /* Subject.swift */,
+				CD8F040A264567BC00059C53 /* Card.swift */,
+				CD9EDD4A26C30592001191D3 /* Test.swift */,
+				CD30669127344937003FC0E9 /* CalendarData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CDD45FFC26DF8E6A0089A27D /* TestsScene */ = {
+			isa = PBXGroup;
+			children = (
+				CDD45FFD26DF8EB40089A27D /* TestsArchiveTestsScene.swift */,
+				CDD4600026DF8ECA0089A27D /* TestsArchiveTestsViewModel.swift */,
+				CD0C6B3126E6606B00E15E5D /* TestsArchiveFilterTestsScene.swift */,
+				CD0C6B3426E660B100E15E5D /* TestsArchiveFilterTestsViewModel.swift */,
+			);
+			path = TestsScene;
+			sourceTree = "<group>";
+		};
 		CDD9DFD025FD13CD00E3BF53 = {
 			isa = PBXGroup;
 			children = (
+				CDD9E04925FD626400E3BF53 /* Voiceses.entitlements */,
 				CDD9DFD525FD13CD00E3BF53 /* Shared */,
 				CDD9DFDF25FD13CE00E3BF53 /* iOS */,
 				CDD9DFE625FD13CE00E3BF53 /* macOS */,
 				CDD9DFF025FD13CE00E3BF53 /* Tests iOS */,
 				CDD9DFFB25FD13CE00E3BF53 /* Tests macOS */,
 				CDD9DFDE25FD13CE00E3BF53 /* Products */,
+				BD0D29B72E0FAF5422BEDBBC /* Pods */,
+				EAAE636648BEFF6105FE163B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		CDD9DFD525FD13CD00E3BF53 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				CD6079542610969F00928B20 /* Services */,
+				CDEE1DA5260DDD10005F6D07 /* Utils */,
+				CD0BB30B260B254700CD0A03 /* Windows */,
+				CDD0B82E26063D1F003537A8 /* Models */,
+				CDD9E04425FD583700E3BF53 /* GeneralViews */,
+				CDD9E04325FD582E00E3BF53 /* Scenes */,
+				CDD9E01825FD1B9900E3BF53 /* GoogleService-Info.plist */,
 				CDD9DFD625FD13CD00E3BF53 /* VoicesesApp.swift */,
-				CDD9DFD725FD13CD00E3BF53 /* ContentView.swift */,
 				CDD9DFD825FD13CE00E3BF53 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -151,6 +830,146 @@
 			path = "Tests macOS";
 			sourceTree = "<group>";
 		};
+		CDD9E04325FD582E00E3BF53 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				CD5785CE26A0258400CFBA6A /* Test */,
+				CD6078F126107F7A00928B20 /* SettingsScene */,
+				CDD9E04E25FE2BDB00E3BF53 /* Login */,
+				CDFA977E2600A4BA006DB5A6 /* Home */,
+				CDD0B7F8260638BC003537A8 /* Subjects */,
+				CDD0B7FF260638FA003537A8 /* Cards */,
+				CDD0B80126063916003537A8 /* Calendar */,
+				CDD0B80026063911003537A8 /* TestsArchive */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		CDD9E04425FD583700E3BF53 /* GeneralViews */ = {
+			isa = PBXGroup;
+			children = (
+				CDE4C2B9275FE1BF0099D491 /* MailView */,
+				CD1A804626821B68003F78C0 /* DrawingCanvas */,
+				CDCF580B266C0B2D00D4BCDF /* CustomTextField */,
+				CD17F242262B4E1D00C2C903 /* SearchBar */,
+				CDD0B81426063A8B003537A8 /* SideBar */,
+			);
+			path = GeneralViews;
+			sourceTree = "<group>";
+		};
+		CDD9E04E25FE2BDB00E3BF53 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE1D8C260DD246005F6D07 /* LoginScene */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		CDDA5064268C98900033A97A /* FilterCardsScene */ = {
+			isa = PBXGroup;
+			children = (
+				CD07A2B8268E247E00312E15 /* Models */,
+				CDDA5065268C98DF0033A97A /* FilterCardsScene.swift */,
+				CDDA5067268C98F70033A97A /* FilterCardsViewModel.swift */,
+			);
+			path = FilterCardsScene;
+			sourceTree = "<group>";
+		};
+		CDE4C2B9275FE1BF0099D491 /* MailView */ = {
+			isa = PBXGroup;
+			children = (
+				CDE4C2BA275FE1D60099D491 /* MailView.swift */,
+			);
+			path = MailView;
+			sourceTree = "<group>";
+		};
+		CDE4C2BD275FED130099D491 /* SettingsScene */ = {
+			isa = PBXGroup;
+			children = (
+				CDE4C2B6275FB1730099D491 /* SettingsViewModel.swift */,
+				CD6078F226107FAC00928B20 /* SettingsScene.swift */,
+			);
+			path = SettingsScene;
+			sourceTree = "<group>";
+		};
+		CDEE1D8B260DD22F005F6D07 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE1DB6260DDE55005F6D07 /* AddNewSubjectScene */,
+				CDEE1DB5260DDE4A005F6D07 /* SubjectsScene */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		CDEE1D8C260DD246005F6D07 /* LoginScene */ = {
+			isa = PBXGroup;
+			children = (
+				CDD9E05325FE2C0600E3BF53 /* LoginViewModel.swift */,
+				CDD9E03C25FD3D6000E3BF53 /* LoginScene.swift */,
+			);
+			path = LoginScene;
+			sourceTree = "<group>";
+		};
+		CDEE1DA5260DDD10005F6D07 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CD60790B261085C300928B20 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CDEE1DB5260DDE4A005F6D07 /* SubjectsScene */ = {
+			isa = PBXGroup;
+			children = (
+				CD0BB30C260B255F00CD0A03 /* Views */,
+				CDD0B7F9260638DE003537A8 /* SubjectsScene.swift */,
+				CDF24DF42618C67500CC866F /* SubjectsViewModel.swift */,
+			);
+			path = SubjectsScene;
+			sourceTree = "<group>";
+		};
+		CDEE1DB6260DDE55005F6D07 /* AddNewSubjectScene */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE1DB7260DDE72005F6D07 /* AddNewSubjectScene.swift */,
+				CD6079102610873C00928B20 /* AddNewSubjectViewModel.swift */,
+			);
+			path = AddNewSubjectScene;
+			sourceTree = "<group>";
+		};
+		CDF1C1C52664F218002BF9E4 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				CDF1C1C62664F228002BF9E4 /* GlobalService.swift */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		CDF1C1D12664F912002BF9E4 /* ImageCaching */ = {
+			isa = PBXGroup;
+			children = (
+				CDF1C1D22664F92A002BF9E4 /* ImageCacheService.swift */,
+			);
+			path = ImageCaching;
+			sourceTree = "<group>";
+		};
+		CDFA977E2600A4BA006DB5A6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CDFA977F2600A4F0006DB5A6 /* HomeScene.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		EAAE636648BEFF6105FE163B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A73E14C250082A6482EC8E87 /* Pods_Voiceses__iOS_.framework */,
+				40106E9917A7D79C82DB5B3E /* Pods_Voiceses__macOS_.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,9 +977,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CDD9E00725FD13CE00E3BF53 /* Build configuration list for PBXNativeTarget "Voiceses (iOS)" */;
 			buildPhases = (
+				D372F265EA804BD20A5ECFCC /* [CP] Check Pods Manifest.lock */,
 				CDD9DFD925FD13CE00E3BF53 /* Sources */,
 				CDD9DFDA25FD13CE00E3BF53 /* Frameworks */,
 				CDD9DFDB25FD13CE00E3BF53 /* Resources */,
+				05E3451641C35839880D89A9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -175,9 +996,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CDD9E00A25FD13CE00E3BF53 /* Build configuration list for PBXNativeTarget "Voiceses (macOS)" */;
 			buildPhases = (
+				384958463EDB86A2E3537CE3 /* [CP] Check Pods Manifest.lock */,
 				CDD9DFE125FD13CE00E3BF53 /* Sources */,
 				CDD9DFE225FD13CE00E3BF53 /* Frameworks */,
 				CDD9DFE325FD13CE00E3BF53 /* Resources */,
+				BF4A7844E566264401AC0FD3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -276,6 +1099,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDD9E00325FD13CE00E3BF53 /* Assets.xcassets in Resources */,
+				CDD9E01925FD1B9900E3BF53 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +1108,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDD9E00425FD13CE00E3BF53 /* Assets.xcassets in Resources */,
+				CDD9E01A25FD1B9900E3BF53 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,13 +1128,182 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		05E3451641C35839880D89A9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Voiceses (iOS)/Pods-Voiceses (iOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Voiceses (iOS)/Pods-Voiceses (iOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Voiceses (iOS)/Pods-Voiceses (iOS)-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		384958463EDB86A2E3537CE3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Voiceses (macOS)-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF4A7844E566264401AC0FD3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Voiceses (macOS)/Pods-Voiceses (macOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Voiceses (macOS)/Pods-Voiceses (macOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Voiceses (macOS)/Pods-Voiceses (macOS)-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D372F265EA804BD20A5ECFCC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Voiceses (iOS)-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CDD9DFD925FD13CE00E3BF53 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDD9E00125FD13CE00E3BF53 /* ContentView.swift in Sources */,
+				CD6079EE2610AE5F00928B20 /* UIView+Extension.swift in Sources */,
+				CD84F10127149C420062E67B /* FirebaseDeleteCalendarCardService.swift in Sources */,
+				CD6079F52610D2B700928B20 /* Encodable+Extension.swift in Sources */,
+				CD10D99F272B1DBB0085C316 /* CalendarViewModel.swift in Sources */,
+				CD28F97F264FD28600D87DDC /* Date+Extension.swift in Sources */,
+				CD17F1E1262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */,
+				CDCF580D266C0B4100D4BCDF /* iOSCustomTextView.swift in Sources */,
+				CD9EDD4B26C30592001191D3 /* Test.swift in Sources */,
+				CD7C980C26DBBFA800901F47 /* TestsArchiveSubjectsViewModel.swift in Sources */,
+				CD0C6B3F26E6A87600E15E5D /* FirebaseGetTestCardsService.swift in Sources */,
+				CD1A804826821B77003F78C0 /* DrawingCanvas.swift in Sources */,
+				CD7DCE4226FC90D10005FA81 /* TestResultScene.swift in Sources */,
+				CD048D7C26E6AA3C000F8382 /* TestsArchiveCardsFilter.swift in Sources */,
+				CD5785D226A026D800CFBA6A /* SetupTestScene.swift in Sources */,
+				CD60795E2610974B00928B20 /* FirebaseDatabaseService.swift in Sources */,
+				CDF24DF52618C67500CC866F /* SubjectsViewModel.swift in Sources */,
+				CD96753C26066F260067FCC5 /* Subject.swift in Sources */,
+				CD607956261096B400928B20 /* FirebaseAddNewSubjectService.swift in Sources */,
+				CD0C6B3226E6606B00E15E5D /* TestsArchiveFilterTestsScene.swift in Sources */,
+				CDF1C1C72664F228002BF9E4 /* GlobalService.swift in Sources */,
+				CD30732D263752DC00E4C743 /* AddNewLectureScene_temp.swift in Sources */,
+				CDCF5809266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift in Sources */,
+				CDD9E00125FD13CE00E3BF53 /* LunchWindow.swift in Sources */,
+				CDD0B80F26063A38003537A8 /* CardsScene.swift in Sources */,
+				CDEE1DB8260DDE72005F6D07 /* AddNewSubjectScene.swift in Sources */,
+				CDA2E504263DA17300ED287C /* AddNewCardScene.swift in Sources */,
+				CDEE1DA7260DDD31005F6D07 /* Colors+Extenison.swift in Sources */,
+				CD7C980726DBABAC00901F47 /* FirebaseUpdateCardService.swift in Sources */,
+				CD28F98A264FEE3700D87DDC /* CardView.swift in Sources */,
+				CDD45FFE26DF8EB40089A27D /* TestsArchiveTestsScene.swift in Sources */,
+				CDD9E05425FE2C0600E3BF53 /* LoginViewModel.swift in Sources */,
+				CDF1C1D32664F92A002BF9E4 /* ImageCacheService.swift in Sources */,
+				CD00F717267A6A1000475016 /* DisplayCardScene.swift in Sources */,
+				CD0C6B3C26E6A6BC00E15E5D /* TestsArchiveCardsScene.swift in Sources */,
+				CD28F978264FD15F00D87DDC /* DateFormatter+Extension.swift in Sources */,
+				CD10D9A2272B26430085C316 /* CalendarView.swift in Sources */,
+				CD3072D32635E73900E4C743 /* FirebaseGetCardsService.swift in Sources */,
+				CD8F03CC264550B500059C53 /* FirebaseAddNewCardImageFirebaseService.swift in Sources */,
+				CD8F03FD264566C900059C53 /* FirebaseAddNewCardService.swift in Sources */,
+				CD30669227344937003FC0E9 /* CalendarData.swift in Sources */,
+				CDD0B7FA260638DE003537A8 /* SubjectsScene.swift in Sources */,
+				CDA2E555263DD8F500ED287C /* AddNewCardViewModel.swift in Sources */,
+				CDF1C208266699F8002BF9E4 /* CardSide.swift in Sources */,
+				CD7DCE4526FCA8FD0005FA81 /* TestResultViewModel.swift in Sources */,
+				CD84F0FE271490EC0062E67B /* FirebaseAddNewCalendarCardService.swift in Sources */,
+				CDC480172752DC9B00B9BED1 /* CalendarDateCardsScene.swift in Sources */,
+				CDD9E03D25FD3D6000E3BF53 /* LoginScene.swift in Sources */,
+				CDE4C2B7275FB1730099D491 /* SettingsViewModel.swift in Sources */,
+				CDDA5066268C98DF0033A97A /* FilterCardsScene.swift in Sources */,
+				CD8F040B264567BC00059C53 /* Card.swift in Sources */,
+				CD5785D926A0717100CFBA6A /* TestIncludedCardsOption.swift in Sources */,
+				CDD0B81626063AB3003537A8 /* NavigationItem.swift in Sources */,
+				CD0C6B3526E660B100E15E5D /* TestsArchiveFilterTestsViewModel.swift in Sources */,
+				CD9EDD4F26C30F2A001191D3 /* FirebaseAddNewTestService.swift in Sources */,
+				CD5FE77326778B2F0029B23F /* FirebaseDeleteSubjectImagesService.swift in Sources */,
+				CDFA97802600A4F0006DB5A6 /* HomeScene.swift in Sources */,
+				CD8F03D6264550E600059C53 /* FirebaseStorageService.swift in Sources */,
+				CDC480132752B59E00B9BED1 /* FirebaseGetDeletedCalendarCardsService.swift in Sources */,
+				CDD0B80926063A2C003537A8 /* TestsArchiveSubjectsScene.swift in Sources */,
+				CDD4600126DF8ECA0089A27D /* TestsArchiveTestsViewModel.swift in Sources */,
+				CD523BD826ADD4180072EDCD /* TestViewModel.swift in Sources */,
+				CD07A2BC268E24AF00312E15 /* SortOptions.swift in Sources */,
+				CD0BB30E260B259200CD0A03 /* SubjectView.swift in Sources */,
+				CDFA979F2600A821006DB5A6 /* SideBar.swift in Sources */,
+				CD00F71A267A703D00475016 /* DisplayCardViewModel.swift in Sources */,
+				CD6079112610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */,
+				CD6078F326107FAC00928B20 /* SettingsScene.swift in Sources */,
+				CD523BD226ADCC920072EDCD /* TestScene.swift in Sources */,
+				CD07A2BA268E249000312E15 /* FilterOptions.swift in Sources */,
+				CD3072CC2635E62A00E4C743 /* CardsViewModel.swift in Sources */,
+				CD17F248262B4F1100C2C903 /* SearchBar.swift in Sources */,
+				CDB4D0F3269A3BF50057878E /* FirebaseGetDeletedSubjectsService.swift in Sources */,
+				CDF24DCD2618BB9100CC866F /* LunchWindowViewModel.swift in Sources */,
+				CDC4801B2752DCEB00B9BED1 /* CalendarDateCardsViewModel.swift in Sources */,
+				CDDA5068268C98F70033A97A /* FilterCardsViewModel.swift in Sources */,
+				CD28F9BA2650496800D87DDC /* FirebaseDeleteACardService.swift in Sources */,
+				CDD0B80326063A1B003537A8 /* CalendarScene.swift in Sources */,
 				CDD9DFFF25FD13CE00E3BF53 /* VoicesesApp.swift in Sources */,
+				CDB4D0F6269A3C160057878E /* FirebaseGetUpdatedSubjectsService.swift in Sources */,
+				CDE4C2BB275FE1D60099D491 /* MailView.swift in Sources */,
+				CD0C6B3926E6A66300E15E5D /* TestsArchiveCardsViewModel.swift in Sources */,
+				CD5F15D026BB387F00326AA4 /* SetupTestViewModel.swift in Sources */,
+				CD30669527344A38003FC0E9 /* FirebaseGetAddedCalendarCardsService.swift in Sources */,
+				CD0C6B2F26E0F0A500E15E5D /* FirebaseDeleteATestForASubjectService.swift in Sources */,
+				CD5FE770267763B00029B23F /* FirebaseDeleteCardImageService.swift in Sources */,
+				CD60798126109B5300928B20 /* FirebaseAuthenticationService.swift in Sources */,
+				CDF71A9926D84137007E383D /* FirebaseGetTestsForASubjectService.swift in Sources */,
+				CDF24DFC2618C97200CC866F /* FirebaseGetAddedSubjectsService.swift in Sources */,
+				CD5785DC26A09F6B00CFBA6A /* TestCardsOrderOption.swift in Sources */,
+				CD607A1D2610DAA800928B20 /* Decodable+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,8 +1311,91 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDD9E00225FD13CE00E3BF53 /* ContentView.swift in Sources */,
+				CD6B1DC126920EE20084A1D4 /* FilterOptions.swift in Sources */,
+				CD00F714267A685A00475016 /* MacOSCustomTextView.swift in Sources */,
+				CD10D9A0272B1DBB0085C316 /* CalendarViewModel.swift in Sources */,
+				CD6B1DC226920F560084A1D4 /* FilterCardsViewModel.swift in Sources */,
+				CD5FE77426778B2F0029B23F /* FirebaseDeleteSubjectImagesService.swift in Sources */,
+				CDF71A9A26D84137007E383D /* FirebaseGetTestsForASubjectService.swift in Sources */,
+				CD6079EF2610AE5F00928B20 /* UIView+Extension.swift in Sources */,
+				CD0C6B3026E0F0A500E15E5D /* FirebaseDeleteATestForASubjectService.swift in Sources */,
+				CD7DCE4626FCA8FD0005FA81 /* TestResultViewModel.swift in Sources */,
+				CD6079F62610D2B700928B20 /* Encodable+Extension.swift in Sources */,
+				CD17F1E2262B18E900C2C903 /* FirebaseDeleteASubjectService.swift in Sources */,
+				CD96753D26066F260067FCC5 /* Subject.swift in Sources */,
+				CDF24DF62618C67500CC866F /* SubjectsViewModel.swift in Sources */,
+				CD28F9BB2650496800D87DDC /* FirebaseDeleteACardService.swift in Sources */,
+				CD96752726065E460067FCC5 /* TestsArchiveSubjectsScene.swift in Sources */,
+				CD9EDD5026C30F2A001191D3 /* FirebaseAddNewTestService.swift in Sources */,
+				CDD45FFF26DF8EB40089A27D /* TestsArchiveTestsScene.swift in Sources */,
+				CDC480142752B59E00B9BED1 /* FirebaseGetDeletedCalendarCardsService.swift in Sources */,
+				CDFA97A02600A821006DB5A6 /* SideBar.swift in Sources */,
+				CD30732E263752DC00E4C743 /* AddNewLectureScene_temp.swift in Sources */,
+				CD5FE771267763B00029B23F /* FirebaseDeleteCardImageService.swift in Sources */,
+				CD0C6B3D26E6A6BC00E15E5D /* TestsArchiveCardsScene.swift in Sources */,
+				CD5F15D126BB387F00326AA4 /* SetupTestViewModel.swift in Sources */,
+				CDEE1DB9260DDE72005F6D07 /* AddNewSubjectScene.swift in Sources */,
+				CDF1C1C82664F228002BF9E4 /* GlobalService.swift in Sources */,
+				CD28F980264FD28600D87DDC /* Date+Extension.swift in Sources */,
+				CD8F040C264567BC00059C53 /* Card.swift in Sources */,
+				CDCF580A266BEBEB00D4BCDF /* FirebaseUpdateSubjectService.swift in Sources */,
+				CDEE1DA8260DDD31005F6D07 /* Colors+Extenison.swift in Sources */,
+				CD7C980826DBABAC00901F47 /* FirebaseUpdateCardService.swift in Sources */,
+				CDB4D0F4269A3BF50057878E /* FirebaseGetDeletedSubjectsService.swift in Sources */,
+				CD5785D626A0301F00CFBA6A /* SetupTestScene.swift in Sources */,
+				CD96751D26065E420067FCC5 /* SubjectsScene.swift in Sources */,
+				CD10D9A3272B26430085C316 /* CalendarView.swift in Sources */,
+				CD6079CB2610A5A800928B20 /* FirebaseDatabaseService.swift in Sources */,
+				CD7DCE4326FC90D10005FA81 /* TestResultScene.swift in Sources */,
+				CD0C6B3326E6606B00E15E5D /* TestsArchiveFilterTestsScene.swift in Sources */,
+				CD523BD326ADCC920072EDCD /* TestScene.swift in Sources */,
+				CD28F98B264FEE3700D87DDC /* CardView.swift in Sources */,
+				CD96753126065E4F0067FCC5 /* HomeScene.swift in Sources */,
+				CD00F71B267A703D00475016 /* DisplayCardViewModel.swift in Sources */,
+				CDB4D0F7269A3C160057878E /* FirebaseGetUpdatedSubjectsService.swift in Sources */,
+				CD84F10227149C420062E67B /* FirebaseDeleteCalendarCardService.swift in Sources */,
+				CD3072D42635E73900E4C743 /* FirebaseGetCardsService.swift in Sources */,
+				CDD9E00225FD13CE00E3BF53 /* LunchWindow.swift in Sources */,
+				CDF1C21126669A05002BF9E4 /* CardSide.swift in Sources */,
+				CD6B1DC026920EDE0084A1D4 /* SortOptions.swift in Sources */,
+				CDB4D0F1269A21820057878E /* FirebaseAddNewCardService.swift in Sources */,
+				CD9EDD4C26C30592001191D3 /* Test.swift in Sources */,
+				CD96753626065E550067FCC5 /* NavigationItem.swift in Sources */,
+				CD84F0FF271490EC0062E67B /* FirebaseAddNewCalendarCardService.swift in Sources */,
+				CD96752C26065E490067FCC5 /* CardsScene.swift in Sources */,
+				CD6079BC2610A59F00928B20 /* FirebaseAuthenticationService.swift in Sources */,
+				CDD9E05525FE2C0600E3BF53 /* LoginViewModel.swift in Sources */,
+				CD0C6B3A26E6A66300E15E5D /* TestsArchiveCardsViewModel.swift in Sources */,
+				CD28F979264FD15F00D87DDC /* DateFormatter+Extension.swift in Sources */,
+				CD0C6B3626E660B100E15E5D /* TestsArchiveFilterTestsViewModel.swift in Sources */,
+				CD523BD926ADD4180072EDCD /* TestViewModel.swift in Sources */,
+				CD0BB30F260B259200CD0A03 /* SubjectView.swift in Sources */,
+				CD96752226065E440067FCC5 /* CalendarScene.swift in Sources */,
+				CD6079122610873C00928B20 /* AddNewSubjectViewModel.swift in Sources */,
+				CD00F718267A6A1000475016 /* DisplayCardScene.swift in Sources */,
+				CD6078F426107FAC00928B20 /* SettingsScene.swift in Sources */,
+				CD3072CD2635E62A00E4C743 /* CardsViewModel.swift in Sources */,
+				CD17F249262B4F1100C2C903 /* SearchBar.swift in Sources */,
+				CDF24DCE2618BB9100CC866F /* LunchWindowViewModel.swift in Sources */,
+				CDD4600226DF8ECA0089A27D /* TestsArchiveTestsViewModel.swift in Sources */,
+				CD30669327344937003FC0E9 /* CalendarData.swift in Sources */,
+				CDC480182752DC9B00B9BED1 /* CalendarDateCardsScene.swift in Sources */,
+				CDD9E03E25FD3D6000E3BF53 /* LoginScene.swift in Sources */,
+				CD048D7D26E6AA3C000F8382 /* TestsArchiveCardsFilter.swift in Sources */,
+				CD5785DD26A09F6B00CFBA6A /* TestCardsOrderOption.swift in Sources */,
+				CD6079C62610A5A600928B20 /* FirebaseAddNewSubjectService.swift in Sources */,
 				CDD9E00025FD13CE00E3BF53 /* VoicesesApp.swift in Sources */,
+				CDE4C2BC275FE1D60099D491 /* MailView.swift in Sources */,
+				CDF24DFD2618C97200CC866F /* FirebaseGetAddedSubjectsService.swift in Sources */,
+				CDC4801C2752DCEB00B9BED1 /* CalendarDateCardsViewModel.swift in Sources */,
+				CD00F70E267A0CB500475016 /* FirebaseStorageService.swift in Sources */,
+				CDDA5069268CAFAF0033A97A /* FilterCardsScene.swift in Sources */,
+				CD7C980D26DBBFA800901F47 /* TestsArchiveSubjectsViewModel.swift in Sources */,
+				CD607A1E2610DAA800928B20 /* Decodable+Extension.swift in Sources */,
+				CD30669627344A38003FC0E9 /* FirebaseGetAddedCalendarCardsService.swift in Sources */,
+				CD0C6B4026E6A87600E15E5D /* FirebaseGetTestCardsService.swift in Sources */,
+				CD5785DA26A0717100CFBA6A /* TestIncludedCardsOption.swift in Sources */,
+				CDE4C2B8275FB1730099D491 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +1485,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -460,6 +1538,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
@@ -467,14 +1546,17 @@
 		};
 		CDD9E00825FD13CE00E3BF53 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B0BF16A397CB5E9A32E9A3C /* Pods-Voiceses (iOS).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = Voiceses.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5S7V735958;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -489,14 +1571,17 @@
 		};
 		CDD9E00925FD13CE00E3BF53 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B322BFA62899C9BEE5F20A85 /* Pods-Voiceses (iOS).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = Voiceses.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5S7V735958;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -512,10 +1597,12 @@
 		};
 		CDD9E00B25FD13CE00E3BF53 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07F20FD7E91CE384244DC589 /* Pods-Voiceses (macOS).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 5S7V735958;
@@ -526,7 +1613,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.radibaraq.Voiceses;
 				PRODUCT_NAME = Voiceses;
 				SDKROOT = macosx;
@@ -536,10 +1623,12 @@
 		};
 		CDD9E00C25FD13CE00E3BF53 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E88E14D52F7AD55086DF537 /* Pods-Voiceses (macOS).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 5S7V735958;
@@ -550,7 +1639,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.radibaraq.Voiceses;
 				PRODUCT_NAME = Voiceses;
 				SDKROOT = macosx;
